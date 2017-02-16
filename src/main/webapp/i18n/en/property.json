@@ -1,0 +1,41 @@
+{
+    "assessoriaTorrellesApp": {
+        "property" : {
+            "home": {
+                "title": "Properties",
+                "createLabel": "Create a new Property",
+                "createOrEditLabel": "Create or edit a Property",
+                "search": "Search for Property"
+            },
+            "created": "A new Property is created with identifier {{ param }}",
+            "updated": "A Property is updated with identifier {{ param }}",
+            "deleted": "A Property is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Property {{ id }}?"
+            },
+            "detail": {
+                "title": "Property"
+            },
+            "name": "Name",
+            "price": "Price",
+            "description": "Description",
+            "buildingType": "Building Type",
+            "serviceType": "Service Type",
+            "ref": "Ref",
+            "visible": "Visible",
+            "sold": "Sold",
+            "terrace": "Terrace",
+            "m2": "M 2",
+            "numberBedroom": "Number Bedroom",
+            "elevator": "Elevator",
+            "furnished": "Furnished",
+            "pool": "Pool",
+            "garage": "Garage",
+            "numberWc": "Number Wc",
+            "ac": "Ac",
+            "location": "Location",
+            "user": "User",
+            "photo": "Photo"
+        }
+    }
+}

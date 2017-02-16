@@ -1,0 +1,93 @@
+
+//ENTITIES
+
+entity Company{
+	name String required,
+    phone String required,
+    email String required,
+    cif	String required
+}
+
+entity Property{
+	name String required,
+    price Double,
+    description TextBlob,
+    buildingType BuildingType,
+    serviceType ServiceType,
+    ref String required,
+    visible Boolean,
+  	sold Boolean,
+    
+    //Facilities
+    terrace Boolean,
+  	m2 Integer,
+    numberBedroom Integer,
+    elevator Boolean,
+    furnished Boolean,
+    pool Boolean,
+    garage Boolean,
+    numberWC Integer,
+    ac Boolean
+}
+
+entity Location{
+	ref String,
+	province String required,
+    town String required,
+    typeOfRoad RoadType required,
+    nameRoad String required,
+    number Integer required,
+    apartment Integer,
+    building Integer,
+    door Integer,
+    stair String,
+    urlgmaps String,
+    latitude Double,
+    longitude Double,   
+}
+
+entity Photo{
+	name String,
+    created ZonedDateTime,
+    image ImageBlob required,
+    description String,
+    url String
+
+}
+
+//ENUM
+enum RoadType{
+	STREET,
+    AVENUE,
+    PLACE
+}
+
+enum ServiceType{
+	RENT,
+    SALE,
+    RENT_AND_SALE
+}
+
+enum BuildingType{
+	HOUSE,
+    FLAT,
+    STUDIO
+}
+
+//RELATIONSHIPS
+
+//One to One
+relationship OneToOne{
+//CONCAT
+	Company{location(ref)} to Location{company},
+	Property{location(ref)} to Location{property}
+}
+//Many to One
+relationship ManyToOne{
+	Property{user(loggin)} to User,
+    Photo{property(name)} to Property{photo}
+}
+
+
+//Pagination options
+paginate all with pagination

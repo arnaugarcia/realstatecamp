@@ -1,0 +1,84 @@
+<div>
+    <h2 data-translate="assessoriaTorrellesApp.location.home.title">Locations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="location.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="assessoriaTorrellesApp.location.home.createLabel">
+                        Create new Location
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ref"><span data-translate="assessoriaTorrellesApp.location.ref">Ref</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="province"><span data-translate="assessoriaTorrellesApp.location.province">Province</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="town"><span data-translate="assessoriaTorrellesApp.location.town">Town</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="typeOfRoad"><span data-translate="assessoriaTorrellesApp.location.typeOfRoad">Type Of Road</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nameRoad"><span data-translate="assessoriaTorrellesApp.location.nameRoad">Name Road</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number"><span data-translate="assessoriaTorrellesApp.location.number">Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="apartment"><span data-translate="assessoriaTorrellesApp.location.apartment">Apartment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="building"><span data-translate="assessoriaTorrellesApp.location.building">Building</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="door"><span data-translate="assessoriaTorrellesApp.location.door">Door</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="stair"><span data-translate="assessoriaTorrellesApp.location.stair">Stair</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="urlgmaps"><span data-translate="assessoriaTorrellesApp.location.urlgmaps">Urlgmaps</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="latitude"><span data-translate="assessoriaTorrellesApp.location.latitude">Latitude</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="longitude"><span data-translate="assessoriaTorrellesApp.location.longitude">Longitude</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="location in vm.locations track by location.id">
+                    <td><a ui-sref="location-detail({id:location.id})">{{location.id}}</a></td>
+                    <td>{{location.ref}}</td>
+                    <td>{{location.province}}</td>
+                    <td>{{location.town}}</td>
+                    <td data-translate="{{'assessoriaTorrellesApp.RoadType.' + location.typeOfRoad}}">{{location.typeOfRoad}}</td>
+                    <td>{{location.nameRoad}}</td>
+                    <td>{{location.number}}</td>
+                    <td>{{location.apartment}}</td>
+                    <td>{{location.building}}</td>
+                    <td>{{location.door}}</td>
+                    <td>{{location.stair}}</td>
+                    <td>{{location.urlgmaps}}</td>
+                    <td>{{location.latitude}}</td>
+                    <td>{{location.longitude}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="location-detail({id:location.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="location.edit({id:location.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="location.delete({id:location.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

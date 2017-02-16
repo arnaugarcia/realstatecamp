@@ -1,0 +1,88 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPhotoLabel" data-translate="assessoriaTorrellesApp.photo.home.createOrEditLabel">Create or edit a Photo</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.photo.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.photo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.photo.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.photo.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.photo.created" for="field_created">Created</label>
+                <div class="input-group">
+                    <input id="field_created" type="text" class="form-control" name="created" datetime-picker="{{dateformat}}" ng-model="vm.photo.created" is-open="vm.datePickerOpenStatus.created"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('created')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setImage($file, vm.photo)" ngf-pattern="'image/*'">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.photo.image" for="field_image">Image</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.photo.imageContentType + ';base64,' + vm.photo.image}}" style="max-height: 100px;" ng-if="vm.photo.image"/>
+                <div ng-if="vm.photo.image" class="help-block clearfix">
+                    <span class="pull-left">{{vm.photo.imageContentType}}, {{vm.byteSize(vm.photo.image)}}</span>
+                    <button type="button" ng-click="vm.photo.image=null;vm.photo.imageContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setImage($file, vm.photo)" accept="image/*" data-translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
+                    ng-model="vm.photo.image"
+                    required />
+            <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                    ng-model="vm.photo.imageContentType" />
+            <div ng-show="editForm.image.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.image.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.photo.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.photo.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.photo.url" for="field_url">Url</label>
+            <input type="text" class="form-control" name="url" id="field_url"
+                    ng-model="vm.photo.url"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="assessoriaTorrellesApp.photo.property" for="field_property">Property</label>
+            <select class="form-control" id="field_property" name="property" ng-model="vm.photo.property" ng-options="property as property.name for property in vm.properties track by property.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

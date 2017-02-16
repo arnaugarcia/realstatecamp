@@ -1,0 +1,100 @@
+<div>
+    <h2 data-translate="assessoriaTorrellesApp.property.home.title">Properties</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="property.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="assessoriaTorrellesApp.property.home.createLabel">
+                        Create new Property
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="assessoriaTorrellesApp.property.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="price"><span data-translate="assessoriaTorrellesApp.property.price">Price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="assessoriaTorrellesApp.property.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="buildingType"><span data-translate="assessoriaTorrellesApp.property.buildingType">Building Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="serviceType"><span data-translate="assessoriaTorrellesApp.property.serviceType">Service Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ref"><span data-translate="assessoriaTorrellesApp.property.ref">Ref</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="visible"><span data-translate="assessoriaTorrellesApp.property.visible">Visible</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sold"><span data-translate="assessoriaTorrellesApp.property.sold">Sold</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="terrace"><span data-translate="assessoriaTorrellesApp.property.terrace">Terrace</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="m2"><span data-translate="assessoriaTorrellesApp.property.m2">M 2</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numberBedroom"><span data-translate="assessoriaTorrellesApp.property.numberBedroom">Number Bedroom</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="elevator"><span data-translate="assessoriaTorrellesApp.property.elevator">Elevator</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="furnished"><span data-translate="assessoriaTorrellesApp.property.furnished">Furnished</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pool"><span data-translate="assessoriaTorrellesApp.property.pool">Pool</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="garage"><span data-translate="assessoriaTorrellesApp.property.garage">Garage</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numberWc"><span data-translate="assessoriaTorrellesApp.property.numberWc">Number Wc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ac"><span data-translate="assessoriaTorrellesApp.property.ac">Ac</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="location.ref"><span data-translate="assessoriaTorrellesApp.property.location">Location</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.loggin"><span data-translate="assessoriaTorrellesApp.property.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="property in vm.properties track by property.id">
+                    <td><a ui-sref="property-detail({id:property.id})">{{property.id}}</a></td>
+                    <td>{{property.name}}</td>
+                    <td>{{property.price}}</td>
+                    <td>{{property.description}}</td>
+                    <td data-translate="{{'assessoriaTorrellesApp.BuildingType.' + property.buildingType}}">{{property.buildingType}}</td>
+                    <td data-translate="{{'assessoriaTorrellesApp.ServiceType.' + property.serviceType}}">{{property.serviceType}}</td>
+                    <td>{{property.ref}}</td>
+                    <td>{{property.visible}}</td>
+                    <td>{{property.sold}}</td>
+                    <td>{{property.terrace}}</td>
+                    <td>{{property.m2}}</td>
+                    <td>{{property.numberBedroom}}</td>
+                    <td>{{property.elevator}}</td>
+                    <td>{{property.furnished}}</td>
+                    <td>{{property.pool}}</td>
+                    <td>{{property.garage}}</td>
+                    <td>{{property.numberWc}}</td>
+                    <td>{{property.ac}}</td>
+                    <td>
+                        <a ui-sref="location-detail({id:property.location.id})">{{property.location.ref}}</a>
+                    </td>
+                    <td>
+                        {{property.user.firstName}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="property-detail({id:property.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="property.edit({id:property.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="property.delete({id:property.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

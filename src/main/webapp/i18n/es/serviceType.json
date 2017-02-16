@@ -1,0 +1,10 @@
+{
+    "assessoriaTorrellesApp": {
+        "ServiceType" : {
+            "null": "",
+            "RENT": "RENT",
+            "SALE": "SALE",
+            "RENT_AND_SALE": "RENT_AND_SALE"
+        }
+    }
+}

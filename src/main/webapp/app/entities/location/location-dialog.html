@@ -1,0 +1,140 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myLocationLabel" data-translate="assessoriaTorrellesApp.location.home.createOrEditLabel">Create or edit a Location</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.location.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.location.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.ref" for="field_ref">Ref</label>
+            <input type="text" class="form-control" name="ref" id="field_ref"
+                    ng-model="vm.location.ref"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.province" for="field_province">Province</label>
+            <input type="text" class="form-control" name="province" id="field_province"
+                    ng-model="vm.location.province"
+                    required />
+            <div ng-show="editForm.province.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.province.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.town" for="field_town">Town</label>
+            <input type="text" class="form-control" name="town" id="field_town"
+                    ng-model="vm.location.town"
+                    required />
+            <div ng-show="editForm.town.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.town.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.typeOfRoad" for="field_typeOfRoad">Type Of Road</label>
+            <select class="form-control" name="typeOfRoad" ng-model="vm.location.typeOfRoad" id="field_typeOfRoad" required>
+                <option value="STREET" data-translate="assessoriaTorrellesApp.RoadType.STREET">STREET</option>
+                <option value="AVENUE" data-translate="assessoriaTorrellesApp.RoadType.AVENUE">AVENUE</option>
+                <option value="PLACE" data-translate="assessoriaTorrellesApp.RoadType.PLACE">PLACE</option>
+            </select>
+            <div ng-show="editForm.typeOfRoad.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.typeOfRoad.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.nameRoad" for="field_nameRoad">Name Road</label>
+            <input type="text" class="form-control" name="nameRoad" id="field_nameRoad"
+                    ng-model="vm.location.nameRoad"
+                    required />
+            <div ng-show="editForm.nameRoad.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nameRoad.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.number" for="field_number">Number</label>
+            <input type="number" class="form-control" name="number" id="field_number"
+                    ng-model="vm.location.number"
+                    required />
+            <div ng-show="editForm.number.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.apartment" for="field_apartment">Apartment</label>
+            <input type="number" class="form-control" name="apartment" id="field_apartment"
+                    ng-model="vm.location.apartment"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.building" for="field_building">Building</label>
+            <input type="number" class="form-control" name="building" id="field_building"
+                    ng-model="vm.location.building"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.door" for="field_door">Door</label>
+            <input type="number" class="form-control" name="door" id="field_door"
+                    ng-model="vm.location.door"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.stair" for="field_stair">Stair</label>
+            <input type="text" class="form-control" name="stair" id="field_stair"
+                    ng-model="vm.location.stair"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.urlgmaps" for="field_urlgmaps">Urlgmaps</label>
+            <input type="text" class="form-control" name="urlgmaps" id="field_urlgmaps"
+                    ng-model="vm.location.urlgmaps"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.latitude" for="field_latitude">Latitude</label>
+            <input type="number" class="form-control" name="latitude" id="field_latitude"
+                    ng-model="vm.location.latitude"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.longitude" for="field_longitude">Longitude</label>
+            <input type="number" class="form-control" name="longitude" id="field_longitude"
+                    ng-model="vm.location.longitude"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

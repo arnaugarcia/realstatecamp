@@ -1,0 +1,36 @@
+{
+    "assessoriaTorrellesApp": {
+        "location" : {
+            "home": {
+                "title": "Locations",
+                "createLabel": "Crear nuevo Location",
+                "createOrEditLabel": "Crear o editar Location",
+                "search": "Search for Location"
+            },
+            "created": "Un nuevo Location ha sido creado con el identificador {{ param }}",
+            "updated": "Un Location ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Location ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Location {{ id }}?"
+            },
+            "detail": {
+                "title": "Location"
+            },
+            "ref": "Ref",
+            "province": "Province",
+            "town": "Town",
+            "typeOfRoad": "Type Of Road",
+            "nameRoad": "Name Road",
+            "number": "Number",
+            "apartment": "Apartment",
+            "building": "Building",
+            "door": "Door",
+            "stair": "Stair",
+            "urlgmaps": "Urlgmaps",
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "company": "Company",
+            "property": "Property"
+        }
+    }
+}

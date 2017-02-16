@@ -1,0 +1,95 @@
+
+<div>
+    <h2><span data-translate="assessoriaTorrellesApp.property.detail.title">Property</span> {{vm.property.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="assessoriaTorrellesApp.property.name">Name</span></dt>
+        <dd>
+            <span>{{vm.property.name}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.price">Price</span></dt>
+        <dd>
+            <span>{{vm.property.price}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.description">Description</span></dt>
+        <dd>
+            <span>{{vm.property.description}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.buildingType">Building Type</span></dt>
+        <dd>
+            <span data-translate="{{'assessoriaTorrellesApp.BuildingType.' + vm.property.buildingType}}">{{vm.property.buildingType}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.serviceType">Service Type</span></dt>
+        <dd>
+            <span data-translate="{{'assessoriaTorrellesApp.ServiceType.' + vm.property.serviceType}}">{{vm.property.serviceType}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.ref">Ref</span></dt>
+        <dd>
+            <span>{{vm.property.ref}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.visible">Visible</span></dt>
+        <dd>
+            <span>{{vm.property.visible}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.sold">Sold</span></dt>
+        <dd>
+            <span>{{vm.property.sold}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.terrace">Terrace</span></dt>
+        <dd>
+            <span>{{vm.property.terrace}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.m2">M 2</span></dt>
+        <dd>
+            <span>{{vm.property.m2}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.numberBedroom">Number Bedroom</span></dt>
+        <dd>
+            <span>{{vm.property.numberBedroom}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.elevator">Elevator</span></dt>
+        <dd>
+            <span>{{vm.property.elevator}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.furnished">Furnished</span></dt>
+        <dd>
+            <span>{{vm.property.furnished}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.pool">Pool</span></dt>
+        <dd>
+            <span>{{vm.property.pool}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.garage">Garage</span></dt>
+        <dd>
+            <span>{{vm.property.garage}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.numberWc">Number Wc</span></dt>
+        <dd>
+            <span>{{vm.property.numberWc}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.ac">Ac</span></dt>
+        <dd>
+            <span>{{vm.property.ac}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.location">Location</span></dt>
+        <dd>
+            <a ui-sref="location-detail({id:vm.property.location.id})">{{vm.property.location.ref}}</a>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.property.user">User</span></dt>
+        <dd>
+            {{vm.property.user.loggin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="property-detail.edit({id:vm.property.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

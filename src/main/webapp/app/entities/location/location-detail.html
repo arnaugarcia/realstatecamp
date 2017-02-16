@@ -1,0 +1,71 @@
+
+<div>
+    <h2><span data-translate="assessoriaTorrellesApp.location.detail.title">Location</span> {{vm.location.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="assessoriaTorrellesApp.location.ref">Ref</span></dt>
+        <dd>
+            <span>{{vm.location.ref}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.province">Province</span></dt>
+        <dd>
+            <span>{{vm.location.province}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.town">Town</span></dt>
+        <dd>
+            <span>{{vm.location.town}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.typeOfRoad">Type Of Road</span></dt>
+        <dd>
+            <span data-translate="{{'assessoriaTorrellesApp.RoadType.' + vm.location.typeOfRoad}}">{{vm.location.typeOfRoad}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.nameRoad">Name Road</span></dt>
+        <dd>
+            <span>{{vm.location.nameRoad}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.number">Number</span></dt>
+        <dd>
+            <span>{{vm.location.number}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.apartment">Apartment</span></dt>
+        <dd>
+            <span>{{vm.location.apartment}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.building">Building</span></dt>
+        <dd>
+            <span>{{vm.location.building}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.door">Door</span></dt>
+        <dd>
+            <span>{{vm.location.door}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.stair">Stair</span></dt>
+        <dd>
+            <span>{{vm.location.stair}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.urlgmaps">Urlgmaps</span></dt>
+        <dd>
+            <span>{{vm.location.urlgmaps}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.latitude">Latitude</span></dt>
+        <dd>
+            <span>{{vm.location.latitude}}</span>
+        </dd>
+        <dt><span data-translate="assessoriaTorrellesApp.location.longitude">Longitude</span></dt>
+        <dd>
+            <span>{{vm.location.longitude}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="location-detail.edit({id:vm.location.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

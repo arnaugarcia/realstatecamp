@@ -1,0 +1,109 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "otherEntityField": "ref",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "loggin"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "photo",
+            "otherEntityName": "photo",
+            "otherEntityRelationshipName": "property"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "buildingType",
+            "fieldType": "BuildingType",
+            "fieldValues": "HOUSE,FLAT,STUDIO"
+        },
+        {
+            "fieldName": "serviceType",
+            "fieldType": "ServiceType",
+            "fieldValues": "RENT,SALE,RENT_AND_SALE"
+        },
+        {
+            "fieldName": "ref",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "visible",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "sold",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terrace",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "m2",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numberBedroom",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "elevator",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "furnished",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "pool",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "garage",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "numberWc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ac",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20170210193420",
+    "entityTableName": "property",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no"
+}

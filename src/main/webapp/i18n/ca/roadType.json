@@ -1,0 +1,10 @@
+{
+    "assessoriaTorrellesApp": {
+        "RoadType" : {
+            "null": "",
+            "STREET": "STREET",
+            "AVENUE": "AVENUE",
+            "PLACE": "PLACE"
+        }
+    }
+}

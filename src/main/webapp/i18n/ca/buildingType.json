@@ -1,0 +1,10 @@
+{
+    "assessoriaTorrellesApp": {
+        "BuildingType" : {
+            "null": "",
+            "HOUSE": "HOUSE",
+            "FLAT": "FLAT",
+            "STUDIO": "STUDIO"
+        }
+    }
+}

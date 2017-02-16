@@ -1,0 +1,27 @@
+{
+    "assessoriaTorrellesApp": {
+        "photo" : {
+            "home": {
+                "title": "Photos",
+                "createLabel": "Create a new Photo",
+                "createOrEditLabel": "Create or edit a Photo",
+                "search": "Search for Photo"
+            },
+            "created": "A new Photo is created with identifier {{ param }}",
+            "updated": "A Photo is updated with identifier {{ param }}",
+            "deleted": "A Photo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Photo {{ id }}?"
+            },
+            "detail": {
+                "title": "Photo"
+            },
+            "name": "Name",
+            "created": "Created",
+            "image": "Image",
+            "description": "Description",
+            "url": "Url",
+            "property": "Property"
+        }
+    }
+}
