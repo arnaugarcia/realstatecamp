@@ -5,10 +5,17 @@
         .module('assessoriaTorrellesApp')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService'];
 
-    function NavbarController ($state, Auth, Principal, ProfileService, LoginService) {
+    //Se ha importado $scope, y principal - Arnau
+    NavbarController.$inject = ['$scope', '$state', 'Auth', 'Principal', 'ProfileService', 'LoginService'];
+
+    function NavbarController ($scope, $state, Auth, Principal, ProfileService, LoginService) {
         var vm = this;
+
+        //Account things - Arnau
+        vm.account = null;
+        vm.isAuthenticated = null;
+        vm.login = LoginService.open;
 
         vm.isNavbarCollapsed = true;
         vm.isAuthenticated = Principal.isAuthenticated;
@@ -24,6 +31,23 @@
         vm.collapseNavbar = collapseNavbar;
         vm.$state = $state;
 
+
+        //Account things - Arnau
+        $scope.$on('authenticationSuccess', function() {
+            getAccount();
+        });
+
+
+        //Account things - Arnau
+        getAccount();
+
+        function getAccount() {
+            Principal.identity().then(function(account) {
+                vm.account = account;
+                vm.isAuthenticated = Principal.isAuthenticated;
+            });
+        }
+
         function login() {
             collapseNavbar();
             LoginService.open();
@@ -34,6 +58,7 @@
             Auth.logout();
             $state.go('home');
         }
+
 
         function toggleNavbar() {
             vm.isNavbarCollapsed = !vm.isNavbarCollapsed;

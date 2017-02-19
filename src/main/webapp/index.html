@@ -15,24 +15,40 @@
     <!-- endinject -->
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
-    <link rel="stylesheet" href="content/css/main.css">
+    <!-- AdminLTE -->
+    <!--<link rel="stylesheet" href="content/css/main.css">-->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/font-awesome.min.css">
     <!-- endbuild -->
 </head>
-<body ng-app="assessoriaTorrellesApp" ng-strict-di>
+<body ng-app="assessoriaTorrellesApp" class="hold-transition skin-blue sidebar-mini" ng-strict-di>
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <page-ribbon></page-ribbon>
+    <!--<page-ribbon></page-ribbon>-->
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div class="well" ui-view="content">
-            <!-- Angular views -->
-        </div>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li class="active">Aquí</li>
+            </ol>
+        </section>
 
-        <div class="footer" ng-cloak>
+        <!-- Main content -->
+        <section class="content" ui-view="content">
+
+            <!-- Your Page Content Here -->
+
+        </section>
+        <!-- /.content -->
+        <div class="footer col-md-12" ng-cloak>
             <p data-translate="footer">This is your footer</p>
         </div>
     </div>
+
 
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
     <script>
@@ -206,5 +222,9 @@
     <!-- endinject -->
     <!-- endbuild -->
 
+    <!-- AdminLTE -->
+    <script src="bower_components/bootstrap/dist/js/jquery-2.2.3.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/app.min.js"></script>
 </body>
 </html>
