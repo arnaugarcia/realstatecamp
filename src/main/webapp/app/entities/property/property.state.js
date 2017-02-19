@@ -16,6 +16,9 @@
                 //authorities: ['ROLE_USER'],
                 pageTitle: 'assessoriaTorrellesApp.property.home.title'
             },
+            ncyBreadcrumb: {
+                label: 'Property'
+            },
             views: {
                 'content@': {
                     templateUrl: 'app/entities/property/properties.html',

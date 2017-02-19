@@ -11,6 +11,9 @@
         $stateProvider.state('home', {
             parent: 'app',
             url: '/',
+            ncyBreadcrumb: {
+                label: 'Home',
+            },
             data: {
                 authorities: []
             },
@@ -18,7 +21,7 @@
                 'content@': {
                     templateUrl: 'app/home/home.html',
                     controller: 'HomeController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
                 }
             },
             resolve: {
