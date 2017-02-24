@@ -7,13 +7,15 @@
 
 
     //Se ha importado $scope, y principal - Arnau
-    NavbarController.$inject = ['$scope', '$state', 'Auth', 'Principal', 'ProfileService', 'LoginService'];
+    NavbarController.$inject = ['$scope', '$state', 'Auth', 'Principal', 'ProfileService', 'LoginService', '$translate'];
 
-    function NavbarController ($scope, $state, Auth, Principal, ProfileService, LoginService) {
+    function NavbarController ($scope, $state, Auth, Principal, ProfileService, LoginService, $translate) {
         var vm = this;
+        var authorities = "";
 
         //Account things - Arnau
         vm.account = null;
+
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
 
@@ -31,20 +33,22 @@
         vm.collapseNavbar = collapseNavbar;
         vm.$state = $state;
 
-
         //Account things - Arnau
         $scope.$on('authenticationSuccess', function() {
             getAccount();
         });
 
-
-        //Account things - Arnau
         getAccount();
 
         function getAccount() {
             Principal.identity().then(function(account) {
                 vm.account = account;
                 vm.isAuthenticated = Principal.isAuthenticated;
+                if(account.authorities[1] == "ROLE_ADMIN") {
+                    vm.nameAuthorities = "global.menu.account.roleAdmin";
+                }else {
+                    vm.nameAuthorities = "global.menu.account.roleUser";
+                }
             });
         }
 
@@ -67,5 +71,6 @@
         function collapseNavbar() {
             vm.isNavbarCollapsed = true;
         }
+
     }
 })();
