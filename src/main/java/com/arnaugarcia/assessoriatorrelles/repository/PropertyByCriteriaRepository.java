@@ -73,6 +73,42 @@ public class PropertyByCriteriaRepository {
 
         filterByLocation(parameters,locationCriteria);
         }
+        /** FILTER BY BOOLEAN VALUES **/
+        if(parameters.get("terrace")!=null){
+
+            filterByContains(parameters,propertyCriteria,"terrace");
+        }
+        if(parameters.get("elevator")!=null){
+
+            filterByContains(parameters,propertyCriteria,"elevator");
+        }
+
+        if(parameters.get("furnished")!=null){
+
+            filterByContains(parameters,propertyCriteria,"furnished");
+        }
+        if(parameters.get("pool")!=null){
+
+            filterByContains(parameters,propertyCriteria,"pool");
+        }
+        if(parameters.get("garage")!=null){
+
+            filterByContains(parameters,propertyCriteria,"garage");
+        }
+        if(parameters.get("ac")!=null){
+
+            filterByContains(parameters,propertyCriteria,"ac");
+        }
+
+        if(parameters.get("numberWc")!=null){
+
+            filterByHasQuantity(parameters,propertyCriteria,"numberWc");
+        }
+        if(parameters.get("numberBedroom")!=null){
+
+            filterByHasQuantity(parameters,propertyCriteria,"numberBedroom");
+        }
+
 
 //        filterByTown(parameters,localityCriteria);
 
@@ -123,10 +159,22 @@ public class PropertyByCriteriaRepository {
         propertyCriteria.add(Restrictions.ge("m2", minSize));
     }
 
+
     private void filterByLocation(Map<String,Object> parameters, Criteria locationCriteria){
         String location = (String) parameters.get("location");
         locationCriteria.add(Restrictions.ilike("town",location, MatchMode.EXACT));
     }
 
+    private void filterByContains(Map<String,Object> parameters, Criteria propertyCriteria,String key) {
+        Boolean hasItem = (Boolean) parameters.get(key);
+
+        propertyCriteria.add(Restrictions.eq(key, hasItem));
+    }
+
+    private void filterByHasQuantity(Map<String,Object> parameters, Criteria propertyCriteria,String key) {
+        Integer hasItem = (Integer) parameters.get(key);
+
+        propertyCriteria.add(Restrictions.eq(key, hasItem));
+    }
 
 }

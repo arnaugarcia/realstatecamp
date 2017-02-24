@@ -151,7 +151,15 @@ public class PropertyResource {
         @RequestParam(value = "minPrice", required = false) String minPrice,
         @RequestParam(value = "maxPrice", required = false) String maxPrice,
         @RequestParam(value = "minSize", required = false) String minSize,
-        @RequestParam(value = "maxSize", required = false) String maxSize
+        @RequestParam(value = "maxSize", required = false) String maxSize,
+        @RequestParam(value = "terrace", required = false) Boolean terrace,
+        @RequestParam(value = "elevator", required = false) Boolean elevator,
+        @RequestParam(value = "furnished", required = false) Boolean furnished,
+        @RequestParam(value = "pool", required = false) Boolean pool,
+        @RequestParam(value = "garage", required = false) Boolean garage,
+        @RequestParam(value = "ac", required = false) Boolean ac,
+        @RequestParam(value = "numberWc", required = false) String numberWc,
+        @RequestParam(value = "numberBedroom", required = false) String numberBedroom
     ) {
         Map<String, Object> params = new HashMap<>();
 
@@ -215,46 +223,58 @@ public class PropertyResource {
 
         }
 
-        /*
-        if (maxPrice != null) {
-            params.put("maxPrice", maxPrice);
+        if (terrace != null) {
+            params.put("terrace", terrace);
         }
 
-        if (minSize != null) {
-            params.put("minSize", minSize);
+        if (elevator != null) {
+            params.put("elevator", elevator);
         }
 
-        if (maxSize != null) {
-            params.put("maxSize", maxSize);
+        if (furnished != null) {
+            params.put("furnished", furnished);
+        }
+        if (pool != null) {
+            params.put("pool", pool);
+        }
+        if (garage != null) {
+            params.put("garage", garage);
+        }
+        if (ac != null) {
+            params.put("ac", ac);
         }
 
+        if (numberWc != null) {
 
-        if (categorias != null && !categorias.isEmpty() && ! categorias.equals("empty")){
-            String[] categoriasSplit = categorias.split("-");
-            params.put("categorias", categoriasSplit);
+            try {
+                Integer numberWcInt = Integer.parseInt(numberWc);
+                params.put("numberWc", numberWcInt);
+            } catch (NumberFormatException e) {
+                return new ResponseEntity<>(
+
+                    HttpStatus.BAD_REQUEST);
+            }
+
         }
 
-        if (materias != null && !materias.isEmpty() && ! materias.equals("empty")) {
-            String[] materiasSplit = materias.split("-");
-            params.put("materias", materiasSplit);
-        }
+        if (numberBedroom != null) {
 
-        if (regiones != null && !regiones.isEmpty() && ! regiones.equals("empty")) {
-            String[] regionesSplit = regiones.split("-");
-            params.put("regiones", regionesSplit);
-        }
+            try {
+                Integer numberBedroomInt = Integer.parseInt(numberBedroom);
+                params.put("numberBedroom", numberBedroomInt);
+            } catch (NumberFormatException e) {
+                return new ResponseEntity<>(
 
-        if (registros != null && !registros.isEmpty() && ! registros.equals("empty")) {
-            String[] registrosSplit = registros.split("-");
-            params.put("registros", registrosSplit);
+                    HttpStatus.BAD_REQUEST);
+            }
+
         }
-         */
 
         List<Property> result = propertyByCriteriaRepository.filteryPropertyByCriteria(params);
         if (result.isEmpty()) {
             return new ResponseEntity<>(
 
-                HttpStatus.BAD_REQUEST);
+                HttpStatus.NOT_FOUND);
         } else {
 
             return new ResponseEntity<>(
