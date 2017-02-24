@@ -20,7 +20,9 @@
                 "sessions": "Sessions",
                 "login": "Sign in",
                 "logout": "Sign out",
-                "register": "Register"
+                "register": "Register",
+                "roleUser": "User",
+                "roleAdmin": "Administrator"
             },
             "admin": {
                 "main": "Administration",

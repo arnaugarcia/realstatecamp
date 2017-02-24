@@ -20,7 +20,9 @@
                 "sessions": "Sessions",
                 "login": "Autenticar",
                 "logout": "Finalitzar la sessió",
-                "register": "Registre"
+                "register": "Registre",
+                "roleUser": "Usuari",
+                "roleAdmin": "Administrador"
             },
             "admin": {
                 "main": "Administració",

@@ -7,9 +7,9 @@
 
 
     //Se ha importado $scope, y principal - Arnau
-    NavbarController.$inject = ['$scope', '$state', 'Auth', 'Principal', 'ProfileService', 'LoginService'];
+    NavbarController.$inject = ['$scope', '$state', 'Auth', 'Principal', 'ProfileService', 'LoginService', '$translate'];
 
-    function NavbarController ($scope, $state, Auth, Principal, ProfileService, LoginService) {
+    function NavbarController ($scope, $state, Auth, Principal, ProfileService, LoginService, $translate) {
         var vm = this;
         var authorities = "";
 
@@ -45,9 +45,9 @@
                 vm.account = account;
                 vm.isAuthenticated = Principal.isAuthenticated;
                 if(account.authorities[1] == "ROLE_ADMIN") {
-                    vm.nameAuthorities = "Administrador";
+                    vm.nameAuthorities = "global.menu.account.roleAdmin";
                 }else {
-                    vm.nameAuthorities = "Usuario";
+                    vm.nameAuthorities = "global.menu.account.roleUser";
                 }
             });
         }
