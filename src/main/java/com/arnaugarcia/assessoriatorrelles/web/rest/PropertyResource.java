@@ -147,24 +147,72 @@ public class PropertyResource {
     @Timed
     @Transactional
     public ResponseEntity<List<Property>> getPropertyByCriteria(
-        //@RequestParam(value = "locality", required = false) String locality,
-        @RequestParam(value = "minPrice", required = false) Double minPrice
-        //@RequestParam(value = "maxPrice", required = false) Double maxPrice,
-        //@RequestParam(value = "minSize", required = false) Integer minSize,
-        //@RequestParam(value = "maxSize", required = false) Integer maxSize
+        @RequestParam(value = "location", required = false) String location,
+        @RequestParam(value = "minPrice", required = false) String minPrice,
+        @RequestParam(value = "maxPrice", required = false) String maxPrice,
+        @RequestParam(value = "minSize", required = false) String minSize,
+        @RequestParam(value = "maxSize", required = false) String maxSize
     ) {
         Map<String, Object> params = new HashMap<>();
 
         //params.put("locality", locality);
             /*
-
-        if (locality != null) {
-            params.put("locality", locality);
-        }
              */
 
+        if (location != null) {
+            params.put("location", location);
+        }
+
         if (minPrice != null) {
-            params.put("minPrice", minPrice);
+
+            try {
+                Double minPriceDouble = Double.parseDouble(minPrice);
+                params.put("minPrice", minPriceDouble);
+            } catch (NumberFormatException e) {
+                return new ResponseEntity<>(
+
+                    HttpStatus.BAD_REQUEST);
+            }
+
+        }
+
+        if (maxPrice != null) {
+
+            try {
+                Double maxPriceDouble = Double.parseDouble(maxPrice);
+                params.put("maxPrice", maxPriceDouble);
+            } catch (NumberFormatException e) {
+                return new ResponseEntity<>(
+
+                    HttpStatus.BAD_REQUEST);
+            }
+
+        }
+
+        if (minSize != null) {
+
+            try {
+                Integer minSizeInt = Integer.parseInt(minSize);
+                params.put("minSize", minSizeInt);
+            } catch (NumberFormatException e) {
+                return new ResponseEntity<>(
+
+                    HttpStatus.BAD_REQUEST);
+            }
+
+        }
+
+        if (maxSize != null) {
+
+            try {
+                Integer maxSizeInt = Integer.parseInt(maxSize);
+                params.put("maxSize", maxSizeInt);
+            } catch (NumberFormatException e) {
+                return new ResponseEntity<>(
+
+                    HttpStatus.BAD_REQUEST);
+            }
+
         }
 
         /*
@@ -203,10 +251,16 @@ public class PropertyResource {
          */
 
         List<Property> result = propertyByCriteriaRepository.filteryPropertyByCriteria(params);
+        if (result.isEmpty()) {
+            return new ResponseEntity<>(
 
-        return new ResponseEntity<>(
-            result,
-            HttpStatus.OK);
+                HttpStatus.BAD_REQUEST);
+        } else {
+
+            return new ResponseEntity<>(
+                result,
+                HttpStatus.OK);
+        }
     }
 
 }
