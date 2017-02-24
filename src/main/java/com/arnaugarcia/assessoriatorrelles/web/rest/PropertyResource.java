@@ -1,6 +1,7 @@
 package com.arnaugarcia.assessoriatorrelles.web.rest;
 
 import com.arnaugarcia.assessoriatorrelles.domain.Property;
+import com.arnaugarcia.assessoriatorrelles.repository.PropertyByCriteriaRepository;
 import com.arnaugarcia.assessoriatorrelles.repository.PropertyRepository;
 import com.arnaugarcia.assessoriatorrelles.repository.UserRepository;
 import com.arnaugarcia.assessoriatorrelles.security.SecurityUtils;
@@ -13,14 +14,18 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -34,6 +39,9 @@ public class PropertyResource {
 
     @Inject
     private PropertyRepository propertyRepository;
+
+    @Inject
+    private PropertyByCriteriaRepository propertyByCriteriaRepository;
 
     @Inject
     private UserRepository userRepository;
@@ -131,6 +139,74 @@ public class PropertyResource {
         log.debug("REST request to delete Property : {}", id);
         propertyRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("property", id.toString())).build();
+    }
+
+    @RequestMapping(value = "/property/byfilters",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    @Transactional
+    public ResponseEntity<List<Property>> getPropertyByCriteria(
+        //@RequestParam(value = "locality", required = false) String locality,
+        @RequestParam(value = "minPrice", required = false) Double minPrice
+        //@RequestParam(value = "maxPrice", required = false) Double maxPrice,
+        //@RequestParam(value = "minSize", required = false) Integer minSize,
+        //@RequestParam(value = "maxSize", required = false) Integer maxSize
+    ) {
+        Map<String, Object> params = new HashMap<>();
+
+        //params.put("locality", locality);
+            /*
+
+        if (locality != null) {
+            params.put("locality", locality);
+        }
+             */
+
+        if (minPrice != null) {
+            params.put("minPrice", minPrice);
+        }
+
+        /*
+        if (maxPrice != null) {
+            params.put("maxPrice", maxPrice);
+        }
+
+        if (minSize != null) {
+            params.put("minSize", minSize);
+        }
+
+        if (maxSize != null) {
+            params.put("maxSize", maxSize);
+        }
+
+
+        if (categorias != null && !categorias.isEmpty() && ! categorias.equals("empty")){
+            String[] categoriasSplit = categorias.split("-");
+            params.put("categorias", categoriasSplit);
+        }
+
+        if (materias != null && !materias.isEmpty() && ! materias.equals("empty")) {
+            String[] materiasSplit = materias.split("-");
+            params.put("materias", materiasSplit);
+        }
+
+        if (regiones != null && !regiones.isEmpty() && ! regiones.equals("empty")) {
+            String[] regionesSplit = regiones.split("-");
+            params.put("regiones", regionesSplit);
+        }
+
+        if (registros != null && !registros.isEmpty() && ! registros.equals("empty")) {
+            String[] registrosSplit = registros.split("-");
+            params.put("registros", registrosSplit);
+        }
+         */
+
+        List<Property> result = propertyByCriteriaRepository.filteryPropertyByCriteria(params);
+
+        return new ResponseEntity<>(
+            result,
+            HttpStatus.OK);
     }
 
 }
