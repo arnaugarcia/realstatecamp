@@ -35,7 +35,7 @@
         });
         $breadcrumbProvider.setOptions({
             prefixStateName: 'home',
-            template: '<ol class="breadcrumb"><li><a href="#"> DashBoard</a></li><li ng-repeat="step in steps" class="active"><a href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a></li></ol>'
+            template: '<ol class="breadcrumb"><li ng-repeat="step in steps" class="active"><a href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a></li></ol>'
         });
     }
 })();
