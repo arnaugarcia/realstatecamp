@@ -121,7 +121,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/swagger-resources/configuration/ui").permitAll()
             .antMatchers("/swagger-ui/index.html").hasAuthority(AuthoritiesConstants.ADMIN)
             .antMatchers(HttpMethod.GET,"/api/properties/**").permitAll()
-            .antMatchers("/api/**").authenticated();
+            .antMatchers("/api/**").authenticated()
+            .antMatchers("/dashboard").authenticated();
 
     }
 

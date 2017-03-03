@@ -31,5 +31,35 @@
                 }]
             }
         });
+
+        $stateProvider.state('dashboard', {
+            parent: 'app',
+            url: '/dashboard',
+            ncyBreadcrumb: {
+                label: 'Dashboard',
+            },
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/dashboard/dashboard.html',
+                    controller: 'HomeController',
+                    controllerAs: 'vm',
+                },
+                'navbar@': {
+                    templateUrl: 'app/layouts/navbar/navbar-admin.html',
+                    controller: 'NavbarController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                //TODO Translate
+                mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
+                    $translatePartialLoader.addPart('home');
+                    return $translate.refresh();
+                }]
+            }
+        });
     }
 })();
