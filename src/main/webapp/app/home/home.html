@@ -1,29 +1,770 @@
-<div ng-cloak>
-    <div class="row">
-        <div class="col-md-12">
-            <h1 data-translate="home.title">Welcome, Java Hipster!</h1>
+<!-- begin:header -->
+<div id="header" class="header-slide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="quick-search">
+                    <div class="row">
+                        <form role="form">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <select class="form-control">
+                                        <option>Australia</option>
+                                        <option>Indonesia</option>
+                                        <option>Japan</option>
+                                        <option>South Korea</option>
+                                        <option>China</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bedroom">Bedroom</label>
+                                    <select class="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- break -->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label for="location">Location</label>
+                                    <select class="form-control">
+                                        <option>Tasmania</option>
+                                        <option>Yogyakarta</option>
+                                        <option>Tokyo</option>
+                                        <option>Busan</option>
+                                        <option>Taipe</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bathroom">Bathroom</label>
+                                    <select class="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- break -->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label for="status">Status</label>
+                                    <select class="form-control">
+                                        <option>For Sale</option>
+                                        <option>For Rent</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="minprice">Min Price</label>
+                                    <select class="form-control">
+                                        <option>$4,200</option>
+                                        <option>$6,700</option>
+                                        <option>$8,150</option>
+                                        <option>$11,110</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- break -->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label for="type">Type</label>
+                                    <select class="form-control">
+                                        <option>Villa</option>
+                                        <option>Recident</option>
+                                        <option>Commercial</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="maxprice">Max Price</label>
+                                    <select class="form-control">
+                                        <option>$8,200</option>
+                                        <option>$11,700</option>
+                                        <option>$14,150</option>
+                                        <option>$21,110</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12"><input type="submit" name="submit" value="Search" class="btn btn-success btn-lg btn-block"></div>
 
-            <div ng-switch="vm.isAuthenticated()">
-                <div class="alert alert-danger"><h3 data-translate="home.reminder"></h3></div>
-                <div class="alert alert-success" ng-switch-when="true" data-translate="home.logged.message" translate-values="{username: '{{vm.account.login}}'}">
-                    You are logged in as user "{{vm.account.login}}".
+                        </form>
+                    </div>
                 </div>
-
             </div>
-
-            <p data-translate="home.question">
-                If you have any question on JHipster:
-            </p>
-
-            <ul>
-                <li><a href="http://jhipster.github.io/" target="_blank" data-translate="home.link.homepage">JHipster homepage</a></li>
-                <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" data-translate="home.link.stackoverflow">JHipster on Stack Overflow</a></li>
-                <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" data-translate="home.link.bugtracker">JHipster bug tracker</a></li>
-                <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" data-translate="home.link.chat">JHipster public chat room</a></li>
-                <li><a href="https://twitter.com/java_hipster" target="_blank"  data-translate="home.link.follow">follow @java_hipster on Twitter</a></li>
-                <li><a href="http://arnaugarcia.com" target="_blank">Web de referencia de la red</a></li>
-            </ul>
-
         </div>
     </div>
 </div>
+<!-- end:header -->
+
+<!-- begin:service -->
+<div id="service">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Best Real Estate Deals <small>You need to do is very simple just join us</small></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-container">
+                    <div class="service-icon">
+                        <a href="#"><i class="fa fa-home"></i></a>
+                    </div>
+                    <div class="service-content">
+                        <h3>Lorem ipsum dolor sit</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-container">
+                    <div class="service-icon">
+                        <a href="#"><i class="fa fa-thumbs-up"></i></a>
+                    </div>
+                    <div class="service-content">
+                        <h3>Lorem ipsum dolor sit</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-container">
+                    <div class="service-icon">
+                        <a href="#"><i class="fa fa-umbrella"></i></a>
+                    </div>
+                    <div class="service-content">
+                        <h3>Lorem ipsum dolor sit</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-container">
+                    <div class="service-icon">
+                        <a href="#"><i class="fa fa-lock"></i></a>
+                    </div>
+                    <div class="service-content">
+                        <h3>Lorem ipsum dolor sit</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end:service -->
+
+<!-- begin:content -->
+<div id="content">
+    <div class="container">
+        <!-- begin:latest -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-title">
+                    <h2>Latest Real Estate</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="property-container">
+                    <div class="property-image">
+                        <img src="/content/img/img02.jpg" alt="arillo real estate theme">
+                        <div class="property-price">
+                            <h4>Residential</h4>
+                            <span>$800,000</span>
+                        </div>
+                        <div class="property-status">
+                            <span>For Sale</span>
+                        </div>
+                    </div>
+                    <div class="property-features">
+                        <span><i class="fa fa-home"></i> 5,000 m<sup>2</sup></span>
+                        <span><i class="fa fa-hdd-o"></i> 2 Bed</span>
+                        <span><i class="fa fa-male"></i> 2 Bath</span>
+                    </div>
+                    <div class="property-content">
+                        <h3><a href="#">The Urban Life</a> <small>22, JJ Road, Yogyakarta</small></h3>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="property-container">
+                    <div class="property-image">
+                        <img src="/content/img/img03.jpg" alt="arillo real estate theme">
+                        <div class="property-price">
+                            <h4>Villa</h4>
+                            <span>$300,000<small>/year</small></span>
+                        </div>
+                        <div class="property-status">
+                            <span>For Rent</span>
+                        </div>
+                    </div>
+                    <div class="property-features">
+                        <span><i class="fa fa-home"></i> 5,000 m<sup>2</sup></span>
+                        <span><i class="fa fa-hdd-o"></i> 2 Bed</span>
+                        <span><i class="fa fa-male"></i> 2 Bath</span>
+                    </div>
+                    <div class="property-content">
+                        <h3><a href="#">The Urban Life</a> <small>22, JJ Road, Yogyakarta</small></h3>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="property-container">
+                    <div class="property-image">
+                        <img src="/content/img/img04.jpg" alt="arillo real estate theme">
+                        <div class="property-price">
+                            <h4>Commercial</h4>
+                            <span>$800,000</span>
+                        </div>
+                        <div class="property-status">
+                            <span>For Sale</span>
+                        </div>
+                    </div>
+                    <div class="property-features">
+                        <span><i class="fa fa-home"></i> 5,000 m<sup>2</sup></span>
+                        <span><i class="fa fa-hdd-o"></i> 2 Bed</span>
+                        <span><i class="fa fa-male"></i> 2 Bath</span>
+                    </div>
+                    <div class="property-content">
+                        <h3><a href="#">The Urban Life</a> <small>22, JJ Road, Yogyakarta</small></h3>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="property-container">
+                    <div class="property-image">
+                        <img src="/content/img/img05.jpg" alt="arillo real estate theme">
+                        <div class="property-price">
+                            <h4>Residential</h4>
+                            <span>$800,000<small>/year</small></span>
+                        </div>
+                        <div class="property-status">
+                            <span>For Rent</span>
+                        </div>
+                    </div>
+                    <div class="property-features">
+                        <span><i class="fa fa-home"></i> 5,000 m<sup>2</sup></span>
+                        <span><i class="fa fa-hdd-o"></i> 2 Bed</span>
+                        <span><i class="fa fa-male"></i> 2 Bath</span>
+                    </div>
+                    <div class="property-content">
+                        <h3><a href="#">The Urban Life</a> <small>22, JJ Road, Yogyakarta</small></h3>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+        </div>
+        <!-- end:latest -->
+
+        <!-- begin:for-sale -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-title">
+                    <h2>Real Estate For Sale</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="property-container">
+                    <div class="property-image">
+                        <img src="/content/img/img06.jpg" alt="arillo real estate theme">
+                        <div class="property-price">
+                            <h4>Residential</h4>
+                            <span>$800,000</span>
+                        </div>
+                    </div>
+                    <div class="property-content">
+                        <h3><a href="#">The Urban Life</a> <small>22, JJ Road, Yogyakarta</small></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div class="property-features">
+                        <span><i class="fa fa-home"></i> 5,000 m<sup>2</sup></span>
+                        <span><i class="fa fa-hdd-o"></i> 2 Bed</span>
+                        <span><i class="fa fa-male"></i> 2 Bath</span>
+                        <span><i class="fa fa-car"></i> 2 Garages</span>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="property-container">
+                    <div class="property-image">
+                        <img src="/content/img/img07.jpg" alt="arillo real estate theme">
+                        <div class="property-price">
+                            <h4>Residential</h4>
+                            <span>$800,000</span>
+                        </div>
+                    </div>
+                    <div class="property-content">
+                        <h3><a href="#">The Urban Life</a> <small>22, JJ Road, Yogyakarta</small></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div class="property-features">
+                        <span><i class="fa fa-home"></i> 6,000 m<sup>2</sup></span>
+                        <span><i class="fa fa-hdd-o"></i> 3 Bed</span>
+                        <span><i class="fa fa-male"></i> 2 Bath</span>
+                        <span><i class="fa fa-building-o"></i> 2 Floors</span>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="property-container">
+                    <div class="property-image">
+                        <img src="/content/img/img08.jpg" alt="arillo real estate theme">
+                        <div class="property-price">
+                            <h4>Residential</h4>
+                            <span>$800,000</span>
+                        </div>
+                    </div>
+                    <div class="property-content">
+                        <h3><a href="#">The Urban Life</a> <small>22, JJ Road, Yogyakarta</small></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div class="property-features">
+                        <span><i class="fa fa-home"></i> 5,000 m<sup>2</sup></span>
+                        <span><i class="fa fa-hdd-o"></i> 2 Bed</span>
+                        <span><i class="fa fa-male"></i> 2 Bath</span>
+                        <span><i class="fa fa-building-o"></i> 1 Floor</span>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+        </div>
+        <!-- end:for-sale -->
+
+        <!-- begin:for-rent -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-title">
+                    <h2>Real Estate For Rent</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="property-container">
+                    <div class="property-content-list">
+                        <div class="property-image-list">
+                            <img src="/content/img/img09.jpg" alt="arillo real estate theme">
+                            <div class="property-price">
+                                <h4>Villa</h4>
+                                <span>$30,000<small>/month</small></span>
+                            </div>
+                            <div class="property-features">
+                                <span><i class="fa fa-home"></i> 7,000 m<sup>2</sup></span>
+                                <span><i class="fa fa-hdd-o"></i> 3 Bed</span>
+                                <span><i class="fa fa-male"></i> 2 Bath</span>
+                                <span><i class="fa fa-building-o"></i> 2 Floors</span>
+                                <span><i class="fa fa-car"></i> 2 Garages</span>
+                            </div>
+                        </div>
+                        <div class="property-text">
+                            <h3><a href="#">Luxury Villa In Rego Park</a> <small>22, JJ Road, Yogyakarta</small></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="property-container">
+                    <div class="property-content-list">
+                        <div class="property-text">
+                            <h3><a href="#">Land In Central Park</a> <small>22, JJ Road, Yogyakarta</small></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                        <div class="property-image-list">
+                            <img src="/content/img/img10.jpg" alt="arillo real estate theme">
+                            <div class="property-price">
+                                <h4>Villa</h4>
+                                <span>$30,000<small>/month</small></span>
+                            </div>
+                            <div class="property-features">
+                                <span><i class="fa fa-home"></i> 7,000 m<sup>2</sup></span>
+                                <span><i class="fa fa-hdd-o"></i> 3 Bed</span>
+                                <span><i class="fa fa-male"></i> 2 Bath</span>
+                                <span><i class="fa fa-building-o"></i> 2 Floors</span>
+                                <span><i class="fa fa-car"></i> 2 Garages</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- break -->
+        </div>
+        <!-- end:for-rent -->
+    </div>
+</div>
+<!-- end:content -->
+
+<!-- begin:testimony -->
+<div id="testimony" style="background-image: url(/content/img/img17.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div id="testislider" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="testimony-container">
+                                <div class="testimony-image" style="background: url(/content/img/team01.jpg)"></div>
+                                <div class="testimony-content">
+                                    <h3>Jane Doe</h3>
+                                    <blockquote>
+                                        <p>Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-container">
+                                <div class="testimony-image" style="background: url(/content/img/team02.jpg)"></div>
+                                <div class="testimony-content">
+                                    <h3>Cen Lung</h3>
+                                    <blockquote>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-container">
+                                <div class="testimony-image" style="background: url(/content/img/team03.jpg)"></div>
+                                <div class="testimony-content">
+                                    <h3>Julia</h3>
+                                    <blockquote>
+                                        <p>Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue.</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#testislider" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#testislider" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end:testimony -->
+
+<!-- begin:news -->
+<div id="news">
+    <div class="container">
+        <div class="row">
+            <!-- begin:blog -->
+            <div class="col-md-4 col-sm-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading-title heading-title-sm bg-white">
+                            <h2>Latest From Blog</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- break -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="post-container post-noborder">
+                            <div class="post-img post-img-circle" style="background: url(/content/img/img02.jpg);"></div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span><em>in</em> <a href="#" title="View all posts in berita utama" rel="category tag">berita utama</a></span>
+                                    <span><em>April 22, 2014</em></span>
+                                </div>
+                                <div class="heading-title">
+                                    <h2><a href="#">Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- break -->
+
+                        <div class="post-container post-noborder">
+                            <div class="post-img post-img-circle" style="background: url(/content/img/img03.jpg);"></div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span><em>in</em> <a href="#" title="View all posts in berita utama" rel="category tag">berita utama</a></span>
+                                    <span><em>April 22, 2014</em></span>
+                                </div>
+                                <div class="heading-title">
+                                    <h2><a href="#">Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- break -->
+
+                        <div class="post-container post-noborder">
+                            <div class="post-img post-img-circle" style="background: url(/content/img/img15.jpg);"></div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span><em>in</em> <a href="#" title="View all posts in berita utama" rel="category tag">berita utama</a></span>
+                                    <span><em>April 22, 2014</em></span>
+                                </div>
+                                <div class="heading-title">
+                                    <h2><a href="#">Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- break -->
+
+                    </div>
+                </div>
+                <!-- break -->
+
+            </div>
+            <!-- end:blog -->
+
+            <!-- begin:popular -->
+            <div class="col-md-4 col-sm-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading-title heading-title-sm bg-white">
+                            <h2>Popular Real Estate</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- break -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="post-container">
+                            <div class="post-img" style="background: url(/content/img/img12.jpg);"><h3>For Rent</h3></div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span><i class="fa fa-home"></i> 7,000 m<sup>2</sup> / </span>
+                                    <span><i class="fa fa-hdd-o"></i> 3 Bed / </span>
+                                    <span><i class="fa fa-male"></i> 2 Bath / </span>
+                                    <span><i class="fa fa-building-o"></i> 2 Floors / </span>
+                                    <span><i class="fa fa-car"></i> 2 Garages / </span>
+                                </div>
+                                <div class="heading-title">
+                                    <h2><a href="#">Residential - <span>$300,000</span>/year</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- break -->
+
+                        <div class="post-container">
+                            <div class="post-img" style="background: url(/content/img/img13.jpg);"><h3>For Rent</h3></div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span><i class="fa fa-home"></i> 6,700 m<sup>2</sup> / </span>
+                                    <span><i class="fa fa-hdd-o"></i> 4 Bed / </span>
+                                    <span><i class="fa fa-male"></i> 2 Bath / </span>
+                                    <span><i class="fa fa-building-o"></i> 1 Floors / </span>
+                                    <span><i class="fa fa-car"></i> 2 Garages / </span>
+                                </div>
+                                <div class="heading-title">
+                                    <h2><a href="#">Commercial - <span>$700,000</span>/year</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- break -->
+
+                        <div class="post-container post-noborder">
+                            <div class="post-img" style="background: url(/content/img/img14.jpg);"><h3>For Sale</h3></div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span><i class="fa fa-home"></i> 5,000 m<sup>2</sup> / </span>
+                                    <span><i class="fa fa-hdd-o"></i> 3 Bed / </span>
+                                    <span><i class="fa fa-male"></i> 2 Bath / </span>
+                                    <span><i class="fa fa-building-o"></i> 1 Floors / </span>
+                                    <span><i class="fa fa-car"></i> 1 Garages / </span>
+                                </div>
+                                <div class="heading-title">
+                                    <h2><a href="#">Villa - <span>$800,000</span></a></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- break -->
+
+                    </div>
+                </div>
+                <!-- break -->
+
+            </div>
+            <!-- end:popular -->
+
+            <!-- begin:agent -->
+            <div class="col-md-4 col-sm-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading-title heading-title-sm bg-white">
+                            <h2>Our Agents</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- break -->
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="post-container post-noborder">
+                            <div class="post-img" style="background: url(/content/img/team03.jpg);"></div>
+                            <div class="post-content list-agent">
+                                <div class="heading-title">
+                                    <h2><a href="#">Julia</a></h2>
+                                </div>
+                                <div class="post-meta">
+                                    <span><i class="fa fa-envelope-o"></i> johndoe@domain.com</span><br>
+                                    <span><i class="fa fa-phone"></i> +12345678</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- break -->
+
+                        <div class="post-container post-noborder">
+                            <div class="post-img" style="background: url(/content/img/avatar.png);"></div>
+                            <div class="post-content list-agent">
+                                <div class="heading-title">
+                                    <h2><a href="#">John Doe</a></h2>
+                                </div>
+                                <div class="post-meta">
+                                    <span><i class="fa fa-envelope-o"></i> johndoe@domain.com</span><br>
+                                    <span><i class="fa fa-phone"></i> +12345678</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- break -->
+
+                        <div class="post-container post-noborder">
+                            <div class="post-img" style="background: url(/content/img/team01.jpg);"></div>
+                            <div class="post-content list-agent">
+                                <div class="heading-title">
+                                    <h2><a href="#">Jane Doe</a></h2>
+                                </div>
+                                <div class="post-meta">
+                                    <span><i class="fa fa-envelope-o"></i> johndoe@domain.com</span><br>
+                                    <span><i class="fa fa-phone"></i> +12345678</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- break -->
+
+                    </div>
+                </div>
+                <!-- break -->
+
+            </div>
+            <!-- end:agent -->
+        </div>
+    </div>
+</div>
+<!-- end:news -->
+
+<!-- begin:subscribe -->
+<div id="subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-2 col-sm-8 col-xs-12">
+                <h3>Get Newsletter Update</h3>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="input-group">
+                    <input type="text" class="form-control input-lg" placeholder="Enter your mail">
+                    <span class="input-group-btn">
+                <button class="btn btn-success btn-lg" type="submit"><i class="fa fa-envelope"></i></button>
+              </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end:subscribe -->
+
+<!-- begin:partner -->
+<div id="partner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-title bg-white">
+                    <h2>Our Partnership</h2>
+                </div>
+            </div>
+        </div>
+        <!-- break -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jcarousel-wrapper">
+                    <div class="jcarousel">
+                        <ul>
+                            <li><a href="#"><img src="/content/img/img01.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                            <li><a href="#"><img src="/content/img/img02.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                            <li><a href="#"><img src="/content/img/img03.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                            <li><a href="#"><img src="/content/img/img04.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                            <li><a href="#"><img src="/content/img/img05.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                            <li><a href="#"><img src="/content/img/img06.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="jcarousel-control-prev"><i class="fa fa-angle-left"></i></a>
+                    <a href="#" class="jcarousel-control-next"><i class="fa fa-angle-right"></i></a>
+                    <!-- <p class="jcarousel-pagination"></p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end:partner -->
+<!--<div ng-cloak>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-12">-->
+            <!--<h1 data-translate="home.title">Welcome, Java Hipster!</h1>-->
+
+            <!--<div ng-switch="vm.isAuthenticated()">-->
+                <!--<div class="alert alert-danger"><h3 data-translate="home.reminder"></h3></div>-->
+                <!--<div class="alert alert-success" ng-switch-when="true" data-translate="home.logged.message" translate-values="{username: '{{vm.account.login}}'}">-->
+                    <!--You are logged in as user "{{vm.account.login}}".-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+            <!--<p data-translate="home.question">-->
+                <!--If you have any question on JHipster:-->
+            <!--</p>-->
+
+            <!--<ul>-->
+                <!--<li><a href="http://jhipster.github.io/" target="_blank" data-translate="home.link.homepage">JHipster homepage</a></li>-->
+                <!--<li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" data-translate="home.link.stackoverflow">JHipster on Stack Overflow</a></li>-->
+                <!--<li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" data-translate="home.link.bugtracker">JHipster bug tracker</a></li>-->
+                <!--<li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" data-translate="home.link.chat">JHipster public chat room</a></li>-->
+                <!--<li><a href="https://twitter.com/java_hipster" target="_blank"  data-translate="home.link.follow">follow @java_hipster on Twitter</a></li>-->
+                <!--<li><a href="http://arnaugarcia.com" target="_blank">Web de referencia de la red</a></li>-->
+            <!--</ul>-->
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

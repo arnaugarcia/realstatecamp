@@ -16,26 +16,9 @@
                     controller: 'NavbarController',
                     controllerAs: 'vm'
                 },
-
-            },
-            resolve: {
-                authorize: ['Auth',
-                    function (Auth) {
-                        return Auth.authorize();
-                    }
-                ],
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('global');
-                }]
-            }
-        });
-
-        $stateProvider.state('app.dashboard', {
-            abstract: true,
-            views: {
-                'navbar@dashboard': {
-                    templateUrl: 'app/layouts/navbar/navbar-admin.html',
-                    controller: 'NavbarController',
+                'footer@': {
+                    templateUrl: 'app/layouts/footer/footer.html',
+                    controller: 'FooterController',
                     controllerAs: 'vm'
                 }
             },
@@ -52,7 +35,7 @@
         });
         $breadcrumbProvider.setOptions({
             prefixStateName: 'home',
-            template: '<ol class="breadcrumb"><li><a href="#"><i class="fa fa-dashboard"></i> DashBoard</a></li><li ng-repeat="step in steps" class="active"><a href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a></li></ol>'
+            template: '<ol class="breadcrumb"><li><a href="#"> DashBoard</a></li><li ng-repeat="step in steps" class="active"><a href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a></li></ol>'
         });
     }
 })();

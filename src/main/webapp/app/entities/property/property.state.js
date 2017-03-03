@@ -24,6 +24,11 @@
                     templateUrl: 'app/entities/property/properties.html',
                     controller: 'PropertyController',
                     controllerAs: 'vm'
+                },
+                'header-search' : {
+                    templateUrl : 'app/layouts/header/header.search.html',
+                    controller: 'HeaderController',
+                    controllerAs: 'hcs'
                 }
             },
             params: {
