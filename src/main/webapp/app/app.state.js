@@ -19,6 +19,7 @@
                 'footer@': {
                     templateUrl: 'app/layouts/footer/footer.html',
                     controller: 'FooterController',
+                    controllerAs: 'vm'
                 }
             },
             resolve: {
@@ -34,7 +35,7 @@
         });
         $breadcrumbProvider.setOptions({
             prefixStateName: 'home',
-            template: '<ol class="breadcrumb"><li><a href="#"><i class="fa fa-dashboard"></i> DashBoard</a></li><li ng-repeat="step in steps" class="active"><a href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a></li></ol>'
+            template: '<ol class="breadcrumb"><li><a href="#"> DashBoard</a></li><li ng-repeat="step in steps" class="active"><a href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a></li></ol>'
         });
     }
 })();

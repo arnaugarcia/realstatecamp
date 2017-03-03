@@ -3,13 +3,13 @@
 
     angular
         .module('assessoriaTorrellesApp')
-        .controller('NavbarController', NavbarController);
+        .controller('FooterController', FooterController);
 
 
 
-    NavbarController.$inject = [];
+    FooterController.$inject = [];
 
-    function NavbarController () {
+    function FooterController () {
 
 
     }
