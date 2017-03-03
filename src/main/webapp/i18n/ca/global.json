@@ -4,6 +4,7 @@
         "browsehappy": "Està usant un navegador <strong>des-actualitzat</strong>. Si us plau <a href=\"http://browsehappy.com/?locale=en\">actualitzi el seu navegador</a> per millorar l'experiencia.",
         "menu": {
             "home": "Inici",
+            "dashboard": "Panell d'Administració",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entitats",
@@ -12,6 +13,7 @@
                 "location": "Location",
                 "photo": "Photo",
                 "contact": "Contact",
+
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

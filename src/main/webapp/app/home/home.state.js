@@ -48,7 +48,7 @@
                     controllerAs: 'vm',
                 },
                 'navbar@': {
-                    templateUrl: 'app/layouts/navbar/navbar-admin.html',
+                    templateUrl: 'app/dashboard/dashboard-navbar/navbar.html',
                     controller: 'NavbarController',
                     controllerAs: 'vm'
                 }
