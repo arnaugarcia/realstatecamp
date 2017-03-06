@@ -14,8 +14,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-9 col-md-push-3">
                 <h2 data-translate="assessoriaTorrellesApp.property.home.title">Properties</h2>
+                {{vm.filterCritera.location}}
                 <jhi-alert></jhi-alert>
                     <!-- begin:sorting -->
                     <div class="row sort">
@@ -24,6 +26,7 @@
                             <a href="search_list.html" class="btn btn-default"><i class="fa fa-list"></i></a>
                             <span>Show <strong>6</strong> of <strong>30</strong> result.</span>
                         </div>
+
                         <div class="col-md-8 col-sm-8 col-xs-9">
                             <form class="form-inline" role="form">
                                 <span>Sort by : </span>
@@ -53,8 +56,9 @@
                         </div>
                     </div>
                     <!-- end:sorting -->
+
                     <div class="row container-realestate">
-                        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="property in vm.properties track by property.id">
+                        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="property in vm.listByFilter track by property.id">
                             <div class="property-container">
                                 <div class="property-image">
                                     <img src="content/img/img02.jpg" ui-sref="property-detail({id:property.id})" alt="mikha real estate theme">

@@ -9,7 +9,7 @@
 
     function PropertyController ($scope, $state, DataUtils, Property, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
-        
+
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
@@ -17,8 +17,33 @@
         vm.itemsPerPage = paginationConstants.itemsPerPage;
         vm.openFile = DataUtils.openFile;
         vm.byteSize = DataUtils.byteSize;
+        vm.listByFilter = [];
+        vm.filterCritera = {};
+        vm.filterCritera.location = 'Barcelona';
 
         loadAll();
+
+        vm.searchByFilters = function () {
+            Property.byFilters({
+                // es igual a..
+                //?location=Barcelona
+                //parametro:valor
+                location: vm.filterCritera.location
+
+            }, onSuccessByFilter, onError);
+
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+
+            function onSuccessByFilter(data,headers) {
+                vm.listByFilter = [];
+                for(var i = 0;i<data.length;i++){
+                    vm.listByFilter.push(data[i]);
+                }
+            }
+
+        }
 
         function loadAll () {
             Property.query({
@@ -26,6 +51,22 @@
                 size: vm.itemsPerPage,
                 sort: sort()
             }, onSuccess, onError);
+
+            //console.log("aaaaa");
+            // ?location=Barcelona&ac=true
+            //
+            //     Space.byFilters({minprice: firstPrice, maxprice: lastPrice, numpers: numPers, services: servicesStr, address: address}, function (result) {
+            //         $scope.spaces = result;
+            //     });
+
+            Property.byFilters({
+                // es igual a..
+                //?location=Barcelona
+                //parametro:valor
+                location: vm.filterCritera.location
+
+            }, onSuccessByFilter, onError);
+
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
                 if (vm.predicate !== 'id') {
@@ -43,6 +84,13 @@
             function onError(error) {
                 AlertService.error(error.data.message);
             }
+
+            function onSuccessByFilter(data,headers) {
+                for(var i = 0;i<data.length;i++){
+                    vm.listByFilter.push(data[i]);
+                }
+            }
+
         }
 
         function loadPage (page) {

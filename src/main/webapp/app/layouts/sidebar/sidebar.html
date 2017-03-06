@@ -15,12 +15,8 @@
             </div>
             <div class="form-group">
                 <label for="location">Location</label>
-                <select class="form-control">
-                    <option>Miami</option>
-                    <option>Doral</option>
-                    <option>Little Havana</option>
-                    <option>Perrine</option>
-                </select>
+
+                <input type="text" class="form-control" ng-model="vm.filterCritera.location" placeholder="Location">
             </div>
             <div class="form-group">
                 <label for="type">Property Type</label>
@@ -81,7 +77,8 @@
                 <label for="max-area">Max Area</label>
                 <input type="text" class="form-control" placeholder="Max Area">
             </div>
-            <input type="submit" name="submit" value="Search" class="btn btn-success btn-block">
+            <input type="submit" name="submit" value="Search" class="btn btn-success btn-block" ng-click="vm.searchByFilters()">
+
         </form>
     </div>
     <!-- break -->
