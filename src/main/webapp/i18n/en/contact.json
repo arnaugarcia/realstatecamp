@@ -1,6 +1,5 @@
 {
-    "assessoriaTorrellesApp": {
-        "contact" : {
+    "contact" : {
             "home": {
                 "title": "Contacts",
                 "createLabel": "Create a new Contact",
@@ -15,7 +14,9 @@
             },
             "detail": {
                 "title": "Contact"
-            }
+            },
+            "title1": "Please don't hesitate to contact us if you need our help.",
+            "title2": "If you wanna like to contact me, please fill the form bellow.",
+            "button": "Send Message"
         }
-    }
 }
