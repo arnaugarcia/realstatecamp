@@ -1,4 +1,205 @@
 <div ng-include="'app/layouts/header/header.search.html'"></div>
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <!-- begin:article -->
+            <div class="col-md-9 col-md-push-3">
+                <div class="row">
+                    <div class="col-md-12 single-post">
+                        <ul id="myTab" class="nav nav-tabs nav-justified">
+                            <li class="active"><a href="#detail" data-toggle="tab"><i class="fa fa-university"></i> Property Detail</a></li>
+                            <li><a href="#location" data-toggle="tab"><i class="fa fa-paper-plane-o"></i> Property Location</a></li>
+                        </ul>
+
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade in active" id="detail">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2>{{vm.property.name}}</h2>
+                                        <div id="slider-property" class="carousel slide" data-ride="carousel">
+                                            <ol class="carousel-indicators">
+                                                <li data-target="#slider-property" data-slide-to="0" class="">
+                                                    <img src="content/img/img02.jpg" alt="">
+                                                </li>
+                                                <li data-target="#slider-property" data-slide-to="1" class="active">
+                                                    <img src="content/img/img03.jpg" alt="">
+                                                </li>
+                                                <li data-target="#slider-property" data-slide-to="2">
+                                                    <img src="content/img/img04.jpg" alt="">
+                                                </li>
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                <div class="item">
+                                                    <img src="content/img/img02.jpg" alt="">
+                                                </div>
+                                                <div class="item active">
+                                                    <img src="content/img/img03.jpg" alt="">
+                                                </div>
+                                                <div class="item">
+                                                    <img src="content/img/img04.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <a class="left carousel-control" href="#slider-property" data-slide="prev">
+                                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                            </a>
+                                            <a class="right carousel-control" href="#slider-property" data-slide="next">
+                                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <h3>Property Overview</h3>
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <td width="20%"><strong data-translate="assessoriaTorrellesApp.property.ref">ID</strong></td>
+                                                <td>{{vm.property.ref}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong data-translate="assessoriaTorrellesApp.property.price">Price</strong></td>
+                                                <td>{{vm.property.price}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong data-translate="assessoriaTorrellesApp.property.buildingType">Type</strong></td>
+                                                <td data-translate="{{'assessoriaTorrellesApp.BuildingType.' + vm.property.buildingType}}">Residential</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong data-translate="assessoriaTorrellesApp.property.serviceType">Contract</strong></td>
+                                                <td data-translate="{{'assessoriaTorrellesApp.ServiceType.' + vm.property.serviceType}}">Sale</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Location</strong></td>
+                                                <td>JJ Road, Yogyakarta, INA</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Bathrooms</strong></td>
+                                                <td>4</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Bedrooms</strong></td>
+                                                <td>4</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Area</strong></td>
+                                                <td>800m<sup>2</sup> </td>
+                                            </tr>
+                                        </table>
+                                        <h3>Property Features</h3>
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4">
+                                                <ul>
+                                                    <li><i class="fa fa-check"></i> Air conditioning</li>
+                                                    <li><i class="fa fa-check"></i> Balcony</li>
+                                                    <li><i class="fa fa-times"></i> Bedding</li>
+                                                    <li><i class="fa fa-check"></i> Cable TV</li>
+                                                    <li><i class="fa fa-times"></i> Cleaning after exit</li>
+                                                    <li><i class="fa fa-check"></i> Cofee pot</li>
+                                                    <li><i class="fa fa-check"></i> Computer</li>
+                                                    <li><i class="fa fa-times"></i> Cot</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4">
+                                                <ul>
+                                                    <li><i class="fa fa-check"></i> Internet</li>
+                                                    <li><i class="fa fa-times"></i> Iron</li>
+                                                    <li><i class="fa fa-check"></i> Juicer</li>
+                                                    <li><i class="fa fa-times"></i> Lift</li>
+                                                    <li><i class="fa fa-times"></i> Microwave</li>
+                                                    <li><i class="fa fa-check"></i> Oven</li>
+                                                    <li><i class="fa fa-times"></i> Parking</li>
+                                                    <li><i class="fa fa-times"></i> Parquet</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4">
+                                                <ul>
+                                                    <li><i class="fa fa-times"></i> Radio</li>
+                                                    <li><i class="fa fa-check"></i> Roof terrace</li>
+                                                    <li><i class="fa fa-times"></i> Smoking allowed</li>
+                                                    <li><i class="fa fa-check"></i> Terrace</li>
+                                                    <li><i class="fa fa-times"></i> Toaster</li>
+                                                    <li><i class="fa fa-check"></i> Towelwes</li>
+                                                    <li><i class="fa fa-check"></i> Use of pool</li>
+                                                    <li><i class="fa fa-check"></i> Video</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <h3 data-translate="assessoriaTorrellesApp.property.description">Property Description</h3>
+                                        <p>{{vm.property.description}}</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- break -->
+                            <div class="tab-pane fade" id="location">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="map-property"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>Contact Agent</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="team-container team-dark">
+                                            <div class="team-image">
+                                                <img src="img/team01.jpg" alt="the team - mikha realestate theme">
+                                            </div>
+                                            <div class="team-description">
+                                                <h3>Katty Sharon</h3>
+                                                <p><i class="fa fa-phone"></i> Office : 021-234-5678<br>
+                                                    <i class="fa fa-mobile"></i> Mobile : +62-3456-78910<br>
+                                                    <i class="fa fa-print"></i> Fax : 021-234-5679</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                    tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                <div class="team-social">
+                                                    <span><a href="#" title="Twitter" rel="tooltip" data-placement="top"><i class="fa fa-twitter"></i></a></span>
+                                                    <span><a href="#" title="Facebook" rel="tooltip" data-placement="top"><i class="fa fa-facebook"></i></a></span>
+                                                    <span><a href="#" title="Google Plus" rel="tooltip" data-placement="top"><i class="fa fa-google-plus"></i></a></span>
+                                                    <span><a href="#" title="Email" rel="tooltip" data-placement="top"><i class="fa fa-envelope"></i></a></span>
+                                                    <span><a href="#" title="LinkedIn" rel="tooltip" data-placement="top"><i class="fa fa-linkedin"></i></a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input type="text" class="form-control input-lg" placeholder="Enter name : ">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">Email address</label>
+                                                <input type="email" class="form-control input-lg" placeholder="Enter email : ">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="telp">Telp.</label>
+                                                <input type="text" class="form-control input-lg" placeholder="Enter phone number : ">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message">Message</label>
+                                                <textarea class="form-control input-lg" rows="7" placeholder="Type a message : "></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" name="submit" value="Send Message" class="btn btn-success btn-lg">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end:article -->
+
+            <div ng-include="'app/layouts/sidebar/sidebar.html'"></div>
+
+        </div>
+    </div>
+</div>
+<!-- end:content -->
 <div>
     <h2><span data-translate="assessoriaTorrellesApp.property.detail.title">Property</span> {{vm.property.id}}</h2>
     <hr>
