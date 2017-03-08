@@ -29,8 +29,50 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="furnished">Furnished</label>
+                <select class="form-control" ng-model="vm.filterCritera.furnished">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pool">Pool</label>
+                <select class="form-control" ng-model="vm.filterCritera.pool">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="garage">Garage</label>
+                <select class="form-control" ng-model="vm.filterCritera.garage">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ac">AC</label>
+                <select class="form-control" ng-model="vm.filterCritera.ac">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="elevator">Elevator</label>
+                <select class="form-control" ng-model="vm.filterCritera.elevator">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="terrace">Terrace</label>
+                <select class="form-control" ng-model="vm.filterCritera.terrace">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="beds">Beds</label>
-                <select class="form-control">
+                <select class="form-control" ng-model="vm.filterCritera.numberBedroom">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -40,7 +82,7 @@
             </div>
             <div class="form-group">
                 <label for="baths">Baths</label>
-                <select class="form-control">
+                <select class="form-control" ng-model="vm.filterCritera.numberWc">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -50,32 +92,19 @@
             </div>
             <div class="form-group">
                 <label for="min-price">Min Price</label>
-                <select class="form-control">
-                    <option>$1,000</option>
-                    <option>$5,000</option>
-                    <option>$10,000</option>
-                    <option>$20,000</option>
-                    <option>$50,000</option>
-                    <option>$350,000</option>
-                </select>
+                <input type="number" pattern="\d*" min="0" class="form-control" ng-model="vm.filterCritera.minPrice">
             </div>
             <div class="form-group">
                 <label for="max-price">Max Price</label>
-                <select class="form-control">
-                    <option>$9,000</option>
-                    <option>$19,000</option>
-                    <option>$40,000</option>
-                    <option>$100,000</option>
-                    <option>$800,000</option>
-                </select>
+                <input type="number" pattern="\d*" min="0" class="form-control" ng-model="vm.filterCritera.maxPrice">
             </div>
             <div class="form-group">
                 <label for="min-area">Min Area</label>
-                <input type="text" class="form-control" placeholder="Min Area">
+                <input type="number" pattern="\d*" min="0" class="form-control" ng-model="vm.filterCritera.minSize">
             </div>
             <div class="form-group">
                 <label for="max-area">Max Area</label>
-                <input type="text" class="form-control" placeholder="Max Area">
+                <input type="number" pattern="\d*" min="0" class="form-control" ng-model="vm.filterCritera.maxSize">
             </div>
             <input type="submit" name="submit" value="Search" class="btn btn-success btn-block" ng-click="vm.searchByFilters()">
 

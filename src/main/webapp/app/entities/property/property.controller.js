@@ -5,9 +5,9 @@
         .module('assessoriaTorrellesApp')
         .controller('PropertyController', PropertyController);
 
-    PropertyController.$inject = ['$scope', '$state', 'DataUtils', 'Property', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    PropertyController.$inject = ['$scope', '$state','Principal' ,'DataUtils', 'Property', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function PropertyController ($scope, $state, DataUtils, Property, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function PropertyController ($scope, $state,Principal, DataUtils, Property, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
 
         vm.loadPage = loadPage;
@@ -19,7 +19,23 @@
         vm.byteSize = DataUtils.byteSize;
         vm.listByFilter = [];
         vm.filterCritera = {};
-        vm.filterCritera.location = 'Barcelona';
+        // vm.filterCritera.location = 'Barcelona';
+
+        vm.isAuthenticated = null;
+        vm.account = null;
+
+        $scope.$on('authenticationSuccess', function() {
+            getAccount();
+        });
+
+        getAccount();
+
+        function getAccount() {
+            Principal.identity().then(function(account) {
+                vm.account = account;
+                vm.isAuthenticated = Principal.isAuthenticated;
+            });
+        }
 
         loadAll();
 
@@ -28,7 +44,19 @@
                 // es igual a..
                 //?location=Barcelona
                 //parametro:valor
-                location: vm.filterCritera.location
+                location: vm.filterCritera.location,
+                furnished: vm.filterCritera.furnished,
+                pool: vm.filterCritera.pool,
+                garage: vm.filterCritera.garage,
+                ac: vm.filterCritera.ac,
+                elevator: vm.filterCritera.elevator,
+                terrace: vm.filterCritera.terrace,
+                numberBedroom: vm.filterCritera.numberBedroom,
+                numberWc: vm.filterCritera.numberWc,
+                minPrice: vm.filterCritera.minPrice,
+                maxPrice: vm.filterCritera.maxPrice,
+                minSize: vm.filterCritera.minSize,
+                maxSize: vm.filterCritera.maxSize
 
             }, onSuccessByFilter, onError);
 
