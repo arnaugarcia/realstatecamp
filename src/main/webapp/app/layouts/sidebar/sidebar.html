@@ -5,19 +5,24 @@
             <h3>Advance Search</h3>
         </div>
         <form role="form" class="advance-search">
-            <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="options" id="option1"> For Rent
-                </label>
-                <label class="btn btn-success">
-                    <input type="radio" name="options" id="option2"> For Sale
-                </label>
-            </div>
+            <!--<div class="btn-group" >-->
+                <!--<label class="btn btn-success">-->
+                    <!--<input type="radio" ng-model="vm.filterCritera.serviceType"  class="hideBulletRadio" value="RENT" > For Rent-->
+                <!--</label>-->
+                <!--<label class="btn btn-success">-->
+                    <!--<input type="radio" ng-model="vm.filterCritera.serviceType" class="hideBulletRadio" value="SALE"> For Sale-->
+                <!--</label>-->
+                <!--<label class="btn btn-success">-->
+                    <!--<input type="radio" ng-model="vm.filterCritera.serviceType" class="hideBulletRadio" value="RENT_AND_SALE"> Rent & Sale-->
+                <!--</label>-->
+            <!--</div>-->
+            <!--{{vm.filterCritera}}-->
             <div class="form-group">
                 <label for="location">Location</label>
 
                 <input type="text" class="form-control" ng-model="vm.filterCritera.location" placeholder="Location">
             </div>
+
             <div class="form-group">
                 <label for="type">Property Type</label>
                 <select class="form-control">
@@ -28,6 +33,25 @@
                     <option>Single Family Home</option>
                 </select>
             </div>
+
+            <div class="form-group">
+                <label for="serviceType">Service Type</label>
+                <select class="form-control" ng-model="vm.filterCritera.serviceType">
+                    <option value="RENT">RENT</option>
+                    <option value="SALE">SALE</option>
+                    <option value="RENT_AND_SALE">RENT_AND_SALE</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="buildingType">Building Type</label>
+                <select class="form-control" ng-model="vm.filterCritera.buildingType">
+                    <option value="HOUSE">HOUSE</option>
+                    <option value="FLAT">FLAT</option>
+                    <option value="STUDIO">STUDIO</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="furnished">Furnished</label>
                 <select class="form-control" ng-model="vm.filterCritera.furnished">

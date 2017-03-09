@@ -56,7 +56,9 @@
                 minPrice: vm.filterCritera.minPrice,
                 maxPrice: vm.filterCritera.maxPrice,
                 minSize: vm.filterCritera.minSize,
-                maxSize: vm.filterCritera.maxSize
+                maxSize: vm.filterCritera.maxSize,
+                serviceType: vm.filterCritera.serviceType,
+                buildingType: vm.filterCritera.buildingType
 
             }, onSuccessByFilter, onError);
 
