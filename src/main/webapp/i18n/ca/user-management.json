@@ -18,6 +18,7 @@
         "firstName": "Nom",
         "lastName": "Cognom",
         "email": "Email",
+
         "activated": "Activat",
         "deactivated": "Desactivat",
         "profiles": "Perfils",
