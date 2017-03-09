@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/company?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'assessoriaTorrellesApp.company.home.title'
             },
             views: {
@@ -55,7 +55,7 @@
             parent: 'entity',
             url: '/company/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'assessoriaTorrellesApp.company.detail.title'
             },
             views: {

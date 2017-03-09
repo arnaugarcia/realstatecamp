@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/property?page&sort&search',
             data: {
-                //authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'assessoriaTorrellesApp.property.home.title'
             },
             ncyBreadcrumb: {
@@ -65,7 +65,7 @@
             parent: 'entity',
             url: '/property/{id}',
             data: {
-                //authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'assessoriaTorrellesApp.property.detail.title'
             },
             views: {

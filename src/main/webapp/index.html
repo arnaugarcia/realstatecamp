@@ -28,20 +28,20 @@
     <![endif]-->
     <!--<page-ribbon></page-ribbon>-->
     <div ui-view="navbar" ng-cloak></div>
-    <div class="content-wrapper">
+    <div class="content-wrapper" ng-cloak>
         <!-- Content Header (Page header) -->
         <!--<section class="content-header">-->
             <!--<div ncy-breadcrumb></div>-->
         <!--</section>-->
 
         <!-- Main content -->
-        <section ui-view="content">
+        <section ui-view="content" ng-cloak>
             <!-- Your Page Content Here -->
 
         </section>
 
         <!-- /.content -->
-        <div id="footer" ui-view="footer">
+        <div id="footer" ui-view="footer" ng-cloak>
 
         </div>
     </div>

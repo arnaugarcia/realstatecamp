@@ -1,6 +1,9 @@
 package com.arnaugarcia.assessoriatorrelles.web.rest;
 
 import com.arnaugarcia.assessoriatorrelles.domain.Property;
+import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
+import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
+import com.arnaugarcia.assessoriatorrelles.repository.LocationRepository;
 import com.arnaugarcia.assessoriatorrelles.repository.PropertyByCriteriaRepository;
 import com.arnaugarcia.assessoriatorrelles.repository.PropertyRepository;
 import com.arnaugarcia.assessoriatorrelles.repository.UserRepository;
@@ -46,6 +49,9 @@ public class PropertyResource {
     @Inject
     private UserRepository userRepository;
 
+    @Inject
+    private LocationRepository locationRepository;
+
     /**
      * POST  /properties : Create a new property.
      *
@@ -63,7 +69,8 @@ public class PropertyResource {
 
         property.setUser(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
 
-        //TODO: Generar referencia por DTO
+        property.setRef("REF-" + property.getLocation().getProvince().toLowerCase().charAt(0) + property.getLocation().getTown().toLowerCase().charAt(0) + property.getLocation().getRef().substring(4,7));
+
         Property result = propertyRepository.save(property);
         return ResponseEntity.created(new URI("/api/properties/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("property", result.getId().toString()))
@@ -159,8 +166,10 @@ public class PropertyResource {
         @RequestParam(value = "garage", required = false) Boolean garage,
         @RequestParam(value = "ac", required = false) Boolean ac,
         @RequestParam(value = "numberWc", required = false) String numberWc,
-        @RequestParam(value = "numberBedroom", required = false) String numberBedroom
-    ) {
+        @RequestParam(value = "numberBedroom", required = false) String numberBedroom,
+        @RequestParam(value = "buildingType", required = false) BuildingType buildingType,
+        @RequestParam(value = "serviceType", required = false) ServiceType serviceType
+        ) {
         Map<String, Object> params = new HashMap<>();
 
         //params.put("locality", locality);
@@ -170,6 +179,14 @@ public class PropertyResource {
         if (location != null) {
             params.put("location", location);
         }
+        //******Add enum params*****
+        if (buildingType != null) {
+            params.put("buildingType", buildingType);
+        }
+
+        if (serviceType != null) {
+            params.put("serviceType", serviceType);
+        }
 
         if (minPrice != null) {
 
@@ -177,9 +194,9 @@ public class PropertyResource {
                 Double minPriceDouble = Double.parseDouble(minPrice);
                 params.put("minPrice", minPriceDouble);
             } catch (NumberFormatException e) {
-                return new ResponseEntity<>(
-
-                    HttpStatus.BAD_REQUEST);
+                return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("property",
+                    "number format exception on param",
+                    "A numeric param cannot have non numeric characters")).body(null);
             }
 
         }
@@ -190,9 +207,9 @@ public class PropertyResource {
                 Double maxPriceDouble = Double.parseDouble(maxPrice);
                 params.put("maxPrice", maxPriceDouble);
             } catch (NumberFormatException e) {
-                return new ResponseEntity<>(
-
-                    HttpStatus.BAD_REQUEST);
+                return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("property",
+                    "number format exception on param",
+                    "A numeric param cannot have non numeric characters")).body(null);
             }
 
         }
@@ -203,9 +220,9 @@ public class PropertyResource {
                 Integer minSizeInt = Integer.parseInt(minSize);
                 params.put("minSize", minSizeInt);
             } catch (NumberFormatException e) {
-                return new ResponseEntity<>(
-
-                    HttpStatus.BAD_REQUEST);
+                return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("property",
+                    "number format exception on param",
+                    "A numeric param cannot have non numeric characters")).body(null);
             }
 
         }
@@ -216,9 +233,9 @@ public class PropertyResource {
                 Integer maxSizeInt = Integer.parseInt(maxSize);
                 params.put("maxSize", maxSizeInt);
             } catch (NumberFormatException e) {
-                return new ResponseEntity<>(
-
-                    HttpStatus.BAD_REQUEST);
+                return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("property",
+                    "number format exception on param",
+                    "A numeric param cannot have non numeric characters")).body(null);
             }
 
         }
@@ -250,9 +267,9 @@ public class PropertyResource {
                 Integer numberWcInt = Integer.parseInt(numberWc);
                 params.put("numberWc", numberWcInt);
             } catch (NumberFormatException e) {
-                return new ResponseEntity<>(
-
-                    HttpStatus.BAD_REQUEST);
+                return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("property",
+                    "number format exception on param",
+                    "A numeric param cannot have non numeric characters")).body(null);
             }
 
         }
@@ -263,9 +280,9 @@ public class PropertyResource {
                 Integer numberBedroomInt = Integer.parseInt(numberBedroom);
                 params.put("numberBedroom", numberBedroomInt);
             } catch (NumberFormatException e) {
-                return new ResponseEntity<>(
-
-                    HttpStatus.BAD_REQUEST);
+                return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("property",
+                    "number format exception on param",
+                    "A numeric param cannot have non numeric characters")).body(null);
             }
 
         }
@@ -274,7 +291,7 @@ public class PropertyResource {
         if (result.isEmpty()) {
             return new ResponseEntity<>(
 
-                HttpStatus.NOT_FOUND);
+                null,HeaderUtil.createAlert("No match for the criteria entered!","property"),HttpStatus.NOT_FOUND);
         } else {
 
             return new ResponseEntity<>(

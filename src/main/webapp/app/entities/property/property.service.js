@@ -11,6 +11,7 @@
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
+            'byFilters': { method: 'GET', isArray: true, url: 'api/property/byfilters'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

@@ -436,13 +436,20 @@ input[type="color"]:focus,
 #header{
     width: 100%;
     min-height: 450px;
+    background-color: transparent;
     height: auto;
     padding-top: 70px;
     padding-bottom: 60px;
+    position: absolute;
+}
+
+.header-slide{
+    z-index: 1;
 }
 
 .quick-search{
-    padding: 25px 40px;
+    padding: 70px 40px;
+    height: 550px;
     background: rgba(255,255,255,.7);
 }
 
@@ -514,6 +521,30 @@ input[type="color"]:focus,
 #header.heading .quick-search{
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+#home-title{
+    position: absolute;
+    background-color: transparent;
+    left: 700px;
+    padding-top: 90px;
+    top: 140px;
+    border-left: 1px #fff solid;
+    height: 550px;
+    padding-left: 50px;
+}
+
+.home-title-h1{
+    color: #37bc9b;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.home-title-h2{
+    margin: 35px 0 40px;
+    font-size: 28px;
+    font-weight: 100;
+    color: #fff;
 }
 
 
@@ -2131,4 +2162,48 @@ input[type="color"]:focus,
 .copyright .social-links > li > .icon-youtube:hover,
 .copyright .social-links > li > .icon-gplus:hover{
     background: #ff4b4b;
+}
+
+
+/*
+	==================
+	[12. VIDEO]
+	==================
+*/
+video{
+    height: 860px;
+}
+
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width:768px) and (max-width:992px) {
+
+    #home-title{
+        left: 0;
+        padding-top: 0;
+        border-left: none;
+        border-top: 1px #fff solid;
+        margin-top: 110px;
+        width: 100%;
+        top: 600px;
+    }
+    video{
+        height: 900px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width:992px) and (max-width:1200px) {
+
+    #home-title{
+        left: 550px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }
