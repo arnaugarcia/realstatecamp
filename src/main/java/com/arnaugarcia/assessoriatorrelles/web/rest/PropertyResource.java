@@ -1,6 +1,8 @@
 package com.arnaugarcia.assessoriatorrelles.web.rest;
 
 import com.arnaugarcia.assessoriatorrelles.domain.Property;
+import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
+import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
 import com.arnaugarcia.assessoriatorrelles.repository.LocationRepository;
 import com.arnaugarcia.assessoriatorrelles.repository.PropertyByCriteriaRepository;
 import com.arnaugarcia.assessoriatorrelles.repository.PropertyRepository;
@@ -164,8 +166,10 @@ public class PropertyResource {
         @RequestParam(value = "garage", required = false) Boolean garage,
         @RequestParam(value = "ac", required = false) Boolean ac,
         @RequestParam(value = "numberWc", required = false) String numberWc,
-        @RequestParam(value = "numberBedroom", required = false) String numberBedroom
-    ) {
+        @RequestParam(value = "numberBedroom", required = false) String numberBedroom,
+        @RequestParam(value = "buildingType", required = false) BuildingType buildingType,
+        @RequestParam(value = "serviceType", required = false) ServiceType serviceType
+        ) {
         Map<String, Object> params = new HashMap<>();
 
         //params.put("locality", locality);
@@ -174,6 +178,14 @@ public class PropertyResource {
 
         if (location != null) {
             params.put("location", location);
+        }
+        //******Add enum params*****
+        if (buildingType != null) {
+            params.put("buildingType", buildingType);
+        }
+
+        if (serviceType != null) {
+            params.put("serviceType", serviceType);
         }
 
         if (minPrice != null) {
