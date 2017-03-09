@@ -1,6 +1,8 @@
 package com.arnaugarcia.assessoriatorrelles.repository;
 
 import com.arnaugarcia.assessoriatorrelles.domain.Property;
+import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
+import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.MatchMode;
@@ -112,6 +114,15 @@ public class PropertyByCriteriaRepository {
 
 //        filterByTown(parameters,localityCriteria);
 
+        //**********FILTERS WITH ENUMS
+
+        if(parameters.get("buildingType")!=null){
+            filterByBuildingType(parameters,propertyCriteria,"buildingType");
+        }
+        if(parameters.get("serviceType")!=null){
+            filterByServiceType(parameters,propertyCriteria,"serviceType");
+        }
+
         List<Property> results = propertyCriteria.list();
 
         return results;
@@ -175,6 +186,32 @@ public class PropertyByCriteriaRepository {
         Integer hasItem = (Integer) parameters.get(key);
 
         propertyCriteria.add(Restrictions.eq(key, hasItem));
+    }
+
+    private void filterByBuildingType (Map<String,Object> parameters, Criteria propertyCriteria, String key){
+
+        BuildingType buildingType = (BuildingType) parameters.get(key);
+        BuildingType searchType = null;
+        for (BuildingType current: searchType.values()){
+            if(current.toString().equalsIgnoreCase(buildingType.toString())){
+                propertyCriteria.add(Restrictions.eq(key,searchType.valueOf(current.toString())));
+            }
+        }
+
+
+    }
+
+    private void filterByServiceType (Map<String,Object> parameters, Criteria propertyCriteria,String key){
+
+        ServiceType serviceType = (ServiceType) parameters.get(key);
+        ServiceType searchType = null;
+        for (ServiceType current: searchType.values()){
+            if(current.toString().equalsIgnoreCase(serviceType.toString())){
+                propertyCriteria.add(Restrictions.eq(key,searchType.valueOf(current.toString())));
+            }
+        }
+
+
     }
 
 }
