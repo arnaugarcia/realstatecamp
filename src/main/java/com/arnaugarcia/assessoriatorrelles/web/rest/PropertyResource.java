@@ -1,6 +1,7 @@
 package com.arnaugarcia.assessoriatorrelles.web.rest;
 
 import com.arnaugarcia.assessoriatorrelles.domain.Property;
+import com.arnaugarcia.assessoriatorrelles.repository.LocationRepository;
 import com.arnaugarcia.assessoriatorrelles.repository.PropertyByCriteriaRepository;
 import com.arnaugarcia.assessoriatorrelles.repository.PropertyRepository;
 import com.arnaugarcia.assessoriatorrelles.repository.UserRepository;
@@ -46,6 +47,9 @@ public class PropertyResource {
     @Inject
     private UserRepository userRepository;
 
+    @Inject
+    private LocationRepository locationRepository;
+
     /**
      * POST  /properties : Create a new property.
      *
@@ -63,7 +67,7 @@ public class PropertyResource {
 
         property.setUser(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
 
-        //TODO: Generar referencia por DTO
+        property.setRef("REF-" + property.getLocation().getProvince().substring(0,1).toLowerCase() + property.getLocation().getTown().substring(0,1).toLowerCase() + property.getLocation().getRef().substring(4,6));
         Property result = propertyRepository.save(property);
         return ResponseEntity.created(new URI("/api/properties/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("property", result.getId().toString()))
