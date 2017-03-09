@@ -2171,7 +2171,9 @@ input[type="color"]:focus,
 	==================
 */
 video{
-    height: 860px;
+    height: 100%;
+    width: 100%;
+    max-height: 1200px;
 }
 
 
@@ -2192,6 +2194,7 @@ video{
     }
     video{
         height: 900px;
+        width: auto;
     }
 }
 
@@ -2206,4 +2209,7 @@ video{
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 
+    #home-title{
+        left: 870px;
+    }
 }

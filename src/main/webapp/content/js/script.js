@@ -144,7 +144,7 @@ $(document).ready(function(){
     /* carousel single */
     $('#slider-property').carousel({
         interval: 6500
-    })
+    });
 
 
     /* map property */
