@@ -27,8 +27,8 @@
         vm.orderCriteria.criteria = 'price';
         vm.orderCriteria.rev = true;
 
-        vm.changeOrder = function () {
-
+        vm.changeOrder = function (criteria) {
+            vm.orderCriteria.criteria = criteria;
             if(vm.orderCriteria.rev ===true){
                 vm.orderCriteria.rev = false;
             }else if(vm.orderCriteria.rev ===false){
@@ -52,6 +52,7 @@
         loadAll();
 
         vm.searchByFilters = function () {
+
             Property.byFilters({
                 // es igual a..
                 //?location=Barcelona
@@ -79,20 +80,20 @@
             }
 
             function onSuccessByFilter(data,headers) {
-                vm.listByFilter = [];
-                for(var i = 0;i<data.length;i++){
-                    vm.listByFilter.push(data[i]);
-                }
+                vm.listByFilter = data;
+                // for(var i = 0;i<data.length;i++){
+                //     vm.listByFilter.push(data[i]);
+                // }
             }
 
         }
 
         function loadAll () {
-            Property.query({
-                page: pagingParams.page - 1,
-                size: vm.itemsPerPage,
-                sort: sort()
-            }, onSuccess, onError);
+            // Property.query({
+            //     page: pagingParams.page - 1,
+            //     size: vm.itemsPerPage,
+            //     sort: sort()
+            // }, onSuccess, onError);
 
             //console.log("aaaaa");
             // ?location=Barcelona&ac=true
@@ -128,9 +129,10 @@
             }
 
             function onSuccessByFilter(data,headers) {
-                for(var i = 0;i<data.length;i++){
-                    vm.listByFilter.push(data[i]);
-                }
+                vm.listByFilter = data;
+                // for(var i = 0;i<data.length;i++){
+                //     vm.listByFilter.push(data[i]);
+                // }
             }
 
         }
