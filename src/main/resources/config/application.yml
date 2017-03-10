@@ -70,7 +70,7 @@ jhipster:
     swagger:
         title: AssessoriaTorrelles API
         description: AssessoriaTorrelles API documentation
-        version: 0.0.1
+        version: 0.1.0
         termsOfServiceUrl:
         contactName:
         contactUrl:
