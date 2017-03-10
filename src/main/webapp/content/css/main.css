@@ -351,3 +351,35 @@ video#bgvid {
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
 }
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width:768px) and (max-width:992px) {
+
+    #home-title{
+        left: 0;
+        padding-top: 0;
+        border-left: none;
+        border-top: 1px #fff solid;
+        margin-top: 110px;
+        width: 100%;
+        top: 600px;
+    }
+    video{
+        height: 900px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width:992px) and (max-width:1200px) {
+
+    #home-title{
+        left: 550px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

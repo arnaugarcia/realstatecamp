@@ -523,11 +523,8 @@ input[type="color"]:focus,
 }
 
 #home-title{
-    position: absolute;
     background-color: transparent;
-    left: 700px;
     padding-top: 90px;
-    top: 140px;
     border-left: 1px #fff solid;
     height: 550px;
     padding-left: 50px;
@@ -2171,7 +2168,6 @@ input[type="color"]:focus,
 */
 video{
     height: 100%;
-    width: 100%;
     max-height: 1200px;
 }
 
@@ -2180,17 +2176,15 @@ video{
 /* No media query since this is the default in Bootstrap */
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width:768px) and (max-width:992px) {
+@media (max-width:992px) {
 
     #home-title{
-        left: 0;
-        padding-top: 0;
         border-left: none;
-        border-top: 1px #fff solid;
-        margin-top: 110px;
-        width: 100%;
-        top: 600px;
+        border-top: 1px solid white;
+        padding-top: 50px;
+        margin-top: 10px;
     }
+
     video{
         height: 900px;
         width: auto;
@@ -2200,15 +2194,9 @@ video{
 /* Medium devices (desktops, 992px and up) */
 @media (min-width:992px) and (max-width:1200px) {
 
-    #home-title{
-        left: 550px;
-    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 
-    #home-title{
-        left: 870px;
-    }
 }
