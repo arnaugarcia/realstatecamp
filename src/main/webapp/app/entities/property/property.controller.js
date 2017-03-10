@@ -20,9 +20,21 @@
         vm.listByFilter = [];
         vm.filterCritera = {};
         // vm.filterCritera.location = 'Barcelona';
-
         vm.isAuthenticated = null;
         vm.account = null;
+
+        vm.orderCriteria = {};
+        vm.orderCriteria.criteria = 'price';
+        vm.orderCriteria.rev = true;
+
+        vm.changeOrder = function () {
+
+            if(vm.orderCriteria.rev ===true){
+                vm.orderCriteria.rev = false;
+            }else if(vm.orderCriteria.rev ===false){
+                vm.orderCriteria.rev = true;
+            }
+        };
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();

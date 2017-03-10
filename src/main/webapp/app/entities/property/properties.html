@@ -29,15 +29,16 @@
 
                         <div class="col-md-8 col-sm-8 col-xs-9">
                             <form class="form-inline" role="form">
-                                <span>Sort by : </span>
+                                <span>Sort by </span>
                                 <div class="form-group">
-                                    <label class="sr-only" for="sortby">Sort by : </label>
-                                    <select class="form-control">
-                                        <option>Most Recent</option>
-                                        <option>Price (Low &gt; High)</option>
-                                        <option>Price (High &gt; Low)</option>
-                                        <option>Most Popular (Low &gt; High)</option>
-                                    </select>
+                                    <label class="sr-only" for="sortby">Sort by price: </label>
+                                    <!--{{vm.orderCriteria.rev}}-->
+                                    <!--<select class="form-control" ng-model="vm.orderCriteria.rev">-->
+
+                                        <!--<option value="false">Price (Low &gt; High)</option>-->
+                                        <!--<option value="true">Price (High &gt; Low)</option>-->
+                                    <!--</select>-->
+                                    <button type="button" class="btn btn-success" ng-click="vm.changeOrder()">Price <span class="glyphicon glyphicon-euro"></span></button>
                                 </div>
                                 <span>Show : </span>
                                 <div class="form-group">
@@ -58,7 +59,7 @@
                     <!-- end:sorting -->
 
                     <div class="row container-realestate">
-                        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="property in vm.listByFilter track by property.id">
+                        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="property in vm.listByFilter | orderBy:orderCriteria.criteria:vm.orderCriteria.rev track by property.id">
                             <div class="property-container">
                                 <div class="property-image">
                                     <img src="content/img/img02.jpg" ui-sref="property-detail({id:property.id})" alt="mikha real estate theme">
