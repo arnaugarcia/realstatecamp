@@ -24,7 +24,7 @@
                         <div class="col-md-4 col-sm-4 col-xs-3">
                             <a href="search.html" class="btn btn-success"><i class="fa fa-th"></i></a>
                             <a href="search_list.html" class="btn btn-default"><i class="fa fa-list"></i></a>
-                            <span>Show <strong>6</strong> of <strong>30</strong> result.</span>
+                            <span>Show <strong>6</strong> of <strong>{{vm.listByFilter.length}}</strong> result.</span>
                         </div>
 
                         <div class="col-md-8 col-sm-8 col-xs-9">
@@ -38,7 +38,8 @@
                                         <!--<option value="false">Price (Low &gt; High)</option>-->
                                         <!--<option value="true">Price (High &gt; Low)</option>-->
                                     <!--</select>-->
-                                    <button type="button" class="btn btn-success" ng-click="vm.changeOrder()">Price <span class="glyphicon glyphicon-euro"></span></button>
+                                    <button type="button" class="btn btn-success" ng-click="vm.changeOrder('price')">Price <span class="glyphicon glyphicon-euro"></span></button>
+                                    <button type="button" class="btn btn-success" ng-click="vm.changeOrder('m2')">Size <span><i class="fa fa-home"></i></span></button>
                                 </div>
                                 <span>Show : </span>
                                 <div class="form-group">
@@ -59,7 +60,8 @@
                     <!-- end:sorting -->
 
                     <div class="row container-realestate">
-                        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="property in vm.listByFilter | orderBy:orderCriteria.criteria:vm.orderCriteria.rev track by property.id">
+                        <!--{{vm.listByFilter}}-->
+                        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="property in vm.listByFilter | orderBy:vm.orderCriteria.criteria:vm.orderCriteria.rev track by property.id">
                             <div class="property-container">
                                 <div class="property-image">
                                     <img src="content/img/img02.jpg" ui-sref="property-detail({id:property.id})" alt="mikha real estate theme">

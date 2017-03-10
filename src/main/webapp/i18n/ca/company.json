@@ -5,7 +5,8 @@
                 "title": "Companies",
                 "createLabel": "Create a new Company",
                 "createOrEditLabel": "Create or edit a Company",
-                "search": "Search for Company"
+                "search": "Search for Company",
+                "note": "Nota: recorda que la informació de l'empresa ha d'estar a la primera (id=1)."
             },
             "created": "A new Company is created with identifier {{ param }}",
             "updated": "A Company is updated with identifier {{ param }}",

@@ -173,7 +173,7 @@ public class PropertyByCriteriaRepository {
 
     private void filterByLocation(Map<String,Object> parameters, Criteria locationCriteria){
         String location = (String) parameters.get("location");
-        locationCriteria.add(Restrictions.ilike("town",location, MatchMode.EXACT));
+        locationCriteria.add(Restrictions.ilike("town",location, MatchMode.ANYWHERE));
     }
 
     private void filterByContains(Map<String,Object> parameters, Criteria propertyCriteria,String key) {
