@@ -293,10 +293,14 @@ public class PropertyResource {
 
                 null,HeaderUtil.createAlert("No match for the criteria entered!","property"),HttpStatus.NOT_FOUND);
         } else {
-
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.add("X-Total-Count",String.valueOf(result.size()));
             return new ResponseEntity<>(
                 result,
-                HttpStatus.OK);
+                httpHeaders,
+                HttpStatus.OK
+
+            );
         }
     }
 
