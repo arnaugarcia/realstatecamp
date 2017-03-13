@@ -1,7 +1,8 @@
 {
     "home": {
-        "title": "Benvingut, a Assessoria Torrelles!",
-        "subtitle": "Aquesta és la pàgina principal",
+        "title": "Benvingut!",
+        "subtitle": "Visita gratis les nostres propietats",
+        "button": "Veure propietats",
         "reminder": "Abans de programar has de fer un pull!",
         "logged": {
             "message": "S'ha connectat amb l'usuari \"{{username}}\"."
@@ -15,6 +16,17 @@
             "follow": "Contacte @java_hipster a Twitter"
         },
         "like": "Si li agrada JHipster, no oblidi donar-nos una estrella",
-        "github": "GitHub"
+        "github": "GitHub",
+        "form": {
+            "country": "País",
+            "location": "Ubicació",
+            "bedroom": "Dormitori",
+            "bathroom": "Bany",
+            "status": "Estat",
+            "type": "Tipus",
+            "minprice": "Preu Mínim",
+            "maxprice": "Preu Màxim",
+            "button": "Cerca"
+        }
     }
 }

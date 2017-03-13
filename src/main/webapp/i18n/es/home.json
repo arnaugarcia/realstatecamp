@@ -1,7 +1,8 @@
 {
     "home": {
-        "title": "¡Bienvenido a Assessoria Torrelles!",
-        "subtitle": "Esta es su página de inicio",
+        "title": "¡Bienvenido!",
+        "subtitle": "Visita gratis nuestras propiedades",
+        "button": "Ver propiedades",
         "reminder": "Antes de programar tienes que hacer un pull",
         "logged": {
             "message": "Está conectado como \"{{username}}\"."
@@ -15,6 +16,17 @@
             "follow": "contacto @java_hipster en Twitter"
         },
         "like": "Si te gusta JHipster, danos una estrella en",
-        "github": "GitHub"
+        "github": "GitHub",
+        "form": {
+            "country": "País",
+            "location": "Ubicación",
+            "bedroom": "Dormitorio",
+            "bathroom": "Baño",
+            "status": "Estado",
+            "type": "Tipo",
+            "minprice": "Precio Mínimo",
+            "maxprice": "Precio Máximo",
+            "button": "Buscar"
+        }
     }
 }

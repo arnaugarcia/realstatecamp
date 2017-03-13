@@ -8,7 +8,7 @@
                         <form role="form">
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group">
-                                    <label for="country">Country</label>
+                                    <label data-translate="home.form.country" for="country">Country</label>
                                     <select class="form-control">
                                         <option>Australia</option>
                                         <option>Indonesia</option>
@@ -18,7 +18,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="bedroom">Bedroom</label>
+                                    <label data-translate="home.form.bedroom" for="bedroom">Bedroom</label>
                                     <select class="form-control">
                                         <option>1</option>
                                         <option>2</option>
@@ -30,7 +30,7 @@
                             <!-- break -->
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group">
-                                    <label for="location">Location</label>
+                                    <label data-translate="home.form.location" for="location">Location</label>
                                     <select class="form-control">
                                         <option>Tasmania</option>
                                         <option>Yogyakarta</option>
@@ -40,7 +40,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="bathroom">Bathroom</label>
+                                    <label data-translate="home.form.bathroom" for="bathroom">Bathroom</label>
                                     <select class="form-control">
                                         <option>1</option>
                                         <option>2</option>
@@ -52,14 +52,14 @@
                             <!-- break -->
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group">
-                                    <label for="status">Status</label>
+                                    <label data-translate="home.form.status" for="status">Status</label>
                                     <select class="form-control">
                                         <option>For Sale</option>
                                         <option>For Rent</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="minprice">Min Price</label>
+                                    <label data-translate="home.form.minprice" for="minprice">Min Price</label>
                                     <select class="form-control">
                                         <option>$4,200</option>
                                         <option>$6,700</option>
@@ -71,7 +71,7 @@
                             <!-- break -->
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group">
-                                    <label for="type">Type</label>
+                                    <label data-translate="home.form.type" for="type">Type</label>
                                     <select class="form-control">
                                         <option>Villa</option>
                                         <option>Recident</option>
@@ -79,7 +79,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="maxprice">Max Price</label>
+                                    <label data-translate="home.form.maxprice" for="maxprice">Max Price</label>
                                     <select class="form-control">
                                         <option>$8,200</option>
                                         <option>$11,700</option>
@@ -88,18 +88,17 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-12 col-sm-12"><input type="submit" name="submit" value="Search" class="btn btn-success btn-lg btn-block"></div>
-
+                            <div class="col-md-12 col-sm-12"><input type="submit" name="submit" value="{{ 'home.form.button' | translate }}" class="btn btn-success btn-lg btn-block"></div>
                         </form>
                     </div>
                 </div>
             </div>
             <div id="home-title" class="col-md-6">
                 <div class="row">
-                    <h1 class="home-title-h1 col-md-12">Lorem Ipsum</h1>
-                    <h2 class="home-title-h2 col-md-12">Visita gratis nuestras propiedades</h2>
+                    <h1 data-translate="home.title" class="home-title-h1 col-md-12"></h1>
+                    <h2 data-translate="home.subtitle"class="home-title-h2 col-md-12"></h2>
                     <div class="col-md-5 col-sm-5">
-                        <a ui-sref="property" class="btn btn-success btn-lg btn-block">Ver Propiedades</a>
+                        <a ui-sref="property" data-translate="home.button" class="btn btn-success btn-lg btn-block"></a>
                     </div>
                 </div>
             </div>
