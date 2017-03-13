@@ -57,6 +57,7 @@
                 // es igual a..
                 //?location=Barcelona
                 //parametro:valor
+
                 location: vm.filterCritera.location,
                 furnished: vm.filterCritera.furnished,
                 pool: vm.filterCritera.pool,
@@ -80,20 +81,21 @@
             }
 
             function onSuccessByFilter(data,headers) {
+                // vm.links = ParseLinks.parse(headers('link'));
+                vm.totalItems = headers('X-Total-Count');
+                vm.queryCount = vm.totalItems;
                 vm.listByFilter = data;
-                // for(var i = 0;i<data.length;i++){
-                //     vm.listByFilter.push(data[i]);
-                // }
+                vm.page = pagingParams.page;
             }
 
         }
 
         function loadAll () {
-            // Property.query({
-            //     page: pagingParams.page - 1,
-            //     size: vm.itemsPerPage,
-            //     sort: sort()
-            // }, onSuccess, onError);
+            Property.query({
+                page: pagingParams.page - 1,
+                size: vm.itemsPerPage,
+                sort: sort()
+            }, onSuccess, onError);
 
             //console.log("aaaaa");
             // ?location=Barcelona&ac=true
@@ -102,13 +104,13 @@
             //         $scope.spaces = result;
             //     });
 
-            Property.byFilters({
-                // es igual a..
-                //?location=Barcelona
-                //parametro:valor
-                location: vm.filterCritera.location
-
-            }, onSuccessByFilter, onError);
+            // Property.byFilters({
+            //     // es igual a..
+            //     //?location=Barcelona
+            //     //parametro:valor
+            //     location: vm.filterCritera.location
+            //
+            // }, onSuccessByFilter, onError);
 
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
@@ -121,7 +123,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.properties = data;
+                vm.listByFilter = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {
