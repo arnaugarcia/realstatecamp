@@ -14,11 +14,13 @@
             views: {
                 'navbar@': {
                     templateUrl: 'app/dashboard/layouts/navbar/dashboard.navbar.html',
+                    css: 'content/css/dashboard.css',
                     //controller: 'NavbarController',
                     //controllerAs: 'vm'
                 },
                 'footer@': {
                     templateUrl: 'app/dashboard/layouts/footer/dashboard.footer.html',
+                    css: '../content/css/dashboard.css',
                     //controller: 'FooterController',
                     //controllerAs: 'vm'
                 }
