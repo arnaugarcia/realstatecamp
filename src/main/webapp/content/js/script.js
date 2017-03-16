@@ -124,19 +124,19 @@ $(document).ready(function(){
     $("#map").gmap3({
         map: {
             options: {
-              center: [-7.866315,110.389574],
+              center: [41.3579495,1.9810097],
               zoom: 12,
               scrollwheel: false
             }
          },
         marker:{
-            latLng: [-7.866315,110.389574],
+            latLng: [41.3579495,1.9810097]/*,
             options: {
              icon: new google.maps.MarkerImage(
                "https://dl.dropboxusercontent.com/u/29545616/Preview/location.png",
                new google.maps.Size(48, 48, "px", "px")
              )
-            }
+            }*/
          }
     });
 
