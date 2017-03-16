@@ -127,5 +127,7 @@
         "emailexists": "E-mail is already in use!",
         "idexists": "A new {{entityName}} cannot already have an ID"
     },
-    "footer": "pie de página"
+    "footer": {
+        "copyright": "Copyright &copy; 2016 {{vm.companyInfo.name}}, Inc. Todos los derechos reservados."
+    }
 }

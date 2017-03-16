@@ -32,6 +32,8 @@
                 vm.companyInfo.phone = vm.companies[0].phone;
                 vm.companyInfo.email = vm.companies[0].email;
                 vm.companyInfo.cif = vm.companies[0].cif;
+                vm.companyInfo.location.town = vm.companies[0].location.town;
+                vm.companyInfo.location.road = vm.companies[0].location.typeOfRoad + " " + vm.companyInfo[0].location.nameRoad;
             });
         }
 
