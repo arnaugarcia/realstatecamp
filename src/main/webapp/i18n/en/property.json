@@ -16,6 +16,11 @@
             "detail": {
                 "title": "Property"
             },
+            "ServiceType":{
+                "RENT_AND_SALE":"Rent and Sale",
+                "RENT":"Rent",
+                "SALE":"Sale"
+            },
             "name": "Name",
             "price": "Price",
             "description": "Description",
