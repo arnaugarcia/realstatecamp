@@ -128,5 +128,7 @@
         "emailexists": "E-mail ja en ús!",
         "idexists": "Una nova {{entityName}} no pot ja tenir un ID"
     },
-    "footer": "Aquest és el teu peu de pàgina"
+    "footer": {
+        "copyright": "Copyright &copy; 2016 {{vm.companyInfo.name}}, Inc. Tots els drets reservats."
+    }
 }
