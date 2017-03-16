@@ -15,7 +15,15 @@
                 label: 'Home',
             },
             data: {
-                authorities: []
+
+                authorities: [],
+                css: [
+                    'content/css/style.css',
+                    {
+                        name: 'arillo',
+                        href: 'content/css/style.css'
+                    }
+                ]
             },
             views: {
                 'content@': {

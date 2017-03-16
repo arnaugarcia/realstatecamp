@@ -10,7 +10,16 @@
     function stateConfig($stateProvider) {
         $stateProvider.state('account', {
             abstract: true,
-            parent: 'app'
+            parent: 'app',
+            data: {
+                css: [
+                    'content/css/style.css',
+                    {
+                        name: 'arillo',
+                        href: 'content/css/style.css'
+                    }
+                ]
+            }
         });
     }
 })();

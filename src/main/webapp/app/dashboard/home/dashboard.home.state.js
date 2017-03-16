@@ -23,11 +23,6 @@
                     templateUrl: 'app/dashboard/home/dashboard.home.html',
                     controller: 'HomeController',
                     controllerAs: 'vm',
-                },
-                'navbar@': {
-                    templateUrl: 'app/dashboard/layouts/navbar/dashboard.navbar.html',
-                    //controller: 'NavbarController',
-                    //controllerAs: 'vm'
                 }
             },
             resolve: {
