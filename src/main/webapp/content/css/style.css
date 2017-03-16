@@ -438,7 +438,7 @@ input[type="color"]:focus,
     min-height: 450px;
     background-color: transparent;
     height: auto;
-    padding-top: 70px;
+    padding-top: 10%;
     padding-bottom: 60px;
     position: absolute;
 }
