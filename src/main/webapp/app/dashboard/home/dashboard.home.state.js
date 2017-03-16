@@ -8,25 +8,19 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('home', {
-            parent: 'app',
-            url: '/',
+
+        $stateProvider.state('dashboard-home', {
+            parent: 'dashboard',
+            url: '/dashboard',
             ncyBreadcrumb: {
-                label: 'Home',
+                label: 'Dashboard',
             },
             data: {
-                authorities: [],
-                css: [
-                    'content/css/style.css',
-                    {
-                        name: 'arillo',
-                        href: 'content/css/style.css'
-                    }
-                ]
+                authorities: ['ROLE_USER']
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/home/home.html',
+                    templateUrl: 'app/dashboard/home/dashboard.home.html',
                     controller: 'HomeController',
                     controllerAs: 'vm',
                 }
