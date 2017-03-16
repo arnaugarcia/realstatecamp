@@ -15,7 +15,6 @@
                 label: 'Home',
             },
             data: {
-
                 authorities: [],
                 css: [
                     'content/css/style.css',
