@@ -8,6 +8,7 @@
     ContactController.$inject = ['$scope', '$state', 'Contact', 'Company'];
 
     function ContactController ($scope, $state, Contact, Company) {
+
         var vm = this;
 
         vm.contacts = [];
@@ -17,7 +18,9 @@
             "name": "",
             "phone": "",
             "email": "",
-            "cif": ""
+            "cif": "",
+            "lat": "",
+            "long": ""
         };
 
         loadAll();
@@ -32,8 +35,22 @@
                 vm.companyInfo.phone = vm.companies[0].phone;
                 vm.companyInfo.email = vm.companies[0].email;
                 vm.companyInfo.cif = vm.companies[0].cif;
+                vm.companyInfo.lat = vm.companies[0].location.latitude;
+                vm.companyInfo.long = vm.companies[0].location.longitude;
+
+                $("#map").gmap3({
+                    map: {
+                        options: {
+                            center: [vm.companyInfo.lat,vm.companyInfo.long],
+                            zoom: 15,
+                            scrollwheel: false
+                        }
+                    },
+                    marker:{
+                        latLng: [vm.companyInfo.lat,vm.companyInfo.long]
+                    }
+                });
             });
         }
-
     }
 })();

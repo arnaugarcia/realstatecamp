@@ -2202,3 +2202,15 @@ video#bgvid {
 @media (min-width: 1200px) {
 
 }
+
+/*
+	==================
+	[13. CONTACT]
+	==================
+*/
+
+/* MAP */
+#map {
+    border: 1px solid #6b6e80;
+    margin-bottom: 50px;
+}

@@ -120,26 +120,6 @@ $(document).ready(function(){
     $('[rel="tooltip"]').tooltip();
 
 
-    /* map contact */
-    $("#map").gmap3({
-        map: {
-            options: {
-              center: [41.3579495,1.9810097],
-              zoom: 12,
-              scrollwheel: false
-            }
-         },
-        marker:{
-            latLng: [41.3579495,1.9810097]/*,
-            options: {
-             icon: new google.maps.MarkerImage(
-               "https://dl.dropboxusercontent.com/u/29545616/Preview/location.png",
-               new google.maps.Size(48, 48, "px", "px")
-             )
-            }*/
-         }
-    });
-
 
     /* carousel single */
     $('#slider-property').carousel({
