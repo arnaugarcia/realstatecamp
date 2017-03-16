@@ -13,7 +13,6 @@
             parent: 'entity',
             url: '/contact',
             data: {
-                authorities: [],
                 pageTitle: 'assessoriaTorrellesApp.contact.home.title'
             },
             views: {

@@ -1,0 +1,46 @@
+{
+  "name": "angular-css",
+  "main": "./angular-css.js",
+  "version": "1.0.8",
+  "homepage": "http://castillo-io.github.io/angular-css",
+  "authors": [
+    "Alex Castillo <alex@castillo.io>"
+  ],
+  "description": "CSS on-demand for AngularJS",
+  "keywords": [
+    "angularjs",
+    "ng-route",
+    "ui-router",
+    "css"
+  ],
+  "dependencies": {
+    "angular": ">= 1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/castillo-io/angular-css"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "component.json",
+    "package.json",
+    "lib",
+    "config",
+    "demo",
+    "test",
+    "tests"
+  ],
+  "_release": "1.0.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.8",
+    "commit": "92c75a4c58a0e541d396aa392e652eacf93871f3"
+  },
+  "_source": "https://github.com/door3/angular-css.git",
+  "_target": "^1.0.8",
+  "_originalSource": "angular-css",
+  "_direct": true
+}

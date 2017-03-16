@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li ng-switch-when="true">
-                    <a ui-sref="dashboard" ng-click="vm.collapseNavbar()">
+                    <a ui-sref="dashboard-home" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-cog"></span>&nbsp;
                         <span class="hidden-sm" data-translate="global.menu.dashboard">Dashboard</span>
                     </a>
@@ -129,6 +129,13 @@
                         </li>
                         <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                     </ul>
+                </li>
+
+                <li ui-sref-active="active" ng-switch-when="false">
+                    <a ui-sref="contact" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                        <span data-translate="global.menu.entities.contact">Contact</span>
+                    </a>
                 </li>
 
                 <li ui-sref-active="active" uib-dropdown class="dropdown pointer" ng-controller="JhiLanguageController as languageVm">
