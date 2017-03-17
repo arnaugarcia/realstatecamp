@@ -2,7 +2,7 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a ui-serf="dashboard-home" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>T</span>
         <!-- logo for regular state and mobile devices -->
@@ -188,7 +188,7 @@
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
             <li ui-sref-active="active">
-                <a ui-sref="home" ng-click="vm.collapseNavbar()">
+                <a ui-sref="dashboard-home" ng-click="vm.collapseNavbar()">
                     <span class="glyphicon glyphicon-home"></span>
                     <span class="hidden-sm" data-translate="global.menu.home">Home</span>
                 </a>
@@ -211,7 +211,7 @@
                         </a>
                     </li>
                     <li ui-sref-active="active">
-                        <a ui-sref="property" ng-click="vm.collapseNavbar()">
+                        <a ui-sref="dashboard-property" ng-click="vm.collapseNavbar()">
                             <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                             <span data-translate="global.menu.entities.property">Property</span>
                         </a>
@@ -310,3 +310,4 @@
     </section>
     <!-- /.sidebar -->
 </aside>
+
