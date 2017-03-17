@@ -2,7 +2,7 @@
     "assessoriaTorrellesApp": {
         "property" : {
             "home": {
-                "title": "Properties",
+                "title": "Propietats",
                 "createLabel": "Create a new Property",
                 "createOrEditLabel": "Create or edit a Property",
                 "search": "Search for Property"
@@ -17,15 +17,30 @@
                 "title": "Property"
             },
             "ServiceType":{
-                "RENT_AND_SALE":"Lloguer y Venda",
+                "default":"Tipus de servei",
+                "RENT_AND_SALE":"Lloguer i Venda",
                 "RENT":"Lloguer",
                 "SALE":"Venda"
+            },
+            "sortBy":{
+                "default":"Ordenar per",
+                "price":"Preu",
+                "size":"Mida"
+            },
+            "BuildingType":{
+                "HOUSE":"Casa",
+                "FLAT":"Apartament",
+                "STUDIO":"Estudi"
+            },
+            "YesNo":{
+              "yes":"Sí",
+              "no":"No"
             },
             "name": "Name",
             "price": "Price",
             "description": "Description",
-            "buildingType": "Building Type",
-            "serviceType": "Service Type",
+            "buildingType": "Tipus de vivenda",
+            "serviceType": "Tipus de servei",
             "ref": "Ref",
             "visible": "Visible",
             "sold": "Sold",
@@ -33,12 +48,12 @@
             "m2": "M 2",
             "numberBedroom": "Number Bedroom",
             "elevator": "Elevator",
-            "furnished": "Furnished",
-            "pool": "Pool",
+            "furnished": "Moblat",
+            "pool": "Piscina",
             "garage": "Garage",
             "numberWc": "Number Wc",
             "ac": "Ac",
-            "location": "Location",
+            "location": "Localització",
             "user": "User",
             "photo": "Photo"
         }

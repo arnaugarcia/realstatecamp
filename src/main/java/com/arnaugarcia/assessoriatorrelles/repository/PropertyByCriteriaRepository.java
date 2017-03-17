@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -27,7 +28,7 @@ public class PropertyByCriteriaRepository {
         return entityManager.unwrap(Session.class);
     }
 
-    public List<Property> filteryPropertyByCriteria(Map<String,Object> parameters){
+    public List<Property> filteryPropertyByCriteria(Map<String,Object> parameters, Pageable pageable){
 
         Criteria propertyCriteria = currentSession().createCriteria(Property.class);
         propertyCriteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
@@ -122,7 +123,8 @@ public class PropertyByCriteriaRepository {
         if(parameters.get("serviceType")!=null){
             filterByServiceType(parameters,propertyCriteria,"serviceType");
         }
-
+        propertyCriteria.setFirstResult(pageable.getPageNumber()*pageable.getPageSize());
+        propertyCriteria.setMaxResults(pageable.getPageSize());
         List<Property> results = propertyCriteria.list();
 
         return results;

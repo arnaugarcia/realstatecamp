@@ -18,6 +18,22 @@
         vm.openFile = DataUtils.openFile;
         vm.byteSize = DataUtils.byteSize;
         vm.listByFilter = [];
+
+        //********** PROBLEM **********//
+
+        //Cuando se pagina, se recarga el controller, por lo que
+        //vm.filterCritera = {}; siempre estará vacío
+        //Si hago una busqueda con location Barcelona
+        //Al recargar el controller, la location estará vacía
+
+        //Ademas de esto, el vm.itemsPerPage es por defecto 20 ya que viene dado por aginationConstants.itemsPerPage
+        //Como model en el properties.html tenemos un select y option para seleccionar el tamaño de properties por pagina
+        //Pero este no se actualiza automaticamente, hay que hacer un ng-change y refrescar la busqueda con ese parametro
+        //Dentro del ng-change hacemos un vm.searchByFilters()
+        //Pero los parametros se pierden ya que se vuelve a cargar el controller... Ouroboros
+
+        //********** ****** **********//
+
         vm.filterCritera = {};
         // vm.filterCritera.location = 'Barcelona';
         vm.isAuthenticated = null;
@@ -49,7 +65,6 @@
             });
         }
 
-        loadAll();
 
         vm.searchByFilters = function () {
 
@@ -72,45 +87,12 @@
                 minSize: vm.filterCritera.minSize,
                 maxSize: vm.filterCritera.maxSize,
                 serviceType: vm.filterCritera.serviceType,
-                buildingType: vm.filterCritera.buildingType
-
-            }, onSuccessByFilter, onError);
-
-            function onError(error) {
-                AlertService.error(error.data.message);
-            }
-
-            function onSuccessByFilter(data,headers) {
-                // vm.links = ParseLinks.parse(headers('link'));
-                vm.totalItems = headers('X-Total-Count');
-                vm.queryCount = vm.totalItems;
-                vm.listByFilter = data;
-                vm.page = pagingParams.page;
-            }
-
-        }
-
-        function loadAll () {
-            Property.query({
+                buildingType: vm.filterCritera.buildingType,
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()
-            }, onSuccess, onError);
 
-            //console.log("aaaaa");
-            // ?location=Barcelona&ac=true
-            //
-            //     Space.byFilters({minprice: firstPrice, maxprice: lastPrice, numpers: numPers, services: servicesStr, address: address}, function (result) {
-            //         $scope.spaces = result;
-            //     });
-
-            // Property.byFilters({
-            //     // es igual a..
-            //     //?location=Barcelona
-            //     //parametro:valor
-            //     location: vm.filterCritera.location
-            //
-            // }, onSuccessByFilter, onError);
+            }, onSuccessByFilter, onError);
 
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
@@ -119,26 +101,67 @@
                 }
                 return result;
             }
-            function onSuccess(data, headers) {
+
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+
+            function onSuccessByFilter(data,headers) {
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
                 vm.listByFilter = data;
                 vm.page = pagingParams.page;
             }
-            function onError(error) {
-                AlertService.error(error.data.message);
-            }
-
-            function onSuccessByFilter(data,headers) {
-                vm.listByFilter = data;
-                // for(var i = 0;i<data.length;i++){
-                //     vm.listByFilter.push(data[i]);
-                // }
-            }
 
         }
 
+        loadAll();
+
+        function loadAll () {
+            // Property.query({
+            //     page: pagingParams.page - 1,
+            //     size: vm.itemsPerPage,
+            //     sort: sort()
+            // }, onSuccess, onError);
+            //
+            // //console.log("aaaaa");
+            // // ?location=Barcelona&ac=true
+            // //
+            // //     Space.byFilters({minprice: firstPrice, maxprice: lastPrice, numpers: numPers, services: servicesStr, address: address}, function (result) {
+            // //         $scope.spaces = result;
+            // //     });
+            //
+            // // Property.byFilters({
+            // //     // es igual a..
+            // //     //?location=Barcelona
+            // //     //parametro:valor
+            // //     location: vm.filterCritera.location
+            // //
+            // // }, onSuccessByFilter, onError);
+            //
+            // function sort() {
+            //     var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+            //     if (vm.predicate !== 'id') {
+            //         result.push('id');
+            //     }
+            //     return result;
+            // }
+            // function onSuccess(data, headers) {
+            //     vm.links = ParseLinks.parse(headers('link'));
+            //     vm.totalItems = headers('X-Total-Count');
+            //     vm.queryCount = vm.totalItems;
+            //     vm.listByFilter = data;
+            //     vm.page = pagingParams.page;
+            // }
+            // function onError(error) {
+            //     AlertService.error(error.data.message);
+            // }
+
+            vm.searchByFilters();
+
+
+        }
         function loadPage (page) {
             vm.page = page;
             vm.transition();

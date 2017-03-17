@@ -14,6 +14,7 @@ import com.codahale.metrics.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -154,6 +155,7 @@ public class PropertyResource {
     @Timed
     @Transactional
     public ResponseEntity<List<Property>> getPropertyByCriteria(
+        Pageable pageable,
         @RequestParam(value = "location", required = false) String location,
         @RequestParam(value = "minPrice", required = false) String minPrice,
         @RequestParam(value = "maxPrice", required = false) String maxPrice,
@@ -169,7 +171,7 @@ public class PropertyResource {
         @RequestParam(value = "numberBedroom", required = false) String numberBedroom,
         @RequestParam(value = "buildingType", required = false) BuildingType buildingType,
         @RequestParam(value = "serviceType", required = false) ServiceType serviceType
-        ) {
+        ) throws URISyntaxException {
         Map<String, Object> params = new HashMap<>();
 
         //params.put("locality", locality);
@@ -287,20 +289,24 @@ public class PropertyResource {
 
         }
 
-        List<Property> result = propertyByCriteriaRepository.filteryPropertyByCriteria(params);
+        List<Property> result = propertyByCriteriaRepository.filteryPropertyByCriteria(params,pageable);
         if (result.isEmpty()) {
             return new ResponseEntity<>(
 
                 null,HeaderUtil.createAlert("No match for the criteria entered!","property"),HttpStatus.NOT_FOUND);
         } else {
+            Page<Property> page = new PageImpl<Property>(result,pageable,propertyRepository.findAll().size());
             HttpHeaders httpHeaders = new HttpHeaders();
-            httpHeaders.add("X-Total-Count",String.valueOf(result.size()));
-            return new ResponseEntity<>(
-                result,
-                httpHeaders,
-                HttpStatus.OK
+            //httpHeaders.add("X-Total-Count",String.valueOf(result.size()));
+//            return new ResponseEntity<>(
+//                result,
+//                httpHeaders,
+//                HttpStatus.OK
+//
+//            );
 
-            );
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/property/byfilters");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }
     }
 

@@ -2,8 +2,8 @@
     "assessoriaTorrellesApp": {
         "property" : {
             "home": {
-                "title": "Properties",
-                "createLabel": "Crear nuevo Property",
+                "title": "Propiedades",
+                "createLabel": "Crear nueva Property",
                 "createOrEditLabel": "Crear o editar Property",
                 "search": "Search for Property"
             },
@@ -17,15 +17,30 @@
                 "title": "Property"
             },
             "ServiceType":{
+
                 "RENT_AND_SALE":"Alquiler y Venta",
                 "RENT":"Alquiler",
                 "SALE":"Venta"
             },
+            "sortBy":{
+                "default":"Ordernar por",
+                "price":"Precio",
+                "size":"Tamaño"
+            },
+            "BuildingType":{
+                "HOUSE":"Casa",
+                "FLAT":"Apartamento",
+                "STUDIO":"Estudio"
+            },
+            "YesNo":{
+                "yes":"Sí",
+                "no":"No"
+            },
             "name": "Name",
             "price": "Price",
             "description": "Description",
-            "buildingType": "Building Type",
-            "serviceType": "Service Type",
+            "buildingType": "Tipo de vivienda",
+            "serviceType": "Tipo de servicio",
             "ref": "Ref",
             "visible": "Visible",
             "sold": "Sold",
@@ -33,12 +48,12 @@
             "m2": "M 2",
             "numberBedroom": "Number Bedroom",
             "elevator": "Elevator",
-            "furnished": "Furnished",
-            "pool": "Pool",
+            "furnished": "Amueblado",
+            "pool": "Piscina",
             "garage": "Garage",
             "numberWc": "Number Wc",
             "ac": "Ac",
-            "location": "Location",
+            "location": "Localidad",
             "user": "User",
             "photo": "Photo"
         }

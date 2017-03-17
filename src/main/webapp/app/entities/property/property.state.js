@@ -61,6 +61,60 @@
                 }]
             }
         })
+
+            .state('property-list', {
+                parent: 'entity',
+                url: '/property?page&sort&search',
+                data: {
+                    authorities: [],
+                    pageTitle: 'assessoriaTorrellesApp.property.home.title'
+                },
+                ncyBreadcrumb: {
+                    label: 'Property'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/property/properties-list.html',
+                        controller: 'PropertyController',
+                        controllerAs: 'vm'
+                    },
+                    'header-search' : {
+                        templateUrl : 'app/layouts/header/header.search.html',
+                        controller: 'HeaderController',
+                        controllerAs: 'hcs'
+                    }
+                },
+                params: {
+                    page: {
+                        value: '1',
+                        squash: true
+                    },
+                    sort: {
+                        value: 'id,asc',
+                        squash: true
+                    },
+                    search: null
+                },
+                resolve: {
+                    pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                        return {
+                            page: PaginationUtil.parsePage($stateParams.page),
+                            sort: $stateParams.sort,
+                            predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                            ascending: PaginationUtil.parseAscending($stateParams.sort),
+                            search: $stateParams.search
+                        };
+                    }],
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('property');
+                        $translatePartialLoader.addPart('buildingType');
+                        $translatePartialLoader.addPart('serviceType');
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }]
+                }
+            })
+
         .state('property-detail', {
             parent: 'entity',
             url: '/property/{id}',

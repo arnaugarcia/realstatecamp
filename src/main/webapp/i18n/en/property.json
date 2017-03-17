@@ -17,15 +17,30 @@
                 "title": "Property"
             },
             "ServiceType":{
+
                 "RENT_AND_SALE":"Rent and Sale",
                 "RENT":"Rent",
                 "SALE":"Sale"
+            },
+            "sortBy":{
+                "default":"Sort by",
+                "price":"Price",
+                "size":"Size"
+            },
+            "BuildingType":{
+                "HOUSE":"House",
+                "FLAT":"Flat",
+                "STUDIO":"Studio"
+            },
+            "YesNo":{
+                "yes":"yes",
+                "no":"no"
             },
             "name": "Name",
             "price": "Price",
             "description": "Description",
             "buildingType": "Building Type",
-            "serviceType": "Service Type",
+            "serviceType": "Service type",
             "ref": "Ref",
             "visible": "Visible",
             "sold": "Sold",

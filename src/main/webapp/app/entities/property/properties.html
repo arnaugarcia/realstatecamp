@@ -2,18 +2,7 @@
 <div id="content" ng-switch="vm.isAuthenticated()">
     <div class="container">
         <div class="row">
-            <div class="container-fluid" ng-switch-when="true">
-                <div class="row">
-                    <div class="col-xs-4 no-padding-left">
-                        <button class="btn btn-success btn-block"  ui-sref="property.new" >
-                            <span class="glyphicon glyphicon-plus"></span>
-                            <span  data-translate="assessoriaTorrellesApp.property.home.createLabel">
-                                Create new Property
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="col-md-9 col-md-push-3">
                 <h2 data-translate="assessoriaTorrellesApp.property.home.title">Properties</h2>
@@ -22,32 +11,34 @@
                     <!-- begin:sorting -->
                     <div class="row sort">
                         <div class="col-md-4 col-sm-4 col-xs-3">
-                            <a href="search.html" class="btn btn-success"><i class="fa fa-th"></i></a>
-                            <a href="search_list.html" class="btn btn-default"><i class="fa fa-list"></i></a>
-                            <span>Show <strong>6</strong> of <strong>{{vm.listByFilter.length}}</strong> result.</span>
+                            <a href="search.html" class="btn btn-success" ui-sref="property"><i class="fa fa-th"></i></a>
+                            <a href="search_list.html" class="btn btn-default" ui-sref="property-list"><i class="fa fa-list"></i></a>
+                            <!--<span>Show <strong>6</strong> of <strong>{{vm.listByFilter.length}}</strong> result.</span>-->
                         </div>
 
                         <div class="col-md-8 col-sm-8 col-xs-9">
                             <form class="form-inline" role="form">
-                                <span>Sort by </span>
+                                <span data-translate="assessoriaTorrellesApp.property.sortBy.default">Sort by </span>
                                 <div class="form-group">
-                                    <label class="sr-only" for="sortby">Sort by price: </label>
+                                    <!--<label class="sr-only" for="sortby">Sort by price: </label>-->
                                     <!--{{vm.orderCriteria.rev}}-->
                                     <!--<select class="form-control" ng-model="vm.orderCriteria.rev">-->
 
                                         <!--<option value="false">Price (Low &gt; High)</option>-->
                                         <!--<option value="true">Price (High &gt; Low)</option>-->
                                     <!--</select>-->
-                                    <button type="button" class="btn btn-success" ng-click="vm.changeOrder('price')">Price <span class="glyphicon glyphicon-euro"></span></button>
-                                    <button type="button" class="btn btn-success" ng-click="vm.changeOrder('m2')">Size <span><i class="fa fa-home"></i></span></button>
+                                    <button type="button" class="btn btn-success" ng-click="vm.changeOrder('price')" data-translate="assessoriaTorrellesApp.property.sortBy.price">Price <span class="glyphicon glyphicon-euro"></span></button>
+                                    <button type="button" class="btn btn-success" ng-click="vm.changeOrder('m2')" data-translate="assessoriaTorrellesApp.property.sortBy.size">Size <span><i class="fa fa-home"></i></span></button>
                                 </div>
                                 <span>Show : </span>
                                 <div class="form-group">
                                     <label class="sr-only" for="show">Show : </label>
-                                    <select class="form-control">
-                                        <option>6</option>
+                                    <select class="form-control" ng-model="vm.itemsPerPage" ng-change="vm.searchByFilters()">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>5</option>
                                         <option>10</option>
-                                        <option>15</option>
                                         <option>20</option>
                                         <option>25</option>
                                         <option>50</option>
@@ -63,6 +54,18 @@
                                 <input type="text" class="form-control" ng-model="vm.quickSearch" placeholder="Quick Search...">
                             </div>
                         </div>
+                <div class="container-fluid" ng-switch-when="true">
+                    <div class="row sort">
+                        <div class="col-lg-12">
+                            <button class="btn btn-success btn-block"  ui-sref="dashboard-property" >
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <span  data-translate="assessoriaTorrellesApp.property.home.createLabel">
+                                Create new Property
+                            </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                     <!-- end:sorting -->
 
                     <div class="row container-realestate">
