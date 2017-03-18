@@ -44,6 +44,18 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="control-label" data-translate="assessoriaTorrellesApp.location.cp" for="field_cp">cp</label>
+            <input type="text" class="form-control" name="cp" id="field_cp"
+                   ng-model="vm.location.cp"
+                   required />
+            <div ng-show="editForm.cp.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.cp.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="control-label" data-translate="assessoriaTorrellesApp.location.typeOfRoad" for="field_typeOfRoad">Type Of Road</label>
             <select class="form-control" name="typeOfRoad" ng-model="vm.location.typeOfRoad" id="field_typeOfRoad" required>
                 <option value="STREET" data-translate="assessoriaTorrellesApp.RoadType.STREET">STREET</option>

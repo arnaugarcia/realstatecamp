@@ -19,6 +19,7 @@
             "ref": "Ref",
             "province": "Province",
             "town": "Town",
+            "cp": "Código postal",
             "typeOfRoad": "Type Of Road",
             "nameRoad": "Name Road",
             "number": "Number",

@@ -17,7 +17,7 @@ entity Property{
     ref String required,
     visible Boolean,
   	sold Boolean,
-    
+
     //Facilities
     terrace Boolean,
   	m2 Integer,
@@ -34,6 +34,7 @@ entity Location{
 	ref String,
 	province String required,
     town String required,
+    cp required String,
     typeOfRoad RoadType required,
     nameRoad String required,
     number Integer required,
@@ -43,7 +44,7 @@ entity Location{
     stair String,
     urlgmaps String,
     latitude Double,
-    longitude Double,   
+    longitude Double,
 }
 
 entity Photo{

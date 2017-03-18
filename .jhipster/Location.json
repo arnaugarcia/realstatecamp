@@ -84,11 +84,18 @@
         {
             "fieldName": "longitude",
             "fieldType": "Double"
+        },
+        {
+            "fieldName": "cp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
     "changelogDate": "20170210193421",
-    "entityTableName": "location",
     "dto": "no",
-    "pagination": "pagination",
-    "service": "no"
+    "service": "no",
+    "entityTableName": "location",
+    "pagination": "pagination"
 }

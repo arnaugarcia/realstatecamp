@@ -1,13 +1,12 @@
 package com.arnaugarcia.assessoriatorrelles.domain;
 
+import com.arnaugarcia.assessoriatorrelles.domain.enumeration.RoadType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
-
-import com.arnaugarcia.assessoriatorrelles.domain.enumeration.RoadType;
 
 /**
  * A Location.
@@ -66,6 +65,10 @@ public class Location implements Serializable {
 
     @Column(name = "longitude")
     private Double longitude;
+
+    @NotNull
+    @Column(name = "cp", nullable = false)
+    private String cp;
 
     @OneToOne(mappedBy = "location")
     @JsonIgnore
@@ -252,6 +255,19 @@ public class Location implements Serializable {
         this.longitude = longitude;
     }
 
+    public String getCp() {
+        return cp;
+    }
+
+    public Location cp(String cp) {
+        this.cp = cp;
+        return this;
+    }
+
+    public void setCp(String cp) {
+        this.cp = cp;
+    }
+
     public Company getCompany() {
         return company;
     }
@@ -315,6 +331,7 @@ public class Location implements Serializable {
             ", urlgmaps='" + urlgmaps + "'" +
             ", latitude='" + latitude + "'" +
             ", longitude='" + longitude + "'" +
+            ", cp='" + cp + "'" +
             '}';
     }
 }

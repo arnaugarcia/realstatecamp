@@ -78,6 +78,9 @@ public class LocationResourceIntTest {
     private static final Double DEFAULT_LONGITUDE = 1D;
     private static final Double UPDATED_LONGITUDE = 2D;
 
+    private static final String DEFAULT_CP = "AAAAA";
+    private static final String UPDATED_CP = "BBBBB";
+
     @Inject
     private LocationRepository locationRepository;
 
@@ -124,7 +127,8 @@ public class LocationResourceIntTest {
                 .stair(DEFAULT_STAIR)
                 .urlgmaps(DEFAULT_URLGMAPS)
                 .latitude(DEFAULT_LATITUDE)
-                .longitude(DEFAULT_LONGITUDE);
+                .longitude(DEFAULT_LONGITUDE)
+                .cp(DEFAULT_CP);
         return location;
     }
 
@@ -162,6 +166,7 @@ public class LocationResourceIntTest {
         assertThat(testLocation.getUrlgmaps()).isEqualTo(DEFAULT_URLGMAPS);
         assertThat(testLocation.getLatitude()).isEqualTo(DEFAULT_LATITUDE);
         assertThat(testLocation.getLongitude()).isEqualTo(DEFAULT_LONGITUDE);
+        assertThat(testLocation.getCp()).isEqualTo(DEFAULT_CP);
     }
 
     @Test
@@ -256,6 +261,24 @@ public class LocationResourceIntTest {
 
     @Test
     @Transactional
+    public void checkCpIsRequired() throws Exception {
+        int databaseSizeBeforeTest = locationRepository.findAll().size();
+        // set the field null
+        location.setCp(null);
+
+        // Create the Location, which fails.
+
+        restLocationMockMvc.perform(post("/api/locations")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(location)))
+                .andExpect(status().isBadRequest());
+
+        List<Location> locations = locationRepository.findAll();
+        assertThat(locations).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllLocations() throws Exception {
         // Initialize the database
         locationRepository.saveAndFlush(location);
@@ -277,7 +300,8 @@ public class LocationResourceIntTest {
                 .andExpect(jsonPath("$.[*].stair").value(hasItem(DEFAULT_STAIR.toString())))
                 .andExpect(jsonPath("$.[*].urlgmaps").value(hasItem(DEFAULT_URLGMAPS.toString())))
                 .andExpect(jsonPath("$.[*].latitude").value(hasItem(DEFAULT_LATITUDE.doubleValue())))
-                .andExpect(jsonPath("$.[*].longitude").value(hasItem(DEFAULT_LONGITUDE.doubleValue())));
+                .andExpect(jsonPath("$.[*].longitude").value(hasItem(DEFAULT_LONGITUDE.doubleValue())))
+                .andExpect(jsonPath("$.[*].cp").value(hasItem(DEFAULT_CP.toString())));
     }
 
     @Test
@@ -303,7 +327,8 @@ public class LocationResourceIntTest {
             .andExpect(jsonPath("$.stair").value(DEFAULT_STAIR.toString()))
             .andExpect(jsonPath("$.urlgmaps").value(DEFAULT_URLGMAPS.toString()))
             .andExpect(jsonPath("$.latitude").value(DEFAULT_LATITUDE.doubleValue()))
-            .andExpect(jsonPath("$.longitude").value(DEFAULT_LONGITUDE.doubleValue()));
+            .andExpect(jsonPath("$.longitude").value(DEFAULT_LONGITUDE.doubleValue()))
+            .andExpect(jsonPath("$.cp").value(DEFAULT_CP.toString()));
     }
 
     @Test
@@ -336,7 +361,8 @@ public class LocationResourceIntTest {
                 .stair(UPDATED_STAIR)
                 .urlgmaps(UPDATED_URLGMAPS)
                 .latitude(UPDATED_LATITUDE)
-                .longitude(UPDATED_LONGITUDE);
+                .longitude(UPDATED_LONGITUDE)
+                .cp(UPDATED_CP);
 
         restLocationMockMvc.perform(put("/api/locations")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -360,6 +386,7 @@ public class LocationResourceIntTest {
         assertThat(testLocation.getUrlgmaps()).isEqualTo(UPDATED_URLGMAPS);
         assertThat(testLocation.getLatitude()).isEqualTo(UPDATED_LATITUDE);
         assertThat(testLocation.getLongitude()).isEqualTo(UPDATED_LONGITUDE);
+        assertThat(testLocation.getCp()).isEqualTo(UPDATED_CP);
     }
 
     @Test
