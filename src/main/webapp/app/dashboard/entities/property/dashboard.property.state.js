@@ -29,6 +29,11 @@
                     {
                         name: 'dashboard-skin',
                         href: 'content/css/skin-green.min.css'
+                    },
+                    'content/plugins/iCheck/all.css',
+                    {
+                        name: 'iCheck',
+                        href: 'content/plugins/iCheck/all.css'
                     }
                 ],
                 pageTitle: 'assessoriaTorrellesApp.property.home.title'

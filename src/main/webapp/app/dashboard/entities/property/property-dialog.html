@@ -1,3 +1,5 @@
+<script src="content/js/script.js"></script>
+
 <div class="content-wrapper">
     <section class="content-header">
         <h1 id="myPropertyLabel" data-translate="assessoriaTorrellesApp.property.home.createOrEditLabel">Create or edit a Property
@@ -5,163 +7,367 @@
         </h1>
         <div ncy-breadcrumb></div>
     </section>
+    <jhi-alert-error></jhi-alert-error>
     <section class="content">
-        <div class="col-lg-6">
-            <div class="box box-success">
-                <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
-                    <div class="modal-body">
-                        <jhi-alert-error></jhi-alert-error>
+        <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+            <div class="col-lg-6">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Datos principales</h3>
+                    </div>
+                    <div class="box-body">
                         <div class="form-group" ng-show="vm.property.id">
                             <label for="id" data-translate="global.field.id">ID</label>
                             <input type="text" class="form-control" id="id" name="id"
-                                    ng-model="vm.property.id" readonly />
+                                   ng-model="vm.property.id" readonly/>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.name" for="field_name">Name</label>
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.name"
+                                   for="field_name">Name</label>
                             <input type="text" class="form-control" name="name" id="field_name"
-                                    ng-model="vm.property.name"
-                                    required />
+                                   ng-model="vm.property.name"
+                                   required/>
                             <div ng-show="editForm.name.$invalid">
                                 <p class="help-block"
-                                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
-                                    This field  is required.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.price" for="field_price">Price</label>
-                            <input type="number" class="form-control" name="price" id="field_price"
-                                    ng-model="vm.property.price"
-                                     />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.buildingType" for="field_buildingType">Building Type</label>
-                            <select class="form-control" name="buildingType" ng-model="vm.property.buildingType" id="field_buildingType">
-                                <option value="HOUSE" data-translate="assessoriaTorrellesApp.BuildingType.HOUSE">HOUSE</option>
-                                <option value="FLAT" data-translate="assessoriaTorrellesApp.BuildingType.FLAT">FLAT</option>
-                                <option value="STUDIO" data-translate="assessoriaTorrellesApp.BuildingType.STUDIO">STUDIO</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.serviceType" for="field_serviceType">Service Type</label>
-                            <select class="form-control" name="serviceType" ng-model="vm.property.serviceType" id="field_serviceType">
-                                <option value="RENT" data-translate="assessoriaTorrellesApp.ServiceType.RENT">RENT</option>
-                                <option value="SALE" data-translate="assessoriaTorrellesApp.ServiceType.SALE">SALE</option>
-                                <option value="RENT_AND_SALE" data-translate="assessoriaTorrellesApp.ServiceType.RENT_AND_SALE">RENT_AND_SALE</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.ref" for="field_ref">Ref</label>
-                            <input type="text" class="form-control" name="ref" id="field_ref"
-                                    ng-model="vm.property.ref"
-                                    required />
-                            <div ng-show="editForm.ref.$invalid">
-                                <p class="help-block"
-                                    ng-show="editForm.ref.$error.required" data-translate="entity.validation.required">
+                                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
                                     This field is required.
                                 </p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.visible" for="field_visible">Visible</label>
-                            <input type="checkbox" class="form-control" name="visible" id="field_visible"
-                                    ng-model="vm.property.visible"
-                                     />
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.price"
+                                   for="field_price">Price</label>
+                            <input type="number" class="form-control" name="price" id="field_price"
+                                   ng-model="vm.property.price"
+                            />
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.sold" for="field_sold">Sold</label>
-                            <input type="checkbox" class="form-control" name="sold" id="field_sold"
-                                    ng-model="vm.property.sold"
-                                     />
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.buildingType"
+                                   for="field_buildingType">Building Type</label>
+                            <select class="form-control" name="buildingType" ng-model="vm.property.buildingType"
+                                    id="field_buildingType">
+                                <option value="HOUSE" data-translate="assessoriaTorrellesApp.BuildingType.HOUSE">HOUSE
+                                </option>
+                                <option value="FLAT" data-translate="assessoriaTorrellesApp.BuildingType.FLAT">FLAT
+                                </option>
+                                <option value="STUDIO" data-translate="assessoriaTorrellesApp.BuildingType.STUDIO">
+                                    STUDIO
+                                </option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.terrace" for="field_terrace">Terrace</label>
-                            <input type="checkbox" class="form-control" name="terrace" id="field_terrace"
-                                    ng-model="vm.property.terrace"
-                                     />
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.serviceType"
+                                   for="field_serviceType">Service Type</label>
+                            <select class="form-control" name="serviceType" ng-model="vm.property.serviceType"
+                                    id="field_serviceType">
+                                <option value="RENT" data-translate="assessoriaTorrellesApp.ServiceType.RENT">RENT
+                                </option>
+                                <option value="SALE" data-translate="assessoriaTorrellesApp.ServiceType.SALE">SALE
+                                </option>
+                                <option value="RENT_AND_SALE"
+                                        data-translate="assessoriaTorrellesApp.ServiceType.RENT_AND_SALE">RENT_AND_SALE
+                                </option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.m2" for="field_m2">M 2</label>
-                            <input type="number" class="form-control" name="m2" id="field_m2"
-                                    ng-model="vm.property.m2"
-                                     />
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.ref"
+                                   for="field_ref">Ref</label>
+                            <input type="text" class="form-control" name="ref" id="field_ref_prop"
+                                   ng-model="vm.property.ref"
+                                   required/>
+                            <div ng-show="editForm.ref.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.ref.$error.required" data-translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.numberBedroom" for="field_numberBedroom">Number Bedroom</label>
-                            <input type="number" class="form-control" name="numberBedroom" id="field_numberBedroom"
-                                    ng-model="vm.property.numberBedroom"
-                                     />
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.visible"
+                                   for="field_visible">Visible</label>
+                            <input type="checkbox" class="flat-red" name="visible" id="field_visible"
+                                   ng-model="vm.property.visible"
+                            />
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.elevator" for="field_elevator">Elevator</label>
-                            <input type="checkbox" class="form-control" name="elevator" id="field_elevator"
-                                    ng-model="vm.property.elevator"
-                                     />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.furnished" for="field_furnished">Furnished</label>
-                            <input type="checkbox" class="form-control" name="furnished" id="field_furnished"
-                                    ng-model="vm.property.furnished"
-                                     />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.pool" for="field_pool">Pool</label>
-                            <input type="checkbox" class="form-control" name="pool" id="field_pool"
-                                    ng-model="vm.property.pool"
-                                     />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.garage" for="field_garage">Garage</label>
-                            <input type="checkbox" class="form-control" name="garage" id="field_garage"
-                                    ng-model="vm.property.garage"
-                                     />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.numberWc" for="field_numberWc">Number Wc</label>
-                            <input type="number" class="form-control" name="numberWc" id="field_numberWc"
-                                    ng-model="vm.property.numberWc"
-                                     />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.ac" for="field_ac">Ac</label>
-                            <input type="checkbox" class="form-control" name="ac" id="field_ac"
-                                    ng-model="vm.property.ac"
-                                     />
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.sold"
+                                   for="field_sold">Sold</label>
+                            <input type="checkbox" class="flat-red" name="sold" id="field_sold"
+                                   ng-model="vm.property.sold"
+                            />
                         </div>
 
                         <div class="form-group">
                             <label data-translate="assessoriaTorrellesApp.property.location" for="field_location">Location</label>
-                            <select class="form-control" id="field_location" name="location" ng-model="vm.property.location" ng-options="location as location.ref for location in vm.locations | orderBy:'id' track by location.id">
+                            <select class="form-control" id="field_location" name="location"
+                                    ng-model="vm.property.location"
+                                    ng-options="location as location.ref for location in vm.locations | orderBy:'id' track by location.id">
                                 <option value=""></option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.description" for="field_description">Description</label>
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.description"
+                                   for="field_description">Description</label>
                             <textarea class="form-control textarea" name="description" id="field_description"
-                                      ng-model="vm.property.description" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" ></textarea>
+                                      ng-model="vm.property.description" placeholder="Place some text here"
+                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+                            data-translate="entity.action.cancel">Cancel</span>
                         </button>
                         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span
+                            data-translate="entity.action.save">Save</span>
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="box box-success">
-                <h1>Holaa</h1>
+            <div class="col-lg-6">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Facilidades</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.terrace"
+                                       for="field_terrace">Terrace</label>
+                                <input type="checkbox" class="flat-red" name="terrace" id="field_terrace"
+                                       ng-model="vm.property.terrace"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.furnished"
+                                       for="field_furnished">Furnished</label>
+                                <input type="checkbox" class="flat-red" name="furnished" id="field_furnished"
+                                       ng-model="vm.property.furnished"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.ac"
+                                       for="field_ac">Ac</label>
+                                <input type="checkbox" class="flat-red" name="ac" id="field_ac"
+                                       ng-model="vm.property.ac"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.elevator"
+                                       for="field_elevator">Elevator</label>
+                                <input type="checkbox" class="flat-red" name="elevator" id="field_elevator"
+                                       ng-model="vm.property.elevator"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.pool"
+                                       for="field_pool">Pool</label>
+                                <input type="checkbox" class="flat-red" name="pool" id="field_pool"
+                                       ng-model="vm.property.pool"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.garage"
+                                       for="field_garage">Garage</label>
+                                <input type="checkbox" class="flat-red" name="garage" id="field_garage"
+                                       ng-model="vm.property.garage"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="assessoriaTorrellesApp.property.m2"
+                                           for="field_m2">M 2</label>
+                                    <input type="number" class="form-control" name="m2" id="field_m2"
+                                           ng-model="vm.property.m2"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="assessoriaTorrellesApp.property.numberBedroom"
+                                           for="field_numberBedroom">Number Bedroom</label>
+                                    <input type="number" class="form-control" name="numberBedroom" id="field_numberBedroom"
+                                           ng-model="vm.property.numberBedroom"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="assessoriaTorrellesApp.property.numberWc"
+                                           for="field_numberWc">Number Wc</label>
+                                    <input type="number" class="form-control" name="numberWc" id="field_numberWc"
+                                           ng-model="vm.property.numberWc"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="col-lg-6">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Localización</h3>
+                    </div>
+                    <div class="box-body">
+
+                        <div id="map"></div>
+
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.ref" for="field_ref">Ref</label>
+                            <input type="text" class="form-control" name="ref" id="field_ref"
+                                   ng-model="vm.location.ref"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.province" for="field_province">Province</label>
+                            <input type="text" class="form-control" name="province" id="field_province"
+                                   ng-model="vm.location.province"
+                                   required />
+                            <div ng-show="editForm.province.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.province.$error.required" data-translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.town" for="field_town">Town</label>
+                            <input type="text" class="form-control" name="town" id="field_town"
+                                   ng-model="vm.location.town"
+                                   required />
+                            <div ng-show="editForm.town.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.town.$error.required" data-translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.cp" for="field_cp">cp</label>
+                            <input type="text" class="form-control" name="cp" id="field_cp"
+                                   ng-model="vm.location.cp"
+                                   required />
+                            <div ng-show="editForm.cp.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.cp.$error.required" data-translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.typeOfRoad" for="field_typeOfRoad">Type Of Road</label>
+                            <select class="form-control" name="typeOfRoad" ng-model="vm.location.typeOfRoad" id="field_typeOfRoad" required>
+                                <option value="STREET" data-translate="assessoriaTorrellesApp.RoadType.STREET">STREET</option>
+                                <option value="AVENUE" data-translate="assessoriaTorrellesApp.RoadType.AVENUE">AVENUE</option>
+                                <option value="PLACE" data-translate="assessoriaTorrellesApp.RoadType.PLACE">PLACE</option>
+                            </select>
+                            <div ng-show="editForm.typeOfRoad.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.typeOfRoad.$error.required" data-translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.nameRoad" for="field_nameRoad">Name Road</label>
+                            <input type="text" class="form-control" name="nameRoad" id="field_nameRoad"
+                                   ng-model="vm.location.nameRoad"
+                                   required />
+                            <div ng-show="editForm.nameRoad.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.nameRoad.$error.required" data-translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.number" for="field_number">Number</label>
+                            <input type="number" class="form-control" name="number" id="field_number"
+                                   ng-model="vm.location.number"
+                                   required />
+                            <div ng-show="editForm.number.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.number.$error.required" data-translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.number.$error.number" data-translate="entity.validation.number">
+                                    This field should be a number.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.apartment" for="field_apartment">Apartment</label>
+                            <input type="number" class="form-control" name="apartment" id="field_apartment"
+                                   ng-model="vm.location.apartment"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.building" for="field_building">Building</label>
+                            <input type="number" class="form-control" name="building" id="field_building"
+                                   ng-model="vm.location.building"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.door" for="field_door">Door</label>
+                            <input type="number" class="form-control" name="door" id="field_door"
+                                   ng-model="vm.location.door"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.stair" for="field_stair">Stair</label>
+                            <input type="text" class="form-control" name="stair" id="field_stair"
+                                   ng-model="vm.location.stair"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.urlgmaps" for="field_urlgmaps">Urlgmaps</label>
+                            <input type="text" class="form-control" name="urlgmaps" id="field_urlgmaps"
+                                   ng-model="vm.location.urlgmaps"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.latitude" for="field_latitude">Latitude</label>
+                            <input type="number" class="form-control" name="latitude" id="field_latitude"
+                                   ng-model="vm.location.latitude"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.longitude" for="field_longitude">Longitude</label>
+                            <input type="number" class="form-control" name="longitude" id="field_longitude"
+                                   ng-model="vm.location.longitude"
+                            />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
     </section>
 </div>
 <script>
     $(function () {
         //bootstrap WYSIHTML5 - text editor
         $(".textarea").wysihtml5();
+    });
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+        checkboxClass: 'icheckbox_flat-green',
+        radioClass: 'iradio_flat-green'
     });
 </script>

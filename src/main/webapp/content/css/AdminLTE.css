@@ -4940,3 +4940,19 @@ table.text-center th {
     white-space: normal !important;
   }
 }
+
+#map,
+#map-property{
+    background-color: #1b1d2a;
+    width: 100%;
+    height: 350px;
+}
+
+#map-property{
+    margin-bottom: 40px;
+}
+
+#map img,
+#map-property img{
+    max-width: none;
+}
