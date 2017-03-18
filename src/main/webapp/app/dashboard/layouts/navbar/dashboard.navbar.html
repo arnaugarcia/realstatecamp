@@ -193,6 +193,38 @@
                     <span class="hidden-sm" data-translate="global.menu.home">Home</span>
                 </a>
             </li>
+            <li ng-class="{active: vm.$state.includes('property')}" ng-switch-when="true" uib-dropdown class="tree-view pointer">
+                <a class="dropdown-toggle" uib-dropdown-toggle href="" id="property-menu">
+                    <span>
+                        <span class="glyphicon glyphicon-th-list"></span>
+                            <span class="hidden-sm" data-translate="">
+                                Imuebles
+                            </span>
+                        <b class="caret"></b>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard-property" ng-click="vm.collapseNavbar()">
+                            <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span data-translate="">Nuevo imueble</span>
+                        </a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard-property" ng-click="vm.collapseNavbar()">
+                            <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span data-translate="">Buscar imueble</span>
+                        </a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard-property" ng-click="vm.collapseNavbar()">
+                            <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span data-translate="">Imuebles publicados</span>
+                        </a>
+                    </li>
+                    <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                </ul>
+            </li>
             <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="tree-view pointer">
                 <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                     <span>
