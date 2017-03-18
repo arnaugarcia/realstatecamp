@@ -1,0 +1,26 @@
+{
+    "assessoriaTorrellesApp": {
+        "notification" : {
+            "home": {
+                "title": "Notifications",
+                "createLabel": "Create a new Notification",
+                "createOrEditLabel": "Create or edit a Notification",
+                "search": "Search for Notification"
+            },
+            "created": "A new Notification is created with identifier {{ param }}",
+            "updated": "A Notification is updated with identifier {{ param }}",
+            "deleted": "A Notification is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Notification {{ id }}?"
+            },
+            "detail": {
+                "title": "Notification"
+            },
+            "title": "Title",
+            "content": "Content",
+            "seen": "Seen",
+            "date": "Date",
+            "user": "User"
+        }
+    }
+}

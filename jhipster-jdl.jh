@@ -55,6 +55,13 @@ entity Photo{
 
 }
 
+entity Notification{
+	title String,
+    content TextBlob,
+    seen Boolean,
+    date ZonedDateTime
+}
+
 //ENUM
 enum RoadType{
 	STREET,
@@ -85,7 +92,8 @@ relationship OneToOne{
 //Many to One
 relationship ManyToOne{
 	Property{user(loggin)} to User,
-    Photo{property(name)} to Property{photo}
+    Photo{property(name)} to Property{photo},
+  	Notification{user(loggin)} to User
 }
 
 

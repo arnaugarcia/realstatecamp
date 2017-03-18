@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "loggin"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "seen",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20170318122042",
+    "entityTableName": "notification",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no"
+}
