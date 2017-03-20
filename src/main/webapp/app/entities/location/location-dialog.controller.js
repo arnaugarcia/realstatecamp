@@ -5,9 +5,9 @@
         .module('assessoriaTorrellesApp')
         .controller('LocationDialogController', LocationDialogController);
 
-    LocationDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Location', 'Company', 'Property'];
+    LocationDialogController.$inject = ['$timeout', '$scope','$state', '$stateParams', 'entity', 'Location', 'Company', 'Property'];
 
-    function LocationDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Location, Company, Property) {
+    function LocationDialogController ($timeout, $scope, $state, $stateParams, entity, Location, Company, Property) {
         var vm = this;
 
         vm.location = entity;
@@ -21,7 +21,7 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
+            $state.go('location', null, { reload: 'location' });
         }
 
         function save () {
@@ -35,7 +35,7 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('assessoriaTorrellesApp:locationUpdate', result);
-            $uibModalInstance.close(result);
+            $state.go('location', null, { reload: 'location' });
             vm.isSaving = false;
         }
 
