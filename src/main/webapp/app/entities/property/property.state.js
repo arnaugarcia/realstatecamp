@@ -122,6 +122,9 @@
                 authorities: [],
                 pageTitle: 'assessoriaTorrellesApp.property.detail.title'
             },
+            ncyBreadcrumb: {
+                label: 'Info of property'
+            },
             views: {
                 'content@': {
                     templateUrl: 'app/entities/property/property-detail.html',
@@ -180,6 +183,9 @@
             data: {
                 authorities: ['ROLE_USER']
             },
+            ncyBreadcrumb: {
+                label: 'New Property'
+            },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
                     templateUrl: 'app/entities/property/property-dialog.html',
@@ -223,6 +229,9 @@
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
+            },
+            ncyBreadcrumb: {
+                label: 'Edit Property'
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
