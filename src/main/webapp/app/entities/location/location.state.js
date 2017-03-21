@@ -116,39 +116,66 @@
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
+            views: {
+                'content@': {
                     templateUrl: 'app/entities/location/location-dialog.html',
                     controller: 'LocationDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                ref: null,
-                                province: null,
-                                town: null,
-                                typeOfRoad: null,
-                                nameRoad: null,
-                                number: null,
-                                apartment: null,
-                                building: null,
-                                door: null,
-                                stair: null,
-                                urlgmaps: null,
-                                latitude: null,
-                                longitude: null,
-                                id: null
-                            };
-                        }
-                    }
-                }).result.then(function() {
-                    $state.go('location', null, { reload: 'location' });
-                }, function() {
-                    $state.go('location');
-                });
-            }]
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                entity: function () {
+                    return {
+                        ref: null,
+                        province: null,
+                        town: null,
+                        typeOfRoad: null,
+                        nameRoad: null,
+                        number: null,
+                        apartment: null,
+                        building: null,
+                        door: null,
+                        stair: null,
+                        urlgmaps: null,
+                        latitude: null,
+                        longitude: null,
+                        id: null
+                    };
+                }
+            }
+        //     onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+        //         $uibModal.open({
+        //             templateUrl: 'app/entities/location/location-dialog.html',
+        //             controller: 'LocationDialogController',
+        //             controllerAs: 'vm',
+        //             backdrop: 'static',
+        //             size: 'lg',
+        //             resolve: {
+        //                 entity: function () {
+        //                     return {
+        //                         ref: null,
+        //                         province: null,
+        //                         town: null,
+        //                         typeOfRoad: null,
+        //                         nameRoad: null,
+        //                         number: null,
+        //                         apartment: null,
+        //                         building: null,
+        //                         door: null,
+        //                         stair: null,
+        //                         urlgmaps: null,
+        //                         latitude: null,
+        //                         longitude: null,
+        //                         id: null
+        //                     };
+        //                 }
+        //             }
+        //         }).result.then(function() {
+        //             $state.go('location', null, { reload: 'location' });
+        //         }, function() {
+        //             $state.go('location');
+        //         });
+        //     }]
         })
         .state('location.edit', {
             parent: 'location',

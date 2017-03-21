@@ -70,7 +70,7 @@ public class PropertyResource {
 
         property.setUser(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
 
-        property.setRef("REF-" + property.getLocation().getProvince().toLowerCase().charAt(0) + property.getLocation().getTown().toLowerCase().charAt(0) + property.getLocation().getRef().substring(4,7));
+//        property.setRef("REF-" + property.getLocation().getProvince().toLowerCase().charAt(0) + property.getLocation().getTown().toLowerCase().charAt(0) + property.getLocation().getRef().substring(4,7));
 
         Property result = propertyRepository.save(property);
         return ResponseEntity.created(new URI("/api/properties/" + result.getId()))

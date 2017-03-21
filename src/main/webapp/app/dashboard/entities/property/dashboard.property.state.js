@@ -84,43 +84,92 @@
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/property/property-dialog.html',
-                    controller: 'PropertyDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                name: null,
-                                price: null,
-                                description: null,
-                                buildingType: null,
-                                serviceType: null,
-                                ref: null,
-                                visible: null,
-                                sold: null,
-                                terrace: null,
-                                m2: null,
-                                numberBedroom: null,
-                                elevator: null,
-                                furnished: null,
-                                pool: null,
-                                garage: null,
-                                numberWc: null,
-                                ac: null,
-                                id: null
-                            };
-                        }
-                    }
-                }).result.then(function() {
-                    $state.go('property', null, { reload: 'property' });
-                }, function() {
-                    $state.go('property');
-                });
-            }]
+            views: {
+                'content@': {
+                    templateUrl: 'app/dashboard/entities/property/property-dialog.html',
+                    controller: 'locationPropertyController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                propertyEntity: function () {
+                    return {
+                        name: null,
+                        price: null,
+                        description: null,
+                        buildingType: null,
+                        serviceType: null,
+                        ref: null,
+                        visible: null,
+                        sold: null,
+                        terrace: null,
+                        m2: null,
+                        numberBedroom: null,
+                        elevator: null,
+                        furnished: null,
+                        pool: null,
+                        garage: null,
+                        numberWc: null,
+                        ac: null,
+                        id: null
+                    };
+                },
+                locationEntity: function () {
+                    return {
+                        ref: null,
+                        province: null,
+                        town: null,
+                        typeOfRoad: null,
+                        nameRoad: null,
+                        number: null,
+                        apartment: null,
+                        building: null,
+                        door: null,
+                        stair: null,
+                        urlgmaps: null,
+                        latitude: null,
+                        longitude: null,
+                        id: null
+                    };
+                }
+            }
+            // onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            //     $uibModal.open({
+            //         templateUrl: 'app/entities/property/property-dialog.html',
+            //         controller: 'PropertyDialogController',
+            //         controllerAs: 'vm',
+            //         backdrop: 'static',
+            //         size: 'lg',
+            //         resolve: {
+            //             entity: function () {
+            //                 return {
+            //                     name: null,
+            //                     price: null,
+            //                     description: null,
+            //                     buildingType: null,
+            //                     serviceType: null,
+            //                     ref: null,
+            //                     visible: null,
+            //                     sold: null,
+            //                     terrace: null,
+            //                     m2: null,
+            //                     numberBedroom: null,
+            //                     elevator: null,
+            //                     furnished: null,
+            //                     pool: null,
+            //                     garage: null,
+            //                     numberWc: null,
+            //                     ac: null,
+            //                     id: null
+            //                 };
+            //             }
+            //         }
+            //     }).result.then(function() {
+            //         $state.go('property', null, { reload: 'property' });
+            //     }, function() {
+            //         $state.go('property');
+            //     });
+            // }]
         });
         /*.state('property-detail', {
             parent: 'entity',
