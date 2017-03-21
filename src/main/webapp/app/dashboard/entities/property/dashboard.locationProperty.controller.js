@@ -6,27 +6,28 @@
         .module('assessoriaTorrellesApp')
         .controller('locationPropertyController', locationPropertyController);
 
-    locationPropertyController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'DataUtils', 'entity', 'Property', 'Location', 'User', 'Photo'];
+    locationPropertyController.$inject = ['$timeout', '$scope', '$state' ,'$stateParams', '$q', 'DataUtils', 'propertyEntity','locationEntity', 'Property', 'Location', 'User', 'Photo'];
 
-    function locationPropertyController ($timeout, $scope, $stateParams, $uibModalInstance, $q, DataUtils, entity, Property, Location, User, Photo) {
+    function locationPropertyController ($timeout, $scope, $state, $stateParams, $q, DataUtils, propertyEntity,locationEntity, Property, Location, User, Photo) {
         var vm = this;
-
-        vm.property = entity;
+        //** GUARDA PROPERTY
+        vm.property = propertyEntity;
+        vm.location = locationEntity;
         vm.clear = clear;
         vm.byteSize = DataUtils.byteSize;
         vm.openFile = DataUtils.openFile;
-        vm.save = save;
-        vm.locations = Location.query({filter: 'property-is-null'});
-        $q.all([vm.property.$promise, vm.locations.$promise]).then(function() {
-            if (!vm.property.location || !vm.property.location.id) {
-                return $q.reject();
-            }
-            return Location.get({id : vm.property.location.id}).$promise;
-        }).then(function(location) {
-            vm.locations.push(location);
-        });
-        vm.users = User.query();
-        vm.photos = Photo.query();
+        vm.save = saveStart;
+        // vm.locations = Location.query({filter: 'property-is-null'});
+        // $q.all([vm.property.$promise, vm.locations.$promise]).then(function() {
+        //     if (!vm.property.location || !vm.property.location.id) {
+        //         return $q.reject();
+        //     }
+        //     return Location.get({id : vm.property.location.id}).$promise;
+        // }).then(function(location) {
+        //     vm.locations.push(location);
+        // });
+        // vm.users = User.query();
+        // vm.photos = Photo.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -36,8 +37,10 @@
             $uibModalInstance.dismiss('cancel');
         }
 
-        function save () {
-            vm.isSaving = true;
+        function save (result) {
+            // vm.isSaving = true;
+            console.log(result);
+            vm.property.location = {id: result.id};
             if (vm.property.id !== null) {
                 Property.update(vm.property, onSaveSuccess, onSaveError);
             } else {
@@ -45,15 +48,30 @@
             }
         }
 
+        function saveStart() {
+            console.log(vm.location);
+            vm.isSaving = true;
+            if (vm.location.id !== null) {
+                Location.update(vm.location, save, onSaveError);
+            } else {
+                Location.save(vm.location, save, onSaveError);
+            }
+        }
+
         function onSaveSuccess (result) {
             $scope.$emit('assessoriaTorrellesApp:propertyUpdate', result);
-            $uibModalInstance.close(result);
+            $state.go('property', null, { reload: 'property' });
             vm.isSaving = false;
         }
 
         function onSaveError () {
             vm.isSaving = false;
         }
+
+        /**OBETENER LOCATION Y GUARDAR LOCATION
+         *
+         */
+
 
 
     }
