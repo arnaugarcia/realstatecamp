@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider
         .state('notification', {
-            parent: 'entity',
+            parent: 'dashboard',
             url: '/notification?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],

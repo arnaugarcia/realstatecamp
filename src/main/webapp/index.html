@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AssessoriaTorrelles</title>
     <meta name="description" content="">
@@ -18,8 +18,8 @@
     <!-- Front End -->
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="content/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="content/css/style.css"> -->
     <link rel="stylesheet" href="content/css/responsive.min.css">
+    <link rel="stylesheet" href="bower_components/toastr/toastr.min.css"/>
 
     <!-- endbuild -->
 </head>
@@ -30,6 +30,7 @@
     <!--<page-ribbon></page-ribbon>-->
     <div ui-view="navbar" ng-cloak></div>
     <div class="content-wrapper" ng-cloak>
+
         <!-- Content Header (Page header) -->
         <!--<section class="content-header">-->
             <!--<div ncy-breadcrumb></div>-->
@@ -128,12 +129,12 @@
     <script src="app/entities/photo/photo.state.js"></script>
     <script src="app/entities/photo/photo.service.js"></script>
     <script src="app/entities/photo/photo.controller.js"></script>
-    <script src="app/entities/notification/notification-dialog.controller.js"></script>
-    <script src="app/entities/notification/notification-detail.controller.js"></script>
-    <script src="app/entities/notification/notification-delete-dialog.controller.js"></script>
-    <script src="app/entities/notification/notification.state.js"></script>
-    <script src="app/entities/notification/notification.service.js"></script>
-    <script src="app/entities/notification/notification.controller.js"></script>
+    <script src="app/dashboard/entities/notification/notification-dialog.controller.js"></script>
+    <script src="app/dashboard/entities/notification/notification-detail.controller.js"></script>
+    <script src="app/dashboard/entities/notification/notification-delete-dialog.controller.js"></script>
+    <script src="app/dashboard/entities/notification/notification.state.js"></script>
+    <script src="app/dashboard/entities/notification/notification.service.js"></script>
+    <script src="app/dashboard/entities/notification/notification.controller.js"></script>
     <script src="app/entities/location/location-dialog.controller.js"></script>
     <script src="app/entities/location/location-detail.controller.js"></script>
     <script src="app/entities/location/location-delete-dialog.controller.js"></script>
@@ -254,7 +255,7 @@
     <script src="app/dashboard/entities/dashboard.entity.state.js"></script>
     <script src="app/dashboard/entities/property/dashboard.property.state.js"></script>
     <script src="app/dashboard/entities/property/dashboard.locationProperty.controller.js"></script>
-    
+
     <!-- Front end Scripts -->
     <script src="content/js/jquery.js"></script>
     <script src="content/js/app.js"></script>
@@ -267,6 +268,7 @@
     <script src="content/js/masonry.pkgd.min.js"></script>
     <script src="content/js/jquery.jcarousel.min.js"></script>
     <script src="content/js/script.js"></script>
+    <script src="bower_components/toastr/toastr.min.js"></script>
     <script src="/content/js/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
     <script src="content/plugins/iCheck/icheck.min.js"></script>
 </body>

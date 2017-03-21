@@ -21,11 +21,9 @@
         loadAll();
 
         function loadAll () {
-            console.log("PENE");
             Notification.byUser({
             }, onSuccess, onError);
             function onSuccess(data) {
-                console.log("PENE SATISFACTORIO");
                 vm.notifications = data;
             }
             function onError(error) {

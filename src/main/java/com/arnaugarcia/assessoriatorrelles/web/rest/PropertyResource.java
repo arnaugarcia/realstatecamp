@@ -1,12 +1,10 @@
 package com.arnaugarcia.assessoriatorrelles.web.rest;
 
+import com.arnaugarcia.assessoriatorrelles.domain.Notification;
 import com.arnaugarcia.assessoriatorrelles.domain.Property;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
-import com.arnaugarcia.assessoriatorrelles.repository.LocationRepository;
-import com.arnaugarcia.assessoriatorrelles.repository.PropertyByCriteriaRepository;
-import com.arnaugarcia.assessoriatorrelles.repository.PropertyRepository;
-import com.arnaugarcia.assessoriatorrelles.repository.UserRepository;
+import com.arnaugarcia.assessoriatorrelles.repository.*;
 import com.arnaugarcia.assessoriatorrelles.security.SecurityUtils;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.HeaderUtil;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.PaginationUtil;
@@ -27,6 +25,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +50,7 @@ public class PropertyResource {
     private UserRepository userRepository;
 
     @Inject
-    private LocationRepository locationRepository;
+    private NotificationRepository notificationRepository;
 
     /**
      * POST  /properties : Create a new property.
@@ -73,6 +72,15 @@ public class PropertyResource {
 //        property.setRef("REF-" + property.getLocation().getProvince().toLowerCase().charAt(0) + property.getLocation().getTown().toLowerCase().charAt(0) + property.getLocation().getRef().substring(4,7));
 
         Property result = propertyRepository.save(property);
+
+        Notification successNotification = new Notification();
+        successNotification.setTitle("Has creado la porpiedad " + property.getName());
+        successNotification.setContent("Mira cómo queda en la web!");
+        successNotification.setDate(ZonedDateTime.now());
+        successNotification.setSeen(false);
+        successNotification.setUser(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
+        notificationRepository.save(successNotification);
+
         return ResponseEntity.created(new URI("/api/properties/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("property", result.getId().toString()))
             .body(result);
