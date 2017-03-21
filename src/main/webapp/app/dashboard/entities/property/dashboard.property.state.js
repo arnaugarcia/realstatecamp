@@ -71,6 +71,7 @@
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('property');
+                    $translatePartialLoader.addPart('location');
                     $translatePartialLoader.addPart('buildingType');
                     $translatePartialLoader.addPart('serviceType');
                     $translatePartialLoader.addPart('global');
