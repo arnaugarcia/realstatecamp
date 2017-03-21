@@ -2,6 +2,7 @@ package com.arnaugarcia.assessoriatorrelles.repository;
 
 import com.arnaugarcia.assessoriatorrelles.domain.Notification;
 
+import com.arnaugarcia.assessoriatorrelles.domain.User;
 import org.springframework.data.jpa.repository.*;
 
 import java.util.List;

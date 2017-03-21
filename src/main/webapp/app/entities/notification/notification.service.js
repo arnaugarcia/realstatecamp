@@ -11,6 +11,7 @@
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
+            'byUser': { method: 'GET', isArray: true, url: 'api/notifications/byUser'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

@@ -62,16 +62,16 @@
                     <!-- Menu toggle button -->
                     <a class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell-o"></i>
-                        <span class="label label-warning">10</span>
+                        <span class="label label-warning">{{vm.notifications.seen}}</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">You have 10 notifications</li>
+                        <li class="header">You have {{vm.notifications.seen}} notifications</li>
                         <li>
                             <!-- Inner Menu: contains the notifications -->
                             <ul class="menu">
-                                <li><!-- start notification -->
+                                <li ng-repeat="notification in vm.notifications track by notification.id"><!-- start notification -->
                                     <a>
-                                        <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                        <i class="fa fa-users text-aqua"></i> {{notification.title}}
                                     </a>
                                 </li>
                                 <!-- end notification -->
@@ -127,7 +127,7 @@
                             <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                             <p>
-                                {{vm.account.firstName}} - {{vm.account.authorities}}
+                                {{vm.account.firstName}} - <div data-translate="vm.account.authorities[1]"></div>
                                 <small>Online</small>
                             </p>
                         </li>
@@ -342,4 +342,3 @@
     </section>
     <!-- /.sidebar -->
 </aside>
-

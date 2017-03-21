@@ -1,11 +1,11 @@
 package com.arnaugarcia.assessoriatorrelles.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
 import com.arnaugarcia.assessoriatorrelles.domain.Notification;
-
 import com.arnaugarcia.assessoriatorrelles.repository.NotificationRepository;
+import com.arnaugarcia.assessoriatorrelles.repository.UserRepository;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.HeaderUtil;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.PaginationUtil;
+import com.codahale.metrics.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -29,9 +29,11 @@ import java.util.Optional;
 public class NotificationResource {
 
     private final Logger log = LoggerFactory.getLogger(NotificationResource.class);
-        
+
     @Inject
     private NotificationRepository notificationRepository;
+    @Inject
+    private UserRepository userRepository;
 
     /**
      * POST  /notifications : Create a new notification.
@@ -108,6 +110,22 @@ public class NotificationResource {
                 result,
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    /**
+     * GET  /notifications/byUser/:id : get the "id" notification.
+     *
+     * @return the ResponseEntity with status 200 (OK) and with body the notification, or with status 404 (Not Found)
+     */
+    @GetMapping("/notifications/byUser")
+    @Timed
+    public ResponseEntity<List<Notification>> getNotificationsByUser()
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Notifications");
+        List<Notification> notificationsList = notificationRepository.findByUserIsCurrentUser();
+        /*HttpHeaders headers = new HttpHeaders();
+        headers.add();*/
+        return new ResponseEntity<>(notificationsList, HttpStatus.OK);
     }
 
     /**

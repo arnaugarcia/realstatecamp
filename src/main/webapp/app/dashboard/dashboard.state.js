@@ -15,7 +15,7 @@
             views: {
                 'navbar@': {
                     templateUrl: 'app/dashboard/layouts/navbar/dashboard.navbar.html',
-                    controller: 'NavbarController',
+                    controller: 'DashboardNavbarController',
                     controllerAs: 'vm'
                 },
                 'footer@': {
