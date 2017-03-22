@@ -24,8 +24,8 @@
                 "login": "Autenticar",
                 "logout": "Finalitzar la sessió",
                 "register": "Registre",
-                "roleUser": "Usuari",
-                "roleAdmin": "Administrador"
+                "ROLE_USER": "Usuari",
+                "ROLE_USERROLE_ADMIN": "Administrador"
             },
             "admin": {
                 "main": "Administració",

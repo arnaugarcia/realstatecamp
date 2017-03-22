@@ -1095,7 +1095,6 @@ a:focus {
   border-bottom-left-radius: 4px;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
-  height: 175px;
   padding: 10px;
   text-align: center;
 }

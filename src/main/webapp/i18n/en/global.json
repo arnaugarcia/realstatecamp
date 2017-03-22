@@ -23,8 +23,8 @@
                 "login": "Sign in",
                 "logout": "Sign out",
                 "register": "Register",
-                "roleUser": "User",
-                "roleAdmin": "Administrator"
+                "ROLE_USER": "User",
+                "ROLE_USERROLE_ADMIN": "Administrator"
             },
             "admin": {
                 "main": "Administration",

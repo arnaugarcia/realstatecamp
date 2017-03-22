@@ -23,8 +23,8 @@
                 "login": "Iniciar sesión",
                 "logout": "Cerrar la sesión",
                 "register": "Crear una cuenta",
-                "roleUser": "Usuario",
-                "roleAdmin": "Administrador"
+                "ROLE_USER": "Usuario",
+                "ROLE_USERROLE_ADMIN": "Administrador"
             },
             "admin": {
                 "main": "Administración",
