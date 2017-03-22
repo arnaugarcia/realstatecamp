@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+    $(window).load(function() {
+        $('#status').fadeOut();
+        $('#preloader').delay(350).fadeOut('slow');
+    });
+
 	var header_height = $('#header').height();
 
 	/* parallax header */

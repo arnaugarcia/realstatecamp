@@ -20,13 +20,58 @@
     <link rel="stylesheet" href="content/css/font-awesome.min.css">
     <link rel="stylesheet" href="content/css/responsive.min.css">
     <link rel="stylesheet" href="bower_components/toastr/toastr.min.css"/>
+    <style>
+        /* ---------------------------------------------- /*
+ * Preloader
+/* ---------------------------------------------- */
 
+        #preloader {
+            background: #FFF;
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 9999;
+        }
+
+        #status, .status-mes {
+            background-image: url(content/img/preloader.gif);
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 200px;
+            left: 50%;
+            margin: -100px 0 0 -100px;
+            position: absolute;
+            top: 50%;
+            width: 200px;
+        }
+
+        .status-mes {
+            background: none;
+            left: 0;
+            margin: 0;
+            text-align: center;
+            top: 65%;
+        }
+
+        .status-mes h4 {
+            color: #222;
+            margin-top: 30px;
+        }
+
+    </style>
     <!-- endbuild -->
 </head>
 <body ng-app="assessoriaTorrellesApp" class="hold-transition skin-green sidebar-mini" ng-strict-di id="top">
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div id="preloader">
+        <div id="status">
+            <div class="status-mes"><h4>Assessoría Torrelles</h4></div>
+        </div>
+    </div>
     <!--<page-ribbon></page-ribbon>-->
     <div ui-view="navbar" ng-cloak></div>
     <div class="content-wrapper" ng-cloak>

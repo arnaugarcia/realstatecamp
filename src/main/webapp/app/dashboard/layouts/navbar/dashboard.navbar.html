@@ -70,7 +70,7 @@
                             <!-- Inner Menu: contains the notifications -->
                             <ul class="menu">
                                 <li ng-repeat="notification in vm.notifications track by notification.id"><!-- start notification -->
-                                    <a>
+                                    <a ui-sref="notification-detail({id:notification.id})">
                                         <i class="fa fa-users text-aqua"></i> {{notification.title}}
                                         <p>{{notification.content}}</p>
                                     </a>
@@ -78,7 +78,7 @@
                                 <!-- end notification -->
                             </ul>
                         </li>
-                        <li class="footer"><a>View all</a></li>
+                        <li class="footer"><a ui-sref="notification">View all</a></li>
                     </ul>
                 </li>
                 <!-- Tasks Menu -->

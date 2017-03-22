@@ -18,7 +18,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/notification/notifications.html',
+                    templateUrl: 'app/dashboard/entities/notification/notifications.html',
                     controller: 'NotificationController',
                     controllerAs: 'vm'
                 }
@@ -60,7 +60,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/notification/notification-detail.html',
+                    templateUrl: 'app/dashboard/entities/notification/notification-detail.html',
                     controller: 'NotificationDetailController',
                     controllerAs: 'vm'
                 }
@@ -91,7 +91,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/notification/notification-dialog.html',
+                    templateUrl: 'app/dashboard/entities/notification/notification-dialog.html',
                     controller: 'NotificationDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -116,7 +116,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/notification/notification-dialog.html',
+                    templateUrl: 'app/dashboard/entities/notification/notification-dialog.html',
                     controller: 'NotificationDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -147,7 +147,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/notification/notification-dialog.html',
+                    templateUrl: 'app/dashboard/entities/notification/notification-dialog.html',
                     controller: 'NotificationDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -172,7 +172,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/notification/notification-delete-dialog.html',
+                    templateUrl: 'app/dashboard/entities/notification/notification-delete-dialog.html',
                     controller: 'NotificationDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
