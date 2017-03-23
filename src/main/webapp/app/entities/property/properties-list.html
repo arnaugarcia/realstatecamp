@@ -11,14 +11,14 @@
                 <!-- begin:sorting -->
                 <div class="row sort">
                     <div class="col-md-4 col-sm-4 col-xs-3">
-                        <a href="search.html" class="btn btn-default" ui-sref="property"><i class="fa fa-th"></i></a>
-                        <a href="search_list.html" class="btn btn-success" ui-sref="property-list"><i class="fa fa-list"></i></a>
-                        <span>Show <strong>6</strong> of <strong>{{vm.listByFilter.length}}</strong> result.</span>
+                        <a class="btn btn-default" ui-sref="property"><i class="fa fa-th"></i></a>
+                        <a class="btn btn-success" ui-sref="property-list"><i class="fa fa-list"></i></a>
+                        <!--<span>Show <strong>6</strong> of <strong>{{vm.listByFilter.length}}</strong> result.</span>-->
                     </div>
 
                     <div class="col-md-8 col-sm-8 col-xs-9">
                         <form class="form-inline" role="form">
-                            <span>Sort by </span>
+                            <span data-translate="assessoriaTorrellesApp.property.sortBy.default">Sort by </span>
                             <div class="form-group">
                                 <label class="sr-only" for="sortby">Sort by price: </label>
                                 <!--{{vm.orderCriteria.rev}}-->
@@ -27,10 +27,10 @@
                                 <!--<option value="false">Price (Low &gt; High)</option>-->
                                 <!--<option value="true">Price (High &gt; Low)</option>-->
                                 <!--</select>-->
-                                <button type="button" class="btn btn-success" ng-click="vm.changeOrder('price')">Price <span class="glyphicon glyphicon-euro"></span></button>
-                                <button type="button" class="btn btn-success" ng-click="vm.changeOrder('m2')">Size <span><i class="fa fa-home"></i></span></button>
+                                <button type="button" class="btn btn-success" ng-click="vm.changeOrder('price')" data-translate="assessoriaTorrellesApp.property.sortBy.price">Price <span class="glyphicon glyphicon-euro"></span></button>
+                                <button type="button" class="btn btn-success" ng-click="vm.changeOrder('m2')" data-translate="assessoriaTorrellesApp.property.sortBy.size">Size <span><i class="fa fa-home"></i></span></button>
                             </div>
-                            <span>Show : </span>
+                            <span data-translate="assessoriaTorrellesApp.property.show">Show : </span>
                             <div class="form-group">
                                 <label class="sr-only" for="show">Show : </label>
                                 <select class="form-control" ng-model="vm.itemsPerPage" ng-change="vm.searchByFilters()">
@@ -51,7 +51,7 @@
                 <div class="row sort">
 
                     <div class="col-lg-12">
-                        <input type="text" class="form-control" ng-model="vm.quickSearch" placeholder="Quick Search...">
+                        <input type="text" class="form-control" ng-model="vm.quickSearch" placeholder="{{ 'assessoriaTorrellesApp.property.quickSearch' | translate }}">
                     </div>
                 </div>
                 <div class="container-fluid" ng-switch-when="true">
@@ -87,7 +87,7 @@
                                 <span><i class="fa fa-male"></i> {{property.numberBedroom}}</span>
                             </div>
                             <div class="property-content">
-                                <h3><a ui-sref="property-detail({id:property.id})" data-translate="{{'assessoriaTorrellesApp.BuildingType.' + property.buildingType}}">{{property.buildingType}}</a> <small>{{property.location.town}}</small></h3>
+                                <h3><a ui-sref="property-detail({id:property.id})" data-translate="{{'assessoriaTorrellesApp.property.BuildingType.' + property.buildingType}}">{{property.buildingType}}</a> <small>{{property.location.town}}</small></h3>
                             </div>
                         </div>
                     </div>

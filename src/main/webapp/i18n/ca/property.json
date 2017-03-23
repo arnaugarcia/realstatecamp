@@ -3,7 +3,7 @@
         "property" : {
             "home": {
                 "title": "Propietats",
-                "createLabel": "Create a new Property",
+                "createLabel": "Crea una nova propietat",
                 "createOrEditLabel": "Create or edit a Property",
                 "search": "Search for Property"
             },
@@ -27,6 +27,11 @@
                 "price":"Preu",
                 "size":"Mida"
             },
+            "show": "Mostra",
+            "showing": "Mostrant",
+            "quickSearch": "Cerca ràpida...",
+            "advanceSearch": "CERCA AVANÇADA",
+            "simpleSearch": "CERCAR",
             "BuildingType":{
                 "HOUSE":"Casa",
                 "FLAT":"Apartament",
@@ -44,18 +49,22 @@
             "ref": "Ref",
             "visible": "Visible",
             "sold": "Sold",
-            "terrace": "Terrace",
+            "terrace": "Terrassa",
             "m2": "M 2",
-            "numberBedroom": "Number Bedroom",
-            "elevator": "Elevator",
+            "numberBedroom": "Núm. d'habitacions",
+            "elevator": "Ascensor",
             "furnished": "Moblat",
             "pool": "Piscina",
-            "garage": "Garage",
-            "numberWc": "Number Wc",
-            "ac": "Ac",
+            "garage": "Garatge",
+            "numberWc": "Núm. de lavabos",
+            "ac": "Aire acondicionat",
             "location": "Localització",
             "user": "User",
-            "photo": "Photo"
+            "photo": "Photo",
+            "minPrice": "Preu mínim",
+            "maxPrice": "Preu màxim",
+            "minArea": "Àrea mínima",
+            "maxArea": "Àrea màxima"
         }
     }
 }

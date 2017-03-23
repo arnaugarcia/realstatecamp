@@ -27,6 +27,11 @@
                 "price":"Precio",
                 "size":"Tamaño"
             },
+            "show": "Muestra",
+            "showing": "Mostrando",
+            "quickSearch": "Búsqueda rápida...",
+            "advanceSearch": "BÚSQUEDA AVANZADA",
+            "simpleSearch": "BUSCAR",
             "BuildingType":{
                 "HOUSE":"Casa",
                 "FLAT":"Apartamento",
@@ -44,18 +49,22 @@
             "ref": "Ref",
             "visible": "Visible",
             "sold": "Sold",
-            "terrace": "Terrace",
+            "terrace": "Terraza",
             "m2": "M 2",
-            "numberBedroom": "Number Bedroom",
-            "elevator": "Elevator",
+            "numberBedroom": "Núm. de habitaciones",
+            "elevator": "Ascensor",
             "furnished": "Amueblado",
             "pool": "Piscina",
-            "garage": "Garage",
-            "numberWc": "Number Wc",
-            "ac": "Ac",
+            "garage": "Garaje",
+            "numberWc": "Núm. de baños",
+            "ac": "Aire acondicionado",
             "location": "Localidad",
             "user": "User",
-            "photo": "Photo"
+            "photo": "Photo",
+            "minPrice": "Precio mínimo",
+            "maxPrice": "Precio máximo",
+            "minArea": "Area mínima",
+            "maxArea": "Area máxima"
         }
     }
 }
