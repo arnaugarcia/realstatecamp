@@ -12,6 +12,7 @@
                 "property": "Property",
                 "location": "Location",
                 "photo": "Photo",
+                "about": "Acerca de nosotros",
                 "contact": "Contact",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
