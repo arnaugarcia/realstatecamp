@@ -1,0 +1,21 @@
+{
+    "assessoriaTorrellesApp": {
+        "about" : {
+            "home": {
+                "title": "Abouts",
+                "createLabel": "Crear nuevo About",
+                "createOrEditLabel": "Crear o editar About",
+                "search": "Search for About"
+            },
+            "created": "Un nuevo About ha sido creado con el identificador {{ param }}",
+            "updated": "Un About ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un About ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar About {{ id }}?"
+            },
+            "detail": {
+                "title": "About"
+            }
+        }
+    }
+}
