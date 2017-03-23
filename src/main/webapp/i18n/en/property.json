@@ -27,6 +27,11 @@
                 "price":"Price",
                 "size":"Size"
             },
+            "show": "Show",
+            "showing": "Showing",
+            "quickSearch": "Quick Search...",
+            "advanceSearch": "ADVANCE SEARCH",
+            "simpleSearch": "SEARCH",
             "BuildingType":{
                 "HOUSE":"House",
                 "FLAT":"Flat",
@@ -55,7 +60,11 @@
             "ac": "Ac",
             "location": "Location",
             "user": "User",
-            "photo": "Photo"
+            "photo": "Photo",
+            "minPrice": "Min Price",
+            "maxPrice": "Max Price",
+            "minArea": "Min Area",
+            "maxArea": "Max Area"
         }
     }
 }

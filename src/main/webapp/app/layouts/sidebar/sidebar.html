@@ -2,7 +2,7 @@
 <div class="col-md-3 col-md-pull-9 sidebar">
     <div class="widget widget-white">
         <div class="widget-header">
-            <h3>Advance Search</h3>
+            <h3 data-translate="assessoriaTorrellesApp.property.advanceSearch">ADVANCE SEARCH</h3>
         </div>
         <form role="form" class="advance-search">
             <!--<div class="btn-group" >-->
@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label for="location" data-translate="assessoriaTorrellesApp.property.location">Location</label>
 
-                <input type="text" class="form-control" ng-model="vm.filterCritera.location" placeholder="Location">
+                <input type="text" class="form-control" ng-model="vm.filterCritera.location">
             </div>
 
             <!--<div class="form-group">-->
@@ -67,35 +67,35 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="garage">Garage</label>
+                <label for="garage" data-translate="assessoriaTorrellesApp.property.garage">Garage</label>
                 <select class="form-control" ng-model="vm.filterCritera.garage">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
+                    <option value="true" data-translate="assessoriaTorrellesApp.property.YesNo.yes">Yes</option>
+                    <option value="false" data-translate="assessoriaTorrellesApp.property.YesNo.no">No</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="ac">AC</label>
+                <label for="ac" data-translate="assessoriaTorrellesApp.property.ac">AC</label>
                 <select class="form-control" ng-model="vm.filterCritera.ac">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
+                    <option value="true" data-translate="assessoriaTorrellesApp.property.YesNo.yes">Yes</option>
+                    <option value="false" data-translate="assessoriaTorrellesApp.property.YesNo.no">No</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="elevator">Elevator</label>
+                <label for="elevator" data-translate="assessoriaTorrellesApp.property.elevator">Elevator</label>
                 <select class="form-control" ng-model="vm.filterCritera.elevator">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
+                    <option value="true" data-translate="assessoriaTorrellesApp.property.YesNo.yes">Yes</option>
+                    <option value="false" data-translate="assessoriaTorrellesApp.property.YesNo.no">No</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="terrace">Terrace</label>
+                <label for="terrace" data-translate="assessoriaTorrellesApp.property.terrace">Terrace</label>
                 <select class="form-control" ng-model="vm.filterCritera.terrace">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
+                    <option value="true" data-translate="assessoriaTorrellesApp.property.YesNo.yes">Yes</option>
+                    <option value="false" data-translate="assessoriaTorrellesApp.property.YesNo.no">No</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="beds">Beds</label>
+                <label for="beds" data-translate="assessoriaTorrellesApp.property.numberBedroom">Beds</label>
                 <select class="form-control" ng-model="vm.filterCritera.numberBedroom">
                     <option>1</option>
                     <option>2</option>
@@ -105,7 +105,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="baths">Baths</label>
+                <label for="baths" data-translate="assessoriaTorrellesApp.property.numberWc">Baths</label>
                 <select class="form-control" ng-model="vm.filterCritera.numberWc">
                     <option>1</option>
                     <option>2</option>
@@ -115,22 +115,22 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="min-price">Min Price</label>
+                <label for="min-price" data-translate="assessoriaTorrellesApp.property.minPrice">Min Price</label>
                 <input type="number" pattern="\d*" min="0" class="form-control" ng-model="vm.filterCritera.minPrice">
             </div>
             <div class="form-group">
-                <label for="max-price">Max Price</label>
+                <label for="max-price" data-translate="assessoriaTorrellesApp.property.maxPrice">Max Price</label>
                 <input type="number" pattern="\d*" min="0" class="form-control" ng-model="vm.filterCritera.maxPrice">
             </div>
             <div class="form-group">
-                <label for="min-area">Min Area</label>
+                <label for="min-area" data-translate="assessoriaTorrellesApp.property.minArea">Min Area</label>
                 <input type="number" pattern="\d*" min="0" class="form-control" ng-model="vm.filterCritera.minSize">
             </div>
             <div class="form-group">
-                <label for="max-area">Max Area</label>
+                <label for="max-area" data-translate="assessoriaTorrellesApp.property.maxArea">Max Area</label>
                 <input type="number" pattern="\d*" min="0" class="form-control" ng-model="vm.filterCritera.maxSize">
             </div>
-            <input type="submit" name="submit" value="Search" class="btn btn-success btn-block" ng-click="vm.searchByFilters()">
+            <input type="submit" name="submit" value="{{ 'assessoriaTorrellesApp.property.simpleSearch' | translate }}" class="btn btn-success btn-block" ng-click="vm.searchByFilters()">
 
         </form>
     </div>
