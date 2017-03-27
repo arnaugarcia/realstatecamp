@@ -1,6 +1,7 @@
 package com.arnaugarcia.assessoriatorrelles.web.rest;
 
 import com.arnaugarcia.assessoriatorrelles.domain.Notification;
+import com.arnaugarcia.assessoriatorrelles.domain.Photo;
 import com.arnaugarcia.assessoriatorrelles.domain.Property;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
@@ -52,6 +53,9 @@ public class PropertyResource {
     @Inject
     private NotificationRepository notificationRepository;
 
+    @Inject
+    private PhotoRepository photoRepository;
+
     /**
      * POST  /properties : Create a new property.
      *
@@ -87,6 +91,35 @@ public class PropertyResource {
     }
 
     /**
+     * POST  /properties : Create a new property.
+     *
+     * @param photo the property to create and the id of property
+     * @return the ResponseEntity with status 201 (Created) and with body the new property, or with status 400 (Bad Request) if the photo has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PostMapping("/properties/{id}/photos")
+    @Timed
+    public ResponseEntity<Photo> createPropertyPhoto(@Valid @RequestBody Photo photo, @PathVariable Long id) throws URISyntaxException {
+        log.debug("REST request to save Property Photo : {}", photo);
+
+        if (photo.getId() != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("photo", "idexists", "A new photo cannot already have an ID")).body(null);
+        }
+
+        Property property = propertyRepository.findOne(id);
+        if (property == null){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("property", "idnotexists", "Property not found")).body(null);
+        }
+
+        photo.setProperty(property);
+        Photo result =  photoRepository.save(photo);
+
+        return ResponseEntity.created(new URI("/api/photos/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert("photo", result.getId().toString()))
+            .body(result);
+    }
+
+    /**
      * PUT  /properties : Updates an existing property.
      *
      * @param property the property to update
@@ -117,6 +150,7 @@ public class PropertyResource {
      */
     @GetMapping("/properties")
     @Timed
+    @Transactional
     public ResponseEntity<List<Property>> getAllProperties(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Properties");
@@ -305,13 +339,6 @@ public class PropertyResource {
         } else {
             Page<Property> page = new PageImpl<Property>(result,pageable,propertyRepository.findAll().size());
             HttpHeaders httpHeaders = new HttpHeaders();
-            //httpHeaders.add("X-Total-Count",String.valueOf(result.size()));
-//            return new ResponseEntity<>(
-//                result,
-//                httpHeaders,
-//                HttpStatus.OK
-//
-//            );
 
             HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/property/byfilters");
             return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
