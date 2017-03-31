@@ -17,9 +17,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/about/abouts.html',
-                    controller: 'AboutController',
-                    controllerAs: 'vm'
+                    templateUrl: 'app/entities/about/abouts.html'
                 }
             },
             resolve: {
