@@ -11,12 +11,10 @@
 
     function NavbarController ($scope, $state, Auth, Principal, ProfileService, LoginService, $translate) {
         var vm = this;
-        var authorities = "";
 
         //Account things - Arnau
         vm.account = null;
 
-        vm.isAuthenticated = null;
         vm.login = LoginService.open;
 
         vm.isNavbarCollapsed = true;
@@ -43,12 +41,6 @@
         function getAccount() {
             Principal.identity().then(function(account) {
                 vm.account = account;
-                vm.isAuthenticated = Principal.isAuthenticated;
-                if(account.authorities[1] == "ROLE_ADMIN") {
-                    vm.nameAuthorities = "global.menu.account.roleAdmin";
-                }else {
-                    vm.nameAuthorities = "global.menu.account.roleUser";
-                }
             });
         }
 
