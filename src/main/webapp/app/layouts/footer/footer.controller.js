@@ -41,7 +41,7 @@
                 vm.companyInfo.cif = vm.companies[0].cif;
                 vm.companyInfo.location.town = vm.companies[0].location.town;
                 vm.companyInfo.location.province = vm.companies[0].location.province;
-                vm.companyInfo.location.road = vm.companies[0].location.typeOfRoad + " " + vm.companyInfo[0].location.nameRoad;
+                vm.companyInfo.location.road = vm.companies[0].location.typeOfRoad + " " + vm.companies[0].location.typeOfRoad;
                 vm.companyInfo.location.typeOfRoad = vm.companies[0].location.typeOfRoad;
             });
         }
