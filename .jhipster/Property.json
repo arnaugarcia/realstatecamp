@@ -99,11 +99,39 @@
         {
             "fieldName": "ac",
             "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": "1000"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "neartransport",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "office",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "storage",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "heating",
+            "fieldType": "Boolean"
         }
     ],
     "changelogDate": "20170210193420",
-    "entityTableName": "property",
     "dto": "no",
-    "pagination": "pagination",
-    "service": "no"
+    "service": "no",
+    "entityTableName": "property",
+    "pagination": "pagination"
 }

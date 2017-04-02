@@ -160,6 +160,22 @@ public class PropertyResource {
     }
 
     /**
+     * GET  /properties : get top 5 of properties
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of properties in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @GetMapping("/properties/top5")
+    @Timed
+    @Transactional
+    public ResponseEntity<List<Property>> getNewProperties()
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Properties");
+        List<Property> result = propertyRepository.findPropertiesByOrderByCreatedDesc();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    /**
      * GET  /properties/:id : get the "id" property.
      *
      * @param id the id of the property to retrieve

@@ -540,10 +540,10 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>com.mysql.jdbc.Driver</driver>
-                    <url>jdbc:mysql://localhost:3306/AssessoriaTorrelles</url>
+                    <url>jdbc:mysql://35.158.58.156:3306/assessoriatorrelles</url>
                     <defaultSchemaName>AssessoriaTorrelles</defaultSchemaName>
-                    <username>root</username>
-                    <password></password>
+                    <username>at</username>
+                    <password>at2017</password>
                     <referenceUrl>hibernate:spring:com.arnaugarcia.assessoriatorrelles.domain?dialect=org.hibernate.dialect.MySQL5InnoDBDialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>

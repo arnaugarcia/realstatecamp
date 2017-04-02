@@ -88,6 +88,30 @@
             <column name="ac" type="bit">
                 <constraints nullable="true" />
             </column>
+            
+            <column name="year" type="integer">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="created" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="neartransport" type="bit">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="office" type="bit">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="storage" type="bit">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="heating" type="bit">
+                <constraints nullable="true" />
+            </column>
                         <column name="location_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>
@@ -97,6 +121,7 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
+        <dropDefaultValue tableName="property" columnName="created" columnDataType="datetime"/>
         
     </changeSet>
 </databaseChangeLog>

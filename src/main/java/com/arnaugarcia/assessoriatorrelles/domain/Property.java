@@ -2,10 +2,13 @@ package com.arnaugarcia.assessoriatorrelles.domain;
 
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -79,6 +82,25 @@ public class Property implements Serializable {
     @Column(name = "ac")
     private Boolean ac;
 
+    @Min(value = 1000)
+    @Column(name = "year")
+    private Integer year;
+
+    @Column(name = "created")
+    private ZonedDateTime created;
+
+    @Column(name = "neartransport")
+    private Boolean neartransport;
+
+    @Column(name = "office")
+    private Boolean office;
+
+    @Column(name = "storage")
+    private Boolean storage;
+
+    @Column(name = "heating")
+    private Boolean heating;
+
     @OneToOne
     @JoinColumn(unique = true)
     private Location location;
@@ -87,6 +109,7 @@ public class Property implements Serializable {
     private User user;
 
     @OneToMany(mappedBy = "property")
+    @JsonIgnore
     private Set<Photo> photos = new HashSet<>();
 
     public Long getId() {
@@ -318,6 +341,84 @@ public class Property implements Serializable {
         this.ac = ac;
     }
 
+    public Integer getYear() {
+        return year;
+    }
+
+    public Property year(Integer year) {
+        this.year = year;
+        return this;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public ZonedDateTime getCreated() {
+        return created;
+    }
+
+    public Property created(ZonedDateTime created) {
+        this.created = created;
+        return this;
+    }
+
+    public void setCreated(ZonedDateTime created) {
+        this.created = created;
+    }
+
+    public Boolean isNeartransport() {
+        return neartransport;
+    }
+
+    public Property neartransport(Boolean neartransport) {
+        this.neartransport = neartransport;
+        return this;
+    }
+
+    public void setNeartransport(Boolean neartransport) {
+        this.neartransport = neartransport;
+    }
+
+    public Boolean isOffice() {
+        return office;
+    }
+
+    public Property office(Boolean office) {
+        this.office = office;
+        return this;
+    }
+
+    public void setOffice(Boolean office) {
+        this.office = office;
+    }
+
+    public Boolean isStorage() {
+        return storage;
+    }
+
+    public Property storage(Boolean storage) {
+        this.storage = storage;
+        return this;
+    }
+
+    public void setStorage(Boolean storage) {
+        this.storage = storage;
+    }
+
+    public Boolean isHeating() {
+        return heating;
+    }
+
+    public Property heating(Boolean heating) {
+        this.heating = heating;
+        return this;
+    }
+
+    public void setHeating(Boolean heating) {
+        this.heating = heating;
+    }
+
     public Location getLocation() {
         return location;
     }
@@ -410,6 +511,12 @@ public class Property implements Serializable {
             ", garage='" + garage + "'" +
             ", numberWc='" + numberWc + "'" +
             ", ac='" + ac + "'" +
+            ", year='" + year + "'" +
+            ", created='" + created + "'" +
+            ", neartransport='" + neartransport + "'" +
+            ", office='" + office + "'" +
+            ", storage='" + storage + "'" +
+            ", heating='" + heating + "'" +
             '}';
     }
 }
