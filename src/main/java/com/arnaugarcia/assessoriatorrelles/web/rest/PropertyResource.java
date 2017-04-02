@@ -171,7 +171,7 @@ public class PropertyResource {
     public ResponseEntity<List<Property>> getNewProperties()
         throws URISyntaxException {
         log.debug("REST request to get a page of Properties");
-        List<Property> result = propertyRepository.findPropertiesByOrderByCreatedDesc();
+        List<Property> result = propertyRepository.findTop5PropertiesByOrderByCreatedDesc();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
