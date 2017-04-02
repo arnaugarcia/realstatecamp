@@ -18,7 +18,8 @@
             // jhipster-needle-angularjs-add-module JHipster will add new module here
             'angular-loading-bar',
             'ncy-angular-breadcrumb',
-            'angularCSS'
+            'angularCSS',
+            'ngMap'
 
         ])
         .run(run);

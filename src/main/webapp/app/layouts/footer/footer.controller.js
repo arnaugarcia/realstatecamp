@@ -5,10 +5,16 @@
         .module('assessoriaTorrellesApp')
         .controller('FooterController', FooterController);
 
-    FooterController.$inject = ['$scope', '$state', 'Contact', 'Company'];
+    FooterController.$inject = ['$scope', '$state', 'Contact', 'Company', 'NgMap'];
 
-    function FooterController ($scope, $state, Contact, Company) {
+    function FooterController ($scope, $state, Contact, Company, NgMap) {
         var vm = this;
+
+        NgMap.getMap().then(function(map) {
+            console.log(map.getCenter());
+            console.log('markers', map.markers);
+            console.log('shapes', map.shapes);
+        });
 
         vm.contacts = [];
         vm.companies = [];
@@ -23,7 +29,9 @@
                 "province":"",
                 "road":"",
                 "typeOfRoad":"",
-                "nameRoad":""
+                "nameRoad":"",
+                "latitude":"",
+                "longitude":""
             }
         };
 
@@ -33,6 +41,7 @@
             Contact.query(function(result) {
                 vm.contacts = result;
             });
+
             Company.query(function (result) {
                 vm.companies = result;
                 vm.companyInfo.name = vm.companies[0].name;
@@ -43,6 +52,8 @@
                 vm.companyInfo.location.province = vm.companies[0].location.province;
                 vm.companyInfo.location.road = vm.companies[0].location.typeOfRoad + " " + vm.companies[0].location.typeOfRoad;
                 vm.companyInfo.location.typeOfRoad = vm.companies[0].location.typeOfRoad;
+                vm.companyInfo.location.latitude = vm.companies[0].location.latitude;
+                vm.companyInfo.location.longitude = vm.companies[0].location.longitude;
             });
         }
 
