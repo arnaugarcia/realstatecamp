@@ -7,6 +7,7 @@ import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
 import com.arnaugarcia.assessoriatorrelles.repository.*;
 import com.arnaugarcia.assessoriatorrelles.security.SecurityUtils;
+import com.arnaugarcia.assessoriatorrelles.service.util.ReferenceUtil;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.HeaderUtil;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.PaginationUtil;
 import com.codahale.metrics.annotation.Timed;
@@ -73,6 +74,7 @@ public class PropertyResource {
 
         property.setUser(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
 
+        property.setRef(ReferenceUtil.generateReferenceProperty(property,property.getLocation()));
 //        property.setRef("REF-" + property.getLocation().getProvince().toLowerCase().charAt(0) + property.getLocation().getTown().toLowerCase().charAt(0) + property.getLocation().getRef().substring(4,7));
 
         Property result = propertyRepository.save(property);
