@@ -4,7 +4,7 @@ import com.arnaugarcia.assessoriatorrelles.domain.Location;
 import com.arnaugarcia.assessoriatorrelles.domain.Property;
 
 /**
- * Utility class for generating random Strings.
+ * Utility class for generating references for entities.
  */
 public final class ReferenceUtil {
 
@@ -13,12 +13,11 @@ public final class ReferenceUtil {
     }
 
     /**
-     * Generates a password.
+     * Generates a reference
      *
-     * @return the generated password
+     * @return the generated reference
      */
     public static String generateReferenceProperty(Property property, Location Location) {
-
         if (checkProperty(property)){
             return "REF-117";
         }
@@ -26,7 +25,7 @@ public final class ReferenceUtil {
         return null;
     }
     private static Boolean checkProperty(Property property){
-        if (!property.equals(null)){
+        if (property != null){
             return true;
         }else{
             return false;

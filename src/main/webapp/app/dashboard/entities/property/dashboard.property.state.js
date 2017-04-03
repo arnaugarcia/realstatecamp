@@ -43,7 +43,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/dashboard/entities/property/property-dialog.html',
+                    templateUrl: 'app/dashboard/entities/property/dashboard.property-new.html',
                     controller: 'PropertyController',
                     controllerAs: 'vm'
                 }
@@ -86,7 +86,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/dashboard/entities/property/property-dialog.html',
+                    templateUrl: 'app/dashboard/entities/property/dashboard.property-new.html',
                     controller: 'locationPropertyController',
                     controllerAs: 'vm'
                 }
@@ -135,7 +135,7 @@
             }
             // onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
             //     $uibModal.open({
-            //         templateUrl: 'app/entities/property/property-dialog.html',
+            //         templateUrl: 'app/entities/property/dashboard.property-new.html',
             //         controller: 'PropertyDialogController',
             //         controllerAs: 'vm',
             //         backdrop: 'static',
@@ -170,7 +170,71 @@
             //         $state.go('property');
             //     });
             // }]
-        });
+        }).state('dashboard-properties', {
+                parent: 'dashboard-entity',
+                url: '/dashboard/properties?page&sort&search',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    css: [
+                        'content/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.css',
+                        {
+                            name: 'wysihtml',
+                            href: 'content/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.css'
+                        },
+                        'content/css/AdminLTE.css',
+                        {
+                            name: 'dashboard',
+                            href: 'content/css/AdminLTE.css'
+                        },
+                        'content/css/skin-green.min.css',
+                        {
+                            name: 'dashboard-skin',
+                            href: 'content/css/skin-green.min.css'
+                        }
+                    ],
+                    pageTitle: 'assessoriaTorrellesApp.property.home.title'
+                },
+                ncyBreadcrumb: {
+                    label: 'Properties list'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/dashboard/entities/property/dashboard.properties.html',
+                        controller: 'PropertyController',
+                        controllerAs: 'vm'
+                    }
+                },
+                params: {
+                    page: {
+                        value: '1',
+                        squash: true
+                    },
+                    sort: {
+                        value: 'id,asc',
+                        squash: true
+                    },
+                    search: null
+                },
+                resolve: {
+                    pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                        return {
+                            page: PaginationUtil.parsePage($stateParams.page),
+                            sort: $stateParams.sort,
+                            predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                            ascending: PaginationUtil.parseAscending($stateParams.sort),
+                            search: $stateParams.search
+                        };
+                    }],
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('property');
+                        $translatePartialLoader.addPart('location');
+                        $translatePartialLoader.addPart('buildingType');
+                        $translatePartialLoader.addPart('serviceType');
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }]
+                }
+            });
         /*.state('property-detail', {
             parent: 'entity',
             url: '/property/{id}',
@@ -213,7 +277,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/property/property-dialog.html',
+                    templateUrl: 'app/entities/property/dashboard.property-new.html',
                     controller: 'PropertyDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -238,7 +302,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/property/property-dialog.html',
+                    templateUrl: 'app/entities/property/dashboard.property-new.html',
                     controller: 'PropertyDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -282,7 +346,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/property/property-dialog.html',
+                    templateUrl: 'app/entities/property/dashboard.property-new.html',
                     controller: 'PropertyDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',

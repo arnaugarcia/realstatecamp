@@ -160,7 +160,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/property/property-dialog.html',
+                    templateUrl: 'app/entities/property/dashboard.property-new.html',
                     controller: 'PropertyDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -188,7 +188,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/property/property-dialog.html',
+                    templateUrl: 'app/entities/property/dashboard.property-new.html',
                     controller: 'PropertyDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -235,7 +235,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/property/property-dialog.html',
+                    templateUrl: 'app/entities/property/dashboard.property-new.html',
                     controller: 'PropertyDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',

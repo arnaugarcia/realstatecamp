@@ -1,0 +1,67 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1 id="myPropertyLabel" data-translate="assessoriaTorrellesApp.property.home.createOrEditLabel">All active properties
+            <small>{{VERSION}}</small>
+        </h1>
+        <div ncy-breadcrumb></div>
+    </section>
+    <jhi-alert-error></jhi-alert-error>
+    <section class="content">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">All properties list</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Resumen del anuncio</th>
+                        <th>Localització</th>
+                        <th>Tipus d'operació</th>
+                        <th>Superficie</th>
+                        <th>Preu</th>
+                        <th>Data creaciò</th>
+                        <th>Accions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="property in vm.listByFilter | orderBy:vm.orderCriteria.criteria:vm.orderCriteria.rev | filter:vm.quickSearch track by property.id">
+                        <td><img class="img-md" src="/content/img/team01.jpg"></td>
+                        <td>
+                            <!-- <div class="col-xs-6">
+                                    <img src="/content/img/team01.jpg" class="img-responsive" style="width:20%">
+                                </div>
+                                <div class="col-xs-2">-->
+                                    <p><b>Refrència: {{property.ref}}</b></p>
+                                    <p>{{property.name}}</p>
+                                    <p>{{property.buildingType}}</p>
+                                    <p>{{property.m2}}m2, {{property.price}}€</p>
+                            <!--</div>-->
+                        </td>
+                        <td>
+                            <p>{{property.location.town}}</p>
+                            <p>{{property.location.province}}</p>
+                            <p>{{property.location.typeOfRoad}}</p>
+                            <p>{{property.location.number}}</p>
+                        </td>
+                        <td>{{property.serviceType}}</td>
+                        <td>{{property.m2}}</td>
+                        <td>{{property.price}}</td>
+                        <td>{{property.created}}</td>
+                        <td>
+                            <a class="btn btn-warning btn-block">Imprimeix</a>
+                            <a class="btn btn-primary btn-block">Edita</a>
+                            <a class="btn btn-danger btn-block">Elimina</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </section>
+</div>
+
