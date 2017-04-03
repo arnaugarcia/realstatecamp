@@ -4,6 +4,7 @@ import com.arnaugarcia.assessoriatorrelles.domain.Property;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
@@ -31,6 +32,7 @@ public class PropertyByCriteriaRepository {
     public List<Property> filteryPropertyByCriteria(Map<String,Object> parameters, Pageable pageable){
 
         Criteria propertyCriteria = currentSession().createCriteria(Property.class);
+        propertyCriteria.setFetchMode("photos", FetchMode.JOIN);
         propertyCriteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 
         Criteria locationCriteria = propertyCriteria.createCriteria("location");

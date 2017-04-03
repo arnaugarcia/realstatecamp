@@ -1,10 +1,8 @@
 package com.arnaugarcia.assessoriatorrelles.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Objects;
@@ -43,7 +41,7 @@ public class Photo implements Serializable {
     private String url;
 
     @ManyToOne
-    @JsonIgnore
+    //TODO ACCESS WRITE ONLY
     private Property property;
 
     public Long getId() {

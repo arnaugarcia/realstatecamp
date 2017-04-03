@@ -2,7 +2,6 @@ package com.arnaugarcia.assessoriatorrelles.domain;
 
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -109,7 +108,6 @@ public class Property implements Serializable {
     private User user;
 
     @OneToMany(mappedBy = "property")
-    @JsonIgnore
     private Set<Photo> photos = new HashSet<>();
 
     public Long getId() {
