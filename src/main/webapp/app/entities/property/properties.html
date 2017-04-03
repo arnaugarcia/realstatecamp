@@ -12,7 +12,7 @@
                     <div class="row sort">
                         <div class="col-md-4 col-sm-4 col-xs-3">
                             <a href="search.html" class="btn btn-success" ui-sref="property"><i class="fa fa-th"></i></a>
-                            <a href="search_list.html" class="btn btn-default" ui-sref="property-list"><i class="fa fa-list"></i></a>
+                            <a href="search_list.html" class="btn btn-default" ui-sref="property.list"><i class="fa fa-list"></i></a>
                             <!--<span>Show <strong>6</strong> of <strong>{{vm.listByFilter.length}}</strong> result.</span>-->
                         </div>
 
@@ -72,7 +72,7 @@
                         <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="property in vm.listByFilter | orderBy:vm.orderCriteria.criteria:vm.orderCriteria.rev | filter:vm.quickSearch track by property.id">
                             <div class="property-container">
                                 <div class="property-image">
-                                    <img src="content/img/img02.jpg" ui-sref="property-detail({id:property.id})" alt="mikha real estate theme">
+                                    <img src="content/img/img02.jpg" ui-sref="property.detail({id:property.id})" alt="mikha real estate theme">
                                     <div class="property-price">
                                         <span>{{property.price}}€</span>
                                     </div>
@@ -86,7 +86,7 @@
                                     <span><i class="fa fa-male"></i> {{property.numberBedroom}}</span>
                                 </div>
                                 <div class="property-content">
-                                    <h3><a ui-sref="property-detail({id:property.id})" data-translate="{{'assessoriaTorrellesApp.property.BuildingType.' + property.buildingType}}">{{property.buildingType}}</a> <small>{{property.location.town}}</small></h3>
+                                    <h3><a ui-sref="property.detail({id:property.id})" data-translate="{{'assessoriaTorrellesApp.property.BuildingType.' + property.buildingType}}">{{property.buildingType}}</a> <small>{{property.location.town}}</small></h3>
                                 </div>
                             </div>
                         </div>

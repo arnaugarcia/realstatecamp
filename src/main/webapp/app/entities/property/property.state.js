@@ -60,10 +60,8 @@
                     return $translate.refresh();
                 }]
             }
-        })
-
-            .state('property-list', {
-                parent: 'entity',
+        }).state('property.list', {
+                parent: 'property',
                 url: '/property?page&sort&search',
                 data: {
                     authorities: [],
@@ -115,8 +113,8 @@
                 }
             })
 
-        .state('property-detail', {
-            parent: 'entity',
+        .state('property.detail', {
+            parent: 'property',
             url: '/property/{id}',
             data: {
                 authorities: [],
@@ -152,8 +150,8 @@
                 }]
             }
         })
-        .state('property-detail.edit', {
-            parent: 'property-detail',
+        .state('property.edit', {
+            parent: 'property',
             url: '/detail/edit',
             data: {
                 authorities: ['ROLE_USER']
@@ -221,34 +219,6 @@
                     $state.go('property', null, { reload: 'property' });
                 }, function() {
                     $state.go('property');
-                });
-            }]
-        })
-        .state('property.edit', {
-            parent: 'property',
-            url: '/{id}/edit',
-            data: {
-                authorities: ['ROLE_USER']
-            },
-            ncyBreadcrumb: {
-                label: 'Edit Property'
-            },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/property/dashboard.property-new.html',
-                    controller: 'PropertyDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['Property', function(Property) {
-                            return Property.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('property', null, { reload: 'property' });
-                }, function() {
-                    $state.go('^');
                 });
             }]
         })
