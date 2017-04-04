@@ -32,11 +32,16 @@
         {
             "fieldName": "url",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "cover",
+            "fieldType": "Boolean",
+            "fieldValidateRules": []
         }
     ],
     "changelogDate": "20170210193422",
-    "entityTableName": "photo",
     "dto": "no",
-    "pagination": "pagination",
-    "service": "no"
+    "service": "no",
+    "entityTableName": "photo",
+    "pagination": "pagination"
 }

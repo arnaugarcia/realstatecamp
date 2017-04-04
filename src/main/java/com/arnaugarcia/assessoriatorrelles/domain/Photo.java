@@ -1,6 +1,8 @@
 package com.arnaugarcia.assessoriatorrelles.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -40,8 +42,11 @@ public class Photo implements Serializable {
     @Column(name = "url")
     private String url;
 
+    @Column(name = "cover")
+    private Boolean cover;
+
     @ManyToOne
-    //TODO ACCESS WRITE ONLY
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Property property;
 
     public Long getId() {
@@ -130,6 +135,19 @@ public class Photo implements Serializable {
         this.url = url;
     }
 
+    public Boolean isCover() {
+        return cover;
+    }
+
+    public Photo cover(Boolean cover) {
+        this.cover = cover;
+        return this;
+    }
+
+    public void setCover(Boolean cover) {
+        this.cover = cover;
+    }
+
     public Property getProperty() {
         return property;
     }
@@ -173,6 +191,7 @@ public class Photo implements Serializable {
             ", imageContentType='" + imageContentType + "'" +
             ", description='" + description + "'" +
             ", url='" + url + "'" +
+            ", cover='" + cover + "'" +
             '}';
     }
 }

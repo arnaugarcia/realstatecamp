@@ -44,6 +44,10 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="cover" type="bit">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="property_id" type="bigint">
                 <constraints nullable="true" />
             </column>
