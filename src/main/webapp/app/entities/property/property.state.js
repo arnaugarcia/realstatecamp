@@ -115,7 +115,7 @@
 
         .state('property.detail', {
             parent: 'property',
-            url: '/property/{id}',
+            url: '/{id}',
             data: {
                 authorities: [],
                 pageTitle: 'assessoriaTorrellesApp.property.detail.title'
