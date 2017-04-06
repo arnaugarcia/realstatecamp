@@ -25,7 +25,7 @@
                     controller: 'PropertyController',
                     controllerAs: 'vm'
                 },
-                'header-search' : {
+                'header-search@property' : {
                     templateUrl : 'app/layouts/header/header.search.html',
                     controller: 'HeaderController',
                     controllerAs: 'hcs'
@@ -76,7 +76,7 @@
                         controller: 'PropertyController',
                         controllerAs: 'vm'
                     },
-                    'header-search' : {
+                    'header-search@property.list' : {
                         templateUrl : 'app/layouts/header/header.search.html',
                         controller: 'HeaderController',
                         controllerAs: 'hcs'
@@ -128,6 +128,11 @@
                     templateUrl: 'app/entities/property/property-detail.html',
                     controller: 'PropertyDetailController',
                     controllerAs: 'vm'
+                },
+                'header-search@property.detail' : {
+                    templateUrl : 'app/layouts/header/header.search.html',
+                    controller: 'HeaderController',
+                    controllerAs: 'hcs'
                 }
             },
             resolve: {
