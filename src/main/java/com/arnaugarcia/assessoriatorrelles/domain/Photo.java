@@ -1,7 +1,7 @@
 package com.arnaugarcia.assessoriatorrelles.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -46,7 +46,7 @@ public class Photo implements Serializable {
     private Boolean cover;
 
     @ManyToOne
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonIgnore
     private Property property;
 
     public Long getId() {

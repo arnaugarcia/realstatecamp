@@ -2,13 +2,9 @@
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="widget">
-                <h3>Top Real Estate Listed</h3>
-                <ul class="list-unstyled">
-                    <li><a href="#">Apartments</a></li>
-                    <li><a href="#">Office</a></li>
-                    <li><a href="#">Bungalows</a></li>
-                    <li><a href="#">Serviced Residence</a></li>
-                    <li><a href="#">Villa</a></li>
+                <h3>Last properties</h3>
+                <ul class="list-unstyled" ng-repeat="property in vm.propertiesTop5">
+                    <li><a ui-sref="property.detail({id:property.id})">{{property.name}} - {{property.location.town}}</a></li>
                 </ul>
             </div>
         </div>

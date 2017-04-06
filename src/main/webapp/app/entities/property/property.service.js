@@ -11,6 +11,7 @@
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
+            'top5': { method: 'GET', isArray: true, url: 'api/properties/top5'},
             'byFilters': { method: 'GET', isArray: true, url: 'api/property/byfilters'},
             'get': {
                 method: 'GET',

@@ -72,7 +72,8 @@
                         <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="property in vm.listByFilter | orderBy:vm.orderCriteria.criteria:vm.orderCriteria.rev | filter:vm.quickSearch track by property.id">
                             <div class="property-container">
                                 <div class="property-image">
-                                    <img src="content/img/img02.jpg" ui-sref="property.detail({id:property.id})" alt="mikha real estate theme">
+                                    <!--{{property.photos}}-->
+                                    <img data-ng-src="{{'data:' + property.photos[0].imageContentType + ';base64,' + property.photos[0].image}}" ui-sref="property.detail({id:property.id})" style="max-height: 180px;"/>
                                     <div class="property-price">
                                         <span>{{property.price}}€</span>
                                     </div>

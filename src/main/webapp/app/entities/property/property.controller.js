@@ -45,9 +45,9 @@
 
         vm.changeOrder = function (criteria) {
             vm.orderCriteria.criteria = criteria;
-            if(vm.orderCriteria.rev ===true){
+            if(vm.orderCriteria.rev === true){
                 vm.orderCriteria.rev = false;
-            }else if(vm.orderCriteria.rev ===false){
+            }else if(vm.orderCriteria.rev === false){
                 vm.orderCriteria.rev = true;
             }
         };
@@ -103,7 +103,7 @@
             }
 
             function onError(error) {
-                AlertService.error(error.data.message);
+                toastr.error(error.data.error, 'Error!');
             }
 
             function onSuccessByFilter(data,headers) {
@@ -114,7 +114,7 @@
                 vm.page = pagingParams.page;
             }
 
-        }
+        };
 
         loadAll();
 
