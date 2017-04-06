@@ -28,7 +28,12 @@
                 'header-search@property' : {
                     templateUrl : 'app/layouts/header/header.search.html',
                     controller: 'HeaderController',
-                    controllerAs: 'hcs'
+                    controllerAs: 'vm'
+                },
+                'sidebar@property' : {
+                    templateUrl : 'app/layouts/sidebar/sidebar.html',
+                    controller: 'SidebarController',
+                    controllerAs: 'vm'
                 }
             },
             params: {
@@ -79,7 +84,12 @@
                     'header-search@property.list' : {
                         templateUrl : 'app/layouts/header/header.search.html',
                         controller: 'HeaderController',
-                        controllerAs: 'hcs'
+                        controllerAs: 'vm'
+                    },
+                    'sidebar@property.list' : {
+                        templateUrl : 'app/layouts/sidebar/sidebar.html',
+                        controller: 'SidebarController',
+                        controllerAs: 'vm'
                     }
                 },
                 params: {
@@ -133,6 +143,11 @@
                     templateUrl : 'app/layouts/header/header.search.html',
                     controller: 'HeaderController',
                     controllerAs: 'hcs'
+                },
+                'sidebar@property.detail' : {
+                    templateUrl : 'app/layouts/sidebar/sidebar.html',
+                    controller: 'SidebarController',
+                    controllerAs: 'vm'
                 }
             },
             resolve: {
