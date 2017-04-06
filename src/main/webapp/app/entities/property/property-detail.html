@@ -82,40 +82,78 @@
                                             </table>
                                             <h3>Property Features</h3>
                                             <div class="row">
-                                                <div class="col-md-4 col-sm-4">
+                                                <div class="col-md-6 col-sm-6">
                                                     <ul>
-                                                        <li><i class="fa fa-check"></i> Air conditioning</li>
-                                                        <li><i class="fa fa-check"></i> Balcony</li>
-                                                        <li><i class="fa fa-times"></i> Bedding</li>
-                                                        <li><i class="fa fa-check"></i> Cable TV</li>
-                                                        <li><i class="fa fa-times"></i> Cleaning after exit</li>
-                                                        <li><i class="fa fa-check"></i> Cofee pot</li>
-                                                        <li><i class="fa fa-check"></i> Computer</li>
-                                                        <li><i class="fa fa-times"></i> Cot</li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <ul>
-                                                        <li><i class="fa fa-check"></i> Internet</li>
-                                                        <li><i class="fa fa-times"></i> Iron</li>
-                                                        <li><i class="fa fa-check"></i> Juicer</li>
-                                                        <li><i class="fa fa-times"></i> Lift</li>
-                                                        <li><i class="fa fa-times"></i> Microwave</li>
-                                                        <li><i class="fa fa-check"></i> Oven</li>
-                                                        <li><i class="fa fa-times"></i> Parking</li>
-                                                        <li><i class="fa fa-times"></i> Parquet</li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <ul>
-                                                        <li><i class="fa fa-times"></i> Radio</li>
-                                                        <li><i class="fa fa-check"></i> Roof terrace</li>
-                                                        <li><i class="fa fa-times"></i> Smoking allowed</li>
-                                                        <li><i class="fa fa-check"></i> Terrace</li>
-                                                        <li><i class="fa fa-times"></i> Toaster</li>
-                                                        <li><i class="fa fa-check"></i> Towelwes</li>
-                                                        <li><i class="fa fa-check"></i> Use of pool</li>
-                                                        <li><i class="fa fa-check"></i> Video</li>
+
+                                                        <div ng-if="vm.property.terrace == true">
+                                                            <li><i class="fa fa-check"></i> Terrace</li>
+                                                        </div>
+                                                        <div ng-if="vm.property.terrace != true">
+                                                            <li><i class="fa fa-times"></i> Terrace</li>
+                                                        </div>
+
+                                                        <div ng-if="vm.property.elevator == true">
+                                                            <li><i class="fa fa-check"></i> Elevator</li>
+                                                        </div>
+                                                        <div ng-if="vm.property.elevator != true">
+                                                            <li><i class="fa fa-times"></i> Elevator</li>
+                                                        </div>
+
+                                                        <div ng-if="vm.property.furnished == true">
+                                                            <li><i class="fa fa-check"></i> Furnished</li>
+                                                        </div>
+                                                        <div ng-if="vm.property.furnished != true">
+                                                            <li><i class="fa fa-times"></i> Furnished</li>
+                                                        </div>
+
+                                                        <div ng-if="vm.property.ac == true">
+                                                            <li><i class="fa fa-check"></i> Ac</li>
+                                                        </div>
+                                                        <div ng-if="vm.property.ac != true">
+                                                            <li><i class="fa fa-times"></i> Ac</li>
+                                                        </div>
+
+                                                        <div ng-if="vm.property.neartransport == true">
+                                                            <li><i class="fa fa-check"></i> Neartransport</li>
+                                                        </div>
+                                                        <div ng-if="vm.property.neartransport != true">
+                                                            <li><i class="fa fa-times"></i> Neartransport</li>
+                                                        </div>
+
+                                                        <div ng-if="vm.property.office == true">
+                                                            <li><i class="fa fa-check"></i> Office</li>
+                                                        </div>
+                                                        <div ng-if="vm.property.office != true">
+                                                            <li><i class="fa fa-times"></i> Office</li>
+                                                        </div>
+
+                                                        <div ng-if="vm.property.storage == true">
+                                                            <li><i class="fa fa-check"></i> storage</li>
+                                                        </div>
+                                                        <div ng-if="vm.property.storage != true">
+                                                            <li><i class="fa fa-times"></i> storage</li>
+                                                        </div>
+
+                                                        <div ng-if="vm.property.heating == true">
+                                                            <li><i class="fa fa-check"></i> heating</li>
+                                                        </div>
+                                                        <div ng-if="vm.property.heating != true">
+                                                            <li><i class="fa fa-times"></i> heating</li>
+                                                        </div>
+
+                                                        <div ng-if="vm.property.pool == true">
+                                                            <li><i class="fa fa-check"></i> Pool</li>
+                                                        </div>
+                                                        <div ng-if="vm.property.pool != true">
+                                                            <li><i class="fa fa-times"></i> Pool</li>
+                                                        </div>
+
+                                                        <div ng-if="vm.property.garage == true">
+                                                            <li><i class="fa fa-check"></i> Garage</li>
+                                                        </div>
+                                                        <div ng-if="vm.property.garage != true">
+                                                            <li><i class="fa fa-times"></i> Garage</li>
+                                                        </div>
                                                     </ul>
                                                 </div>
                                             </div>
