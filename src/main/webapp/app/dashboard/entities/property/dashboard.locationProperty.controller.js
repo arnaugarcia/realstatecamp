@@ -6,9 +6,9 @@
         .module('assessoriaTorrellesApp')
         .controller('locationPropertyController', locationPropertyController);
 
-    locationPropertyController.$inject = ['$timeout', '$scope', '$state' ,'$stateParams', '$q', 'DataUtils', 'propertyEntity','locationEntity', 'Property', 'Location', 'User', 'Photo'];
+    locationPropertyController.$inject = ['$timeout', '$scope', '$state' ,'$stateParams', '$q', 'DataUtils', 'propertyEntity','locationEntity', 'Property', 'Location', 'User', 'Photo','ngDroplet'];
 
-    function locationPropertyController ($timeout, $scope, $state, $stateParams, $q, DataUtils, propertyEntity,locationEntity, Property, Location, User, Photo) {
+    function locationPropertyController ($timeout, $scope, $state, $stateParams, $q, DataUtils, propertyEntity,locationEntity, Property, Location, User, Photo,ngDroplet) {
         var vm = this;
         //** GUARDA PROPERTY
         vm.property = propertyEntity;

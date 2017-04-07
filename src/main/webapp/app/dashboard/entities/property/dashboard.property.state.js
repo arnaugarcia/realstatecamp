@@ -133,7 +133,66 @@
                     };
                 }
             }
-            }).state('dashboard-property.list', {
+            })
+
+            .state('dashboard-property.edit/{id}', {
+                parent: 'dashboard-property',
+                url: '/edit',
+                data: {
+                    authorities: ['ROLE_USER']
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/dashboard/entities/property/dashboard.property-new.html',
+                        controller: 'locationPropertyController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    propertyEntity: function () {
+                        return {
+                            name: null,
+                            price: null,
+                            description: null,
+                            buildingType: null,
+                            serviceType: null,
+                            ref: null,
+                            visible: null,
+                            sold: null,
+                            terrace: null,
+                            m2: null,
+                            numberBedroom: null,
+                            elevator: null,
+                            furnished: null,
+                            pool: null,
+                            garage: null,
+                            numberWc: null,
+                            ac: null,
+                            id: null
+                        };
+                    },
+                    locationEntity: function () {
+                        return {
+                            ref: null,
+                            province: null,
+                            town: null,
+                            typeOfRoad: null,
+                            nameRoad: null,
+                            number: null,
+                            apartment: null,
+                            building: null,
+                            door: null,
+                            stair: null,
+                            urlgmaps: null,
+                            latitude: null,
+                            longitude: null,
+                            id: null
+                        };
+                    }
+                }
+            })
+
+            .state('dashboard-property.list', {
                 parent: 'dashboard-property',
                 url: '/list',
                 data: {

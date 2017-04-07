@@ -14,6 +14,9 @@
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
+        //TODO intentar cambiar directamente el paginationConstants ya que lo está inyectando en el controller
+        //paginationsConstants.itemsPerPage = model...
+        //vm.itemsPerPage = paginationConstants.itemsPerPage
         vm.itemsPerPage = paginationConstants.itemsPerPage;
         vm.openFile = DataUtils.openFile;
         vm.byteSize = DataUtils.byteSize;
@@ -162,6 +165,12 @@
 
 
         }
+
+        vm.changeItemsPerPage = function(){
+            paginationConstants.itemsPerPage = vm.itemsPerPage;
+            vm.searchByFilters();
+        };
+
         function loadPage (page) {
             vm.page = page;
             vm.transition();

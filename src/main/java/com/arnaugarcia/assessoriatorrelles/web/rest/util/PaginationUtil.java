@@ -5,6 +5,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URISyntaxException;
+import java.util.Map;
 
 /**
  * Utility class for handling pagination.
@@ -38,6 +39,55 @@ public final class PaginationUtil {
         }
         link += "<" + generateUri(baseUrl, lastPage, page.getSize()) + ">; rel=\"last\",";
         link += "<" + generateUri(baseUrl, 0, page.getSize()) + ">; rel=\"first\"";
+        headers.add(HttpHeaders.LINK, link);
+        return headers;
+    }
+
+    public static HttpHeaders generatePaginationHttpHeaders(Page<?> page, Map<String, Object> params, String baseUrl)
+        throws URISyntaxException {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("X-Total-Count", "" + page.getTotalElements());
+        String link = "";
+
+        if ((page.getNumber() + 1) < page.getTotalPages()) {
+            //+ ">; rel=\"next\",";
+            link = "<" + generateUri(baseUrl, page.getNumber() + 1, page.getSize());
+            for (String currentVal: params.keySet()) {
+                link+="&"+currentVal+"="+params.get(currentVal);
+            }
+            link+=">; rel=\"next\",";
+        }
+        // prev link
+        if ((page.getNumber()) > 0) {
+            // + ">; rel=\"prev\","
+            link += "<" + generateUri(baseUrl, page.getNumber() - 1, page.getSize());
+            for (String currentVal: params.keySet()) {
+                link+="&"+currentVal+"="+params.get(currentVal);
+            }
+            link+=">; rel=\"prev\",";
+        }
+        // last and first link
+        int lastPage = 0;
+        if (page.getTotalPages() > 0) {
+            lastPage = page.getTotalPages() - 1;
+
+        }
+        //+ ">; rel=\"last\","
+        link += "<" + generateUri(baseUrl, lastPage, page.getSize());
+
+        for (String currentVal: params.keySet()) {
+            link+="&"+currentVal+"="+params.get(currentVal);
+        }
+        link+=">; rel=\"last\",";
+
+        link += "<" + generateUri(baseUrl, 0, page.getSize());
+
+        for (String currentVal: params.keySet()) {
+            link+="&"+currentVal+"="+params.get(currentVal);
+        }
+
+        link +=">; rel=\"first\"";
         headers.add(HttpHeaders.LINK, link);
         return headers;
     }
