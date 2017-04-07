@@ -42,7 +42,6 @@
             },
             "name": "Name",
             "price": "Price",
-            "description": "Description",
             "buildingType": "Building type",
             "serviceType": "Service type",
             "ref": "Ref",
@@ -65,11 +64,19 @@
             "minArea": "Min Area",
             "maxArea": "Max Area",
             "area": "Area",
+            "nearTransport": "Near transport",
+            "office": "Office",
+            "storage": "Storage room",
+            "heating": "Heating",
             "propertyDetail":{
+                "title": "Property detail",
                 "overview": "Property overview",
-                "featuresH": "House features",
-                "featuresF": "Flat features",
-                "featuresS": "Studio features"
+                "features":{
+                    "featuresH": "House features",
+                    "featuresF": "Flat features",
+                    "featuresS": "Studio features"
+                },
+                "description": "Description"
             }
         }
     }
