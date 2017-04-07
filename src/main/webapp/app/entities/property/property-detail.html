@@ -45,7 +45,7 @@
                                                     <span class="glyphicon glyphicon-chevron-right"></span>
                                                 </a>
                                             </div>
-                                            <h3>Property Overview</h3>
+                                            <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.overview">Property Overview</h3>
                                             <table class="table table-bordered">
                                                 <tr>
                                                     <td width="20%"><strong data-translate="assessoriaTorrellesApp.property.ref">ID</strong></td>
@@ -57,30 +57,47 @@
                                                 </tr>
                                                 <tr>
                                                     <td><strong data-translate="assessoriaTorrellesApp.property.buildingType">Type</strong></td>
-                                                    <td data-translate="{{'assessoriaTorrellesApp.BuildingType.' + vm.property.buildingType}}">Residential</td>
+                                                    <td data-translate="{{'assessoriaTorrellesApp.property.BuildingType.' + vm.property.buildingType}}">Residential</td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong data-translate="assessoriaTorrellesApp.property.serviceType">Contract</strong></td>
-                                                    <td data-translate="{{'assessoriaTorrellesApp.ServiceType.' + vm.property.serviceType}}">Sale</td>
+                                                    <td data-translate="{{'assessoriaTorrellesApp.property.ServiceType.' + vm.property.serviceType}}">Sale</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Location</strong></td>
+                                                    <td><strong data-translate="assessoriaTorrellesApp.property.location">Location</strong></td>
                                                     <td>JJ Road, Yogyakarta, INA</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Bathrooms</strong></td>
+                                                    <td><strong data-translate="assessoriaTorrellesApp.property.numberWc">Bathrooms</strong></td>
                                                     <td>4</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Bedrooms</strong></td>
+                                                    <td><strong  data-translate="assessoriaTorrellesApp.property.numberBedroom">Bedrooms</strong></td>
                                                     <td>4</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Area</strong></td>
+                                                    <td><strong data-translate="assessoriaTorrellesApp.property.area">Area</strong></td>
                                                     <td>800m<sup>2</sup> </td>
                                                 </tr>
                                             </table>
-                                            <h3>Property Features</h3>
+                                            <div ng-if="vm.property.buildingType == 'HOUSE'">
+                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.featuresH"></h3>
+                                            </div>
+                                            <div ng-if="vm.property.buildingType == 'FLAT'">
+                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.featuresF"></h3>
+                                            </div>
+                                            <div ng-if="vm.property.buildingType == 'STUDIO'">
+                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.featuresS"></h3>
+                                            </div>
+                                            <!--<div ng-if="vm.language() == 'ca'">
+                                                <h3>CATALÀ</h3>
+                                            </div>
+                                            <div ng-if="vm.language() == 'en'">
+                                                <h3>ENGLISH</h3>
+                                            </div>
+                                            <div ng-if="vm.language() == 'es'">
+                                                <h3>ESPAÑOL</h3>
+                                            </div>-->
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6">
                                                     <ul>

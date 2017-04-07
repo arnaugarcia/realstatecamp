@@ -17,13 +17,12 @@
                 "title": "Property"
             },
             "ServiceType":{
-
                 "RENT_AND_SALE":"Alquiler y Venta",
                 "RENT":"Alquiler",
                 "SALE":"Venta"
             },
             "sortBy":{
-                "default":"Ordernar por",
+                "default":"Ordenar por",
                 "price":"Precio",
                 "size":"Tamaño"
             },
@@ -42,7 +41,7 @@
                 "no":"No"
             },
             "name": "Name",
-            "price": "Price",
+            "price": "Precio",
             "description": "Description",
             "buildingType": "Tipo de vivienda",
             "serviceType": "Tipo de servicio",
@@ -58,13 +57,20 @@
             "garage": "Garaje",
             "numberWc": "Núm. de baños",
             "ac": "Aire acondicionado",
-            "location": "Localidad",
+            "location": "Ubicación",
             "user": "User",
             "photo": "Photo",
             "minPrice": "Precio mínimo",
             "maxPrice": "Precio máximo",
             "minArea": "Area mínima",
-            "maxArea": "Area máxima"
+            "maxArea": "Area máxima",
+            "area": "Area",
+            "propertyDetail":{
+                "overview": "Visión general",
+                "featuresH": "Características de la casa",
+                "featuresF": "Características del piso",
+                "featuresS": "Características del estudio"
+            }
         }
     }
 }

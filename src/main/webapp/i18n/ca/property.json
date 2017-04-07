@@ -42,7 +42,7 @@
               "no":"No"
             },
             "name": "Name",
-            "price": "Price",
+            "price": "Preu",
             "description": "Description",
             "buildingType": "Tipus de vivenda",
             "serviceType": "Tipus de servei",
@@ -58,13 +58,20 @@
             "garage": "Garatge",
             "numberWc": "Núm. de lavabos",
             "ac": "Aire acondicionat",
-            "location": "Localització",
+            "location": "Ubicació",
             "user": "User",
             "photo": "Photo",
             "minPrice": "Preu mínim",
             "maxPrice": "Preu màxim",
             "minArea": "Àrea mínima",
-            "maxArea": "Àrea màxima"
+            "maxArea": "Àrea màxima",
+            "area": "Àrea",
+            "propertyDetail":{
+                "overview": "Vista general",
+                "featuresH": "Característiques de la casa",
+                "featuresF": "Característiques del pis",
+                "featuresS": "Característiques de l'estudi"
+            }
         }
     }
 }
