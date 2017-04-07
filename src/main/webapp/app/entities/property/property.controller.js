@@ -5,9 +5,9 @@
         .module('assessoriaTorrellesApp')
         .controller('PropertyController', PropertyController);
 
-    PropertyController.$inject = ['$scope', '$state','Principal' ,'DataUtils', 'Property', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    PropertyController.$inject = ['$scope', '$state','Principal' ,'DataUtils', 'Property', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants','searchCriteria'];
 
-    function PropertyController ($scope, $state,Principal, DataUtils, Property, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function PropertyController ($scope, $state,Principal, DataUtils, Property, ParseLinks, AlertService, pagingParams, paginationConstants,searchCriteria) {
         var vm = this;
 
         vm.loadPage = loadPage;
@@ -37,7 +37,11 @@
 
         //********** ****** **********//
 
-        vm.filterCritera = {};
+        vm.filterCritera = searchCriteria;
+
+        vm.test = searchCriteria;
+        // vm.filterCritera = Property.criteria;
+
         // vm.filterCritera.location = 'Barcelona';
         vm.isAuthenticated = null;
         vm.account = null;

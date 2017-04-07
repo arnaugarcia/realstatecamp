@@ -7,11 +7,9 @@
 
 
 
-    SidebarController.$inject = ['$scope', '$state'];
+    SidebarController.$inject = [];
 
-    function SidebarController ($scope, $state) {
-            // var vm = this;
-            // vm.searchByFilters = {};
-            // // sb.filterCritera.location = 'Barcelona';
+    function SidebarController () {
+
     }
 })();
