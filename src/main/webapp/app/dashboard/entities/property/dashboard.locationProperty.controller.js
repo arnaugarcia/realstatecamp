@@ -6,9 +6,9 @@
         .module('assessoriaTorrellesApp')
         .controller('locationPropertyController', locationPropertyController);
 
-    locationPropertyController.$inject = ['$timeout', '$scope', '$state' ,'$stateParams', '$q', 'DataUtils', 'propertyEntity','locationEntity', 'Property', 'Location', 'User', 'Photo','ngDroplet'];
+    locationPropertyController.$inject = ['$timeout', '$scope', '$state' ,'$stateParams', '$q', 'DataUtils', 'propertyEntity','locationEntity', 'Property', 'Location', 'User', 'Photo'];
 
-    function locationPropertyController ($timeout, $scope, $state, $stateParams, $q, DataUtils, propertyEntity,locationEntity, Property, Location, User, Photo,ngDroplet) {
+    function locationPropertyController ($timeout, $scope, $state, $stateParams, $q, DataUtils, propertyEntity,locationEntity, Property, Location, User, Photo) {
         var vm = this;
         //** GUARDA PROPERTY
         vm.property = propertyEntity;
@@ -78,7 +78,21 @@
          *
          */
 
-
+        /*
+            ng-flow setup
+         */
+        // flowFactoryProvider.defaults = {
+        //     target: '',
+        //     permanentErrors: [500, 501],
+        //     maxChunkRetries: 1,
+        //     chunkRetryInterval: 5000,
+        //     simultaneousUploads: 1
+        // };
+        // flowFactoryProvider.on('catchAll', function (event) {
+        //     console.log('catchAll', arguments);
+        // });
+        // // Can be used with different implementations of Flow.js
+        // flowFactoryProvider.factory = fustyFlowFactory;
 
     }
 })();
