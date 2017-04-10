@@ -125,8 +125,9 @@ public class PropertyByCriteriaRepository {
         if(parameters.get("serviceType")!=null){
             filterByServiceType(parameters,propertyCriteria,"serviceType");
         }
-        propertyCriteria.setFirstResult(pageable.getPageNumber()*pageable.getPageSize());
-        propertyCriteria.setMaxResults(pageable.getPageSize()+1);
+        propertyCriteria.setFirstResult(pageable.getPageNumber()*pageable.getPageSize()+1);
+        propertyCriteria.setMaxResults(pageable.getPageSize());
+
         List<Property> results = propertyCriteria.list();
 
         return results;
