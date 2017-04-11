@@ -28,6 +28,7 @@
         // });
         // vm.users = User.query();
         // vm.photos = Photo.query();
+        vm.save = save;
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -93,6 +94,17 @@
         // });
         // // Can be used with different implementations of Flow.js
         // flowFactoryProvider.factory = fustyFlowFactory;
+        vm.showFlow = function (w) {
+            console.log(w);
+            // for(var file in w){
+            //     Photo.update({
+            //       'image':file
+            //     }, onSaveSuccess, onSaveError);
+            // }
+
+        }
+
+
 
     }
 })();
