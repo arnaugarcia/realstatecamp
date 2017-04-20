@@ -96,11 +96,9 @@
         // flowFactoryProvider.factory = fustyFlowFactory;
         vm.showFlow = function (w) {
             console.log(w);
-            // for(var file in w){
-            //     Photo.update({
-            //       'image':file
-            //     }, onSaveSuccess, onSaveError);
-            // }
+            for(var file in w){
+                console.log(w);
+            }
 
         }
 
