@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider
         .state('request', {
-            parent: 'entity',
+            parent: 'dashboard-entity',
             url: '/request?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
@@ -18,7 +18,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/request/requests.html',
+                    templateUrl: 'app/dashboard/entities/request/requests.html',
                     controller: 'RequestController',
                     controllerAs: 'vm'
                 }
@@ -53,7 +53,7 @@
             }
         })
         .state('request-detail', {
-            parent: 'entity',
+            parent: 'dashboard-entity',
             url: '/request/{id}',
             data: {
                 authorities: ['ROLE_USER'],
@@ -61,7 +61,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/request/request-detail.html',
+                    templateUrl: 'app/dashboard/entities/request/request-detail.html',
                     controller: 'RequestDetailController',
                     controllerAs: 'vm'
                 }
@@ -93,7 +93,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/request/request-dialog.html',
+                    templateUrl: 'app/dashboard/entities/request/request-dialog.html',
                     controller: 'RequestDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -118,7 +118,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/request/request-dialog.html',
+                    templateUrl: 'app/dashboard/entities/request/request-dialog.html',
                     controller: 'RequestDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -151,7 +151,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/request/request-dialog.html',
+                    templateUrl: 'app/dashboard/entities/request/request-dialog.html',
                     controller: 'RequestDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -176,7 +176,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/request/request-delete-dialog.html',
+                    templateUrl: 'app/dashboard/entities/request/request-delete-dialog.html',
                     controller: 'RequestDeleteController',
                     controllerAs: 'vm',
                     size: 'md',

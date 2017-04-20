@@ -5,9 +5,9 @@
         .module('assessoriaTorrellesApp')
         .controller('HomeController', DashboardHomeController);
 
-    DashboardHomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    DashboardHomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'Request', 'AlertService'];
 
-    function DashboardHomeController ($scope, Principal, LoginService, $state) {
+    function DashboardHomeController ($scope, Principal, LoginService, $state, Request, AlertService) {
         var vm = this;
 
         vm.account = null;
@@ -19,14 +19,34 @@
             getAccount();
         });
 
+        loadAll();
+
         getAccount();
 
+        function loadAll(){
+            Request.query({
+
+            }, onSuccess, onError);
+
+            function onSuccess(data) {
+                vm.requests = data;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        }
+
         function getAccount() {
+
             Principal.identity().then(function(account) {
                 vm.account = account;
                 vm.isAuthenticated = Principal.isAuthenticated;
             });
+
         }
+
+
+
         function register () {
             $state.go('register');
         }
