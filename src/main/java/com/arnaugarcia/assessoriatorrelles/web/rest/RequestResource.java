@@ -30,7 +30,7 @@ import java.util.Optional;
 public class RequestResource {
 
     private final Logger log = LoggerFactory.getLogger(RequestResource.class);
-        
+
     @Inject
     private RequestRepository requestRepository;
 
@@ -88,7 +88,7 @@ public class RequestResource {
     public ResponseEntity<List<Request>> getAllRequests(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Requests");
-        Page<Request> page = requestRepository.findAll(pageable);
+        Page<Request> page = requestRepository.findRequestsByState_OpenAndState_Pending(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/requests");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
