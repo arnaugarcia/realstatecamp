@@ -42,7 +42,6 @@
             },
             "name": "Name",
             "price": "Precio",
-            "description": "Description",
             "buildingType": "Tipo de vivienda",
             "serviceType": "Tipo de servicio",
             "ref": "Ref",
@@ -65,11 +64,19 @@
             "minArea": "Area mínima",
             "maxArea": "Area máxima",
             "area": "Area",
+            "nearTransport": "Transporte cerca",
+            "office": "Despacho",
+            "storage": "Trastero",
+            "heating": "Calefacción",
             "propertyDetail":{
+                "title": "Detalles de la propiedad",
                 "overview": "Visión general",
-                "featuresH": "Características de la casa",
-                "featuresF": "Características del piso",
-                "featuresS": "Características del estudio"
+                "features":{
+                    "featuresH": "Características de la casa",
+                    "featuresF": "Características del piso",
+                    "featuresS": "Características del estudio"
+                },
+                "description": "Descripción"
             }
         }
     }

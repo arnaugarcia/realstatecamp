@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-md-12 single-post">
                             <ul id="myTab" class="nav nav-tabs nav-justified">
-                                <li class="active"><a go="#detail" data-toggle="tab"><i class="fa fa-university"></i> Property Detail</a></li>
+                                <li class="active"><a go="#detail" data-toggle="tab"><i class="fa fa-university"></i><span data-translate="assessoriaTorrellesApp.property.propertyDetail.title">&nbsp; Property Detail</span></a></li>
                                 <li><a go="#location" data-toggle="tab"><i class="fa fa-paper-plane-o"></i> Property Location</a></li>
                             </ul>
                             <div id="myTabContent" class="tab-content">
@@ -81,101 +81,123 @@
                                                 </tr>
                                             </table>
                                             <div ng-if="vm.property.buildingType == 'HOUSE'">
-                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.featuresH"></h3>
+                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.features.featuresH"></h3>
                                             </div>
                                             <div ng-if="vm.property.buildingType == 'FLAT'">
-                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.featuresF"></h3>
+                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.features.featuresF"></h3>
                                             </div>
                                             <div ng-if="vm.property.buildingType == 'STUDIO'">
-                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.featuresS"></h3>
+                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.features.featuresS"></h3>
                                             </div>
-                                            <!--<div ng-if="vm.language() == 'ca'">
-                                                <h3>CATALÀ</h3>
-                                            </div>
-                                            <div ng-if="vm.language() == 'en'">
-                                                <h3>ENGLISH</h3>
-                                            </div>
-                                            <div ng-if="vm.language() == 'es'">
-                                                <h3>ESPAÑOL</h3>
-                                            </div>-->
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6">
-                                                    <ul>
-
-                                                        <div ng-if="vm.property.terrace == true">
-                                                            <li><i class="fa fa-check"></i> Terrace</li>
-                                                        </div>
-                                                        <div ng-if="vm.property.terrace != true">
-                                                            <li><i class="fa fa-times"></i> Terrace</li>
-                                                        </div>
-
-                                                        <div ng-if="vm.property.elevator == true">
-                                                            <li><i class="fa fa-check"></i> Elevator</li>
-                                                        </div>
-                                                        <div ng-if="vm.property.elevator != true">
-                                                            <li><i class="fa fa-times"></i> Elevator</li>
+                                                    <ul id="features">
+                                                        <!-- start:facilitiesList -->
+                                                        <div>
+                                                            <div ng-if="vm.property.terrace == true">
+                                                                <li class="fa fa-check"></li>
+                                                            </div>
+                                                            <div ng-if="vm.property.terrace != true">
+                                                                <li class="fa fa-times"></li>
+                                                            </div>
+                                                            <span data-translate="assessoriaTorrellesApp.property.terrace">Terrace</span>
                                                         </div>
 
-                                                        <div ng-if="vm.property.furnished == true">
-                                                            <li><i class="fa fa-check"></i> Furnished</li>
-                                                        </div>
-                                                        <div ng-if="vm.property.furnished != true">
-                                                            <li><i class="fa fa-times"></i> Furnished</li>
-                                                        </div>
-
-                                                        <div ng-if="vm.property.ac == true">
-                                                            <li><i class="fa fa-check"></i> Ac</li>
-                                                        </div>
-                                                        <div ng-if="vm.property.ac != true">
-                                                            <li><i class="fa fa-times"></i> Ac</li>
+                                                        <div>
+                                                            <div ng-if="vm.property.elevator == true">
+                                                                <li class="fa fa-check"></li>
+                                                            </div>
+                                                            <div ng-if="vm.property.elevator != true">
+                                                                <li class="fa fa-times"></li>
+                                                            </div>
+                                                            <span data-translate="assessoriaTorrellesApp.property.elevator">Elevator</span>
                                                         </div>
 
-                                                        <div ng-if="vm.property.neartransport == true">
-                                                            <li><i class="fa fa-check"></i> Neartransport</li>
-                                                        </div>
-                                                        <div ng-if="vm.property.neartransport != true">
-                                                            <li><i class="fa fa-times"></i> Neartransport</li>
-                                                        </div>
-
-                                                        <div ng-if="vm.property.office == true">
-                                                            <li><i class="fa fa-check"></i> Office</li>
-                                                        </div>
-                                                        <div ng-if="vm.property.office != true">
-                                                            <li><i class="fa fa-times"></i> Office</li>
+                                                        <div>
+                                                            <div ng-if="vm.property.furnished == true">
+                                                                <li class="fa fa-check"></li>
+                                                            </div>
+                                                            <div ng-if="vm.property.furnished != true">
+                                                                <li class="fa fa-times"></li>
+                                                            </div>
+                                                            <span data-translate="assessoriaTorrellesApp.property.furnished">Furnished</span>
                                                         </div>
 
-                                                        <div ng-if="vm.property.storage == true">
-                                                            <li><i class="fa fa-check"></i> storage</li>
-                                                        </div>
-                                                        <div ng-if="vm.property.storage != true">
-                                                            <li><i class="fa fa-times"></i> storage</li>
-                                                        </div>
-
-                                                        <div ng-if="vm.property.heating == true">
-                                                            <li><i class="fa fa-check"></i> heating</li>
-                                                        </div>
-                                                        <div ng-if="vm.property.heating != true">
-                                                            <li><i class="fa fa-times"></i> heating</li>
+                                                        <div>
+                                                            <div ng-if="vm.property.ac == true">
+                                                                <li class="fa fa-check"></li>
+                                                            </div>
+                                                            <div ng-if="vm.property.ac != true">
+                                                                <li class="fa fa-times"></li>
+                                                            </div>
+                                                            <span data-translate="assessoriaTorrellesApp.property.ac">Ac</span>
                                                         </div>
 
-                                                        <div ng-if="vm.property.pool == true">
-                                                            <li><i class="fa fa-check"></i> Pool</li>
-                                                        </div>
-                                                        <div ng-if="vm.property.pool != true">
-                                                            <li><i class="fa fa-times"></i> Pool</li>
+                                                        <div>
+                                                            <div ng-if="vm.property.neartransport == true">
+                                                                <li class="fa fa-check"></li>
+                                                            </div>
+                                                            <div ng-if="vm.property.neartransport != true">
+                                                                <li class="fa fa-times"></li>
+                                                            </div>
+                                                            <span data-translate="assessoriaTorrellesApp.property.nearTransport">Near transport</span>
                                                         </div>
 
-                                                        <div ng-if="vm.property.garage == true">
-                                                            <li><i class="fa fa-check"></i> Garage</li>
+                                                        <div>
+                                                            <div ng-if="vm.property.office == true">
+                                                                <li class="fa fa-check"></li>
+                                                            </div>
+                                                            <div ng-if="vm.property.office != true">
+                                                                <li class="fa fa-times"></li>
+                                                            </div>
+                                                            <span data-translate="assessoriaTorrellesApp.property.office">Office</span>
                                                         </div>
-                                                        <div ng-if="vm.property.garage != true">
-                                                            <li><i class="fa fa-times"></i> Garage</li>
+
+                                                        <div>
+                                                            <div ng-if="vm.property.storage == true">
+                                                                <li class="fa fa-check"></li>
+                                                            </div>
+                                                            <div ng-if="vm.property.storage != true">
+                                                                <li class="fa fa-times"></li>
+                                                            </div>
+                                                            <span data-translate="assessoriaTorrellesApp.property.storage">Storage room</span>
                                                         </div>
+
+                                                        <div>
+                                                            <div ng-if="vm.property.heating == true">
+                                                                <li class="fa fa-check"></li>
+                                                            </div>
+                                                            <div ng-if="vm.property.heating != true">
+                                                                <li class="fa fa-times"></li>
+                                                            </div>
+                                                            <span data-translate="assessoriaTorrellesApp.property.heating">Heating</span>
+                                                        </div>
+
+                                                        <div>
+                                                            <div ng-if="vm.property.pool == true">
+                                                                <li class="fa fa-check"></li>
+                                                            </div>
+                                                            <div ng-if="vm.property.pool != true">
+                                                                <li class="fa fa-times"></li>
+                                                            </div>
+                                                            <span data-translate="assessoriaTorrellesApp.property.pool">Pool</span>
+                                                        </div>
+
+                                                        <div>
+                                                            <div ng-if="vm.property.garage == true">
+                                                                <li class="fa fa-check"></li>
+                                                            </div>
+                                                            <div ng-if="vm.property.garage != true">
+                                                                <li class="fa fa-times"></li>
+                                                            </div>
+                                                            <span data-translate="assessoriaTorrellesApp.property.garage">Garage</span>
+                                                        </div>
+                                                        <!-- end:facilitesList -->
                                                     </ul>
                                                 </div>
                                             </div>
 
-                                            <h3 data-translate="assessoriaTorrellesApp.property.description">Property Description</h3>
+                                            <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.description">Property Description</h3>
                                             <p>{{vm.property.description}}</p>
                                         </div>
                                     </div>

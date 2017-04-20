@@ -43,7 +43,6 @@
             },
             "name": "Name",
             "price": "Preu",
-            "description": "Description",
             "buildingType": "Tipus de vivenda",
             "serviceType": "Tipus de servei",
             "ref": "Ref",
@@ -66,11 +65,19 @@
             "minArea": "Àrea mínima",
             "maxArea": "Àrea màxima",
             "area": "Àrea",
+            "nearTransport": "Transport a prop",
+            "office": "Despatx",
+            "storage": "Traster",
+            "heating": "Calefacció",
             "propertyDetail":{
+                "title": "Detalls de la propietat",
                 "overview": "Vista general",
-                "featuresH": "Característiques de la casa",
-                "featuresF": "Característiques del pis",
-                "featuresS": "Característiques de l'estudi"
+                "features":{
+                    "featuresH": "Característiques de la casa",
+                    "featuresF": "Característiques del pis",
+                    "featuresS": "Característiques de l'estudi"
+                },
+                "description": "Descripció"
             }
         }
     }

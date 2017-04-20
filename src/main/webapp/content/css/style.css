@@ -2214,3 +2214,17 @@ video#bgvid {
     border: 1px solid #6b6e80;
     margin-bottom: 50px;
 }
+
+/*
+	==================
+	[14. PROPERTY DETAIL]
+	==================
+*/
+
+/* FEATURES */
+#features div > div {
+    display: inline-block;
+}
+#features li{
+    width: 20px;
+}
