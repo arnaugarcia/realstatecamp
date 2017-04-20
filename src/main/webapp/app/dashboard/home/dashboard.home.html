@@ -87,13 +87,16 @@
                 <div class="table-responsive">
                     <table class="table no-margin">
                         <thead>
-                        <tr>
-                            <th>Request ID</th>
-                            <th>Name</th>
-                            <th>Telefono</th>
-                            <th>Email</th>
-                            <th>Status</th>
-                            <th>Propiedad</th>
+                        <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                            <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                            <th jh-sort-by="name"><span data-translate="assessoriaTorrellesApp.request.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                            <th jh-sort-by="phone"><span data-translate="assessoriaTorrellesApp.request.phone">Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                            <th jh-sort-by="email"><span data-translate="assessoriaTorrellesApp.request.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                            <th jh-sort-by="state"><span data-translate="assessoriaTorrellesApp.request.state">State</span> <span class="glyphicon glyphicon-sort"></span></th>
+                            <th jh-sort-by="date"><span data-translate="assessoriaTorrellesApp.request.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                            <th jh-sort-by="comment"><span data-translate="assessoriaTorrellesApp.request.comment">Comment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                            <th jh-sort-by="property.ref"><span data-translate="assessoriaTorrellesApp.request.property">Property</span> <span class="glyphicon glyphicon-sort"></span></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -103,6 +106,8 @@
                             <td>{{request.phone}}</td>
                             <td>{{request.email}}</td>
                             <td>{{request.state}}</td>
+                            <td data-translate="{{'assessoriaTorrellesApp.Status.' + request.state}}">{{request.date}}</td>
+                            <td>{{request.comment}}</td>
                             <td><a href="">{{request.property.ref}}</a></td>
                         </tr>
                         </tbody>
