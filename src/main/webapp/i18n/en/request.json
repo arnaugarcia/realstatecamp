@@ -1,0 +1,28 @@
+{
+    "assessoriaTorrellesApp": {
+        "request" : {
+            "home": {
+                "title": "Requests",
+                "createLabel": "Create a new Request",
+                "createOrEditLabel": "Create or edit a Request",
+                "search": "Search for Request"
+            },
+            "created": "A new Request is created with identifier {{ param }}",
+            "updated": "A Request is updated with identifier {{ param }}",
+            "deleted": "A Request is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Request {{ id }}?"
+            },
+            "detail": {
+                "title": "Request"
+            },
+            "name": "Name",
+            "phone": "Phone",
+            "email": "Email",
+            "state": "State",
+            "date": "Date",
+            "comment": "Comment",
+            "property": "Property"
+        }
+    }
+}

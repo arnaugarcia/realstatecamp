@@ -1,0 +1,10 @@
+{
+    "assessoriaTorrellesApp": {
+        "Status" : {
+            "null": "",
+            "open": "open",
+            "pending": "pending",
+            "closed": "closed"
+        }
+    }
+}

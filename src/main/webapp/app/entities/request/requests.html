@@ -1,0 +1,74 @@
+<div>
+    <h2 data-translate="assessoriaTorrellesApp.request.home.title">Requests</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="request.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="assessoriaTorrellesApp.request.home.createLabel">
+                        Create new Request
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="assessoriaTorrellesApp.request.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phone"><span data-translate="assessoriaTorrellesApp.request.phone">Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span data-translate="assessoriaTorrellesApp.request.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="state"><span data-translate="assessoriaTorrellesApp.request.state">State</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date"><span data-translate="assessoriaTorrellesApp.request.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="comment"><span data-translate="assessoriaTorrellesApp.request.comment">Comment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="property.ref"><span data-translate="assessoriaTorrellesApp.request.property">Property</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="request in vm.requests track by request.id">
+                    <td><a ui-sref="request-detail({id:request.id})">{{request.id}}</a></td>
+                    <td>{{request.name}}</td>
+                    <td>{{request.phone}}</td>
+                    <td>{{request.email}}</td>
+                    <td data-translate="{{'assessoriaTorrellesApp.Status.' + request.state}}">{{request.state}}</td>
+                    <td>{{request.date | date:'medium'}}</td>
+                    <td>{{request.comment}}</td>
+                    <td>
+                        <a ui-sref="property-detail({id:request.property.id})">{{request.property.ref}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="request-detail({id:request.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="request.edit({id:request.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="request.delete({id:request.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>
