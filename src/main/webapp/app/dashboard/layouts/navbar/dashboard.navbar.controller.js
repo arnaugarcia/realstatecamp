@@ -5,15 +5,16 @@
         .module('assessoriaTorrellesApp')
         .controller('DashboardNavbarController', DashboardNavbarController);
 
-    DashboardNavbarController.$inject = ['$scope', '$state', 'Auth', 'Principal', 'ProfileService', 'LoginService','AlertService', '$translate', 'Notification'];
+    DashboardNavbarController.$inject = ['$scope', '$state', 'Auth', 'Principal', 'ProfileService', 'LoginService','AlertService', '$translate', 'Notification', 'Request'];
 
-    function DashboardNavbarController ($scope, $state, Auth, Principal, ProfileService, LoginService, AlertService, $translate, Notification) {
+    function DashboardNavbarController ($scope, $state, Auth, Principal, ProfileService, LoginService, AlertService, $translate, Notification, Request) {
         var vm = this;
 
         vm.account = null;
 
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
+        vm.totalRequests = 0;
 
         vm.isNavbarCollapsed = true;
         vm.isAuthenticated = Principal.isAuthenticated;
@@ -41,12 +42,24 @@
         getAccount();
 
         function loadAll () {
+
             Notification.byUser({
                 size: vm.itemsPerPage
-            }, onSuccess, onError);
-            function onSuccess(data) {
+            }, onSuccessNotification, onError);
+
+            function onSuccessNotification(data) {
                 vm.notifications = data;
                 vm.notifications.seen = getUnSeenNotificationsNumber(data);
+            }
+
+            Request.query({
+                size: vm.itemsPerPage
+            },onSuccessRequest, onError);
+
+            function onSuccessRequest(data, headers) {
+                vm.requests = data;
+                vm.totalRequests = headers('X-Total-Count');
+
             }
             function onError(error) {
                 AlertService.error(error.data.message);
