@@ -52,7 +52,7 @@
                 vm.notifications.seen = getUnSeenNotificationsNumber(data);
             }
 
-            Request.query({
+            Request.active({
                 size: vm.itemsPerPage
             },onSuccessRequest, onError);
 

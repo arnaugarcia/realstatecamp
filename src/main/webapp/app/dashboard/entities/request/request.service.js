@@ -11,6 +11,7 @@
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
+            'active': {method: 'GET', isArray: true, url: "api/requests-active"},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

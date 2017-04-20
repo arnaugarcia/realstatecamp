@@ -10,13 +10,18 @@
     function stateConfig($stateProvider) {
         $stateProvider.state('account', {
             abstract: true,
-            parent: 'app',
+            parent: 'dashboard',
             data: {
                 css: [
-                    'content/css/style.css',
+                    'content/css/AdminLTE.css',
                     {
-                        name: 'arillo',
-                        href: 'content/css/style.css'
+                        name: 'dashboard',
+                        href: 'content/css/AdminLTE.css'
+                    },
+                    'content/css/skin-green.min.css',
+                    {
+                        name: 'dashboard-skin',
+                        href: 'content/css/skin-green.min.css'
                     }
                 ]
             }
