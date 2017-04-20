@@ -19,7 +19,8 @@
             'angular-loading-bar',
             'ncy-angular-breadcrumb',
             'angularCSS',
-            'ngMap'
+            'ngMap',
+            'flow'
 
         ])
         .run(run);

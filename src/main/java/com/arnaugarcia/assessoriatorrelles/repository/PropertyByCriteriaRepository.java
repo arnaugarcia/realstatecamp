@@ -125,8 +125,114 @@ public class PropertyByCriteriaRepository {
         if(parameters.get("serviceType")!=null){
             filterByServiceType(parameters,propertyCriteria,"serviceType");
         }
-        propertyCriteria.setFirstResult(pageable.getPageNumber()*pageable.getPageSize());
+        propertyCriteria.setFirstResult(pageable.getPageNumber()*pageable.getPageSize()+1);
         propertyCriteria.setMaxResults(pageable.getPageSize());
+
+        List<Property> results = propertyCriteria.list();
+
+        return results;
+
+    }
+
+
+    public List<Property> filteryPropertyByCriteria(Map<String,Object> parameters){
+
+        Criteria propertyCriteria = currentSession().createCriteria(Property.class);
+        propertyCriteria.setFetchMode("photos", FetchMode.JOIN);
+        propertyCriteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+
+        Criteria locationCriteria = propertyCriteria.createCriteria("location");
+        /** FILTER BY PRICES **/
+        if((parameters.get("minPrice")!=null && parameters.get("minPrice") instanceof Double)
+            && (parameters.get("maxPrice")!=null && parameters.get("maxPrice") instanceof Double)
+            ){
+
+            filterByPriceBetween(parameters, propertyCriteria);
+        }
+
+        if(parameters.get("maxPrice")!=null && parameters.get("minPrice")==null && parameters.get("maxPrice") instanceof Double){
+
+            filterByPriceMax(parameters, propertyCriteria);
+        }
+
+        if(parameters.get("minPrice")!=null && parameters.get("maxPrice")==null && parameters.get("minPrice") instanceof Double){
+
+            filterByPriceMin(parameters, propertyCriteria);
+        }
+        /** FILTER BY SIZE **/
+
+        if((parameters.get("minSize")!=null && parameters.get("minSize") instanceof Integer)
+            && (parameters.get("maxSize")!=null && parameters.get("maxSize") instanceof Integer)
+            ){
+
+            filterBySizeBetween(parameters, propertyCriteria);
+        }
+
+        if(parameters.get("maxSize")!=null && parameters.get("minSize")==null && parameters.get("maxSize") instanceof Integer){
+
+            filterBySizeMax(parameters, propertyCriteria);
+        }
+
+        if(parameters.get("minSize")!=null && parameters.get("maxSize")==null && parameters.get("minSize") instanceof Integer){
+
+            filterBySizeMin(parameters, propertyCriteria);
+        }
+
+
+        /** FILTER BY LOCATION **/
+        if(parameters.get("location")!=null){
+
+            filterByLocation(parameters,locationCriteria);
+        }
+        /** FILTER BY BOOLEAN VALUES **/
+        if(parameters.get("terrace")!=null){
+
+            filterByContains(parameters,propertyCriteria,"terrace");
+        }
+        if(parameters.get("elevator")!=null){
+
+            filterByContains(parameters,propertyCriteria,"elevator");
+        }
+
+        if(parameters.get("furnished")!=null){
+
+            filterByContains(parameters,propertyCriteria,"furnished");
+        }
+        if(parameters.get("pool")!=null){
+
+            filterByContains(parameters,propertyCriteria,"pool");
+        }
+        if(parameters.get("garage")!=null){
+
+            filterByContains(parameters,propertyCriteria,"garage");
+        }
+        if(parameters.get("ac")!=null){
+
+            filterByContains(parameters,propertyCriteria,"ac");
+        }
+
+        if(parameters.get("numberWc")!=null){
+
+            filterByHasQuantity(parameters,propertyCriteria,"numberWc");
+        }
+        if(parameters.get("numberBedroom")!=null){
+
+            filterByHasQuantity(parameters,propertyCriteria,"numberBedroom");
+        }
+
+
+//        filterByTown(parameters,localityCriteria);
+
+        //**********FILTERS WITH ENUMS
+
+        if(parameters.get("buildingType")!=null){
+            filterByBuildingType(parameters,propertyCriteria,"buildingType");
+        }
+        if(parameters.get("serviceType")!=null){
+            filterByServiceType(parameters,propertyCriteria,"serviceType");
+        }
+//        propertyCriteria.setFirstResult(pageable.getPageNumber()*pageable.getPageSize());
+//        propertyCriteria.setMaxResults(pageable.getPageSize());
         List<Property> results = propertyCriteria.list();
 
         return results;

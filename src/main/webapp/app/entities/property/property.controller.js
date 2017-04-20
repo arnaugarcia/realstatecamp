@@ -5,15 +5,18 @@
         .module('assessoriaTorrellesApp')
         .controller('PropertyController', PropertyController);
 
-    PropertyController.$inject = ['$scope', '$state','Principal' ,'DataUtils', 'Property', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    PropertyController.$inject = ['$scope', '$state','Principal' ,'DataUtils', 'Property', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants','searchCriteria'];
 
-    function PropertyController ($scope, $state,Principal, DataUtils, Property, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function PropertyController ($scope, $state,Principal, DataUtils, Property, ParseLinks, AlertService, pagingParams, paginationConstants,searchCriteria) {
         var vm = this;
 
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
+        //TODO intentar cambiar directamente el paginationConstants ya que lo está inyectando en el controller
+        //paginationsConstants.itemsPerPage = model...
+        //vm.itemsPerPage = paginationConstants.itemsPerPage
         vm.itemsPerPage = paginationConstants.itemsPerPage;
         vm.openFile = DataUtils.openFile;
         vm.byteSize = DataUtils.byteSize;
@@ -34,7 +37,11 @@
 
         //********** ****** **********//
 
-        vm.filterCritera = {};
+        vm.filterCritera = searchCriteria;
+
+        vm.test = searchCriteria;
+        // vm.filterCritera = Property.criteria;
+
         // vm.filterCritera.location = 'Barcelona';
         vm.isAuthenticated = null;
         vm.account = null;
@@ -162,6 +169,12 @@
 
 
         }
+
+        vm.changeItemsPerPage = function(){
+            paginationConstants.itemsPerPage = vm.itemsPerPage;
+            vm.searchByFilters();
+        };
+
         function loadPage (page) {
             vm.page = page;
             vm.transition();

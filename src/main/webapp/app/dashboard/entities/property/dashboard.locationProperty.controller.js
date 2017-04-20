@@ -28,6 +28,7 @@
         // });
         // vm.users = User.query();
         // vm.photos = Photo.query();
+        vm.save = save;
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -77,6 +78,31 @@
         /**OBETENER LOCATION Y GUARDAR LOCATION
          *
          */
+
+        /*
+            ng-flow setup
+         */
+        // flowFactoryProvider.defaults = {
+        //     target: '',
+        //     permanentErrors: [500, 501],
+        //     maxChunkRetries: 1,
+        //     chunkRetryInterval: 5000,
+        //     simultaneousUploads: 1
+        // };
+        // flowFactoryProvider.on('catchAll', function (event) {
+        //     console.log('catchAll', arguments);
+        // });
+        // // Can be used with different implementations of Flow.js
+        // flowFactoryProvider.factory = fustyFlowFactory;
+        vm.showFlow = function (w) {
+            console.log(w);
+            // for(var file in w){
+            //     Photo.update({
+            //       'image':file
+            //     }, onSaveSuccess, onSaveError);
+            // }
+
+        }
 
 
 

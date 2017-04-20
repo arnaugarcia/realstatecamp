@@ -350,15 +350,16 @@ public class PropertyResource {
         }
 
         List<Property> result = propertyByCriteriaRepository.filteryPropertyByCriteria(params,pageable);
+        List<Property> resultTotal = propertyByCriteriaRepository.filteryPropertyByCriteria(params);
         if (result.isEmpty()) {
             return new ResponseEntity<>(
 
                 null,HeaderUtil.createAlert("No match for the criteria entered!","property"),HttpStatus.NOT_FOUND);
         } else {
-            Page<Property> page = new PageImpl<Property>(result,pageable,propertyRepository.findAll().size());
+            Page<Property> page = new PageImpl<Property>(result,pageable,resultTotal.size());
             HttpHeaders httpHeaders = new HttpHeaders();
 
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/property/byfilters");
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page,params, "/api/property/byfilters");
             return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }
     }
