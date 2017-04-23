@@ -20,47 +20,6 @@
     <link rel="stylesheet" href="content/css/font-awesome.min.css">
     <link rel="stylesheet" href="content/css/responsive.min.css">
     <link rel="stylesheet" href="bower_components/toastr/toastr.min.css"/>
-    <style>
-        /* ---------------------------------------------- /*
- * Preloader
-/* ---------------------------------------------- */
-
-        #preloader {
-            background: #FFF;
-            bottom: 0;
-            left: 0;
-            position: fixed;
-            right: 0;
-            top: 0;
-            z-index: 9999;
-        }
-
-        #status, .status-mes {
-            background-image: url(content/img/preloader.gif);
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 200px;
-            left: 50%;
-            margin: -100px 0 0 -100px;
-            position: absolute;
-            top: 50%;
-            width: 200px;
-        }
-
-        .status-mes {
-            background: none;
-            left: 0;
-            margin: 0;
-            text-align: center;
-            top: 65%;
-        }
-
-        .status-mes h4 {
-            color: #222;
-            margin-top: 30px;
-        }
-
-    </style>
 
     <!-- endbuild -->
 </head>
@@ -68,11 +27,6 @@
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div id="preloader">
-        <div id="status">
-            <div class="status-mes"><h4>Assessoría Torrelles</h4></div>
-        </div>
-    </div>
     <!--<page-ribbon></page-ribbon>-->
     <div ui-view="navbar" ng-cloak></div>
     <div class="content-wrapper" ng-cloak>
@@ -189,12 +143,12 @@
     <script src="app/entities/contact/contact.state.js"></script>
     <script src="app/entities/contact/contact.service.js"></script>
     <script src="app/entities/contact/contact.controller.js"></script>
-    <script src="app/entities/company/company-dialog.controller.js"></script>
-    <script src="app/entities/company/company-detail.controller.js"></script>
-    <script src="app/entities/company/company-delete-dialog.controller.js"></script>
-    <script src="app/entities/company/company.state.js"></script>
-    <script src="app/entities/company/company.service.js"></script>
-    <script src="app/entities/company/company.controller.js"></script>
+    <script src="app/dashboard/entities/company/company-dialog.controller.js"></script>
+    <script src="app/dashboard/entities/company/company-detail.controller.js"></script>
+    <script src="app/dashboard/entities/company/company-delete-dialog.controller.js"></script>
+    <script src="app/dashboard/entities/company/company.state.js"></script>
+    <script src="app/dashboard/entities/company/company.service.js"></script>
+    <script src="app/dashboard/entities/company/company.controller.js"></script>
     <script src="app/entities/about/about.state.js"></script>
     <script src="app/dashboard/entities/request/request.controller.js"></script>
     <script src="app/dashboard/entities/request/request.service.js"></script>

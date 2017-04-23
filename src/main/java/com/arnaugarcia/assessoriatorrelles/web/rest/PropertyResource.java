@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -173,8 +174,13 @@ public class PropertyResource {
     public ResponseEntity<List<Property>> getNewProperties()
         throws URISyntaxException {
         log.debug("REST request to get a page of Properties");
-        List<Property> result = propertyRepository.findTop5PropertiesByOrderByCreatedDesc();
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        Pageable top5 = new PageRequest(0,5);
+        List<Property> propertyList = propertyRepository.findTop5(top5);
+        /*List<PropertyDTO> result = propertyList
+            .parallelStream()
+            .map(property -> new PropertyDTO(property.getId(),property.getName(),property.getLocation().getTown(),property.getLocation().getProvince()))
+            .collect(Collectors.toList());*/
+        return new ResponseEntity<>(propertyList, HttpStatus.OK);
     }
 
     /**

@@ -1,0 +1,16 @@
+<div class="container">
+    <h2 data-translate="assessoriaTorrellesApp.company.home.title">Companies</h2>
+    <jhi-alert></jhi-alert>
+    <label data-translate="global.field.id">ID </label><a ui-sref="company-detail({id:company.id})"> {{vm.company.id}}</a><br>
+    <label data-translate="assessoriaTorrellesApp.company.name">Name </label> {{vm.company.name}}<br>
+    <label data-translate="assessoriaTorrellesApp.company.phone">Phone </label> {{vm.company.phone}}<br>
+    <label data-translate="assessoriaTorrellesApp.company.email">Email </label> {{vm.company.email}}<br>
+    <label data-translate="assessoriaTorrellesApp.company.cif">Cif </label> {{vm.company.cif}}<br>
+    <label data-translate="assessoriaTorrellesApp.company.location">Location </label><a ui-sref="location-detail({id:company.location.id})"> {{vm.company.location.ref}}</a><br>
+    <div class="btn-group flex-btn-group-container">
+        <button type="submit" ui-sref="company.edit({id:company.id})" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+        </button>
+    </div>
+</div>

@@ -11,7 +11,7 @@
             'query': { method: 'GET', isArray: true},
             'top5': { method: 'GET', isArray: true, url: 'api/properties/top5'},
             'byFilters': { method: 'GET', isArray: true, url: 'api/property/byfilters'},
-            'cosa':'algo',
+            'cosa':'algo', //WTF @alfdocimo ???
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

@@ -1,6 +1,8 @@
 package com.arnaugarcia.assessoriatorrelles.domain;
 
 
+import groovy.lang.Singleton;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
@@ -11,6 +13,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "company")
+@Singleton
 public class Company implements Serializable {
 
     private static final long serialVersionUID = 1L;

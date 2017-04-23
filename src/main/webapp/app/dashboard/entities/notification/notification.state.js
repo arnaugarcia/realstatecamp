@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider
         .state('notification', {
-            parent: 'dashboard',
+            parent: 'dashboard-entity',
             url: '/notification?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
@@ -21,6 +21,9 @@
                     templateUrl: 'app/dashboard/entities/notification/notifications.html',
                     controller: 'NotificationController',
                     controllerAs: 'vm'
+                },
+                'menu@': {
+                    templateUrl: 'app/dashboard/entities/notification/notification-menu.html'
                 }
             },
             params: {
@@ -52,7 +55,7 @@
             }
         })
         .state('notification-detail', {
-            parent: 'entity',
+            parent: 'dashboard-entity',
             url: '/notification/{id}',
             data: {
                 authorities: ['ROLE_USER'],

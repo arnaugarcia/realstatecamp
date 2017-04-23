@@ -1,6 +1,6 @@
 <div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="container">
+        <div class="col-md-6">
             <h2 data-translate="settings.title" translate-values="{username: '{{vm.settingsAccount.login}}'}">User settings for [<b>{{vm.settingsAccount.login}}</b>]</h2>
 
             <div class="alert alert-success" ng-show="vm.success" data-translate="settings.messages.success">
@@ -53,24 +53,6 @@
                     <label class="control-label" for="email" data-translate="global.form.email">E-mail</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="{{'global.form.email.placeholder' | translate}}"
                            ng-model="vm.settingsAccount.email" ng-minlength=5 ng-maxlength=100 required maxlength="100">
-                    <div ng-show="form.email.$dirty && form.email.$invalid">
-                        <p class="help-block"
-                               ng-show="form.email.$error.required" data-translate="global.messages.validate.email.required">
-                            Your e-mail is required.
-                        </p>
-                        <p class="help-block"
-                               ng-show="form.email.$error.email" data-translate="global.messages.validate.email.invalid">
-                            Your e-mail is invalid.
-                        </p>
-                        <p class="help-block"
-                               ng-show="form.email.$error.minlength" data-translate="global.messages.validate.email.minlength">
-                            Your e-mail is required to be at least 5 characters.
-                        </p>
-                        <p class="help-block"
-                               ng-show="form.email.$error.maxlength" data-translate="global.messages.validate.email.maxlength">
-                            Your e-mail cannot be longer than 100 characters.
-                        </p>
-                    </div>
                 </div>
                 <div class="form-group">
                     <label for="langKey" data-translate="settings.form.language">Language</label>
@@ -80,6 +62,41 @@
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" data-translate="settings.form.button">Save</button>
             </form>
         </div>
+        <div class="col-md-6">
+            <h2 data-translate="assessoriaTorrellesApp.company.home.title">Companies</h2>
+            <form name="form" role="form" novalidate ng-submit="vm.saveCompany()" show-validation>
+
+                <div class="form-group">
+                    <label data-translate="assessoriaTorrellesApp.company.name">Name </label>
+                    <input type="text" class="form-control" id="companyName" name="firstName"
+                           ng-model="vm.company.name" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                </div>
+                <div class="form-group">
+                    <label data-translate="assessoriaTorrellesApp.company.phone">Phone </label>
+                    <input type="text" class="form-control" id="companyPhone" name="lastName"
+                           ng-model="vm.company.phone" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                </div>
+                <div class="form-group">
+                    <label data-translate="assessoriaTorrellesApp.company.email">Email </label>
+                    <input type="email" class="form-control" id="companyEmail" name="email"
+                           ng-model="vm.company.email">
+                </div>
+                <div class="form-group">
+                    <label data-translate="assessoriaTorrellesApp.company.cif">Cif </label>
+                    <input type="text" class="form-control" id="companyCif" name="lastName"
+                           ng-model="vm.company.cif" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                </div>
+                <div class="form-group">
+                    <label data-translate="assessoriaTorrellesApp.company.location">Location
+                </div>
+                <ng-map center="41.3579495,1.9810097" zoom="16">
+                    <marker position="[41.3579495, 1.9810097]" title="hello"></marker>
+                </ng-map>
+                <br>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" data-translate="settings.form.button">Save</button>
+            </form>
+        </div>
+
     </div>
 
 </div>

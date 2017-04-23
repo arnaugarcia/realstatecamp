@@ -206,7 +206,7 @@
                                 <div class="tab-pane fade" id="location">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div id="map-property"></div>
+                                            <ng-map></ng-map>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -238,22 +238,22 @@
                                             <form>
                                                 <div class="form-group">
                                                     <label for="name">Name</label>
-                                                    <input type="text" class="form-control input-lg" placeholder="Enter name : ">
+                                                    <input type="text" class="form-control input-lg" placeholder="Enter name : " ng-model="vm.contactForm.name">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email">Email address</label>
-                                                    <input type="email" class="form-control input-lg" placeholder="Enter email : ">
+                                                    <input type="email" class="form-control input-lg" placeholder="Enter email : " ng-model="vm.contactForm.email">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="telp">Telp.</label>
-                                                    <input type="text" class="form-control input-lg" placeholder="Enter phone number : ">
+                                                    <input type="text" class="form-control input-lg" placeholder="Enter phone number : " ng-model="vm.contactForm.number">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="message">Message</label>
-                                                    <textarea class="form-control input-lg" rows="7" placeholder="Type a message : "></textarea>
+                                                    <textarea class="form-control input-lg" rows="7" ng-model="vm.contactForm.comment">Hey!, me interesa la casa con la referencia {{vm.property.ref}} contacta conmigo!</textarea>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="submit" name="submit" value="Send Message" class="btn btn-success btn-lg">
+                                                    <a class="btn btn-success btn-lg" ng-click="vm.sendRequest()">Send Message</a>
                                                 </div>
                                             </form>
                                         </div>

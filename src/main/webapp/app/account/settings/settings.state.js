@@ -25,6 +25,7 @@
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('settings');
+                    $translatePartialLoader.addPart('company');
                     return $translate.refresh();
                 }]
             }

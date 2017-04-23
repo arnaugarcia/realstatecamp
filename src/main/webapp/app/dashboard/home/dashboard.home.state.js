@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
 
         $stateProvider.state('dashboard-home', {
-            parent: 'dashboard',
+            parent: 'dashboard-entity',
             url: '/dashboard',
             ncyBreadcrumb: {
                 label: 'Dashboard',

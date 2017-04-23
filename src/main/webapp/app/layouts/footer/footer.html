@@ -4,21 +4,21 @@
             <div class="widget">
                 <h3>Last properties</h3>
                 <ul class="list-unstyled" ng-repeat="property in vm.propertiesTop5">
-                    <li><a ui-sref="property.detail({id:property.id})">{{property.name}} - {{property.location.town}}</a></li>
+                    <li><a ui-sref="property.detail({id:property[0]})">{{property[1]}} - {{property[3]}}</a></li>
                 </ul>
             </div>
         </div>
         <!-- break -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="widget">
-                <h3>{{vm.companyInfo.name}}</h3>
+                <h3>{{vm.company.name}}</h3>
                 <address>
-                    <strong>{{vm.companyInfo.location.town}}</strong><br>
-                    {{vm.companyInfo.location.province}}<br>
-                    {{vm.companyInfo.location.typeOfRoad}}<br>
+                    <strong>{{vm.company.location.town}}</strong><br>
+                    {{vm.company.location.province}}<br>
+                    {{vm.company.location.typeOfRoad}}<br>
                     <br>
-                    Telp. : {{vm.companyInfo.phone}}<br>
-                    Email : {{vm.companyInfo.email}}
+                    Telf. : {{vm.company.phone}}<br>
+                    Email : {{vm.company.email}}
                 </address>
             </div>
         </div>

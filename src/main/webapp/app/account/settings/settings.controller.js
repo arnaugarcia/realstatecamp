@@ -5,15 +5,16 @@
         .module('assessoriaTorrellesApp')
         .controller('SettingsController', SettingsController);
 
-    SettingsController.$inject = ['Principal', 'Auth', 'JhiLanguageService', '$translate'];
+    SettingsController.$inject = ['Principal', 'Auth', 'Company','JhiLanguageService', '$translate'];
 
-    function SettingsController (Principal, Auth, JhiLanguageService, $translate) {
+    function SettingsController (Principal, Auth, Company, JhiLanguageService, $translate) {
         var vm = this;
 
         vm.error = null;
         vm.save = save;
         vm.settingsAccount = null;
         vm.success = null;
+        vm.company = null;
 
         /**
          * Store the "settings account" in a separate variable, and not in the shared "account" variable.
@@ -29,9 +30,25 @@
             };
         };
 
+        loadCompany();
+
         Principal.identity().then(function(account) {
             vm.settingsAccount = copyAccount(account);
         });
+
+        function loadCompany () {
+            Company.query({
+
+            }, onSuccess, onError);
+
+            function onSuccess(data) {
+
+                vm.company = data;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        }
 
         function save () {
             Auth.updateAccount(vm.settingsAccount).then(function() {
@@ -50,5 +67,6 @@
                 vm.error = 'ERROR';
             });
         }
+
     }
 })();

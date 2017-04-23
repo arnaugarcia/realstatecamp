@@ -1,9 +1,8 @@
 package com.arnaugarcia.assessoriatorrelles.repository;
 
 import com.arnaugarcia.assessoriatorrelles.domain.Notification;
-
-import com.arnaugarcia.assessoriatorrelles.domain.User;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface NotificationRepository extends JpaRepository<Notification,Long> {
 
-    @Query("select notification from Notification notification where notification.user.login = ?#{principal.username}")
+    @Query("select notification from Notification notification where notification.user.login = ?#{principal.username} order by notification.date desc ")
     List<Notification> findByUserIsCurrentUser();
 
 }

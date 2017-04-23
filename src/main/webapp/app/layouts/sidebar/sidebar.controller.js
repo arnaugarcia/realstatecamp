@@ -5,8 +5,6 @@
         .module('assessoriaTorrellesApp')
         .controller('SidebarController', SidebarController);
 
-
-
     SidebarController.$inject = [];
 
     function SidebarController () {
