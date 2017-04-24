@@ -75,8 +75,7 @@ public class PropertyResource {
 
         property.setUser(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
 
-        property.setRef(ReferenceUtil.generateReferenceProperty(property,property.getLocation()));
-//        property.setRef("REF-" + property.getLocation().getProvince().toLowerCase().charAt(0) + property.getLocation().getTown().toLowerCase().charAt(0) + property.getLocation().getRef().substring(4,7));
+        property.setRef(ReferenceUtil.generateReferenceProperty(property));
 
         Property result = propertyRepository.save(property);
 
