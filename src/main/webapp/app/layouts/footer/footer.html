@@ -4,7 +4,7 @@
             <div class="widget">
                 <h3>Last properties</h3>
                 <ul class="list-unstyled" ng-repeat="property in vm.propertiesTop5">
-                    <li><a ui-sref="property.detail({id:property[0]})">{{property[1]}} - {{property[3]}}</a></li>
+                    <li><a ui-sref="property.detail({id:property.id})">{{property.name}} - {{property.town}}</a></li>
                 </ul>
             </div>
         </div>

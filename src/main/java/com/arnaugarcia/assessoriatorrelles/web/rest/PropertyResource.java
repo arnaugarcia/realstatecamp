@@ -7,6 +7,7 @@ import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
 import com.arnaugarcia.assessoriatorrelles.repository.*;
 import com.arnaugarcia.assessoriatorrelles.security.SecurityUtils;
+import com.arnaugarcia.assessoriatorrelles.service.dto.PropertyDTO;
 import com.arnaugarcia.assessoriatorrelles.service.util.ReferenceUtil;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.HeaderUtil;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.PaginationUtil;
@@ -170,11 +171,11 @@ public class PropertyResource {
     @GetMapping("/properties/top5")
     @Timed
     @Transactional
-    public ResponseEntity<List<Property>> getNewProperties()
+    public ResponseEntity<List<PropertyDTO>> getNewProperties()
         throws URISyntaxException {
         log.debug("REST request to get a page of Properties");
         Pageable top5 = new PageRequest(0,5);
-        List<Property> propertyList = propertyRepository.findTop5(top5);
+        List<PropertyDTO> propertyList = propertyRepository.findLast5(top5);
         /*List<PropertyDTO> result = propertyList
             .parallelStream()
             .map(property -> new PropertyDTO(property.getId(),property.getName(),property.getLocation().getTown(),property.getLocation().getProvince()))

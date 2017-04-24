@@ -1,5 +1,7 @@
 package com.arnaugarcia.assessoriatorrelles.service.dto;
 
+import java.time.ZonedDateTime;
+
 /**
  * Created by arnau on 21/4/17.
  */
@@ -10,7 +12,7 @@ public class PropertyDTO {
     private String province;
     private String town;
 
-    public PropertyDTO(Long id, String name, String province, String town) {
+    public PropertyDTO(Long id, String name, String province, String town, ZonedDateTime created) {
         this.id = id;
         this.name = name;
         this.province = province;
