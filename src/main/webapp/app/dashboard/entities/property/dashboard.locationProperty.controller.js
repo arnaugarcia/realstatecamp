@@ -95,12 +95,49 @@
         // // Can be used with different implementations of Flow.js
         // flowFactoryProvider.factory = fustyFlowFactory;
         vm.showFlow = function (w) {
+
             console.log(w);
             for(var file in w){
-                console.log(w);
+                var fileReader = new FileReader();
+                fileReader.onload = function (event) {
+                    var uri = event.target.result;
+                    $scope.imageStrings[i] = uri;
+                };
+                fileReader.readAsDataURL(file);
+                Photo.save({
+                  'image':base64
+                }, onSaveSuccess, onSaveError);
             }
 
         }
+        //vm.imageStrings = [];
+        vm.processFiles = function(files){
+            angular.forEach(files, function(flowFile, i){
+                var fileReader = new FileReader();
+                fileReader.onload = function (event) {
+                    var uri = event.target.result;
+                    var photo = {};
+                    photo.image = uri;
+                    vm.imageStrings = uri;
+                    // console.log(uri);
+                    var conType = uri.match(/data:(.*?);/);
+                    var image = uri.match(/base64,(.*?)$/);
+                    console.log(conType);
+                    console.log(image);
+                    Photo.insertPhoto({
+
+                        "name": "PLEASE WORK BATCH",
+                        "created": "2017-02-25T13:56:06+01:00",
+                        "image": image[1],
+                        "imageContentType": conType[1],
+                        "description": "PLEASE WORK BATCH",
+                        "url": null,
+                        "cover": false
+                    }, onSaveSuccess, onSaveError);
+                };
+                fileReader.readAsDataURL(flowFile.file);
+            });
+        };
 
 
 

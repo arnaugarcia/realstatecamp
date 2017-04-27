@@ -11,6 +11,7 @@
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
+            'insertPhoto':{method : 'POST', url: '/api/properties/1/photos'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
