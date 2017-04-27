@@ -11,7 +11,7 @@
         $stateProvider
         .state('company', {
             parent: 'settings',
-            url: '/company?page&sort&search',
+            url: '/company',
             data: {
                 authorities: [],
                 pageTitle: 'assessoriaTorrellesApp.company.home.title'
@@ -50,56 +50,6 @@
                     return $translate.refresh();
                 }]
             }
-        })
-        .state('company-detail.edit', {
-            parent: 'company-detail',
-            url: '/detail/edit',
-            data: {
-                authorities: ['ROLE_USER']
-            },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/dashboard/entities/company/company-dialog.html',
-                    controller: 'CompanyDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['Company', function(Company) {
-                            return Company.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('^', {}, { reload: false });
-                }, function() {
-                    $state.go('^');
-                });
-            }]
-        })
-        .state('company.edit', {
-            parent: 'company',
-            url: '/edit',
-            data: {
-                authorities: ['ROLE_USER']
-            },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/dashboard/entities/company/company-dialog.html',
-                    controller: 'CompanyDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['Company', function(Company) {
-                            return Company.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('company', null, { reload: 'company' });
-                }, function() {
-                    $state.go('^');
-                });
-            }]
         })
     }
 

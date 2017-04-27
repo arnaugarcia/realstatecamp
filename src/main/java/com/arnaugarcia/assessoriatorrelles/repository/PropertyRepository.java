@@ -1,6 +1,7 @@
 package com.arnaugarcia.assessoriatorrelles.repository;
 
 import com.arnaugarcia.assessoriatorrelles.domain.Property;
+import com.arnaugarcia.assessoriatorrelles.service.dto.PropertyDTO;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,7 +19,8 @@ public interface PropertyRepository extends JpaRepository<Property,Long> {
 
     List<Property> findTop5PropertiesByOrderByCreatedDesc();
 
-    @Query("select id, name, location.province, location.town, created from Property order by created desc")
-    List<Property> findTop5(Pageable pageable);
+    @Query("select new com.arnaugarcia.assessoriatorrelles.service.dto.PropertyDTO (id, name, location.province, location.town, created) " +
+            "from Property order by created desc")
+    List<PropertyDTO> findLast5(Pageable pageable);
 
 }

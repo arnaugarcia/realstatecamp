@@ -1,7 +1,8 @@
 package com.arnaugarcia.assessoriatorrelles.service.util;
 
-import com.arnaugarcia.assessoriatorrelles.domain.Location;
 import com.arnaugarcia.assessoriatorrelles.domain.Property;
+
+import java.util.Random;
 
 /**
  * Utility class for generating references for entities.
@@ -10,6 +11,7 @@ public final class ReferenceUtil {
 
 
     private ReferenceUtil() {
+
     }
 
     /**
@@ -17,9 +19,9 @@ public final class ReferenceUtil {
      *
      * @return the generated reference
      */
-    public static String generateReferenceProperty(Property property, Location Location) {
+    public static String generateReferenceProperty(Property property) {
         if (checkProperty(property)){
-            return "REF-117";
+            return "REF - " + getRandomNumberInRange(0,1000);
         }
 
         return null;
@@ -30,6 +32,16 @@ public final class ReferenceUtil {
         }else{
             return false;
         }
+    }
+
+    private static int getRandomNumberInRange(int min, int max) {
+
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
     }
 
 }

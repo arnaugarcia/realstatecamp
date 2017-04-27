@@ -180,7 +180,7 @@
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
-            <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="tree-view pointer">
+            <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="tree-view pointer">
                 <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                     <span>
                         <span class="glyphicon glyphicon-th-list"></span>

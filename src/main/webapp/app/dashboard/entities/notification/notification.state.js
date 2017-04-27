@@ -22,8 +22,10 @@
                     controller: 'NotificationController',
                     controllerAs: 'vm'
                 },
-                'menu@': {
-                    templateUrl: 'app/dashboard/entities/notification/notification-menu.html'
+                'menu': {
+                    templateUrl: 'app/dashboard/entities/notification/notification-menu.html',
+                    //controller: 'NotificationMenuController',
+                    //controllerAs: 'vm'
                 }
             },
             params: {
@@ -52,6 +54,12 @@
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
+            }
+        })
+        .state('notification.menu', {
+            parent: 'notification',
+            views: {
+
             }
         })
         .state('notification-detail', {
