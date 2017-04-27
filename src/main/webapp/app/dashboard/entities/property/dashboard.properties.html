@@ -5,6 +5,7 @@
         </h1>
         <div ncy-breadcrumb></div>
     </section>
+    <jhi-alert></jhi-alert>
     <jhi-alert-error></jhi-alert-error>
     <section class="content">
         <div class="box">
@@ -53,7 +54,7 @@
                         <td>
                             <a class="btn btn-warning btn-block">Imprimeix</a>
                             <a ui-sref="dashboard-property.edit({id:property.id})" class="btn btn-primary btn-block">Edita</a>
-                            <a class="btn btn-danger btn-block">Elimina</a>
+                            <a ui-sref="dashboard-property.delete({id:property.id})" class="btn btn-danger btn-block">Elimina</a>
                         </td>
                     </tr>
                     </tbody>

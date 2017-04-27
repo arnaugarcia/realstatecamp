@@ -254,7 +254,30 @@
                         return $translate.refresh();
                     }]
                 }
-            });
+            }).state('dashboard-property.delete', {
+            parent: 'dashboard-property',
+            url: '/{id}/delete',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/dashboard/entities/property/dashboard-property-delete-dialog.html',
+                    controller: 'DashboardPropertyDeleteController',
+                    controllerAs: 'vm',
+                    size: 'md',
+                    resolve: {
+                        entity: ['Property', function(Property) {
+                            return Property.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('dashboard-property.list', null, { reload: 'dashboard-property.list' });
+                }, function() {
+                    $state.go('^');
+                });
+            }]
+        });
     }
 
 })();
