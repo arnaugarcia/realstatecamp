@@ -133,11 +133,9 @@
                     };
                 }
             }
-            })
-
-            .state('dashboard-property.edit/{id}', {
+            }).state('dashboard-property.edit', {
                 parent: 'dashboard-property',
-                url: '/edit',
+                url: '/{id}/edit',
                 data: {
                     authorities: ['ROLE_USER']
                 },

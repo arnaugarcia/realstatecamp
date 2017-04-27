@@ -30,10 +30,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.ZonedDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * REST controller for managing Property.
@@ -110,6 +107,7 @@ public class PropertyResource {
         }
 
         Property property = propertyRepository.findOne(id);
+
         if (property == null){
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("property", "idnotexists", "Property not found")).body(null);
         }
@@ -181,6 +179,25 @@ public class PropertyResource {
             .map(property -> new PropertyDTO(property.getId(),property.getName(),property.getLocation().getTown(),property.getLocation().getProvince()))
             .collect(Collectors.toList());*/
         return new ResponseEntity<>(propertyList, HttpStatus.OK);
+    }
+
+    /**
+     * GET  /properties : get top 5 of properties
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of properties in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @GetMapping("/properties/{id}/photos")
+    @Timed
+    @Transactional
+    public ResponseEntity<Set<Photo>> getPhotosFromProperty(@PathVariable Long id, Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Properties");
+        Property property = propertyRepository.findOne(id);
+        if (property == null){
+
+        }
+        return new ResponseEntity<>(property.getPhotos(), HttpStatus.OK);
     }
 
     /**
