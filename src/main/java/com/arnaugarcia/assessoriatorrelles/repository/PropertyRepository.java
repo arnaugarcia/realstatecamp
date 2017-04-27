@@ -17,8 +17,6 @@ public interface PropertyRepository extends JpaRepository<Property,Long> {
     @Query("select property from Property property where property.user.login = ?#{principal.username}")
     List<Property> findByUserIsCurrentUser();
 
-    List<Property> findTop5PropertiesByOrderByCreatedDesc();
-
     @Query("select new com.arnaugarcia.assessoriatorrelles.service.dto.PropertyDTO (id, name, location.province, location.town, created) " +
             "from Property order by created desc")
     List<PropertyDTO> findLast5(Pageable pageable);

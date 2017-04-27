@@ -5,9 +5,9 @@
         .module('assessoriaTorrellesApp')
         .controller('SettingsController', SettingsController);
 
-    SettingsController.$inject = ['Principal', 'Auth', 'Company','JhiLanguageService', '$translate'];
+    SettingsController.$inject = ['Principal', 'Auth', 'Company','JhiLanguageService', '$translate', 'AlertService'];
 
-    function SettingsController (Principal, Auth, Company, JhiLanguageService, $translate) {
+    function SettingsController (Principal, Auth, Company, JhiLanguageService, $translate, AlertService) {
         var vm = this;
 
         vm.error = null;
@@ -30,6 +30,53 @@
             };
         };
 
+
+        var copyCompany = function () {
+            console.log();
+            return {
+                id: companyId.value,
+                name: companyName.value,
+                phone: companyPhone.value,
+                email: companyEmail.value,
+                cif: companyCif.value
+            };
+        };
+
+        vm.saveCompany = function () {
+            //I'm sorry about that
+            Company.update({
+                "id" : copyCompany().id,
+                "name" : copyCompany().name,
+                "phone" : copyCompany().phone,
+                "email" : copyCompany().email,
+                "cif" : copyCompany().cif,
+                "location" : {
+                    "id" : 6,
+                    "ref" : "ref-260",
+                    "province" : "Barcelona",
+                    "town" : "Torrelles de Llobregat",
+                    "typeOfRoad" : "PLACE",
+                    "nameRoad" : "Plaza del Ayuntamiento",
+                    "number" : 2,
+                    "apartment" : null,
+                    "building" : null,
+                    "door" : null,
+                    "stair" : null,
+                    "urlgmaps" : "https://www.google.es/maps/place/Grup+Palet+Gestor%C3%ADa+S.L./@41.3579495,1.9810097,15z/data=!4m5!3m4!1s0x0:0xbcd5ffa3a92d1531!8m2!3d41.3579495!4d1.9810097",
+                    "latitude" : 41.3579495,
+                    "longitude" : 1.9810097,
+                    "cp" : null
+                }
+            }, onSuccess, onError);
+
+            function onSuccess() {
+                toastr.success('Success!', 'Company edited');
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        };
+
         loadCompany();
 
         Principal.identity().then(function(account) {
@@ -42,7 +89,6 @@
             }, onSuccess, onError);
 
             function onSuccess(data) {
-
                 vm.company = data;
             }
             function onError(error) {

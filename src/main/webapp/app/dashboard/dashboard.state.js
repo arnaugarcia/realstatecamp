@@ -20,8 +20,8 @@
                 },
                 'footer@': {
                     templateUrl: 'app/dashboard/layouts/footer/dashboard.footer.html',
-                    //controller: 'FooterController',
-                    //controllerAs: 'vm'
+                    controller: 'DashboardFooterController',
+                    controllerAs: 'vm'
                 }
             },
             data: {
