@@ -63,12 +63,7 @@
             $scope.$emit('assessoriaTorrellesApp:propertyUpdate', result);
             $state.go('property', null, { reload: 'property' });
             vm.isSaving = false;
-            toaster.pop({
-                type: 'error',
-                title: 'Title text',
-                body: 'Body text',
-                timeout: 3000
-            });
+            toastr.success('Success','The property has been saved correctly!');
         }
 
         function onSaveError () {
