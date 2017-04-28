@@ -16,7 +16,8 @@
         vm.clear = clear;
         vm.byteSize = DataUtils.byteSize;
         vm.openFile = DataUtils.openFile;
-        vm.save = saveStart;
+        vm.save = saveStartLocation;
+        var filesToUpload = null;
         // vm.locations = Location.query({filter: 'property-is-null'});
         // $q.all([vm.property.$promise, vm.locations.$promise]).then(function() {
         //     if (!vm.property.location || !vm.property.location.id) {
@@ -28,7 +29,7 @@
         // });
         // vm.users = User.query();
         // vm.photos = Photo.query();
-        vm.save = save;
+        // vm.save = save;
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -38,26 +39,29 @@
             $uibModalInstance.dismiss('cancel');
         }
 
-        function save (result) {
+        function saveProperty (result) {
             // vm.isSaving = true;
+
             console.log(result);
             vm.property.location = {id: result.id};
             if (vm.property.id !== null) {
-                Property.update(vm.property, onSaveSuccess, onSaveError);
+                Property.update(vm.property, processFiles, onSaveError);
             } else {
-                Property.save(vm.property, onSaveSuccess, onSaveError);
+                Property.save(vm.property, processFiles, onSaveError);
             }
         }
 
-        function saveStart() {
+        function saveStartLocation() {
             console.log(vm.location);
             vm.isSaving = true;
             if (vm.location.id !== null) {
-                Location.update(vm.location, save, onSaveError);
+                Location.update(vm.location, saveProperty, onSaveError);
             } else {
-                Location.save(vm.location, save, onSaveError);
+                Location.save(vm.location, saveProperty, onSaveError);
             }
         }
+
+
 
         function onSaveSuccess (result) {
             $scope.$emit('assessoriaTorrellesApp:propertyUpdate', result);
@@ -74,40 +78,10 @@
          *
          */
 
-        /*
-            ng-flow setup
-         */
-        // flowFactoryProvider.defaults = {
-        //     target: '',
-        //     permanentErrors: [500, 501],
-        //     maxChunkRetries: 1,
-        //     chunkRetryInterval: 5000,
-        //     simultaneousUploads: 1
-        // };
-        // flowFactoryProvider.on('catchAll', function (event) {
-        //     console.log('catchAll', arguments);
-        // });
-        // // Can be used with different implementations of Flow.js
-        // flowFactoryProvider.factory = fustyFlowFactory;
-        vm.showFlow = function (w) {
 
-            console.log(w);
-            for(var file in w){
-                var fileReader = new FileReader();
-                fileReader.onload = function (event) {
-                    var uri = event.target.result;
-                    $scope.imageStrings[i] = uri;
-                };
-                fileReader.readAsDataURL(file);
-                Photo.save({
-                  'image':base64
-                }, onSaveSuccess, onSaveError);
-            }
-
-        }
         //vm.imageStrings = [];
-        vm.processFiles = function(files){
-            angular.forEach(files, function(flowFile, i){
+        function processFiles(result){
+            angular.forEach(filesToUpload, function(flowFile, i){
                 var fileReader = new FileReader();
                 fileReader.onload = function (event) {
                     var uri = event.target.result;
@@ -120,8 +94,10 @@
                     console.log(conType);
                     console.log(image);
                     Photo.insertPhoto({
-
-                        "name": "PLEASE WORK BATCH",
+                        id:result.id},
+                        {
+                        //PHOTO obj
+                        "name": flowFile.name,
                         "created": "2017-02-25T13:56:06+01:00",
                         "image": image[1],
                         "imageContentType": conType[1],
@@ -134,6 +110,10 @@
             });
         };
 
+        vm.addFiles = function (files) {
+            filesToUpload = files;
+            console.log("Files added!");
+        }
 
 
     }
