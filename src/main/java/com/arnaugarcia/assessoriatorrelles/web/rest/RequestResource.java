@@ -9,6 +9,7 @@ import com.arnaugarcia.assessoriatorrelles.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -96,16 +97,16 @@ public class RequestResource {
     /**
      * GET  /requests-active : get all the requests.
      *
-     * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of requests in body
      * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
     @GetMapping("/requests-active")
     @Timed
-    public ResponseEntity<List<Request>> getAllActiveRequests(Pageable pageable)
+    public ResponseEntity<List<Request>> getAllActiveRequests()
         throws URISyntaxException {
         log.debug("REST request to get a page of Requests");
-        Page<Request> page = requestRepository.findRequestsByState_OpenAndState_Pending(pageable);
+        Pageable pageable = new PageRequest(0,10);
+        Page<Request> page = requestRepository.findRequestsByState_OpenAndState_PendingOrderByDateDateDesc(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/requests");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

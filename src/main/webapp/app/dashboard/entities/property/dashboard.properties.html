@@ -29,7 +29,7 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="property in vm.listByFilter | orderBy:vm.orderCriteria.criteria:vm.orderCriteria.rev | filter:vm.quickSearch track by property.id">
-                        <td><img class="img-md" src="/content/img/team01.jpg"></td>
+                        <td><img data-ng-src="{{'data:' + property.photos[0].imageContentType + ';base64,' + property.photos[0].image}}" ui-sref="property.detail({id:property.id})" style="max-height: 150px; max-width: 130px;"/></td>
                         <td>
                             <!-- <div class="col-xs-6">
                                     <img src="/content/img/team01.jpg" class="img-responsive" style="width:20%">
