@@ -1,0 +1,17 @@
+{
+    "dashboard": {
+        "sidebar": {
+            "search": "Buscar..."
+        },
+        "requests": {
+            "title": "Solicitudes",
+            "name": "Nombre",
+            "phone": "Teléfono",
+            "email": "E-mail",
+            "status": "Estado",
+            "date": "Fecha",
+            "comment": "Comentario",
+            "ref": "Referencia"
+        }
+    }
+}

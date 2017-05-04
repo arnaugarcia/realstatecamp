@@ -4955,3 +4955,7 @@ table.text-center th {
 #map-property img{
     max-width: none;
 }
+
+.sidebar-menu {
+    margin-top: 20px !important;
+}
