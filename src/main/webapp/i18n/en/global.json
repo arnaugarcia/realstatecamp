@@ -40,7 +40,8 @@
                 "database": "Database",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
-            "language": "Language"
+            "language": "Language",
+            "properties": "Properties"
         },
         "form": {
             "username": "Username",

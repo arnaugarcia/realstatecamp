@@ -1,0 +1,17 @@
+{
+    "dashboard": {
+        "sidebar": {
+            "search": "Buscar..."
+        },
+        "requests": {
+            "title": "Requests",
+            "name": "Name",
+            "phone": "Telephone",
+            "email": "E-mail",
+            "status": "Status",
+            "date": "Date",
+            "comment": "Comment",
+            "ref": "Reference"
+        }
+    }
+}

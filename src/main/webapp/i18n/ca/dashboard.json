@@ -1,0 +1,17 @@
+{
+    "dashboard": {
+        "sidebar": {
+            "search": "Cerca..."
+        },
+        "requests": {
+            "title": "Sol·licituts",
+            "name": "Nom",
+            "phone": "Telèfon",
+            "email": "E-mail",
+            "status": "Estat",
+            "date": "Data",
+            "comment": "Comentari",
+            "ref": "Referència"
+        }
+    }
+}

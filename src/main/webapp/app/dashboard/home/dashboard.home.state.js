@@ -31,6 +31,7 @@
                     $translatePartialLoader.addPart('request');
                     $translatePartialLoader.addPart('status');
                     $translatePartialLoader.addPart('global');
+                    $translatePartialLoader.addPart('property');
                     return $translate.refresh();
                 }]
             }
