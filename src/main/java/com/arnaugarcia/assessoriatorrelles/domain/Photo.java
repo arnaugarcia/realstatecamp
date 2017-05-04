@@ -161,6 +161,10 @@ public class Photo implements Serializable {
         this.property = property;
     }
 
+    public Boolean getCover() {
+        return cover;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

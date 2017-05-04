@@ -28,8 +28,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="property in vm.listByFilter | orderBy:vm.orderCriteria.criteria:vm.orderCriteria.rev | filter:vm.quickSearch track by property.id">
-                        <td><img data-ng-src="{{'data:' + property.photos[0].imageContentType + ';base64,' + property.photos[0].image}}" ui-sref="property.detail({id:property.id})" style="max-height: 150px; max-width: 130px;"/></td>
+                    <tr ng-repeat="property in vm.properties">
+                        <td><img data-ng-src="{{'data:' + property.photo.imageContentType + ';base64,' + property.photo.image}}" ui-sref="property.detail({id:property.id})" style="max-height: 150px; max-width: 130px;"/></td>
                         <td>
                             <!-- <div class="col-xs-6">
                                     <img src="/content/img/team01.jpg" class="img-responsive" style="width:20%">
@@ -63,6 +63,10 @@
             <!-- /.box-body -->
         </div>
         <!-- /.box -->
+        <div class="text-center">
+            <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+            <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+        </div>
     </section>
 </div>
 

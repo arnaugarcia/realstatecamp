@@ -31,6 +31,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.ZonedDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Property.
@@ -152,12 +153,30 @@ public class PropertyResource {
     @GetMapping("/properties")
     @Timed
     @Transactional
-    public ResponseEntity<List<Property>> getAllProperties(Pageable pageable)
+    public ResponseEntity<List<PropertyDTO>> getAllProperties(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Properties");
-        Page<Property> page = propertyRepository.findAll(pageable);
+        Page<PropertyDTO> page = propertyRepository.findPropertiesDto(pageable);
+
+
+
+        List<PropertyDTO> propertyDTOList = page.getContent().parallelStream()
+            .map( propertyDTO -> {
+
+
+                //Set<Photo> photoSet = propertyRepository.findOne(propertyDTO.getId()).getPhotos();
+
+                List<Photo> photoSet = photoRepository.findPhotosByPropertyId(propertyDTO.getId());
+
+                photoSet.stream().filter(photo -> photo.getCover()).findFirst().ifPresent(photo -> propertyDTO.setPhoto(photo));
+
+                return propertyDTO;
+
+
+
+            }).collect(Collectors.toList());
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/properties");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        return new ResponseEntity<>(propertyDTOList, headers, HttpStatus.OK);
     }
 
     /**

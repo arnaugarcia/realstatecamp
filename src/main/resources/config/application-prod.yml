@@ -38,12 +38,16 @@ spring:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: false
     mail:
-        host: localhost
-        port: 25
-        username:
-        password:
-    thymeleaf:
-        cache: true
+        host: smtp.gmail.com
+        port: 587
+        username: assessoriatorrellestest@gmail.com  #Replace this field with your Gmail username.
+        password: assessoriatorrellestest2017           #Replace this field with your Gmail password.
+        protocol: smtp
+        tls: true
+        properties.mail.smtp:
+            auth: true
+            starttls.enable: true
+            ssl.trust: smtp.gmail.com
 
 liquibase:
     contexts: prod

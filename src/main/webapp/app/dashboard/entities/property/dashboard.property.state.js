@@ -230,7 +230,7 @@
                 views: {
                     'content@': {
                         templateUrl: 'app/dashboard/entities/property/dashboard.properties.html',
-                        controller: 'PropertyController',
+                        controller: 'PropertyListController',
                         controllerAs: 'vm'
                     }
                 },
