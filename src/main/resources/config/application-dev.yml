@@ -52,7 +52,10 @@ spring:
         properties.mail.smtp:
             auth: true
             starttls.enable: true
+            host: smtp.gmail.com
+            port: 587
             ssl.trust: smtp.gmail.com
+
     thymeleaf:
         cache: true
 
