@@ -983,7 +983,6 @@ input[type="color"]:focus,
 
 .blog-text{
     display: block;
-    padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 15%;
     padding-right: 15%;
@@ -2211,7 +2210,6 @@ video#bgvid {
 
 /* MAP */
 #map {
-    border: 1px solid #6b6e80;
     margin-bottom: 50px;
 }
 
