@@ -20,9 +20,6 @@
         loadAll();
 
         function loadAll() {
-            Contact.query(function(result) {
-                vm.contacts = result;
-            });
 
             Property.top5(function(result) {
                 vm.propertiesTop5 = result;

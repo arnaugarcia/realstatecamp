@@ -155,27 +155,25 @@ public class PropertyResource {
     @Transactional
     public ResponseEntity<List<PropertyDTO>> getAllProperties(Pageable pageable)
         throws URISyntaxException {
-        log.debug("REST request to get a page of Properties");
+        log.debug("REST request to get a page of PropertiesDTO");
+
         Page<PropertyDTO> page = propertyRepository.findPropertiesDto(pageable);
 
-
-
         List<PropertyDTO> propertyDTOList = page.getContent().parallelStream()
+
             .map( propertyDTO -> {
 
-
                 //Set<Photo> photoSet = propertyRepository.findOne(propertyDTO.getId()).getPhotos();
-
-                List<Photo> photoSet = photoRepository.findPhotosByPropertyId(propertyDTO.getId());
+                List<Photo> photoSet = photoRepository.findPhotosByPropertyIdAndAndCoverTrue(propertyDTO.getId());
 
                 photoSet.stream().filter(photo -> photo.getCover()).findFirst().ifPresent(photo -> propertyDTO.setPhoto(photo));
 
                 return propertyDTO;
 
-
-
             }).collect(Collectors.toList());
+
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/properties");
+
         return new ResponseEntity<>(propertyDTOList, headers, HttpStatus.OK);
     }
 

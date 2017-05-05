@@ -11,4 +11,6 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface PhotoRepository extends JpaRepository<Photo,Long> {
     List<Photo> findPhotosByPropertyId(Long id);
+
+    List<Photo> findPhotosByPropertyIdAndAndCoverTrue(Long id);
 }
