@@ -95,7 +95,7 @@
                             <th jh-sort-by="state"><span data-translate="dashboard.requests.status">State</span> <span class="glyphicon glyphicon-sort"></span></th>
                             <th jh-sort-by="date"><span data-translate="dashboard.requests.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
                             <th jh-sort-by="comment"><span data-translate="dashboard.requests.comment">Comment</span> <span class="glyphicon glyphicon-sort"></span></th>
-                            <th jh-sort-by="property.ref"><span data-translate="dashboard.requests.ref">Property</span> <span class="glyphicon glyphicon-sort"></span></th>
+                            <th jh-sort-by="propertyRef"><span data-translate="dashboard.requests.ref">Property</span> <span class="glyphicon glyphicon-sort"></span></th>
                             <th></th>
                         </tr>
                         </thead>
@@ -108,7 +108,7 @@
                             <td>{{request.state}}</td>
                             <td>{{request.date}}</td>
                             <td>{{request.comment}}</td>
-                            <td><a ui-sref="property.detail({id:request.property.id})">{{request.property.ref}}</a></td>
+                            <td><a ui-sref="property.detail({id:request.propertyId})">{{request.propertyRef}}</a></td>
                         </tr>
                         </tbody>
                     </table>

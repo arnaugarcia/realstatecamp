@@ -15,6 +15,6 @@ public interface RequestRepository extends JpaRepository<Request,Long> {
     @Query("SELECT r FROM Request r WHERE r.state = com.arnaugarcia.assessoriatorrelles.domain.enumeration.Status.open OR r.state = com.arnaugarcia.assessoriatorrelles.domain.enumeration.Status.pending")
     Page<Request> findRequestsByState_OpenAndState_Pending(Pageable pageable);
 
-    @Query("SELECT r FROM Request r WHERE r.state = com.arnaugarcia.assessoriatorrelles.domain.enumeration.Status.open OR r.state = com.arnaugarcia.assessoriatorrelles.domain.enumeration.Status.pending order by r.date desc ")
+    @Query("SELECT new com.arnaugarcia.assessoriatorrelles.service.dto.RequestDTO(r.id, r.name, r.phone, r.email, r.state, r.date, r.comment, r.property.id, r.property.ref) FROM Request r WHERE r.state = com.arnaugarcia.assessoriatorrelles.domain.enumeration.Status.open OR r.state = com.arnaugarcia.assessoriatorrelles.domain.enumeration.Status.pending order by r.date desc")
     Page<Request> findRequestsByState_OpenAndState_PendingOrderByDateDateDesc(Pageable pageable);
 }
