@@ -359,13 +359,42 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <!--{{vm.storedPhotos}}-->
+
+                <div class="col-lg-4" ng-repeat="x in vm.storedPhotos track by x.id">
+                    <img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" style="max-height: 150px; max-width: 130px;"/>
+
+                </div>
+                <div>
+                    <button type="button" class="btn btn-block btn-alert" ng-click="">Delete</button>
+                </div>
+
+
+                <!--{{vm.storedPhotos}}-->
+            </div>
+            <!--<div class="row">-->
+                <!--<div class="col-lg-4" ng-repeat="x in vm.toUploadPhotos">-->
+                    <!--<div>-->
+
+                        <!--<label>{{x.name}}</label>-->
+                    <!--</div>-->
+                    <!--<div>-->
+
+                        <!--<img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" style="max-height: 150px; max-width: 130px;"/>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</div>-->
             <div class="col-lg-12">
                 <h3>
-                    <a name="gallery-example" class="anchor" href="#gallery-example"><span class="octicon octicon-link"></span></a>Gallery upload</h3>
+                    <a name="gallery-example" class="anchor" href="#gallery-example"><span class="octicon octicon-link"></span></a>Gallery upload
+                </h3>
                 <div flow-init
                      flow-files-submitted="$flow.upload()"
                      flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
-                     flow-files-added="vm.processFiles($flow.files)"
+                     flow-files-added=""
                 >
                     <div class="drop" flow-drop ng-class="dropClass">
                         <span class="btn btn-default" flow-btn>Upload Image</span>
