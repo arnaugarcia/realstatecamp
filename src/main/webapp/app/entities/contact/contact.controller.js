@@ -23,6 +23,8 @@
             "long": ""
         };
 
+        vm.formData = {};
+
         loadAll();
 
         function loadAll() {
@@ -51,6 +53,14 @@
                     }
                 });
             });
+
         }
+
+        vm.sendEmail = function() {
+            console.log(vm.formData);
+            //We finally clean the fields
+            vm.formData = {};
+        }
+
     }
 })();
