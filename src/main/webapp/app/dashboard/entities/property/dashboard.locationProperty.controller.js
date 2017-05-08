@@ -65,9 +65,16 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('assessoriaTorrellesApp:propertyUpdate', result);
-            $state.go('dashboard-property.list', null, { reload: 'dashboard-property.list' });
+            $state.reload();
             vm.isSaving = false;
             toastr.success('Success','The property has been saved correctly!');
+        }
+        function onDeleteSuccess (result) {
+            $scope.$emit('assessoriaTorrellesApp:propertyUpdate', result);
+            //$state.go('#', null, { reload: '#' });
+            $state.reload();
+            vm.isSaving = false;
+            toastr.success('Success','The photo has been deleted correctly!');
         }
 
         function onSaveError () {
@@ -126,7 +133,12 @@
 
         }
 
-        vm.deletePhoto = function(){
+        vm.deleteFile = function(photoId){
+            Photo.deletePhoto({
+                    id:photoId},
+                {
+
+                }, onDeleteSuccess, onSaveError);
 
         }
 

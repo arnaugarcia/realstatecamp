@@ -217,6 +217,23 @@ public class PropertyResource {
         return new ResponseEntity<>(property.getPhotos(), HttpStatus.OK);
     }
 
+    @DeleteMapping("/properties/{id}/photos")
+    @Timed
+    public ResponseEntity<Void> deletePhotosFromProperty(@PathVariable Long id)
+        throws URISyntaxException {
+
+        Photo photo = photoRepository.findOne(id);
+
+        if (photo != null){
+            photoRepository.delete(id);
+            return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("photo", id.toString())).build();
+        }else{
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
+
     /**
      * GET  /properties/:id : get the "id" property.
      *
