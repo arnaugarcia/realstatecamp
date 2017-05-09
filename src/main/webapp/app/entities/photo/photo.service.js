@@ -12,6 +12,8 @@
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
             'insertPhoto':{method : 'POST', url: '/api/properties/:id/photos'}, //TODO remove hardcoded /1/ and replace with actual id
+            'getPhotos':{method:'GET',url:'/api/properties/:id/photos',isArray: true},
+            'deletePhoto':{method:'DELETE',url:'/api/properties/:id/photos'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
