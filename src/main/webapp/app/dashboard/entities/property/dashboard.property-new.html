@@ -364,11 +364,20 @@
                 <!--{{vm.storedPhotos}}-->
 
                 <div class="col-lg-4" ng-repeat="x in vm.storedPhotos track by x.id">
-                    <img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" style="max-height: 150px; max-width: 130px;"/>
-                    <div>
-                        <button type="button" class="btn btn-block btn-alert" ng-click="vm.deleteFile(x.id)">Delete</button>
-                    </div>
+                    <div class="text-center">
 
+                    <img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" style="max-height: 150px; max-width: 130px;"/>
+                    </div>
+                    <div>
+
+                        <div class="col-lg-6">
+                            <button type="button" class="btn btn-block btn-alert" ng-click="vm.deleteFile(x.id)">Delete</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button type="button" class="btn btn-block btn-info" ng-click="vm.makeCover(x.id)">Make Cover</button>
+                        </div>
+
+                    </div>
                 </div>
 
 

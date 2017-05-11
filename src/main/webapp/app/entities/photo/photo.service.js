@@ -14,6 +14,7 @@
             'insertPhoto':{method : 'POST', url: '/api/properties/:id/photos'}, //TODO remove hardcoded /1/ and replace with actual id
             'getPhotos':{method:'GET',url:'/api/properties/:id/photos',isArray: true},
             'deletePhoto':{method:'DELETE',url:'/api/properties/:id/photos'},
+            'makeCover':{method:'POST',url:'/api/properties/:idProperty/cover/:idPhoto'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

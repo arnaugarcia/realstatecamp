@@ -37,6 +37,7 @@ import java.util.stream.Collectors;
  * REST controller for managing Property.
  */
 @RestController
+@Transactional
 @RequestMapping("/api")
 public class PropertyResource {
 
@@ -119,6 +120,26 @@ public class PropertyResource {
         return ResponseEntity.created(new URI("/api/photos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("photo", result.getId().toString()))
             .body(result);
+    }
+
+
+    @PostMapping("/properties/{idProperty}/cover/{idPhoto}")
+    @Timed
+    public ResponseEntity<Photo> createCoverPropertyPhoto(@PathVariable Long idProperty,@PathVariable Long idPhoto) throws URISyntaxException {
+        log.debug("REST request to save createCoverPropertyPhoto {}");
+
+        Property property = propertyRepository.findOne(idProperty);
+        for (Photo photo: property.getPhotos()){
+            photo.setCover(false);
+            photoRepository.save(photo);
+        }
+        Photo photo = photoRepository.findOne(idPhoto);
+        photo.setCover(true);
+        photoRepository.save(photo);
+
+        return ResponseEntity.created(new URI("/api/photos/" + photo.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert("photo", photo.getId().toString()))
+            .body(photo);
     }
 
     /**

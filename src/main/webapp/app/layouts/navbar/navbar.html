@@ -144,6 +144,13 @@
                     </a>
                 </li>
 
+                <li ui-sref-active="active" has-authority="ROLE_USER">
+                    <a ui-sref="property" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-tower"></span>&nbsp;
+                        <span data-translate="global.menu.entities.property">Property</span>
+                    </a>
+                </li>
+
                 <li ui-sref-active="active" ng-switch-when="false">
                     <a ui-sref="about" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
