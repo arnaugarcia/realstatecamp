@@ -13,30 +13,38 @@
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="detail">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <h2>{{vm.property.name}}</h2>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn btn-success btn-block" ui-sref="dashboard-property.edit({id:vm.property.id})" has-authority="ROLE_USER">Edit</button>
+                                        </div>
+                                        <div class="col-md-12">
+
+
                                             <div id="slider-property" class="carousel slide" data-ride="carousel">
                                                 <ol class="carousel-indicators">
-                                                    <li data-target="#slider-property" data-slide-to="0" class="">
-                                                        <img src="content/img/img02.jpg" alt="">
+
+                                                    <li ng-repeat="x in vm.storedPhotos track by $index" data-target="#slider-property" data-slide-to="{{$index}}" ng-class="x.cover ? 'active':''">
+                                                        <img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" alt="">
                                                     </li>
-                                                    <li data-target="#slider-property" data-slide-to="1" class="active">
-                                                        <img src="content/img/img03.jpg" alt="">
-                                                    </li>
-                                                    <li data-target="#slider-property" data-slide-to="2">
-                                                        <img src="content/img/img04.jpg" alt="">
-                                                    </li>
+                                                    <!--<li data-target="#slider-property" data-slide-to="1" class="active">-->
+                                                        <!--<img src="content/img/img03.jpg" alt="">-->
+                                                    <!--</li>-->
+                                                    <!--<li data-target="#slider-property" data-slide-to="2">-->
+                                                        <!--<img src="content/img/img04.jpg" alt="">-->
+                                                    <!--</li>-->
                                                 </ol>
                                                 <div class="carousel-inner">
-                                                    <div class="item">
-                                                        <img src="content/img/img02.jpg" alt="">
+                                                    <div ng-class="x.cover ? 'item active':'item'" ng-repeat="x in vm.storedPhotos track by $index">
+                                                        <img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" alt="">
                                                     </div>
-                                                    <div class="item active">
-                                                        <img src="content/img/img03.jpg" alt="">
-                                                    </div>
-                                                    <div class="item">
-                                                        <img src="content/img/img04.jpg" alt="">
-                                                    </div>
+                                                    <!--<div class="item active">-->
+                                                        <!--<img src="content/img/img03.jpg" alt="">-->
+                                                    <!--</div>-->
+                                                    <!--<div class="item">-->
+                                                        <!--<img src="content/img/img04.jpg" alt="">-->
+                                                    <!--</div>-->
                                                 </div>
                                                 <a class="left carousel-control" href="#slider-property" data-slide="prev">
                                                     <span class="glyphicon glyphicon-chevron-left"></span>

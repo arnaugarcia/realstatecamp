@@ -5,9 +5,9 @@
         .module('assessoriaTorrellesApp')
         .controller('PropertyDetailController', PropertyDetailController);
 
-    PropertyDetailController.$inject = ['$scope', '$rootScope', '$stateParams', '$translate', 'previousState', 'DataUtils', 'entity','Request', 'AlertService', 'Company'];
+    PropertyDetailController.$inject = ['$scope', '$rootScope', '$stateParams', '$translate', 'previousState', 'DataUtils', 'entity','Request', 'AlertService', 'Company','Photo'];
 
-    function PropertyDetailController($scope, $rootScope, $stateParams, $translate, previousState, DataUtils, entity, Request, AlertService, Company) {
+    function PropertyDetailController($scope, $rootScope, $stateParams, $translate, previousState, DataUtils, entity, Request, AlertService, Company,Photo) {
         var vm = this;
 
         vm.property = entity;
@@ -17,6 +17,9 @@
         vm.previousState = previousState.name;
         vm.byteSize = DataUtils.byteSize;
         vm.openFile = DataUtils.openFile;
+        Photo.getPhotos({id : $stateParams.id}, function (result) {
+            vm.storedPhotos = result;
+        })
 
         vm.language = function () {
             return $translate.proposedLanguage();
