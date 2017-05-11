@@ -10,7 +10,8 @@
         var resourceUrl =  'api/contact';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true}
+            'query': { method: 'GET', isArray: true},
+            'sendMail': { method: 'POST', isArray: false}
         });
     }
 })();

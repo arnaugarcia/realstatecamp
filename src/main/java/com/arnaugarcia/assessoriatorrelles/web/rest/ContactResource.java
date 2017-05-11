@@ -1,9 +1,11 @@
 package com.arnaugarcia.assessoriatorrelles.web.rest;
 
 import com.arnaugarcia.assessoriatorrelles.service.MailService;
+import com.arnaugarcia.assessoriatorrelles.web.rest.util.HeaderUtil;
 import com.codahale.metrics.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
+import javax.mail.MessagingException;
 import java.net.URISyntaxException;
 
 /**
@@ -34,11 +37,15 @@ public class ContactResource {
      */
     @PostMapping("/contact")
     @Timed
-    public ResponseEntity.BodyBuilder createContact(@RequestParam("to") String to, @RequestParam("subject") String subject, @RequestParam("content") String content) throws URISyntaxException {
+    public ResponseEntity<Void> createContact(@RequestParam("to") String to, @RequestParam("subject") String subject, @RequestParam("content") String content) throws URISyntaxException {
 
-        mailService.sendEmail(to,subject,content,false,false);
-
-        return ResponseEntity.ok();
+        try {
+            mailService.sendEmail(to,subject,content,false,false);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("contact", "errorEnvioMail", e.getMessage())).body(null);
+        }
 
     }
 

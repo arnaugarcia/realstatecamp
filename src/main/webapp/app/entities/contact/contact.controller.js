@@ -5,9 +5,9 @@
         .module('assessoriaTorrellesApp')
         .controller('ContactController', ContactController);
 
-    ContactController.$inject = ['$scope', '$state', 'Contact', 'Company'];
+    ContactController.$inject = ['$scope', '$state', 'Contact', 'Company', 'AlertService'];
 
-    function ContactController ($scope, $state, Contact, Company) {
+    function ContactController ($scope, $state, Contact, Company, AlertService) {
 
         var vm = this;
 
@@ -33,31 +33,21 @@
             });
             Company.query(function (result) {
                 vm.companies = result;
-                vm.companyInfo.name = vm.companies[0].name;
-                vm.companyInfo.phone = vm.companies[0].phone;
-                vm.companyInfo.email = vm.companies[0].email;
-                vm.companyInfo.cif = vm.companies[0].cif;
-                vm.companyInfo.lat = vm.companies[0].location.latitude;
-                vm.companyInfo.long = vm.companies[0].location.longitude;
-
-                $("#map").gmap3({
-                    map: {
-                        options: {
-                            center: [vm.companyInfo.lat,vm.companyInfo.long],
-                            zoom: 15,
-                            scrollwheel: false
-                        }
-                    },
-                    marker:{
-                        latLng: [vm.companyInfo.lat,vm.companyInfo.long]
-                    }
-                });
             });
-
         }
 
         vm.sendEmail = function() {
-            console.log(vm.formData);
+            Contact.sendMail({
+                "to": vm.companies.email,
+                "subject": vm.formData.subject,
+                "content": vm.formData.name + " (" + vm.formData.mail + ") says...  " + vm.formData.message
+            },{},onSuccess,onError);
+            function onSuccess() {
+                toastr.success("Email enviado con éxito!");
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
             //We finally clean the fields
             vm.formData = {};
         }
