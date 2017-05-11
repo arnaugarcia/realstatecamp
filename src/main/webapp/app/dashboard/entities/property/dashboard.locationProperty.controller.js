@@ -142,6 +142,17 @@
 
         }
 
+        vm.makeCover = function(photoId){
+            Photo.makeCover({
+                    idProperty:vm.property.id,
+                    idPhoto:photoId
+
+                },
+                {
+
+                }, onSaveSuccess, onSaveError);
+        }
+
 
     }
 })();
