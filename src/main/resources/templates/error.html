@@ -1,49 +1,97 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.thymeleaf.org ">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Your request cannot be processed</title>
-    <style>
-        * {
-            line-height: 1.2;
-            margin: 0;
-        }
-        html {
-            color: #888;
-            display: table;
-            font-family: sans-serif;
-            height: 100%;
-            text-align: center;
-            width: 100%;
-        }
-        body {
-            display: table-cell;
-            vertical-align: middle;
-            margin: 2em auto;
-        }
-        h1 {
-            color: #555;
-            font-size: 2em;
-            font-weight: 400;
-        }
-        p {
-            margin: 0 auto;
-            width: 280px;
-        }
-        @media only screen and (max-width: 280px) {
-            body, p {
-                width: 95%;
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Page not found</title>
+        <style>
+            * {
+                line-height: 1.2;
+                margin: 0;
+            }
+            html {
+                color: #888;
+                display: table;
+                font-family: sans-serif;
+                height: 100%;
+                text-align: center;
+                width: 100%;
+            }
+            body {
+                display: table-cell;
+                vertical-align: middle;
+                margin: 2em auto;
             }
             h1 {
-                font-size: 1.5em;
-                margin: 0 0 0.3em;
+                color: #555;
+                font-size: 2em;
+                font-weight: 400;
             }
-        }
-    </style>
-</head>
-<body>
-<h1>Page Not Found</h1>
-<p>Sorry, but the page you were trying to view does not exist.</p>
-</body>
+            p {
+                margin: 0 auto;
+                width: 280px;
+            }
+            @media only screen and (max-width: 280px) {
+                body, p {
+                    width: 95%;
+                }
+                h1 {
+                    font-size: 1.5em;
+                    margin: 0 0 0.3em;
+                }
+            }
+            #hover {
+                display: inline-block;
+            }
+            span {
+                position: relative;
+                bottom: 10px;
+                left: 0;
+                z-index: -1;
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                color: #444;
+                font-size: 18px;
+                text-decoration: none;
+                text-align: center;
+                -webkit-transition: .3s ease-in-out;
+                transition: .3s ease-in-out;
+                opacity: 0;
+            }
+            figure {
+                width: 163px;
+                height: 162px;
+                margin: 0;
+                padding: 0;
+                background: #fff;
+                overflow: hidden;
+            }
+            figure:hover+span {
+                bottom: -10px;
+                opacity: 1;
+            }
+            #hover figure img {
+                opacity: 1;
+                -webkit-transition: .3s ease-in-out;
+                transition: .3s ease-in-out;
+            }
+            #hover figure:hover img {
+                opacity: .5;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Page Not Found</h1>
+        <p>Sorry, but the page you were trying to view does not exist.</p>
+        <br></br>
+        <a href="/#">
+            <div id="hover">
+                <figure>
+                    <img src="content/img/logoicon.png" />
+                </figure>
+                <span>Go to home</span>
+            </div>
+        </a>
+    </body>
 </html>
