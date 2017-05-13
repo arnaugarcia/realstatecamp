@@ -28,4 +28,7 @@ public interface PropertyRepository extends JpaRepository<Property,Long> {
    //@Query("select property.name from Property property inner join com.arnaugarcia.assessoriatorrelles.domain.Photo photo on property.id = photo.property.id")
    Page<PropertyDTO> findPropertiesDto(Pageable pageable);
 
+    @Query("select new com.arnaugarcia.assessoriatorrelles.service.dto.PropertyDTO(property.location.province, property.location.town, property.price, property.buildingType, property.serviceType, property.m2, property.numberBedroom, property.numberWc, property.created) from Property property")
+    List<PropertyDTO> findPropertiesFilter();
+
 }

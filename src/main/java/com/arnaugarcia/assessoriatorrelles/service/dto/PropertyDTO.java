@@ -19,9 +19,10 @@ public class PropertyDTO {
     private BuildingType buildingType;
     private ServiceType serviceType;
     private String ref;
-    private Boolean visible;
     private Boolean sold;
     private Integer m2;
+    private Integer numberBedroom;
+    private Integer numberWc;
     private ZonedDateTime created;
     private Photo photo;
 
@@ -33,20 +34,16 @@ public class PropertyDTO {
         this.created = created;
     }
 
-    public PropertyDTO(Long id, String name, String province, String town, Double price, BuildingType buildingType, ServiceType serviceType, String ref, Boolean visible, Boolean sold, Integer m2, ZonedDateTime created, Photo photo) {
-        this.id = id;
-        this.name = name;
+    public PropertyDTO(String province, String town, Double price, BuildingType buildingType, ServiceType serviceType, Integer m2, Integer numberBedroom, Integer numberWc, ZonedDateTime created) {
         this.province = province;
         this.town = town;
         this.price = price;
         this.buildingType = buildingType;
         this.serviceType = serviceType;
-        this.ref = ref;
-        this.visible = visible;
-        this.sold = sold;
         this.m2 = m2;
+        this.numberBedroom = numberBedroom;
+        this.numberWc = numberWc;
         this.created = created;
-        this.photo = photo;
     }
 
     public PropertyDTO(Long id, String name, String province, String town, Double price, BuildingType buildingType, ServiceType serviceType, String ref, Integer m2, ZonedDateTime created) {
@@ -61,6 +58,7 @@ public class PropertyDTO {
         this.m2 = m2;
         this.created = created;
     }
+
 
     public Long getId() {
         return id;
@@ -126,14 +124,6 @@ public class PropertyDTO {
         this.ref = ref;
     }
 
-    public Boolean getVisible() {
-        return visible;
-    }
-
-    public void setVisible(Boolean visible) {
-        this.visible = visible;
-    }
-
     public Boolean getSold() {
         return sold;
     }
@@ -166,6 +156,22 @@ public class PropertyDTO {
         this.photo = photo;
     }
 
+    public Integer getNumberBedroom() {
+        return numberBedroom;
+    }
+
+    public void setNumberBedroom(Integer numberBedroom) {
+        this.numberBedroom = numberBedroom;
+    }
+
+    public Integer getNumberWc() {
+        return numberWc;
+    }
+
+    public void setNumberWc(Integer numberWc) {
+        this.numberWc = numberWc;
+    }
+
     @Override
     public String toString() {
         return "PropertyDTO{" +
@@ -177,7 +183,6 @@ public class PropertyDTO {
             ", buildingType=" + buildingType +
             ", serviceType=" + serviceType +
             ", ref='" + ref + '\'' +
-            ", visible=" + visible +
             ", sold=" + sold +
             ", m2=" + m2 +
             ", created=" + created +

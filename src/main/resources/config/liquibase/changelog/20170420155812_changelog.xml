@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="arnau (generated)" id="1492703894614-1">
+        <createTable tableName="company">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="companyPK"/>
+            </column>
+            <column name="cif" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-2">
+        <createTable tableName="contact">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="contactPK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-3">
+        <createTable tableName="jhi_authority">
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-4">
+        <createTable tableName="jhi_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+            </column>
+            <column name="event_date" type="datetime"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+            <column name="principal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-5">
+        <createTable tableName="jhi_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-6">
+        <createTable tableName="jhi_persistent_token">
+            <column name="series" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip_address" type="VARCHAR(39)"/>
+            <column name="token_date" type="date"/>
+            <column name="token_value" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_agent" type="VARCHAR(255)"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-7">
+        <createTable tableName="jhi_user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_userPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime"/>
+            <column name="activated" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(100)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="lang_key" type="VARCHAR(5)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_hash" type="VARCHAR(60)"/>
+            <column name="reset_date" type="datetime"/>
+            <column name="reset_key" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-8">
+        <createTable tableName="jhi_user_authority">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-9">
+        <createTable tableName="location">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="locationPK"/>
+            </column>
+            <column name="apartment" type="INT"/>
+            <column name="building" type="INT"/>
+            <column name="cp" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="door" type="INT"/>
+            <column name="latitude" type="DOUBLE precision"/>
+            <column name="longitude" type="DOUBLE precision"/>
+            <column name="name_road" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="number" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="province" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ref" type="VARCHAR(255)"/>
+            <column name="stair" type="VARCHAR(255)"/>
+            <column name="town" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_of_road" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="urlgmaps" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-10">
+        <createTable tableName="notification">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="notificationPK"/>
+            </column>
+            <column name="content" type="CLOB"/>
+            <column name="date" type="datetime"/>
+            <column name="seen" type="BOOLEAN"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-11">
+        <createTable tableName="photo">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="photoPK"/>
+            </column>
+            <column name="cover" type="BOOLEAN"/>
+            <column name="created" type="datetime"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="image" type="BLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_content_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="url" type="VARCHAR(255)"/>
+            <column name="property_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-12">
+        <createTable tableName="property">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="propertyPK"/>
+            </column>
+            <column name="ac" type="BOOLEAN"/>
+            <column name="building_type" type="VARCHAR(255)"/>
+            <column name="created" type="datetime"/>
+            <column name="description" type="CLOB"/>
+            <column name="elevator" type="BOOLEAN"/>
+            <column name="furnished" type="BOOLEAN"/>
+            <column name="garage" type="BOOLEAN"/>
+            <column name="heating" type="BOOLEAN"/>
+            <column name="m_2" type="INT"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="neartransport" type="BOOLEAN"/>
+            <column name="number_bedroom" type="INT"/>
+            <column name="number_wc" type="INT"/>
+            <column name="office" type="BOOLEAN"/>
+            <column name="pool" type="BOOLEAN"/>
+            <column name="price" type="DOUBLE precision"/>
+            <column name="ref" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="service_type" type="VARCHAR(255)"/>
+            <column name="sold" type="BOOLEAN"/>
+            <column name="storage" type="BOOLEAN"/>
+            <column name="terrace" type="BOOLEAN"/>
+            <column name="visible" type="BOOLEAN"/>
+            <column name="year" type="INT"/>
+            <column name="location_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-13">
+        <createTable tableName="request">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="requestPK"/>
+            </column>
+            <column name="comment" type="CLOB"/>
+            <column name="date" type="datetime"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="phone" type="VARCHAR(255)"/>
+            <column name="state" type="VARCHAR(255)"/>
+            <column name="property_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-14">
+        <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-15">
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-16">
+        <addPrimaryKey columnNames="name" constraintName="jhi_authorityPK" tableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-17">
+        <addPrimaryKey columnNames="series" constraintName="jhi_persistent_tokenPK" tableName="jhi_persistent_token"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-18">
+        <addUniqueConstraint columnNames="location_id" constraintName="UC_COMPANYLOCATION_ID_COL" tableName="company"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-19">
+        <addUniqueConstraint columnNames="email" constraintName="UC_JHI_USEREMAIL_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-20">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-21">
+        <addUniqueConstraint columnNames="location_id" constraintName="UC_PROPERTYLOCATION_ID_COL" tableName="property"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-22">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="notification" constraintName="FK_1urdwwsh2ti15ta6f6p5dbdcp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-23">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_persistent_token" constraintName="FK_c2yetr6vr7nrqhjvi1rl24b3l" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-24">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK_evb970jo5bi8aon8s65c0lyyn" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-25">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK_ik5r332jlvpolfr7e5n7oi42l" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-26">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="company" constraintName="FK_j6j3ssu0jnwhny0q21jjtep2h" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="location"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-27">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="property" constraintName="FK_joppxxvamn9bdhclyjdyslfp0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-28">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="photo" constraintName="FK_mh72taau21nyk5j9ssmrvskxt" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-29">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK_pg0oaw6mr9pt3ibeihdc1jwof" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-30">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="request" constraintName="FK_rqvf5p5nlwcqj77syo1ii7xgu" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property"/>
+    </changeSet>
+    <changeSet author="arnau (generated)" id="1492703894614-31">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="property" constraintName="FK_sn1xxusegr4g7jjpx68ce5dt1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="location"/>
+    </changeSet>
+</databaseChangeLog>

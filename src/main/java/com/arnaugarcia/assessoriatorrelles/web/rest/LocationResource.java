@@ -1,11 +1,10 @@
 package com.arnaugarcia.assessoriatorrelles.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
 import com.arnaugarcia.assessoriatorrelles.domain.Location;
-
 import com.arnaugarcia.assessoriatorrelles.repository.LocationRepository;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.HeaderUtil;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.PaginationUtil;
+import com.codahale.metrics.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -32,7 +31,7 @@ import java.util.stream.StreamSupport;
 public class LocationResource {
 
     private final Logger log = LoggerFactory.getLogger(LocationResource.class);
-        
+
     @Inject
     private LocationRepository locationRepository;
 
