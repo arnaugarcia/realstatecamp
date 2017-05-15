@@ -9,11 +9,11 @@
             "entities": {
                 "main": "Entitats",
                 "company": "Company",
-                "property": "Property",
-                "location": "Location",
-                "photo": "Photo",
+                "property": "Propietats",
+                "location": "Ubicació",
+                "photo": "Galeria",
                 "about": "Sobre nosaltres",
-                "contact": "Contact",
+                "contact": "Contacte",
 
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
@@ -43,6 +43,42 @@
             },
             "language": "Idioma",
             "properties": "Immobles"
+        },
+        "header":{
+            "search": {
+                "keyword": {
+                    "title": "Paraula clau",
+                    "input": "Introduir paraula clau"
+                },
+                "bedroom": {
+                    "title": "Dormitori"
+                },
+                "status": {
+                    "title": "Estat",
+                    "option": {
+                        "sale": "En venda",
+                        "rent": "Per llogar"
+                    }
+                },
+                "bathroom": {
+                    "title": "Bany"
+                },
+                "type": {
+                    "title": "Tipus",
+                    "option": {
+                        "villa": "Vila",
+                        "residence": "Residència",
+                        "commercial": "Comercial"
+                    }
+                },
+                "minprice": {
+                    "title": "Preu Min"
+                },
+                "maxprice": {
+                    "title": "Preu Max"
+                },
+                "search": "Cerca de nou"
+            }
         },
         "form": {
             "username": "Iniciar sessió",

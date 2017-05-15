@@ -12,7 +12,7 @@
             parent: 'app',
             url: '/',
             ncyBreadcrumb: {
-                label: 'Home',
+                label: '{{ "global.menu.home" | translate }}',
             },
             data: {
                 authorities: [],

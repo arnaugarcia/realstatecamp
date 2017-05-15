@@ -15,6 +15,9 @@
             data: {
                 pageTitle: 'assessoriaTorrellesApp.about.home.title'
             },
+            ncyBreadcrumb: {
+                label: '{{ "assessoriaTorrellesApp.about.home.title" | translate }}'
+            },
             views: {
                 'content@': {
                     templateUrl: 'app/entities/about/abouts.html'

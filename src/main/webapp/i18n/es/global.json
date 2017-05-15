@@ -8,12 +8,12 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entidades",
-                "company": "Company",
-                "property": "Property",
-                "location": "Location",
-                "photo": "Photo",
+                "company": "Compañia",
+                "property": "Propiedades",
+                "location": "Ubicación",
+                "photo": "Galeria",
                 "about": "Acerca de nosotros",
-                "contact": "Contact",
+                "contact": "Contacto",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -42,6 +42,42 @@
             },
             "language": "Idioma",
             "properties": "Inmuebles"
+        },
+        "header":{
+            "search": {
+                "keyword": {
+                    "title": "Palabra clave",
+                    "input": "Introducir palabra clave"
+                },
+                "bedroom": {
+                    "title": "Dormitorio"
+                },
+                "status": {
+                    "title": "Estado",
+                    "option": {
+                        "sale": "En venta",
+                        "rent": "En renta"
+                    }
+                },
+                "bathroom": {
+                    "title": "Baño"
+                },
+                "type": {
+                    "title": "Tipo",
+                    "option": {
+                        "villa": "Villa",
+                        "residence": "Residencia",
+                        "commercial": "Comercial"
+                    }
+                },
+                "minprice": {
+                    "title": "Precio Min"
+                },
+                "maxprice": {
+                    "title": "Precio Max"
+                },
+                "search": "Busca de nuevo"
+            }
         },
         "form": {
             "username": "Usuario",

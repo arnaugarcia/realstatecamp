@@ -17,7 +17,7 @@
                 pageTitle: 'assessoriaTorrellesApp.property.home.title'
             },
             ncyBreadcrumb: {
-                label: 'Property'
+                label: '{{ "assessoriaTorrellesApp.property.home.title" | translate }}'
             },
             views: {
                 'content@': {
