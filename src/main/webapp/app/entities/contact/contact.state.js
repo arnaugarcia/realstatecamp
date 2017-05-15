@@ -15,6 +15,9 @@
             data: {
                 pageTitle: 'assessoriaTorrellesApp.contact.home.title'
             },
+            ncyBreadcrumb: {
+                label: '{{ "assessoriaTorrellesApp.contact.home.title" | translate }}'
+            },
             views: {
                 'content@': {
                     templateUrl: 'app/entities/contact/contacts.html',

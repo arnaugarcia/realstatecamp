@@ -12,7 +12,7 @@
             parent: 'app',
             url: '/',
             ncyBreadcrumb: {
-                label: 'Home'
+                label: '{{ "global.menu.home" | translate }}',
             },
             data: {
                 authorities: [],
@@ -28,7 +28,7 @@
                 'content@': {
                     templateUrl: 'app/home/home.html',
                     controller: 'HomeController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
                 }
             },
             resolve: {

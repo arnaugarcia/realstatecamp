@@ -43,6 +43,42 @@
             "language": "Language",
             "properties": "Properties"
         },
+        "header":{
+            "search": {
+                "keyword": {
+                    "title": "Keyword",
+                    "input": "Enter keyword"
+                },
+                "bedroom": {
+                    "title": "Bedroom"
+                },
+                "status": {
+                    "title": "Status",
+                    "option": {
+                        "sale": "On Sale",
+                        "rent": "For Rent"
+                    }
+                },
+                "bathroom": {
+                    "title": "Bathroom"
+                },
+                "type": {
+                    "title": "Type",
+                    "option": {
+                        "villa": "Villa",
+                        "residence": "Residence",
+                        "commercial": "Commercial"
+                    }
+                },
+                "minprice": {
+                    "title": "Min Price"
+                },
+                "maxprice": {
+                    "title": "Max Price"
+                },
+                "search": "Search Again"
+            }
+        },
         "form": {
             "username": "Username",
             "username.placeholder": "Your username",

@@ -2,7 +2,7 @@
     "assessoriaTorrellesApp": {
         "about" : {
             "home": {
-                "title": "Abouts",
+                "title": "Acerca de nosotros",
                 "createLabel": "Crear nuevo About",
                 "createOrEditLabel": "Crear o editar About",
                 "search": "Search for About"
