@@ -21,7 +21,7 @@
             views: {
                 'content@': {
                     templateUrl: 'app/dashboard/home/dashboard.home.html',
-                    controller: 'HomeController',
+                    controller: 'DashboardHomeController',
                     controllerAs: 'vm',
                 }
             },

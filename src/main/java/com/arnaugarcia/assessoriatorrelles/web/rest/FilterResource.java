@@ -2,7 +2,7 @@ package com.arnaugarcia.assessoriatorrelles.web.rest;
 
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.BuildingType;
 import com.arnaugarcia.assessoriatorrelles.domain.enumeration.ServiceType;
-import com.arnaugarcia.assessoriatorrelles.repository.PropertyRepository;
+import com.arnaugarcia.assessoriatorrelles.repository.FilterRepository;
 import com.arnaugarcia.assessoriatorrelles.service.dto.FilterDTO;
 import com.arnaugarcia.assessoriatorrelles.service.dto.PropertyDTO;
 import com.codahale.metrics.annotation.Timed;
@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
 import java.net.URISyntaxException;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -32,32 +34,50 @@ public class FilterResource {
     private final Logger log = LoggerFactory.getLogger(LocationResource.class);
 
     @Inject
-    //FilterRepository filterRepository;
-    PropertyRepository propertyRepository;
+    FilterRepository filterRepository;
 
     @GetMapping("/filter/home")
     @Timed
     public ResponseEntity<FilterDTO> getFilterFiledsHome() throws URISyntaxException {
         log.debug("REST request to get a page of Towns");
-        List<PropertyDTO> propertyDTOList = propertyRepository.findPropertiesFilter();
+        List<PropertyDTO> propertyDTOList = filterRepository.findPropertiesFilter();
         //townAndProvinceList.parallelStream().distinct().collect(Collectors.toList());
 
         //Source - https://coderanch.com/t/623127/java/array-specific-attribute-values-list
-        List<String> provinceList = propertyDTOList.stream().map(province -> province.getProvince()).distinct().collect(Collectors.toList());
+        List<String> provinceList = propertyDTOList
+            .stream()
+            .map(PropertyDTO::getTown)
+            .filter(Objects::nonNull)
+            .distinct()
+            .collect(Collectors.toList());
 
-        List<String> townList = propertyDTOList.stream().map(town -> town.getTown()).distinct().collect(Collectors.toList());
+        List<String> townList = propertyDTOList.stream().map(PropertyDTO::getTown).filter(Objects::nonNull).distinct().collect(Collectors.toList());
 
-        List<Integer> bedroomList = propertyDTOList.stream().map(bedroom -> bedroom.getNumberBedroom()).distinct().collect(Collectors.toList());
+        List<Integer> bedroomList = propertyDTOList.stream().map(PropertyDTO::getNumberBedroom).filter(Objects::nonNull).distinct().collect(Collectors.toList());
 
-        List<Integer> bathroomList = propertyDTOList.stream().map(bathroom -> bathroom.getNumberWc()).distinct().collect(Collectors.toList());
+        List<Integer> bathroomList = propertyDTOList.stream().map(PropertyDTO::getNumberWc).filter(Objects::nonNull).distinct().collect(Collectors.toList());
 
-        List<BuildingType> buildingTypeList = propertyDTOList.stream().map(PropertyDTO::getBuildingType).distinct().collect(Collectors.toList());
+        List<BuildingType> buildingTypeList = propertyDTOList.stream().map(PropertyDTO::getBuildingType).filter(Objects::nonNull).distinct().collect(Collectors.toList());
 
-        List<ServiceType> serviceTypeList = propertyDTOList.stream().map(PropertyDTO::getServiceType).distinct().collect(Collectors.toList());
+        List<ServiceType> serviceTypeList = propertyDTOList.stream().map(PropertyDTO::getServiceType).filter(Objects::nonNull).distinct().collect(Collectors.toList());
 
-        List<Double> minPriceList = propertyDTOList.stream().map(PropertyDTO::getPrice).distinct().collect(Collectors.toList());
+        List<Double> minPriceList = propertyDTOList
+            .stream()
+            .map(PropertyDTO::getPrice)
+            .filter(Objects::nonNull)
+            .distinct()
+            .sorted()
+            .collect(Collectors.toList());
 
-        List<Double> maxPriceList = propertyDTOList.stream().map(PropertyDTO::getPrice).distinct().collect(Collectors.toList());
+        List<Double> maxPriceList = propertyDTOList
+            .stream()
+            .map(PropertyDTO::getPrice)
+            .filter(Objects::nonNull)
+            .distinct()
+            .sorted(Comparator.reverseOrder())
+            .collect(Collectors.toList());
+
+        //maxPriceList.forEach((k)-> System.out.println(round5(k)));
 
         FilterDTO filterDTO = new FilterDTO(townList,provinceList,bedroomList,bathroomList,buildingTypeList,serviceTypeList,minPriceList,maxPriceList);
 

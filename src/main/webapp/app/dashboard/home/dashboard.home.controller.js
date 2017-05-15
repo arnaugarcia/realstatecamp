@@ -3,7 +3,7 @@
 
     angular
         .module('assessoriaTorrellesApp')
-        .controller('HomeController', DashboardHomeController);
+        .controller('DashboardHomeController', DashboardHomeController);
 
     DashboardHomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'Request', 'AlertService'];
 

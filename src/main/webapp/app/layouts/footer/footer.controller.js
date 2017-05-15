@@ -14,9 +14,6 @@
 
         });
 
-        vm.contacts = [];
-        vm.companies = [];
-
         loadAll();
 
         function loadAll() {

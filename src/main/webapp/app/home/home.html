@@ -10,20 +10,13 @@
                                 <div class="form-group">
                                     <label data-translate="home.form.country" for="country">Country</label>
                                     <select class="form-control">
-                                        <option>Australia</option>
-                                        <option>Indonesia</option>
-                                        <option>Japan</option>
-                                        <option>South Korea</option>
-                                        <option>China</option>
+                                        <option ng-repeat="filterProvince in vm.filtersList.provinceList">{{filterProvince}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label data-translate="home.form.bedroom" for="bedroom">Bedroom</label>
                                     <select class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
+                                        <option ng-repeat="filterBedroom in vm.filtersList.bedroomList">{{filterBedroom}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -32,20 +25,13 @@
                                 <div class="form-group">
                                     <label data-translate="home.form.location" for="location">Location</label>
                                     <select class="form-control">
-                                        <option>Tasmania</option>
-                                        <option>Yogyakarta</option>
-                                        <option>Tokyo</option>
-                                        <option>Busan</option>
-                                        <option>Taipe</option>
+                                        <option ng-repeat="filterTown in vm.filtersList.townList">{{filterTown}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label data-translate="home.form.bathroom" for="bathroom">Bathroom</label>
                                     <select class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
+                                        <option ng-repeat="filterBathroom in vm.filtersList.bathroomList">{{filterBathroom}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -54,17 +40,13 @@
                                 <div class="form-group">
                                     <label data-translate="home.form.status" for="status">Status</label>
                                     <select class="form-control">
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
+                                        <option ng-repeat="serviceTypeList in vm.filtersList.serviceTypeList">{{serviceTypeList}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label data-translate="home.form.minprice" for="minprice">Min Price</label>
                                     <select class="form-control">
-                                        <option>$4,200</option>
-                                        <option>$6,700</option>
-                                        <option>$8,150</option>
-                                        <option>$11,110</option>
+                                        <option ng-repeat="minPriceList in vm.filtersList.minPriceList">{{minPriceList}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -73,18 +55,13 @@
                                 <div class="form-group">
                                     <label data-translate="home.form.type" for="type">Type</label>
                                     <select class="form-control">
-                                        <option>Villa</option>
-                                        <option>Recident</option>
-                                        <option>Commercial</option>
+                                        <option ng-repeat="buildingTypeList in vm.filtersList.buildingTypeList">{{buildingTypeList}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label data-translate="home.form.maxprice" for="maxprice">Max Price</label>
                                     <select class="form-control">
-                                        <option>$8,200</option>
-                                        <option>$11,700</option>
-                                        <option>$14,150</option>
-                                        <option>$21,110</option>
+                                        <option ng-repeat="maxPriceList in vm.filtersList.maxPriceList">{{maxPriceList}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -95,7 +72,7 @@
             </div>
             <div id="home-title" class="col-md-6 text-center">
                 <div class="row">
-                    <h1 data-translate="home.title" class="home-title-h1 col-md-12"></h1>
+                    <h1 class="home-title-h1 col-md-12">Commit número 100!</h1>
                     <h2 data-translate="home.subtitle"class="home-title-h2 col-md-12"></h2>
                     <div class="text-center">
                         <div class="col-md-6 col-md-offset-3">
