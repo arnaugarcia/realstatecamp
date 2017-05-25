@@ -25,8 +25,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.ZonedDateTime;
@@ -115,6 +120,10 @@ public class PropertyResource {
         }
 
         photo.setProperty(property);
+
+        //TODO controlar el tamaño de la imagen para que no se suban imagenes tan grandes
+        //photo.getImage().length
+
         Photo result =  photoRepository.save(photo);
 
         return ResponseEntity.created(new URI("/api/photos/" + result.getId()))
@@ -292,7 +301,7 @@ public class PropertyResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     @Transactional
-    public ResponseEntity<List<Property>> getPropertyByCriteria(
+    public ResponseEntity<List<PropertyDTO>> getPropertyByCriteria(
         Pageable pageable,
         @RequestParam(value = "location", required = false) String location,
         @RequestParam(value = "minPrice", required = false) String minPrice,
@@ -428,13 +437,37 @@ public class PropertyResource {
         }
 
         List<Property> result = propertyByCriteriaRepository.filteryPropertyByCriteria(params,pageable);
-        List<Property> resultTotal = propertyByCriteriaRepository.filteryPropertyByCriteria(params);
-        if (result.isEmpty()) {
+       // List<Property> resultTotal = propertyByCriteriaRepository.filteryPropertyByCriteria(params);
+        //Temporary fix, implemented filtering w/ java 8. TODO look up why hibernate criteria is not working
+        List<PropertyDTO> resultDTO = result.stream()
+            .skip(pageable.getPageNumber())
+            .limit(pageable.getPageSize())
+            .map(current -> {
+            PropertyDTO propertyDTO = new PropertyDTO();
+            propertyDTO.setId(current.getId());
+            propertyDTO.setName(current.getName());
+            propertyDTO.setPrice(current.getPrice());
+            propertyDTO.setTown(current.getLocation().getTown());
+            propertyDTO.setProvince(current.getLocation().getProvince());
+            propertyDTO.setM2(current.getm2());
+            propertyDTO.setServiceType(current.getServiceType());
+            propertyDTO.setBuildingType(current.getBuildingType());
+            propertyDTO.setNumberBedroom(current.getNumberBedroom());
+            propertyDTO.setNumberWc(current.getNumberWc());
+            current.getPhotos().parallelStream().filter(Photo::isCover).findFirst()
+                .ifPresent(cover -> propertyDTO.setPhoto(cover));
+
+            return propertyDTO;
+        }).collect(Collectors.toList());
+
+
+
+        if (resultDTO.isEmpty()) {
             return new ResponseEntity<>(
 
                 null,HeaderUtil.createAlert("No match for the criteria entered!","property"),HttpStatus.NOT_FOUND);
         } else {
-            Page<Property> page = new PageImpl<Property>(result,pageable,resultTotal.size());
+            Page<PropertyDTO> page = new PageImpl<PropertyDTO>(resultDTO,pageable,result.size());
             HttpHeaders httpHeaders = new HttpHeaders();
 
             HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page,params, "/api/property/byfilters");

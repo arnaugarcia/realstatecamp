@@ -73,7 +73,7 @@
                     <div class="col-lg-12" ng-repeat="property in vm.listByFilter | orderBy:vm.orderCriteria.criteria:vm.orderCriteria.rev | filter:vm.quickSearch track by property.id">
                         <div class="property-container">
                             <div class="property-image">
-                                <img src="content/img/img02.jpg" ui-sref="property.detail({id:property.id})" alt="mikha real estate theme">
+                                <img data-ng-src="{{'data:' + property.photo.imageContentType + ';base64,' + property.photo.image}}" ui-sref="property.detail({id:property.id})"/>
                                 <div class="property-price">
                                     <span>{{property.price}}€</span>
                                 </div>
@@ -87,7 +87,7 @@
                                 <span><i class="fa fa-male"></i> {{property.numberBedroom}}</span>
                             </div>
                             <div class="property-content">
-                                <h3><a ui-sref="property.detail({id:property.id})" data-translate="{{'assessoriaTorrellesApp.property.BuildingType.' + property.buildingType}}">{{property.buildingType}}</a> <small>{{property.location.town}}</small></h3>
+                                <h3><a ui-sref="property.detail({id:property.id})" data-translate="{{'assessoriaTorrellesApp.property.BuildingType.' + property.buildingType}}">{{property.buildingType}}</a> <small>{{property.town}}</small></h3>
                             </div>
                         </div>
                     </div>

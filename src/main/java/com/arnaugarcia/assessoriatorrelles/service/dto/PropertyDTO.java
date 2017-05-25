@@ -21,10 +21,14 @@ public class PropertyDTO {
     private String ref;
     private Boolean sold;
     private Integer m2;
-    private Integer numberBedroom;
-    private Integer numberWc;
     private ZonedDateTime created;
     private Photo photo;
+    private Integer numberBedroom;
+    private Integer numberWc;
+
+    public  PropertyDTO(){
+
+    }
 
     public PropertyDTO(Long id, String name, String province, String town, ZonedDateTime created) {
         this.id = id;
