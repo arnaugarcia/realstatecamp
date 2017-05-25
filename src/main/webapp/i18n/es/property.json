@@ -69,14 +69,22 @@
             "storage": "Trastero",
             "heating": "Calefacción",
             "propertyDetail":{
-                "title": "Detalles de la propiedad",
+                "detail": "Detalles de la propiedad",
                 "overview": "Visión general",
                 "features":{
-                    "featuresH": "Características de la casa",
-                    "featuresF": "Características del piso",
-                    "featuresS": "Características del estudio"
+                    "featH": "Características de la casa",
+                    "featF": "Características del piso",
+                    "featS": "Características del estudio"
                 },
-                "description": "Descripción"
+                "description": "Descripción",
+                "contactAgent": "Contacta",
+                "contactForm": {
+                    "name": "Nombre",
+                    "mail": "Correo electrónicp",
+                    "phone": "Teléfono",
+                    "msg": "Hey, me interesa el inmueble con referencia ",
+                    "send": "Enviar"
+                }
             }
         }
     }

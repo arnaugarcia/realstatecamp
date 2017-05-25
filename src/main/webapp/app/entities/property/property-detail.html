@@ -7,8 +7,8 @@
                     <div class="row">
                         <div class="col-md-12 single-post">
                             <ul id="myTab" class="nav nav-tabs nav-justified">
-                                <li class="active"><a go="#detail" data-toggle="tab"><i class="fa fa-university"></i><span data-translate="assessoriaTorrellesApp.property.propertyDetail.title">&nbsp; Property Detail</span></a></li>
-                                <li><a go="#location" data-toggle="tab"><i class="fa fa-paper-plane-o"></i> Property Location</a></li>
+                                <li class="active"><a go="#detail" data-toggle="tab" id="detailTab"><i class="fa fa-university" id="detailIcon"></i><span data-translate="assessoriaTorrellesApp.property.propertyDetail.detail">&nbsp; Property Detail</span></a></li>
+                                <li><a go="#location" data-toggle="tab" id="locationTab"><i class="fa fa-paper-plane-o" id="locationIcon"></i><span data-translate="assessoriaTorrellesApp.property.location">&nbsp; Property Location</span></a></li>
                             </ul>
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="detail">
@@ -20,11 +20,8 @@
                                             <button type="button" class="btn btn-success btn-block" ui-sref="dashboard-property.edit({id:vm.property.id})" has-authority="ROLE_USER">Edit</button>
                                         </div>
                                         <div class="col-md-12">
-
-
-                                            <div id="slider-property" class="carousel slide" data-ride="carousel">
+                                            <div id="slider-property" class="carousel slide" data-ride="carousel" ng-if="vm.property.photo">
                                                 <ol class="carousel-indicators">
-
                                                     <li ng-repeat="x in vm.storedPhotos track by $index" data-target="#slider-property" data-slide-to="{{$index}}" ng-class="x.cover ? 'active':''">
                                                         <img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" alt="">
                                                     </li>
@@ -54,7 +51,7 @@
                                                 </a>
                                             </div>
                                             <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.overview">Property Overview</h3>
-                                            <table class="table table-bordered">
+                                            <table class="table table-bordered" id="overviewTable">
                                                 <tr>
                                                     <td width="20%"><strong data-translate="assessoriaTorrellesApp.property.ref">ID</strong></td>
                                                     <td>{{vm.property.ref}}</td>
@@ -73,29 +70,29 @@
                                                 </tr>
                                                 <tr>
                                                     <td><strong data-translate="assessoriaTorrellesApp.property.location">Location</strong></td>
-                                                    <td>JJ Road, Yogyakarta, INA</td>
+                                                    <td>{{vm.property.location.town}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong data-translate="assessoriaTorrellesApp.property.numberWc">Bathrooms</strong></td>
-                                                    <td>4</td>
+                                                    <td>{{vm.property.numberWc}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong  data-translate="assessoriaTorrellesApp.property.numberBedroom">Bedrooms</strong></td>
-                                                    <td>4</td>
+                                                    <td>{{vm.property.numberBedroom}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong data-translate="assessoriaTorrellesApp.property.area">Area</strong></td>
-                                                    <td>800m<sup>2</sup> </td>
+                                                    <td>{{vm.property.m2}}m<sup>2</sup> </td>
                                                 </tr>
                                             </table>
                                             <div ng-if="vm.property.buildingType == 'HOUSE'">
-                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.features.featuresH"></h3>
+                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.features.featH"></h3>
                                             </div>
                                             <div ng-if="vm.property.buildingType == 'FLAT'">
-                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.features.featuresF"></h3>
+                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.features.featF"></h3>
                                             </div>
                                             <div ng-if="vm.property.buildingType == 'STUDIO'">
-                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.features.featuresS"></h3>
+                                                <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.features.featS"></h3>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6">
@@ -204,7 +201,6 @@
                                                     </ul>
                                                 </div>
                                             </div>
-
                                             <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.description">Property Description</h3>
                                             <p>{{vm.property.description}}</p>
                                         </div>
@@ -214,35 +210,33 @@
                                 <div class="tab-pane fade" id="location">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <ng-map></ng-map>
+                                            <ng-map center="{{vm.property.location.latitude}},{{vm.property.location.longitude}}" zoom="16">
+                                                <marker position="[{{vm.property.location.latitude}}, {{vm.property.location.longitude}}]" title="{{vm.property.name}}"></marker>
+                                            </ng-map>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row" id="contactAgent">
                                         <div class="col-md-12">
-                                            <h3>Contact Agent</h3>
+                                            <h3 data-translate="assessoriaTorrellesApp.property.propertyDetail.contactAgent">Contact Agent</h3>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <form>
                                                 <div class="form-group">
-                                                    <label>Name</label>
-                                                    <input type="text" class="form-control input-lg" placeholder="Enter name : " ng-model="vm.contactForm.name">
+                                                    <input type="text" class="form-control input-lg" placeholder="{{ 'assessoriaTorrellesApp.property.propertyDetail.contactForm.name' | translate }}" ng-model="vm.contactForm.name">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Email address</label>
-                                                    <input type="email" class="form-control input-lg" placeholder="Enter email : " ng-model="vm.contactForm.email">
+                                                    <input type="email" class="form-control input-lg" placeholder="{{ 'assessoriaTorrellesApp.property.propertyDetail.contactForm.mail' | translate }}" ng-model="vm.contactForm.email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Telp.</label>
-                                                    <input type="text" class="form-control input-lg" placeholder="Enter phone number : " ng-model="vm.contactForm.phone">
+                                                    <input type="text" class="form-control input-lg" placeholder="{{ 'assessoriaTorrellesApp.property.propertyDetail.contactForm.phone' | translate }}" ng-model="vm.contactForm.phone">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Message</label>
-                                                    <textarea class="form-control input-lg" rows="7" ng-model="vm.contactForm.comment">Hey!, me interesa la casa con la referencia {{vm.property.ref}} contacta conmigo!</textarea>
+                                                    <textarea class="form-control input-lg" rows="7">{{ 'assessoriaTorrellesApp.property.propertyDetail.contactForm.msg' | translate }} {{vm.property.ref}} !</textarea>
                                                 </div>
                                                 <div class="form-group">
-                                                    <a class="btn btn-success btn-lg" ng-click="vm.sendRequest()">Send Message</a>
+                                                    <a class="btn btn-success btn-lg" ng-click="vm.sendRequest()" data-translate="assessoriaTorrellesApp.property.propertyDetail.contactForm.send">Send Message</a>
                                                 </div>
                                             </form>
                                         </div>

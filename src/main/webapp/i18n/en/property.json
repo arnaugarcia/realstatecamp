@@ -69,14 +69,22 @@
             "storage": "Storage room",
             "heating": "Heating",
             "propertyDetail":{
-                "title": "Property detail",
+                "detail": "Property detail",
                 "overview": "Property overview",
                 "features":{
-                    "featuresH": "House features",
-                    "featuresF": "Flat features",
-                    "featuresS": "Studio features"
+                    "featH": "House features",
+                    "featsF": "Flat features",
+                    "featS": "Studio features"
                 },
-                "description": "Description"
+                "description": "Description",
+                "contactAgent": "Contacta",
+                "contactForm": {
+                    "name": "Name",
+                    "mail": "E-mail",
+                    "phone": "Telephone",
+                    "msg": "Hey, I'm interested in the property with reference ",
+                    "send": "Send"
+                }
             }
         }
     }

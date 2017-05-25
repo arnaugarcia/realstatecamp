@@ -69,15 +69,23 @@
             "office": "Despatx",
             "storage": "Traster",
             "heating": "Calefacció",
-            "propertyDetail":{
-                "title": "Detalls de la propietat",
+            "propertyDetail": {
+                "detail": "Detalls de la propietat",
                 "overview": "Vista general",
-                "features":{
-                    "featuresH": "Característiques de la casa",
-                    "featuresF": "Característiques del pis",
-                    "featuresS": "Característiques de l'estudi"
+                "features": {
+                    "featH": "Característiques de la casa",
+                    "featF": "Característiques del pis",
+                    "featS": "Característiques de l'estudi"
                 },
-                "description": "Descripció"
+                "description": "Descripció",
+                "contactAgent": "Contacta",
+                "contactForm": {
+                    "name": "Nom",
+                    "mail": "Correu electrònic",
+                    "phone": "Telèfon",
+                    "msg": "Hey, m'interessa l'immoble amb referència ",
+                    "send": "Enviar"
+                }
             }
         }
     }

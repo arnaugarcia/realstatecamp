@@ -12,17 +12,7 @@
         var vm = this;
 
         vm.contacts = [];
-        vm.companies = [];
-
-        vm.companyInfo = {
-            "name": "",
-            "phone": "",
-            "email": "",
-            "cif": "",
-            "lat": "",
-            "long": ""
-        };
-
+        vm.company = [];
         vm.formData = {};
 
         loadAll();
@@ -31,8 +21,8 @@
             Contact.query(function(result) {
                 vm.contacts = result;
             });
-            Company.query(function (result) {
-                vm.companies = result;
+            Company.get(function (result) {
+                vm.company = result;
             });
         }
 

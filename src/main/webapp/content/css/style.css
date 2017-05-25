@@ -1780,10 +1780,18 @@ input[type="color"]:focus,
     margin-bottom: 40px;
 }
 
+#slider-property > .carousel-inner {
+    text-align: center;
+}
+
+#slider-property > .carousel-inner div {
+    height: 500px;
+}
+
 #slider-property .carousel-inner .item img{
-    width: 100%;
+    display: inline-block;
     max-width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 #slider-property .carousel-indicators li{
@@ -2209,20 +2217,47 @@ video#bgvid {
 */
 
 /* MAP */
-#map {
+#contactMap {
     margin-bottom: 50px;
+    width: 100%;
 }
 
 /*
 	==================
-	[14. PROPERTY DETAIL]
+	[14. PROPERTY DETAIL & LOCATION]
 	==================
 */
 
+/* OVERVIEW */
+#overviewTable {
+    margin-bottom: 35px;
+}
+
 /* FEATURES */
+#features {
+    margin-top: -5px;
+}
+
 #features div > div {
     display: inline-block;
 }
-#features li{
+#features li {
     width: 20px;
+}
+
+/* TABS */
+
+#detailTab, #locationTab {
+    cursor: default;
+}
+
+#detailIcon {
+    margin-right: 5px;
+}
+#locationIcon {
+    margin-right: 5px;
+}
+
+#contactAgent {
+    margin-top: 35px;
 }
