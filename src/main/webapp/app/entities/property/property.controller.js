@@ -123,6 +123,12 @@
 
         };
 
+        vm.removeFilters = function () {
+            vm.filterCritera = {};
+            searchCriteria = {};
+
+        }
+
         loadAll();
 
         function loadAll () {

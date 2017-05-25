@@ -131,6 +131,7 @@
                 <input type="number" pattern="\d*" min="0" class="form-control" ng-model="vm.filterCritera.maxSize">
             </div>
             <input type="submit" name="submit" value="{{ 'assessoriaTorrellesApp.property.simpleSearch' | translate }}" class="btn btn-success btn-block" ng-click="vm.searchByFilters()">
+            <input type="submit" name="submit" value="RESET" class="btn btn-success btn-block" ng-click="vm.removeFilters()">
 
         </form>
     </div>
