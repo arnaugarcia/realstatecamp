@@ -440,7 +440,7 @@ public class PropertyResource {
        // List<Property> resultTotal = propertyByCriteriaRepository.filteryPropertyByCriteria(params);
         //Temporary fix, implemented filtering w/ java 8. TODO look up why hibernate criteria is not working
         List<PropertyDTO> resultDTO = result.stream()
-            .skip(pageable.getPageNumber())
+            .skip(pageable.getPageNumber()*pageable.getPageSize())
             .limit(pageable.getPageSize())
             .map(current -> {
             PropertyDTO propertyDTO = new PropertyDTO();
