@@ -20,7 +20,7 @@
                                             <button type="button" class="btn btn-success btn-block" ui-sref="dashboard-property.edit({id:vm.property.id})" has-authority="ROLE_USER">Edit</button>
                                         </div>
                                         <div class="col-md-12">
-                                            <div id="slider-property" class="carousel slide" data-ride="carousel" ng-if="vm.property.photo">
+                                            <div id="slider-property" class="carousel slide" data-ride="carousel" ng-if="vm.storedPhotos.length != 0">
                                                 <ol class="carousel-indicators">
                                                     <li ng-repeat="x in vm.storedPhotos track by $index" data-target="#slider-property" data-slide-to="{{$index}}" ng-class="x.cover ? 'active':''">
                                                         <img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" alt="">
