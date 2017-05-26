@@ -73,7 +73,14 @@
                     <div class="col-lg-12" ng-repeat="property in vm.listByFilter | orderBy:vm.orderCriteria.criteria:vm.orderCriteria.rev | filter:vm.quickSearch track by property.id">
                         <div class="property-container">
                             <div class="property-image">
-                                <img data-ng-src="{{'data:' + property.photo.imageContentType + ';base64,' + property.photo.image}}" ui-sref="property.detail({id:property.id})"/>
+                                <div ng-if="!property.photo.image" >
+
+                                    <img src="http://whrealtygroup.com/wp-content/uploads/2012/04/house_for_sale1.jpg" ui-sref="property.detail({id:property.id})">
+                                </div>
+                                <div ng-if="property.photo.image">
+
+                                    <img data-ng-src="{{'data:' + property.photo.imageContentType + ';base64,' + property.photo.image}}" ui-sref="property.detail({id:property.id})"/>
+                                </div>
                                 <div class="property-price">
                                     <span>{{property.price}}€</span>
                                 </div>

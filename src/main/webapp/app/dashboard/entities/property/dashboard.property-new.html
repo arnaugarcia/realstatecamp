@@ -85,14 +85,14 @@
                         <div class="form-group">
                             <label class="control-label" data-translate="assessoriaTorrellesApp.property.visible"
                                    for="field_visible">Visible</label>
-                            <input type="checkbox" class="flat-red" name="visible" id="field_visible"
+                            <input type="checkbox" ng-class="vm.property.visible === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="visible" id="field_visible"
                                    ng-model="vm.property.visible"
                             />
                         </div>
                         <div class="form-group">
                             <label class="control-label" data-translate="assessoriaTorrellesApp.property.sold"
                                    for="field_sold">Sold</label>
-                            <input type="checkbox" class="flat-red" name="sold" id="field_sold"
+                            <input type="checkbox" ng-class="vm.property.sold === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="sold" id="field_sold"
                                    ng-model="vm.property.sold"
                             />
                         </div>
@@ -137,7 +137,7 @@
                             <div class="form-group">
                                 <label class="control-label" data-translate="assessoriaTorrellesApp.property.terrace"
                                        for="field_terrace">Terrace</label>
-                                <input type="checkbox" class="flat-red" name="terrace" id="field_terrace"
+                                <input type="checkbox"  ng-class="vm.property.terrace === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'"  name="terrace" id="field_terrace"
                                        ng-model="vm.property.terrace"
                                 />
                             </div>
@@ -146,7 +146,7 @@
                             <div class="form-group">
                                 <label class="control-label" data-translate="assessoriaTorrellesApp.property.furnished"
                                        for="field_furnished">Furnished</label>
-                                <input type="checkbox" class="flat-red" name="furnished" id="field_furnished"
+                                <input type="checkbox" ng-class="vm.property.furnished === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="furnished" id="field_furnished"
                                        ng-model="vm.property.furnished"
                                 />
                             </div>
@@ -155,7 +155,7 @@
                             <div class="form-group">
                                 <label class="control-label" data-translate="assessoriaTorrellesApp.property.ac"
                                        for="field_ac">Ac</label>
-                                <input type="checkbox" class="flat-red" name="ac" id="field_ac"
+                                <input type="checkbox" ng-class="vm.property.ac === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="ac" id="field_ac"
                                        ng-model="vm.property.ac"
                                 />
                             </div>
@@ -164,7 +164,7 @@
                             <div class="form-group">
                                 <label class="control-label" data-translate="assessoriaTorrellesApp.property.elevator"
                                        for="field_elevator">Elevator</label>
-                                <input type="checkbox" class="flat-red" name="elevator" id="field_elevator"
+                                <input type="checkbox" ng-class="vm.property.elevator === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="elevator" id="field_elevator"
                                        ng-model="vm.property.elevator"
                                 />
                             </div>
@@ -173,7 +173,7 @@
                             <div class="form-group">
                                 <label class="control-label" data-translate="assessoriaTorrellesApp.property.pool"
                                        for="field_pool">Pool</label>
-                                <input type="checkbox" class="flat-red" name="pool" id="field_pool"
+                                <input type="checkbox" ng-class="vm.property.pool === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="pool" id="field_pool"
                                        ng-model="vm.property.pool"
                                 />
                             </div>
@@ -183,7 +183,7 @@
                             <div class="form-group">
                                 <label class="control-label" data-translate="assessoriaTorrellesApp.property.garage"
                                        for="field_garage">Garage</label>
-                                <input type="checkbox" class="flat-red" name="garage" id="field_garage"
+                                <input type="checkbox" ng-class="vm.property.garage === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="garage" id="field_garage"
                                        ng-model="vm.property.garage"
                                 />
                             </div>
@@ -271,26 +271,43 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="container">
                 <!--{{vm.storedPhotos}}-->
+                <!-- Hover-Fall Effect-->
+                <div class="col-lg-12">
+                    <div class="col-xs-6 col-sm-3" ng-repeat="x in vm.storedPhotos track by x.id">
+                        <div class="fall-item fall-effect">
+                            <img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" width="300" height="300"/>
+                            <div class="mask">
+                                <h2>{{x.name}}</h2>
+                                <!--<p>{{x.description}}</p>-->
+                                <br>
+                                <button type="button" class="btn btn-danger" ng-click="vm.deleteFile(x.id)">Delete</button>
 
-                <div class="col-lg-4" ng-repeat="x in vm.storedPhotos track by x.id">
-                    <div class="text-center">
 
-                    <img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" style="max-height: 150px; max-width: 130px;"/>
-                    </div>
-                    <div>
-
-                        <div class="col-lg-6">
-                            <button type="button" class="btn btn-block btn-alert" ng-click="vm.deleteFile(x.id)">Delete</button>
+                                <button type="button" class="btn btn-success" ng-click="vm.makeCover(x.id)">Cover</button>
+                            </div>
                         </div>
-                        <div class="col-lg-6">
-                            <button type="button" class="btn btn-block btn-info" ng-click="vm.makeCover(x.id)">Make Cover</button>
-                        </div>
-
+                        <!--<h4 class="text-center">Hover-Fall</h4>-->
                     </div>
+
+                    <!--<div class="col-xs-6 col-sm-3" ng-repeat="x in vm.storedPhotos track by x.id">-->
+
+
+                        <!--<img data-ng-src="{{'data:' + x.imageContentType + ';base64,' + x.image}}" width="300" height="300"/>-->
+
+                        <!--<div class="row text-center">-->
+
+
+                            <!--<button type="button" class="btn btn-alert" ng-click="vm.deleteFile(x.id)">Delete</button>-->
+
+
+                            <!--<button type="button" class="btn btn-info" ng-click="vm.makeCover(x.id)">Cover</button>-->
+
+
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
-
 
 
                 <!--{{vm.storedPhotos}}-->
@@ -321,7 +338,9 @@
                         <span class="btn btn-default" flow-btn>Upload Image</span>
                         <span class="btn btn-default" flow-btn flow-directory ng-show="$flow.supportDirectory">Upload Folder of Images</span>
                         <b>OR</b>
-                        Drag And Drop your images here
+
+                            <div class="dropZone">Drop files here</div>
+
                     </div>
 
                     <br/>
@@ -348,6 +367,7 @@
                                 </a>
                             </div>
                         </div>
+                        <br>
                         <Button type="button" class="btn btn-success" ng-click="vm.addFiles($flow.files)">Add files</Button>
 
                         <div class="clear"></div>

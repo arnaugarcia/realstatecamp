@@ -30,7 +30,11 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="property in vm.properties">
-                        <td><img  ng-if="property.photo.image" data-ng-src="{{'data:' + property.photo.imageContentType + ';base64,' + property.photo.image}}" ui-sref="property.detail({id:property.id})" style="max-height: 150px; max-width: 130px;"/></td>
+                        <td ng-if="!property.photo.image">
+                            <img src="http://whrealtygroup.com/wp-content/uploads/2012/04/house_for_sale1.jpg" ui-sref="property.detail({id:property.id})" style="max-height: 150px; max-width: 130px;">
+                        </td>
+                         <td ng-if="property.photo.image">
+                             <img data-ng-src="{{'data:' + property.photo.imageContentType + ';base64,' + property.photo.image}}" ui-sref="property.detail({id:property.id})" style="max-height: 150px; max-width: 130px;"/></td>
                         <td>
                             <!-- <div class="col-xs-6">
                                     <img src="/content/img/team01.jpg" class="img-responsive" style="width:20%">
