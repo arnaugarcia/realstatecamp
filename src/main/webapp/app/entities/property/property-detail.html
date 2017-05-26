@@ -8,7 +8,7 @@
                         <div class="col-md-12 single-post">
                             <ul id="myTab" class="nav nav-tabs nav-justified">
                                 <li class="active"><a go="#detail" data-toggle="tab" id="detailTab"><i class="fa fa-university" id="detailIcon"></i><span data-translate="assessoriaTorrellesApp.property.propertyDetail.detail">&nbsp; Property Detail</span></a></li>
-                                <li><a go="#location" data-toggle="tab" id="locationTab"><i class="fa fa-paper-plane-o" id="locationIcon"></i><span data-translate="assessoriaTorrellesApp.property.location">&nbsp; Property Location</span></a></li>
+                                <li><a go="#location" data-toggle="tab" id="locationTab" ng-click="vm.loadMap"><i class="fa fa-paper-plane-o" id="locationIcon"></i><span data-translate="assessoriaTorrellesApp.property.location">&nbsp; Property Location</span></a></li>
                             </ul>
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="detail">
@@ -209,8 +209,8 @@
                                 <!-- break -->
                                 <div class="tab-pane fade" id="location">
                                     <div class="row">
-                                        <div class="col-md-12" ng-cloak>
-                                            <ng-map center="{{vm.property.location.latitude}},{{vm.property.location.longitude}}" zoom="16">
+                                        <div class="col-md-12" ng-if="vm.property.location.latitude && vm.property.location.longitude">
+                                            <ng-map center="{{vm.property.location.latitude}},{{vm.property.location.longitude}}" zoom="16" id="locationMap">
                                                 <marker position="[{{vm.property.location.latitude}}, {{vm.property.location.longitude}}]" title="{{vm.property.name}}"></marker>
                                             </ng-map>
                                         </div>

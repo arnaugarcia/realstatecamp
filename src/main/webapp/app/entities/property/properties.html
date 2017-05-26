@@ -2,8 +2,6 @@
 <div id="content" ng-switch="vm.isAuthenticated()">
     <div class="container">
         <div class="row">
-
-
             <div class="col-md-9 col-md-push-3">
                 <h2 data-translate="assessoriaTorrellesApp.property.home.title">Properties</h2>
                 <!--{{vm.filterCritera.location}}-->
@@ -15,7 +13,6 @@
                             <a href="search_list.html" class="btn btn-default" ui-sref="property.list"><i class="fa fa-list"></i></a>
                             <!--<span>Show <strong>6</strong> of <strong>{{vm.listByFilter.length}}</strong> result.</span>-->
                         </div>
-
                         <div class="col-md-8 col-sm-8 col-xs-9">
                             <form class="form-inline" role="form">
                                 <span data-translate="assessoriaTorrellesApp.property.sortBy.default">Sort by </span>
@@ -49,7 +46,6 @@
                         </div>
                     </div>
                         <div class="row sort">
-
                             <div class="col-lg-12">
                                 <input type="text" class="form-control" ng-model="vm.quickSearch" placeholder="{{ 'assessoriaTorrellesApp.property.quickSearch' | translate }}">
                             </div>
@@ -93,7 +89,6 @@
                         </div>
                     </div>
                     <!-- end:product -->
-
                     <!-- begin:pagination -->
                     <div class="row">
                         <div class="col-md-12">

@@ -23,8 +23,8 @@
             </div>
         </div>
         <div class="col-md-6 col-sm-12 col-xs-12">
-            <ng-map center="41.3579495,1.9810097" zoom="16">
-                <marker position="[41.3579495, 1.9810097]" title="Assessoria Torrelles"></marker>
+            <ng-map center="{{vm.company.location.latitude}},{{vm.company.location.longitude}}" zoom="16">
+                <marker position="[{{vm.company.location.latitude}}, {{vm.company.location.longitude}}]" title="{{vm.company.name}}"></marker>
             </ng-map>
         </div>
         <!-- break -->
