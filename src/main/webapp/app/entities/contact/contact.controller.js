@@ -18,9 +18,6 @@
         loadAll();
 
         function loadAll() {
-            Contact.query(function(result) {
-                vm.contacts = result;
-            });
             Company.get(function (result) {
                 vm.company = result;
             });

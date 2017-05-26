@@ -22,8 +22,6 @@
             getAccount();
         });
 
-        getAccount();
-
         function loadAll (){
             FilterService.home(function (result) {
                 vm.filtersList = result;
