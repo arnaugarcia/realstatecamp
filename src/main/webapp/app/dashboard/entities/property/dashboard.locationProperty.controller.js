@@ -108,7 +108,7 @@
                         "created": "2017-02-25T13:56:06+01:00",
                         "image": image[1],
                         "imageContentType": conType[1],
-                        "description": "PLEASE WORK BATCH",
+                        "description": "PLEASE WORK",
                         "url": null,
                         "cover": false
                     }, onSaveSuccess, onSaveError);
