@@ -11,6 +11,7 @@
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">All properties list</h3>
+                <button ui-sref="dashboard-property.new" class="btn btn-success pull-right">New property</button>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -29,7 +30,7 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="property in vm.properties">
-                        <td><img data-ng-src="{{'data:' + property.photo.imageContentType + ';base64,' + property.photo.image}}" ui-sref="property.detail({id:property.id})" style="max-height: 150px; max-width: 130px;"/></td>
+                        <td><img  ng-if="property.photo.image" data-ng-src="{{'data:' + property.photo.imageContentType + ';base64,' + property.photo.image}}" ui-sref="property.detail({id:property.id})" style="max-height: 150px; max-width: 130px;"/></td>
                         <td>
                             <!-- <div class="col-xs-6">
                                     <img src="/content/img/team01.jpg" class="img-responsive" style="width:20%">

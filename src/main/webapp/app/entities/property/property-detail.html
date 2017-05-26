@@ -209,7 +209,7 @@
                                 <!-- break -->
                                 <div class="tab-pane fade" id="location">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" ng-cloak>
                                             <ng-map center="{{vm.property.location.latitude}},{{vm.property.location.longitude}}" zoom="16">
                                                 <marker position="[{{vm.property.location.latitude}}, {{vm.property.location.longitude}}]" title="{{vm.property.name}}"></marker>
                                             </ng-map>

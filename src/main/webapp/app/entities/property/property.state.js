@@ -62,7 +62,6 @@
             }
         }).state('property.list', {
                 parent: 'property',
-                url: '/property?page&sort&search',
                 data: {
                     authorities: [],
                     pageTitle: 'assessoriaTorrellesApp.property.home.title'

@@ -5,9 +5,9 @@
         .module('assessoriaTorrellesApp')
         .controller('FooterController', FooterController);
 
-    FooterController.$inject = ['$scope', '$state', 'Contact', 'Company', 'NgMap','Property'];
+    FooterController.$inject = ['Company', 'NgMap','Property'];
 
-    function FooterController ($scope, $state, Contact, Company, NgMap, Property) {
+    function FooterController (Company, NgMap, Property) {
         var vm = this;
 
         NgMap.getMap().then(function(map) {
