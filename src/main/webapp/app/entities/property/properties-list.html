@@ -74,11 +74,9 @@
                         <div class="property-container">
                             <div class="property-image">
                                 <div ng-if="!property.photo.image" >
-
-                                    <img src="http://whrealtygroup.com/wp-content/uploads/2012/04/house_for_sale1.jpg" ui-sref="property.detail({id:property.id})">
+                                    <img src="http://whrealtygroup.com/wp-content/uploads/2012/04/house_for_sale1.jpg" ui-sref="property.detail({id:property.id})" class="property-photo">
                                 </div>
                                 <div ng-if="property.photo.image">
-
                                     <img data-ng-src="{{'data:' + property.photo.imageContentType + ';base64,' + property.photo.image}}" ui-sref="property.detail({id:property.id})"/>
                                 </div>
                                 <div class="property-price">

@@ -2,7 +2,7 @@
 <div class="col-md-3 col-md-pull-9 sidebar">
     <div class="widget widget-white">
         <div class="widget-header">
-            <h3 data-translate="assessoriaTorrellesApp.property.advanceSearch">ADVANCE SEARCH</h3>
+            <h3 data-translate="assessoriaTorrellesApp.property.sidebar.advancedSearch">ADVANCED SEARCH</h3>
         </div>
         <form role="form" class="advance-search">
             <!--<div class="btn-group" >-->
@@ -19,10 +19,8 @@
             <!--{{vm.filterCritera}}-->
             <div class="form-group">
                 <label for="location" data-translate="assessoriaTorrellesApp.property.location">Location</label>
-
                 <input type="text" class="form-control" ng-model="vm.filterCritera.location">
             </div>
-
             <!--<div class="form-group">-->
                 <!--<label for="type">Property Type</label>-->
                 <!--<select class="form-control">-->
@@ -33,7 +31,6 @@
                     <!--<option>Single Family Home</option>-->
                 <!--</select>-->
             <!--</div>-->
-
             <div class="form-group">
                 <label for="serviceType" data-translate="assessoriaTorrellesApp.property.serviceType">Service Type</label>
                 <select class="form-control" ng-model="vm.filterCritera.serviceType">
@@ -42,7 +39,6 @@
                     <option value="RENT_AND_SALE" data-translate="assessoriaTorrellesApp.property.ServiceType.RENT_AND_SALE">RENT_AND_SALE</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label for="buildingType" data-translate="assessoriaTorrellesApp.property.buildingType">Building Type</label>
                 <select class="form-control" ng-model="vm.filterCritera.buildingType">
@@ -51,7 +47,6 @@
                     <option value="STUDIO" data-translate="assessoriaTorrellesApp.property.BuildingType.STUDIO">STUDIO</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label for="furnished"  data-translate="assessoriaTorrellesApp.property.furnished">Furnished</label>
                 <select class="form-control" ng-model="vm.filterCritera.furnished">
@@ -130,9 +125,8 @@
                 <label for="max-area" data-translate="assessoriaTorrellesApp.property.maxArea">Max Area</label>
                 <input type="number" pattern="\d*" min="0" class="form-control" ng-model="vm.filterCritera.maxSize">
             </div>
-            <input type="submit" name="submit" value="{{ 'assessoriaTorrellesApp.property.simpleSearch' | translate }}" class="btn btn-success btn-block" ng-click="vm.searchByFilters()">
-            <input type="submit" name="submit" value="RESET" class="btn btn-success btn-block" ng-click="vm.removeFilters()">
-
+            <input type="submit" name="submit" value="{{ 'assessoriaTorrellesApp.property.sidebar.simpleSearch' | translate }}" class="btn btn-success btn-block" ng-click="vm.searchByFilters()">
+            <input type="submit" name="submit" value="{{ 'assessoriaTorrellesApp.property.sidebar.reset' | translate }}" class="btn btn-success btn-block" ng-click="vm.removeFilters()">
         </form>
     </div>
 </div>

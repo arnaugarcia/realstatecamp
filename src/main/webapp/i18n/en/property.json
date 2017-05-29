@@ -29,8 +29,6 @@
             "show": "Show",
             "showing": "Showing",
             "quickSearch": "Quick Search...",
-            "advanceSearch": "ADVANCE SEARCH",
-            "simpleSearch": "SEARCH",
             "BuildingType":{
                 "HOUSE":"House",
                 "FLAT":"Flat",
@@ -68,16 +66,21 @@
             "office": "Office",
             "storage": "Storage room",
             "heating": "Heating",
-            "propertyDetail":{
+            "sidebar": {
+                "advancedSearch": "ADVANCED SEARCH",
+                "simpleSearch": "SEARCH",
+                "reset": "RESET"
+            },
+            "propertyDetail": {
                 "detail": "Property detail",
                 "overview": "Property overview",
-                "features":{
+                "features": {
                     "featH": "House features",
                     "featsF": "Flat features",
                     "featS": "Studio features"
                 },
                 "description": "Description",
-                "contactAgent": "Contacta",
+                "contactAgent": "Contact agent",
                 "contactForm": {
                     "name": "Name",
                     "mail": "E-mail",

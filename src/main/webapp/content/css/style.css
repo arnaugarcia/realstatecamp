@@ -2224,9 +2224,32 @@ video#bgvid {
 
 /*
 	==================
-	[14. PROPERTY DETAIL & LOCATION]
+	[14. PROPERTIES]
 	==================
 */
+
+.property-photo {
+    cursor: pointer;
+    max-height: 180px;
+}
+.property-price, .property-statusl, .property-features {
+    cursor: default;
+}
+
+/*
+    == PROPERTY DETAIL ==
+*/
+
+/* TABS */
+#detailTab, #locationTab {
+    cursor: pointer;
+}
+#detailIcon {
+    margin-right: 5px;
+}
+#locationIcon {
+    margin-right: 5px;
+}
 
 /* OVERVIEW */
 #overviewTable {
@@ -2237,7 +2260,6 @@ video#bgvid {
 #features {
     margin-top: -5px;
 }
-
 #features div > div {
     display: inline-block;
 }
@@ -2245,19 +2267,7 @@ video#bgvid {
     width: 20px;
 }
 
-/* TABS */
-
-#detailTab, #locationTab {
-    cursor: default;
-}
-
-#detailIcon {
-    margin-right: 5px;
-}
-#locationIcon {
-    margin-right: 5px;
-}
-
+/* LOCATION */
 #contactAgent {
     margin-top: 35px;
 }

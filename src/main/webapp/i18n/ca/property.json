@@ -30,8 +30,6 @@
             "show": "Mostra",
             "showing": "Mostrant",
             "quickSearch": "Cerca ràpida...",
-            "advanceSearch": "CERCA AVANÇADA",
-            "simpleSearch": "CERCAR",
             "BuildingType":{
                 "HOUSE":"Casa",
                 "FLAT":"Apartament",
@@ -69,6 +67,11 @@
             "office": "Despatx",
             "storage": "Traster",
             "heating": "Calefacció",
+            "sidebar": {
+                "advancedSearch": "CERCA AVANÇADA",
+                "simpleSearch": "BUSCAR",
+                "reset": "NETEJAR"
+            },
             "propertyDetail": {
                 "detail": "Detalls de la propietat",
                 "overview": "Vista general",
@@ -78,7 +81,7 @@
                     "featS": "Característiques de l'estudi"
                 },
                 "description": "Descripció",
-                "contactAgent": "Contacta",
+                "contactAgent": "Contacta amb el gestor",
                 "contactForm": {
                     "name": "Nom",
                     "mail": "Correu electrònic",

@@ -29,8 +29,6 @@
             "show": "Muestra",
             "showing": "Mostrando",
             "quickSearch": "Búsqueda rápida...",
-            "advanceSearch": "BÚSQUEDA AVANZADA",
-            "simpleSearch": "BUSCAR",
             "BuildingType":{
                 "HOUSE":"Casa",
                 "FLAT":"Apartamento",
@@ -68,7 +66,12 @@
             "office": "Despacho",
             "storage": "Trastero",
             "heating": "Calefacción",
-            "propertyDetail":{
+            "sidebar": {
+                "advancedSearch": "BÚSQUEDA AVANZADA",
+                "simpleSearch": "BUSCAR",
+                "reset": "LIMPIAR"
+            },
+            "propertyDetail": {
                 "detail": "Detalles de la propiedad",
                 "overview": "Visión general",
                 "features":{
@@ -77,10 +80,10 @@
                     "featS": "Características del estudio"
                 },
                 "description": "Descripción",
-                "contactAgent": "Contacta",
+                "contactAgent": "Contacta con el gestor",
                 "contactForm": {
                     "name": "Nombre",
-                    "mail": "Correo electrónicp",
+                    "mail": "Correo electrónico",
                     "phone": "Teléfono",
                     "msg": "Hey, me interesa el inmueble con referencia ",
                     "send": "Enviar"
