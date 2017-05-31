@@ -4,7 +4,7 @@
             "home": {
                 "title": "Propietats",
                 "createLabel": "Crea una nova propietat",
-                "createOrEditLabel": "Create or edit a Property",
+                "createOrEditLabel": "Crea o edia una propietat",
                 "search": "Search for Property"
             },
             "created": "A new Property is created with identifier {{ param }}",
@@ -39,13 +39,13 @@
               "yes":"Sí",
               "no":"No"
             },
-            "name": "Name",
+            "name": "Nom",
             "price": "Preu",
             "buildingType": "Tipus de vivenda",
             "serviceType": "Tipus de servei",
             "ref": "Ref",
             "visible": "Visible",
-            "sold": "Sold",
+            "sold": "Venut",
             "terrace": "Terrassa",
             "m2": "M 2",
             "numberBedroom": "Núm. d'habitacions",
@@ -54,7 +54,7 @@
             "pool": "Piscina",
             "garage": "Garatge",
             "numberWc": "Núm. de lavabos",
-            "ac": "Aire acondicionat",
+            "ac": "Aire acond.",
             "location": "Ubicació",
             "user": "User",
             "photo": "Photo",
@@ -89,6 +89,11 @@
                     "msg": "Hey, m'interessa l'immoble amb referència ",
                     "send": "Enviar"
                 }
+            },
+            "admin": {
+                "mainData": "Dades principals",
+                "descriptionInput": "Escriu quelcom aquí...",
+                "facilities": "Facilitats"
             }
         }
     }

@@ -88,6 +88,11 @@
                     "msg": "Hey, I'm interested in the property with reference ",
                     "send": "Send"
                 }
+            },
+            "admin": {
+                "mainData": "Main data",
+                "descriptionInput": "Place some text here...",
+                "facilities": "Facilities"
             }
         }
     }

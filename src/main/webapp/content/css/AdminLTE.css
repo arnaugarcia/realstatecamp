@@ -5130,3 +5130,12 @@ table.text-center th {
 .sidebar-menu {
     margin-top: 20px !important;
 }
+
+.admin-features {
+    padding-left: 15px;
+}
+
+#newPropMap {
+    margin-bottom: 25px;
+    height: 256px !important;
+}

@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Location"
             },
-            "ref": "Ref",
-            "province": "Province",
+            "ref": "Ref.",
+            "province": "Provincia",
             "town": "Town",
-            "town": "Códic Postal",
+            "cp": "Còdi postal",
             "typeOfRoad": "Type Of Road",
             "nameRoad": "Name Road",
             "number": "Number",
@@ -28,8 +28,8 @@
             "door": "Door",
             "stair": "Stair",
             "urlgmaps": "Urlgmaps",
-            "latitude": "Latitude",
-            "longitude": "Longitude",
+            "latitude": "Latitut",
+            "longitude": "Longitut",
             "company": "Company",
             "property": "Property"
         }

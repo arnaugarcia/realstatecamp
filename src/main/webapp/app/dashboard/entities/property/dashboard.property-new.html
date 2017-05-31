@@ -13,7 +13,7 @@
             <div class="col-lg-6">
                 <div class="box box-success">
                     <div class="box-header">
-                        <h3 class="box-title">Datos principales</h3>
+                        <h3 class="box-title" data-translate="assessoriaTorrellesApp.property.admin.mainData">Datos principales</h3>
                     </div>
                     <div class="box-body">
                         <div class="form-group" ng-show="vm.property.id">
@@ -83,20 +83,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.visible"
-                                   for="field_visible">Visible</label>
                             <input type="checkbox" ng-class="vm.property.visible === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="visible" id="field_visible"
                                    ng-model="vm.property.visible"
                             />
+                            &nbsp;
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.visible"
+                                   for="field_visible">Visible</label>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.sold"
-                                   for="field_sold">Sold</label>
                             <input type="checkbox" ng-class="vm.property.sold === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="sold" id="field_sold"
                                    ng-model="vm.property.sold"
                             />
+                            &nbsp;
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.sold"
+                                   for="field_sold">Sold</label>
                         </div>
-
                         <div class="form-group">
                             <label data-translate="assessoriaTorrellesApp.property.location" for="field_location">Location</label>
                             <select class="form-control" id="field_location" name="location"
@@ -106,10 +107,10 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.description"
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.propertyDetail.description"
                                    for="field_description">Description</label>
                             <textarea class="form-control textarea" name="description" id="field_description"
-                                      ng-model="vm.property.description" placeholder="Place some text here"
+                                      ng-model="vm.property.description" placeholder="{{ 'assessoriaTorrellesApp.property.admin.descriptionInput' | translate }}"
                                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                         </div>
                     </div>
@@ -128,67 +129,71 @@
 
             <div class="col-lg-6">
                 <p>{{vm.imageStrings}}</p>
-                <div class="box box-success">
+                <div class="box box-success" style="margin-top: -10px;">
                     <div class="box-header">
-                        <h3 class="box-title">Facilidades</h3>
+                        <h3 class="box-title" data-translate="assessoriaTorrellesApp.property.admin.facilities">Facilidades</h3>
                     </div>
                     <div class="box-body">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="form-group">
-                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.terrace"
-                                       for="field_terrace">Terrace</label>
                                 <input type="checkbox"  ng-class="vm.property.terrace === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'"  name="terrace" id="field_terrace"
                                        ng-model="vm.property.terrace"
                                 />
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.terrace"
+                                       for="field_terrace">Terrace</label>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="form-group">
-                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.furnished"
-                                       for="field_furnished">Furnished</label>
                                 <input type="checkbox" ng-class="vm.property.furnished === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="furnished" id="field_furnished"
                                        ng-model="vm.property.furnished"
                                 />
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.furnished"
+                                       for="field_furnished">Furnished</label>
+
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="form-group">
-                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.ac"
-                                       for="field_ac">Ac</label>
                                 <input type="checkbox" ng-class="vm.property.ac === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="ac" id="field_ac"
                                        ng-model="vm.property.ac"
                                 />
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.ac"
+                                       for="field_ac">Ac</label>
+
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="form-group">
-                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.elevator"
-                                       for="field_elevator">Elevator</label>
                                 <input type="checkbox" ng-class="vm.property.elevator === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="elevator" id="field_elevator"
                                        ng-model="vm.property.elevator"
                                 />
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.elevator"
+                                       for="field_elevator">Elevator</label>
+
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="form-group">
-                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.pool"
-                                       for="field_pool">Pool</label>
                                 <input type="checkbox" ng-class="vm.property.pool === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="pool" id="field_pool"
                                        ng-model="vm.property.pool"
                                 />
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.pool"
+                                       for="field_pool">Pool</label>
+
                             </div>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="form-group">
-                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.garage"
-                                       for="field_garage">Garage</label>
                                 <input type="checkbox" ng-class="vm.property.garage === true ? 'icheckbox_flat-green checked' : 'icheckbox_flat-green'" name="garage" id="field_garage"
                                        ng-model="vm.property.garage"
                                 />
+                                <label class="control-label" data-translate="assessoriaTorrellesApp.property.garage"
+                                       for="field_garage">Garage</label>
+
                             </div>
                         </div>
-                        <div class="col-lg-12">
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="control-label" data-translate="assessoriaTorrellesApp.property.m2"
@@ -216,18 +221,17 @@
                                     />
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="box box-success">
                     <div class="box-header">
-                        <h3 class="box-title">Localización</h3>
+                        <h3 class="box-title" data-translate="assessoriaTorrellesApp.property.location">Localización</h3>
                     </div>
                     <div class="box-body">
 
-                        <ng-map center="41.3579495,1.9810097" zoom="16" on-click="pinClicked(this)">
+                        <ng-map center="41.3579495,1.9810097" zoom="16" on-click="pinClicked(this)" id="newPropMap">
 
                         </ng-map>
 
@@ -245,7 +249,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.town" for="field_town">Town</label>
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.cp" for="field_town">Town</label>
                             <input type="text" class="form-control" name="town" id="field_town" ng-model="vm.location.town" required />
                             <div ng-show="editForm.town.$invalid">
                                 <p class="help-block"

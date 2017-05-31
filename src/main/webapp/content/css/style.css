@@ -30,6 +30,9 @@
 	[9. PARTNER]
 	[10. FOOTER]
 	[11. COPYRIGHT]
+	[12. VIDEO]
+	[13. CONTACT]
+	[14. PROPERTIES]
 
 */
 
@@ -2230,7 +2233,7 @@ video#bgvid {
 
 .property-photo {
     cursor: pointer;
-    max-height: 180px;
+    height: 180px !important;
 }
 .property-price, .property-statusl, .property-features {
     cursor: default;
