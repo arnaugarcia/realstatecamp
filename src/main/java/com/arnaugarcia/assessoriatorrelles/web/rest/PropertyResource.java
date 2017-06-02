@@ -10,7 +10,9 @@ import com.arnaugarcia.assessoriatorrelles.security.SecurityUtils;
 import com.arnaugarcia.assessoriatorrelles.service.dto.PropertyDTO;
 import com.arnaugarcia.assessoriatorrelles.service.util.ReferenceUtil;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.HeaderUtil;
+import com.arnaugarcia.assessoriatorrelles.web.rest.util.NotificationUtil;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.PaginationUtil;
+import com.arnaugarcia.assessoriatorrelles.web.rest.util.ValidateUtil;
 import com.codahale.metrics.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,13 +27,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.validation.Valid;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.ZonedDateTime;
@@ -58,10 +55,10 @@ public class PropertyResource {
     private UserRepository userRepository;
 
     @Inject
-    private NotificationRepository notificationRepository;
+    private PhotoRepository photoRepository;
 
     @Inject
-    private PhotoRepository photoRepository;
+    private NotificationRepository notificationRepository;
 
     /**
      * POST  /properties : Create a new property.
@@ -74,6 +71,7 @@ public class PropertyResource {
     @Timed
     public ResponseEntity<Property> createProperty(@Valid @RequestBody Property property) throws URISyntaxException {
         log.debug("REST request to save Property : {}", property);
+
         if (property.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("property", "idexists", "A new property cannot already have an ID")).body(null);
         }
@@ -82,19 +80,29 @@ public class PropertyResource {
 
         property.setRef(ReferenceUtil.generateReferenceProperty(property));
 
+        property.setCreated(ZonedDateTime.now());
+
+        String validateResult = ValidateUtil.validateProperty(property);
+        if (!validateResult.equalsIgnoreCase("OK")){
+
+            return ResponseEntity.badRequest()
+                .headers(HeaderUtil.createFailureAlert("property", "validateFails", validateResult))
+                .body(null);
+
+        }
+
         Property result = propertyRepository.save(property);
 
-        Notification successNotification = new Notification();
-        successNotification.setTitle("Has creado la porpiedad " + property.getName());
-        successNotification.setContent("Mira cómo queda en la web!");
-        successNotification.setDate(ZonedDateTime.now());
-        successNotification.setSeen(false);
-        successNotification.setUser(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
-        notificationRepository.save(successNotification);
+        if (result.getId() != null){
+            Notification notificationSuccess = NotificationUtil.createSuccessNotification(property,userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
+            notificationRepository.save(notificationSuccess);
+        }
 
         return ResponseEntity.created(new URI("/api/properties/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("property", result.getId().toString()))
             .body(result);
+
+
     }
 
     /**
