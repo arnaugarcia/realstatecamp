@@ -11,7 +11,7 @@
 
     <groupId>com.arnaugarcia.assessoriatorrelles</groupId>
     <artifactId>assessoria-torrelles</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.2.9.3-ALPHA</version>
     <packaging>war</packaging>
     <name>Assessoria Torrelles</name>
 
