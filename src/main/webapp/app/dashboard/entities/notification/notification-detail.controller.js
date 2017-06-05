@@ -19,5 +19,24 @@
             vm.notification = result;
         });
         $scope.$on('$destroy', unsubscribe);
+
+        loadAll();
+
+        function loadAll() {
+            if (vm.notification.seen === false){
+                setReadNotification();
+            }
+        }
+
+        function setReadNotification() {
+            vm.notification.seen = true;
+            Notification.update(vm.notification, onSaveSuccess, onSaveError);
+            function onSaveSuccess (result) {
+                console.log("Set notification " + result.id + " to read: " + result.seen);
+            }
+            function onSaveError () {
+                console.log("Error setting the notification to read");
+            }
+        }
     }
 })();

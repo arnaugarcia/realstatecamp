@@ -1,31 +1,50 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
+        <h1 data-translate="assessoriaTorrellesApp.notification.home.title">
             Mailbox
             <small>13 new messages</small>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Mailbox</li>
-        </ol>
+        <div ncy-breadcrumb></div>
     </section>
 
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div ui-view="menu"></div>
+            <div class="col-md-3">
+
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Carpetas</h3>
+
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body no-padding">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a ui-sref="notification" ><i class="fa fa-inbox" ></i> Notifications
+                                <span class="label label-primary pull-right">{{vm.notifications.seen}}</span></a></li>
+                            <li><a ui-sref="request" ><i class="fa fa-envelope-o"></i> Solicitudes</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
             <div class="col-md-9">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Inbox</h3>
+                        <h3 class="box-title" data-translate="assessoriaTorrellesApp.notification.home.title">Inbox</h3>
 
-                        <div class="box-tools pull-right">
+                        <!--<div class="box-tools pull-right">
                             <div class="has-feedback">
                                 <input type="text" class="form-control input-sm" placeholder="Search Mail">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- /.box-tools -->
                     </div>
                     <!-- /.box-header -->
@@ -56,12 +75,17 @@
                                 <tbody>
                                 <tr ng-repeat="notification in vm.notifications track by notification.id">
                                     <td><input type="checkbox"></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">{{notification.title}}</a></td>
-                                    <td class="mailbox-subject"><b>{{notification.title}}</b> - {{notification.comment}}
+                                    <td class="mailbox-name"><a ui-sref="notification-detail({id:notification.id})">{{notification.title}}</a></td>
+                                    <td class="mailbox-subject">
+                                        <div ng-if="!notification.seen">
+                                            <b>{{notification.content}}</b>
+                                        </div>
+                                        <div ng-if="notification.seen">
+                                            {{notification.content}}
+                                        </div>
                                     </td>
                                     <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date">{{notification.date}}</td>
+                                    <td class="mailbox-date">{{notification.date | date:'medium'}}</td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -86,7 +86,7 @@ public class PropertyResource {
         if (!validateResult.equalsIgnoreCase("OK")){
 
             return ResponseEntity.badRequest()
-                .headers(HeaderUtil.createFailureAlert("property", "validateFails", validateResult))
+                .headers(HeaderUtil.createFailureAlert("property", "validationFails", validateResult))
                 .body(null);
 
         }

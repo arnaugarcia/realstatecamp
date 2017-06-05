@@ -2,7 +2,6 @@ package com.arnaugarcia.assessoriatorrelles.web.rest;
 
 import com.arnaugarcia.assessoriatorrelles.domain.Notification;
 import com.arnaugarcia.assessoriatorrelles.repository.NotificationRepository;
-import com.arnaugarcia.assessoriatorrelles.repository.UserRepository;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.HeaderUtil;
 import com.arnaugarcia.assessoriatorrelles.web.rest.util.PaginationUtil;
 import com.codahale.metrics.annotation.Timed;
@@ -32,8 +31,6 @@ public class NotificationResource {
 
     @Inject
     private NotificationRepository notificationRepository;
-    @Inject
-    private UserRepository userRepository;
 
     /**
      * POST  /notifications : Create a new notification.
@@ -119,13 +116,36 @@ public class NotificationResource {
      */
     @GetMapping("/notifications/byUser")
     @Timed
-    public ResponseEntity<List<Notification>> getNotificationsByUser()
+    public ResponseEntity<List<Notification>> getAllNotificationsByUser(Pageable pageable)
         throws URISyntaxException {
-        log.debug("REST request to get a page of Notifications");
-        List<Notification> notificationsList = notificationRepository.findByUserIsCurrentUser();
-        /*HttpHeaders headers = new HttpHeaders();
-        headers.add();*/
-        return new ResponseEntity<>(notificationsList, HttpStatus.OK);
+        log.debug("REST request to get a page of Notifications by User");
+        Page<Notification> page = notificationRepository.findByUserIsCurrentUser(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/notifications");
+        if (!page.getContent().isEmpty()){
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.NO_CONTENT);
+        }
+
+    }
+
+    /**
+     * GET  /notifications/byUser/:id : get the "id" notification.
+     *
+     * @return the ResponseEntity with status 200 (OK) and with body the notification, or with status 404 (Not Found)
+     */
+    @GetMapping("/notifications/byUser/active")
+    @Timed
+    public ResponseEntity<List<Notification>> getActiveNotificationsByUser(Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Notifications active by user");
+        Page<Notification> page = notificationRepository.findByUserAndSeenIsFalse(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/notifications");
+        if (!page.getContent().isEmpty()){
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(page.getContent(),headers, HttpStatus.NO_CONTENT);
+        }
     }
 
     /**

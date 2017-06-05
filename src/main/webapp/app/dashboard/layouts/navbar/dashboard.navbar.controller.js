@@ -43,7 +43,7 @@
 
         function loadAll () {
 
-            Notification.byUser({
+            Notification.byUserActive({
                 size: vm.itemsPerPage
             }, onSuccessNotification, onError);
 
