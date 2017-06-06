@@ -6,6 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 /**
  * Spring Data JPA repository for the Notification entity.
  */
@@ -23,5 +25,7 @@ public interface NotificationRepository extends JpaRepository<Notification,Long>
 
     @Query("update Notification n set n.seen = false where n.id = :id")
     void setUnReadNotification(Long id);
+
+    void deleteByIdIn(List<Long> list);
 
 }

@@ -72,6 +72,14 @@
                         </div>
                         <div class="table-responsive mailbox-messages">
                             <table class="table table-hover table-striped">
+                                <thead>
+                                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                                    <th jh-sort-by="title"><span data-translate="assessoriaTorrellesApp.notification.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                                    <th jh-sort-by="content"><span data-translate="assessoriaTorrellesApp.notification.content">Content</span> <span class="glyphicon glyphicon-sort"></span></th>
+                                    <th jh-sort-by="date"><span data-translate="assessoriaTorrellesApp.notification.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                                </tr>
+                                </thead>
                                 <tbody>
                                 <tr ng-repeat="notification in vm.notifications track by notification.id">
                                     <td><input type="checkbox"></td>

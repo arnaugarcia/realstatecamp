@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -160,6 +161,22 @@ public class NotificationResource {
         log.debug("REST request to delete Notification : {}", id);
         notificationRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("notification", id.toString())).build();
+    }
+
+    /**
+     * DELETE  /notifications/
+     *
+     * @param list of notifications to delete
+     * @return the ResponseEntity with status 200 (OK)
+     */
+    @DeleteMapping("/notifications/")
+    // URL: [6,17]
+    @Timed
+    @Transactional
+    public ResponseEntity<Void> deleteMultipleNotification(@RequestBody List<Long> list) {
+        log.debug("REST request to delete Notification : {}", list.size());
+        notificationRepository.deleteByIdIn(list);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("notification", list.toString())).build();
     }
 
 }

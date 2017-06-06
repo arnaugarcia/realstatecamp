@@ -31,6 +31,9 @@
             }
         }
 
+        function deleteNotifications() {
+
+        }
         function loadPage (page) {
             vm.page = page;
             vm.transition();
