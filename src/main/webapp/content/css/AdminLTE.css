@@ -10,6 +10,21 @@
  * Core: General Layout Style
  * -------------------------
  */
+
+/*
+Navbar and sidebar AdminLET
+*/
+
+.posFixed{
+    position: fixed !important;
+}
+
+.lowerFooter{
+    position: relative !important;
+    bottom: 0px !important;
+    width: 100% !important;
+}
+
 /*
 Drag and drop
 */
@@ -260,7 +275,7 @@ body {
     -webkit-transform: translate(230px, 0);
     -ms-transform: translate(230px, 0);
     -o-transform: translate(230px, 0);
-    transform: translate(230px, 0);
+    transform: translate(120px, 0);
   }
 }
 .content-wrapper,
@@ -765,7 +780,7 @@ a:focus {
   .sidebar-mini.sidebar-collapse .content-wrapper,
   .sidebar-mini.sidebar-collapse .right-side,
   .sidebar-mini.sidebar-collapse .main-footer {
-    margin-left: 50px !important;
+    margin-left: 25px !important;
     z-index: 840;
   }
   .sidebar-mini.sidebar-collapse .main-sidebar {

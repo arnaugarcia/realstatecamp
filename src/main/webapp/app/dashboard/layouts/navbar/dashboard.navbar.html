@@ -117,7 +117,7 @@
     </nav>
 </header>
 <!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
+<aside class="main-sidebar posFixed">
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar" ng-switch="vm.isAuthenticated()">
@@ -150,19 +150,19 @@
             <!-- Optionally, you can add icons to the links -->
             <li ui-sref-active="active">
                 <a ui-sref="dashboard-home" ng-click="vm.collapseNavbar()">
-                    <span class="glyphicon glyphicon-home"></span>
+                    <i class="fa fa-home"></i>
                     <span class="hidden-sm" data-translate="global.menu.home">Home</span>
                 </a>
             </li>
             <li ng-class="{active: vm.$state.includes('property')}" ng-switch-when="true" uib-dropdown class="tree-view pointer">
                 <a class="dropdown-toggle" uib-dropdown-toggle href="" id="property-menu">
-                    <span>
-                        <span class="glyphicon glyphicon-th-list"></span>
+
+                        <i class="fa fa-building"></i>
                             <span class="hidden-sm" data-translate="global.menu.properties">
                                 Inmuebles
                             </span>
                         <b class="caret"></b>
-                    </span>
+
                 </a>
                 <ul class="treeview-menu">
                     <li ui-sref-active="active">
@@ -188,13 +188,13 @@
             </li>
             <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="tree-view pointer">
                 <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
-                    <span>
-                        <span class="glyphicon glyphicon-th-list"></span>
+
+                    <i class="fa fa-archive"></i>
                             <span class="hidden-sm" data-translate="global.menu.entities.main">
                                 Entities
                             </span>
                         <b class="caret"></b>
-                    </span>
+
                 </a>
                 <ul class="treeview-menu">
                     <li ui-sref-active="active">
@@ -226,11 +226,11 @@
             </li>
             <li ng-class="{active: vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="treeview">
                 <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
-                        <span>
-                            <span class="glyphicon glyphicon-tower"></span>
+
+                    <i class="fa fa-terminal"></i>
                             <span class="hidden-sm" data-translate="global.menu.admin.main">Administration</span>
                             <b class="caret"></b>
-                        </span>
+
                 </a>
                 <ul class="treeview-menu">
                     <li ui-sref-active="active">
@@ -286,11 +286,11 @@
             </li>
             <li ui-sref-active="active" uib-dropdown class="tree-view pointer" ng-controller="JhiLanguageController as languageVm">
                 <a class="dropdown-toggle" uib-dropdown-toggle href="" ng-if="languageVm.languages.length > 1">
-                        <span>
-                            <span class="glyphicon glyphicon-flag"></span>
+
+                    <i class="fa fa-globe"></i>
                             <span class="hidden-sm" data-translate="global.menu.language"> Language</span>
                             <b class="caret"></b>
-                        </span>
+
                 </a>
                 <ul class="treeview-menu" ng-if="languageVm.languages.length > 1">
                     <li active-menu="{{language}}" ng-repeat="language in languageVm.languages">
