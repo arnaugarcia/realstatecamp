@@ -98,14 +98,14 @@
                             <label class="control-label" data-translate="assessoriaTorrellesApp.property.sold"
                                    for="field_sold">Sold</label>
                         </div>
-                        <div class="form-group">
-                            <label data-translate="assessoriaTorrellesApp.property.location" for="field_location">Location</label>
-                            <select class="form-control" id="field_location" name="location"
-                                    ng-model="vm.property.location"
-                                    ng-options="location as location.ref for location in vm.locations | orderBy:'id' track by location.id">
-                                <option value=""></option>
-                            </select>
-                        </div>
+                        <!--<div class="form-group">-->
+                            <!--<label data-translate="assessoriaTorrellesApp.property.location" for="field_location">Location</label>-->
+                            <!--<select class="form-control" id="field_location" name="location"-->
+                                    <!--ng-model="vm.property.location"-->
+                                    <!--ng-options="location as location.ref for location in vm.locations | orderBy:'id' track by location.id">-->
+                                <!--<option value=""></option>-->
+                            <!--</select>-->
+                        <!--</div>-->
                         <div class="form-group">
                             <label class="control-label" data-translate="assessoriaTorrellesApp.property.propertyDetail.description"
                                    for="field_description">Description</label>
@@ -231,9 +231,26 @@
                     </div>
                     <div class="box-body">
 
-                        <ng-map center="41.3579495,1.9810097" zoom="16" on-click="pinClicked(this)" id="newPropMap">
-
+                        <ng-map center="{{vm.location.latitude}},{{vm.location.longitude}}" zoom="16" on-click="pinClicked(this)" id="newPropMap">
+                            <marker position="[{{vm.location.latitude}},{{vm.location.longitude}}]" title="Property Location"></marker>
                         </ng-map>
+
+                        <div class="form-group">
+
+
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.property.location">Address</label>
+
+
+                            <input type="text" class="form-control" ng-map-autocomplete ng-model="autocomplete" options="options" details="details" ng-change="console.log('asdas')"/>
+
+
+                            <button type="button" class="btn btn-success btn-block"
+                                    ng-click="vm.setLatLon(details.geometry.location,details.adr_address);">
+                                Locate</button>
+
+
+                        </div>
+
 
                         <div class="form-group">
                             <label class="control-label" data-translate="assessoriaTorrellesApp.location.ref" for="field_ref">Ref</label>
@@ -249,8 +266,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.cp" for="field_town">Town</label>
-                            <input type="text" class="form-control" name="town" id="field_town" ng-model="vm.location.town" required />
+                            <label class="control-label" data-translate="assessoriaTorrellesApp.location.town" for="field_town">Town</label>
+                            <input type="text" class="form-control" name="town" id="field_town" ng-model="vm.location.town" required/>
                             <div ng-show="editForm.town.$invalid">
                                 <p class="help-block"
                                    ng-show="editForm.town.$error.required" data-translate="entity.validation.required">

@@ -20,7 +20,23 @@
         vm.storedPhotos = null;
         vm.toUploadPhotos = [];
         var filesToUpload = [];
+        vm.setLatLon = function(x,address){
+            console.log(x.toString());
+            var res =  x.toString().match(/\((.*?),(.*?)\)/);
+            console.log(res);
+            vm.location.latitude = parseFloat(res[1]);
+            vm.location.longitude = parseFloat(res[2]);
+            console.log(address);
+            var loc = address.toString().match(/locality.*?>(.*?)</);
+            var reg = address.toString().match(/region.*?>(.*?)</);
+            console.log(loc);
+            vm.location.town = loc[1];
+            vm.location.province = "";
+            if(reg!=""){
+                vm.location.province = reg[1];
+            }
 
+        }
         if($stateParams.id!=null && $stateParams.id!=undefined){
             Property.get({id : $stateParams.id}, function (result) {
                 vm.property = result;

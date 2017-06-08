@@ -20,7 +20,8 @@
             'ncy-angular-breadcrumb',
             'angularCSS',
             'ngMap',
-            'flow'
+            'flow',
+            'ngMapAutocomplete'
 
         ])
         .run(run);
