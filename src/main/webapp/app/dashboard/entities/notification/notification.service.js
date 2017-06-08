@@ -13,8 +13,7 @@
             'query': { method: 'GET', isArray: true},
             'byUser': { method: 'GET', isArray: true, url: 'api/notifications/byUser'},
             'byUserActive': { method: 'GET', isArray: true, url: 'api/notifications/byUser/active'},
-            'read': { method: 'GET', isArray: true, url: 'api/notifications/:id/read'},
-            'unread': { method: 'GET', isArray: true, url: 'api/notifications/:id/unread'},
+            'multipleDelete': { method: 'DELETE', isArray: true,  url: 'api/notifications/'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

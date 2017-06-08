@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Notification.
@@ -169,14 +171,24 @@ public class NotificationResource {
      * @param list of notifications to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @DeleteMapping("/notifications/")
-    // URL: [6,17]
+    @DeleteMapping("/notifications")
+    // URL: [6,17
     @Timed
     @Transactional
-    public ResponseEntity<Void> deleteMultipleNotification(@RequestBody List<Long> list) {
-        log.debug("REST request to delete Notification : {}", list.size());
-        notificationRepository.deleteByIdIn(list);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("notification", list.toString())).build();
+    public ResponseEntity<Void> deleteMultipleNotification(@RequestParam Long cacheBuster, @RequestParam String ids) {
+        log.debug("REST request to delete Notification : {}", ids + cacheBuster);
+        List<Long> longList = null;
+        try{
+            //TODO : Check if notification exists
+           longList = Arrays.stream(ids.split("-"))
+                .map(s -> Long.parseLong(s))
+                .collect(Collectors.toList());
+        }catch(Exception e){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("notification", "badids: " + ids, "The ids aren't correct " + ids)).body(null);
+        }
+
+        notificationRepository.deleteByIdIn(longList);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("notification", ids)).build();
     }
 
 }

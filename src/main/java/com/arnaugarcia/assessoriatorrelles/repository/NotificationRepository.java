@@ -28,4 +28,5 @@ public interface NotificationRepository extends JpaRepository<Notification,Long>
 
     void deleteByIdIn(List<Long> list);
 
+
 }
