@@ -44,7 +44,6 @@ public class Property implements Serializable {
     @Column(name = "service_type")
     private ServiceType serviceType;
 
-    @NotNull
     @Column(name = "ref", nullable = false)
     private String ref;
 

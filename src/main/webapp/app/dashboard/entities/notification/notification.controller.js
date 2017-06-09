@@ -5,9 +5,9 @@
         .module('assessoriaTorrellesApp')
         .controller('NotificationController', NotificationController);
 
-    NotificationController.$inject = ['$scope', '$state', 'DataUtils', 'Notification', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    NotificationController.$inject = ['$scope', '$state', 'DataUtils', 'Notification', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function NotificationController ($scope, $state, DataUtils, Notification, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function NotificationController ($scope, $state, DataUtils, Notification, AlertService, pagingParams, paginationConstants) {
         var vm = this;
 
         vm.loadPage = loadPage;
@@ -30,11 +30,16 @@
             function onError(error) {
                 AlertService.error(error.data.message);
             }
+            $state.go($state.current);
         }
 
         vm.deleteNotifications = function deleteNotifications() {
-            console.log("ids" + getAllChecked());
-                Notification.multipleDelete({"ids" : getAllChecked()}, $state.go($state.current, {}, {reload: true}));
+            Notification.multipleDelete({"ids" : getAllChecked()}, reloadView(), console.log("Error"));
+        };
+
+        vm.updateNotifications = function updateNotifications() {
+            console.log(getAllNotificationsChecked());
+            Notification.setRead(getAllNotificationsChecked(), reloadView(), console.log("ERROR :("))
 
         };
 
@@ -74,6 +79,20 @@
             console.log(allChecked);
             return allChecked;
 
+        }
+
+        function getAllNotificationsChecked() {
+            var allChecked = [];
+            angular.forEach(vm.notifications, function (itm) {
+                if (itm.selected){
+                    allChecked.push(itm);
+                }
+            });
+            return allChecked;
+        }
+
+        function reloadView(){
+            $state.go($state.current, {}, {reload: true});
         }
     }
 })();

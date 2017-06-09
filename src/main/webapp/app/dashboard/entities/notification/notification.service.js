@@ -14,6 +14,7 @@
             'byUser': { method: 'GET', isArray: true, url: 'api/notifications/byUser'},
             'byUserActive': { method: 'GET', isArray: true, url: 'api/notifications/byUser/active'},
             'multipleDelete': { method: 'DELETE', isArray: true,  url: 'api/notifications/'},
+            'setRead': { method: 'PUT', isArray: true,  url: 'api/notifications/multiple'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

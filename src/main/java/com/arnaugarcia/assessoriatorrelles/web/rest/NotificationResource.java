@@ -78,6 +78,31 @@ public class NotificationResource {
     }
 
     /**
+     * PUT  /notifications : Updates an existing notification.
+     *
+     * @param notificationList the notification to update
+     * @return the ResponseEntity with status 200 (OK) and with body the updated notification,
+     * or with status 400 (Bad Request) if the notification is not valid,
+     * or with status 500 (Internal Server Error) if the notification couldnt be updated
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PutMapping("/notifications/multiple")
+    @Timed
+    public ResponseEntity<List<Notification>> updateMultipleNotification(@RequestBody List<Notification> notificationList) throws URISyntaxException {
+        log.debug("REST request to update multiple Notification : {}", notificationList.size());
+        if (notificationList.isEmpty()) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("notification", "emptylist", "The list is empty")).body(null);
+        }else{
+            for (Notification notification : notificationList){
+                notificationRepository.setReadNotification(notification.getId());
+            }
+            return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert("notification", notificationList.toString()))
+                .body(notificationList);
+        }
+    }
+
+    /**
      * GET  /notifications : get all the notifications.
      *
      * @param pageable the pagination information
@@ -168,11 +193,11 @@ public class NotificationResource {
     /**
      * DELETE  /notifications/
      *
-     * @param list of notifications to delete
+     * @param ids of notifications to delete
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/notifications")
-    // URL: [6,17
+    // URL: [6-2-4]
     @Timed
     @Transactional
     public ResponseEntity<Void> deleteMultipleNotification(@RequestParam Long cacheBuster, @RequestParam String ids) {
