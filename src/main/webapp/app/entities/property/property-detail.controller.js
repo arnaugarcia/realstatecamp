@@ -5,9 +5,9 @@
         .module('assessoriaTorrellesApp')
         .controller('PropertyDetailController', PropertyDetailController);
 
-    PropertyDetailController.$inject = ['$scope', '$rootScope', '$stateParams', '$translate', 'previousState', 'DataUtils', 'entity','Request', 'AlertService', 'Company','Photo'];
+    PropertyDetailController.$inject = ['$scope', '$timeout', '$rootScope', '$stateParams', '$translate', 'previousState', 'DataUtils', 'entity','Request', 'AlertService', 'Company','Photo','NgMap'];
 
-    function PropertyDetailController($scope, $rootScope, $stateParams, $translate, previousState, DataUtils, entity, Request, AlertService, Company,Photo) {
+    function PropertyDetailController($scope, $timeout, $rootScope, $stateParams, $translate, previousState, DataUtils, entity, Request, AlertService, Company,Photo, NgMap) {
         var vm = this;
 
         vm.property = entity;
@@ -19,7 +19,7 @@
         vm.openFile = DataUtils.openFile;
         Photo.getPhotos({id : $stateParams.id}, function (result) {
             vm.storedPhotos = result;
-        })
+        });
 
         vm.language = function () {
             return $translate.proposedLanguage();
@@ -38,7 +38,23 @@
             Company.get(function (result) {
                 vm.company = result;
             });
+
         }
+
+        vm.showMap = function loadMap() {
+
+            NgMap.getMap().then(function(map) {
+                vm.map = map;
+            });
+
+            vm.googleMapsUrl = 'https://maps.google.com/maps/api/js';
+            vm.pauseLoading=true;
+
+            $timeout(function() {
+                vm.pauseLoading=false;
+            }, 2000);
+
+        };
 
         vm.sendRequest = function () {
             vm.request = {
