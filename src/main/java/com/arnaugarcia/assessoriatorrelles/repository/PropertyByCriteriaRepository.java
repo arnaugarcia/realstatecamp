@@ -131,6 +131,8 @@ public class PropertyByCriteriaRepository {
 
         propertyCriteria.add(Restrictions.ge("visible",true));
 
+        propertyCriteria.add(Restrictions.ge("sold",false));
+
         List<Property> results = propertyCriteria.list();
 
         return results;
