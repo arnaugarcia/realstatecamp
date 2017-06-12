@@ -93,12 +93,9 @@ public class NotificationResource {
         if (notificationList.isEmpty()) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("notification", "emptylist", "The list is empty")).body(null);
         }else{
-            for (Notification notification : notificationList){
-                notificationRepository.setReadNotification(notification.getId());
-            }
-            return ResponseEntity.ok()
-                .headers(HeaderUtil.createEntityUpdateAlert("notification", notificationList.toString()))
-                .body(notificationList);
+            List<Notification> result = notificationRepository.save(notificationList);
+            //TODO: Make validation better
+            return ResponseEntity.ok().headers(HeaderUtil.createEntityUpdateAlert("notification", result.toString())).body(result);
         }
     }
 
@@ -196,7 +193,7 @@ public class NotificationResource {
      * @param ids of notifications to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @DeleteMapping("/notifications")
+    @DeleteMapping("/notifications/multiple")
     // URL: [6-2-4]
     @Timed
     @Transactional

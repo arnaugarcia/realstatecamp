@@ -18,6 +18,7 @@
         vm.openFile = DataUtils.openFile;
         vm.byteSize = DataUtils.byteSize;
         vm.notifications = [];
+        vm.checked = [];
 
         loadAll();
 
@@ -37,11 +38,30 @@
             Notification.multipleDelete({"ids" : getAllChecked()}, reloadView(), console.log("Error"));
         };
 
-        vm.updateNotifications = function updateNotifications() {
-            console.log(getAllNotificationsChecked());
-            Notification.setRead(getAllNotificationsChecked(), reloadView(), console.log("ERROR :("))
-
+        vm.setReadNotifications = function updateNotifications() {
+            var checked = getAllNotificationsChecked();
+            angular.forEach(checked, function (itm) {
+                itm.seen = false;
+            });
+            Notification.multipleUpdate(checked, onSuccess, onError);
         };
+        vm.setUnReadNotifications = function updateNotifications() {
+            var checked = getAllNotificationsChecked();
+            angular.forEach(checked, function (itm) {
+                itm.seen = true;
+            });
+            Notification.multipleUpdate(checked, onSuccess, onError);
+        };
+
+        function onSuccess(data) {
+            vm.notifications = data;
+            $state.go($state.current);
+            toastr.success("Notificaciones alteradas");
+        }
+        function onError(error) {
+            AlertService.error(error.data.message);
+            $state.go($state.current);
+        }
 
         function loadPage (page) {
             vm.page = page;

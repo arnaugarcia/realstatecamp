@@ -54,8 +54,8 @@
                             <input type="checkbox" class="btn btn-default btn-sm" ng-click="vm.toggleAll()" ng-model="vm.isAllSelected">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-sm" ng-click="vm.deleteNotifications()"><i class="fa fa-trash-o"></i></button>
-                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.updateNotifications()"><i class="fa fa-envelope-o"></i></button>
-                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.updateNotifications()"><i class="fa fa-envelope"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.setUnReadNotifications()"><i class="fa fa-envelope-o"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.setReadNotifications()"><i class="fa fa-envelope"></i></button>
                             </div>
                             <!-- /.btn-group -->
                             <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
@@ -80,7 +80,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="notification in vm.notifications track by notification.id">
+                                <tr ng-repeat="notification in vm.notifications track by $index">
                                     <td><input type="checkbox" ng-model="notification.selected" ng-change="optionToggled()"></td>
                                     <td class="mailbox-name"><a ui-sref="notification-detail({id:notification.id})">{{notification.title}}</a></td>
                                     <td class="mailbox-subject">
