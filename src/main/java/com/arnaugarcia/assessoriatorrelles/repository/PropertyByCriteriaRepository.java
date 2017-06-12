@@ -129,6 +129,8 @@ public class PropertyByCriteriaRepository {
 //        propertyCriteria.setFirstResult(pageable.getPageNumber()*pageable.getPageSize())+1;
 //        propertyCriteria.setMaxResults(pageable.getPageSize());
 
+        propertyCriteria.add(Restrictions.ge("visible",true));
+
         List<Property> results = propertyCriteria.list();
 
         return results;
