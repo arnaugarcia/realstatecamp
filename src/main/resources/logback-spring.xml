@@ -22,7 +22,7 @@
     </appender>
 -->
 
-    <logger name="com.arnaugarcia.assessoriatorrelles" level="#logback.loglevel#"/>
+    <logger name="com.arnaugarcia.realstatecamp" level="#logback.loglevel#"/>
 
     <logger name="javax.activation" level="WARN"/>
     <logger name="javax.mail" level="WARN"/>

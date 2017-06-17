@@ -544,7 +544,7 @@
                     <defaultSchemaName>AssessoriaTorrelles</defaultSchemaName>
                     <username>at</username>
                     <password>at2017</password>
-                    <referenceUrl>hibernate:spring:com.arnaugarcia.assessoriatorrelles.domain?dialect=org.hibernate.dialect.MySQL5InnoDBDialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
+                    <referenceUrl>hibernate:spring:com.arnaugarcia.realstatecamp.domain?dialect=org.hibernate.dialect.MySQL5InnoDBDialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
                 </configuration>

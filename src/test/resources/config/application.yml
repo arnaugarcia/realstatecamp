@@ -23,7 +23,7 @@ spring:
         username:
         password:
     jpa:
-        database-platform: com.arnaugarcia.assessoriatorrelles.domain.util.FixedH2Dialect
+        database-platform: com.arnaugarcia.realstatecampn.util.FixedH2Dialect
         database: H2
         open-in-view: false
         show-sql: true

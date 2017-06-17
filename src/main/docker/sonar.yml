@@ -1,7 +1,7 @@
 version: '2'
 services:
     assessoriatorrelles-sonar:
-        container_name: assessoriatorrelles-sonar
+        container_name: realstatecamp-sonar
         image: sonarqube:6.0-alpine
         ports:
             - 9000:9000
