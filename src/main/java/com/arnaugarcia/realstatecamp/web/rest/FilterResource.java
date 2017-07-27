@@ -62,7 +62,7 @@ public class FilterResource {
         List<ServiceType> serviceTypeList = propertyDTOList.stream().map(PropertyDTO::getServiceType).filter(Objects::nonNull).distinct().collect(Collectors.toList());
 
         List<Double> minPriceList = propertyDTOList
-            .stream()
+            .parallelStream()
             .map(PropertyDTO::getPrice)
             .filter(Objects::nonNull)
             .distinct()
@@ -70,7 +70,7 @@ public class FilterResource {
             .collect(Collectors.toList());
 
         List<Double> maxPriceList = propertyDTOList
-            .stream()
+            .parallelStream()
             .map(PropertyDTO::getPrice)
             .filter(Objects::nonNull)
             .distinct()

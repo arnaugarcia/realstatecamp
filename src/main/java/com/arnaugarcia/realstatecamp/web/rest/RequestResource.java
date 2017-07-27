@@ -88,9 +88,14 @@ public class RequestResource {
     @Timed
     public ResponseEntity<List<Request>> getAllRequests(Pageable pageable)
         throws URISyntaxException {
+
         log.debug("REST request to get a page of Requests");
-        Page<Request> page = requestRepository.findAll(pageable);
+
+        Page<Request> page = requestRepository.
+            findAll(pageable);
+
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/requests");
+
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
