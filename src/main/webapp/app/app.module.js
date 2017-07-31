@@ -9,7 +9,6 @@
             'ngResource',
             'ngCookies',
             'ngAria',
-            'ngMap',
             'ngCacheBuster',
             'ngFileUpload',
             'ui.bootstrap',
@@ -21,7 +20,8 @@
             'ncy-angular-breadcrumb',
             'angularCSS',
             'flow',
-            'ngMapAutocomplete'
+            'ngMapAutocomplete',
+            'ngMap'
 
         ])
         .run(run);

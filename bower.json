@@ -31,11 +31,12 @@
     "sockjs-client": "1.1.1",
     "stomp-websocket": "2.3.4",
     "swagger-ui": "2.1.5",
-    "ngmap": "1.18.4",
     "ng-flow":"2.7.4",
     "ng-map-autocomplete":"1.0.3",
     "angular-breadcrumb":"0.5.0",
-    "angular-css":"1.0.8"
+    "angular-css":"1.0.8",
+    "ngmap": "1.18.4"
+
   },
   "devDependencies": {
     "angular-mocks": "1.5.8"
