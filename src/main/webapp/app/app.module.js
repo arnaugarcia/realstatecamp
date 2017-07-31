@@ -9,6 +9,7 @@
             'ngResource',
             'ngCookies',
             'ngAria',
+            'ngMap',
             'ngCacheBuster',
             'ngFileUpload',
             'ui.bootstrap',
@@ -19,7 +20,6 @@
             'angular-loading-bar',
             'ncy-angular-breadcrumb',
             'angularCSS',
-            'ngMap',
             'flow',
             'ngMapAutocomplete'
 
