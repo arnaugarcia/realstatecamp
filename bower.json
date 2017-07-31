@@ -57,6 +57,11 @@
         "angular": "1.5.8"
       }
     },
+    "ngmap": {
+      "dependencies": {
+        "angular": "1.5.8"
+      }
+    },
     "bootstrap": {
       "main": [
         "dist/css/bootstrap.css"
